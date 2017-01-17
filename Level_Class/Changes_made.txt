@@ -1,0 +1,7 @@
+1/17/2017
+path.py
+added constants.py to folder. redefined variables in path.py that are constants to be in line 
+with those in constants.py
+added a little stop function to allow the user to view the path before closing the program.
+press esc key to close program.
+-above changes made by Frank

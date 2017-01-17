@@ -1,14 +1,32 @@
+
+'''
+Course: CS 462 - Capstone
+Program: Python platformer game
+Dev Team: Frank Brasington
+          Barry Hall
+          Edwin Grove
+
+File Description:
+This file is used to generate a level's path.
+A level's path is a path that any player reguardless of items should be able to complete if objects don't
+kill or stop the player first.
+
+'''
+
 import pygame
 import random
-
+import constants 
 random.seed()
 
-WHITE = (255, 255, 255)
-BLUE = (50, 50, 255)
+WHITE = constants.WHITE
+BLUE = constants.BLUE
+BLACK = constants.BLACK
 
 # set height and width of window
-SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 800
+SCREEN_WIDTH = constants.SCREEN_WIDTH
+SCREEN_HEIGHT = constants.SCREEN_HEIGHT
+
+
 
 
 class Level:
@@ -146,7 +164,6 @@ class Level:
                                                     self.cell_side_length_y - 10], 0)
 
 
-
 def main():
     #Call this function so the pygame library can initialize itself
     pygame.init()
@@ -193,6 +210,25 @@ def main():
 
         #limits the loop to 60 times per second
         clock.tick(4)
+
+    #**********
+    #this code is only here so the user can look over the program.
+
+    #used for displaying the exit game text
+    myfont = pygame.font.SysFont("None", 60)
+    done = False
+    while not done:
+        label = myfont.render("press esc key to quit", 0, BLACK)
+        screen.blit(label, (100, 100))
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    done = True
+
+
+
+        
 
     pygame.quit()
 
