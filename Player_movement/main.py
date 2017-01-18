@@ -18,7 +18,7 @@ from player import Player
 #defines the frames persecond
 FPS = constants.fps
 
-#this is a list of items for the sandbox level. This will have objects for the player to jump
+#this is a list of items for the sandbox level.. This will have objects for the player to jump
 #on hit and move around for testing.
 
 #this class stores the level
@@ -78,9 +78,10 @@ class Level_01(Level):
         Level.__init__(self, player)
  
         # Array with width, height, x, and y of platform
-        level = [[210, 70, 500, 500],
-                 [210, 70, 200, 400],
-                 [210, 70, 600, 300],
+        level = [[constants.SCREEN_WIDTH-10, 11, 0, constants.SCREEN_HEIGHT - 10],
+                 [210, 70, 200, 500],
+                 [210, 70, 600, 400],
+                 [constants.SCREEN_WIDTH, 1, 0, constants.SCREEN_HEIGHT]
                  ]
  
         # Go through the array above and add platforms
@@ -121,8 +122,8 @@ def main():
     # List to hold all the sprites
     all_sprite_list = pygame.sprite.Group()
     player.level = current_level
-    player.rect.x = 340
-    player.rect.y = constants.SCREEN_HEIGHT - player.rect.height
+    player.rect.x = 10
+    player.rect.y = constants.SCREEN_HEIGHT - player.rect.height - 20
     active_sprite_list = pygame.sprite.Group()
     active_sprite_list.add(player)
 
