@@ -26,6 +26,11 @@ class Level(object):
     """ This is a generic super-class used to define a level.
         Create a child class for each level with level-specific
         info. """
+
+    world_shift_x = 0
+    world_shift_y = 0
+    level_limit = -1000
+
  
     def __init__(self, player):
         """ Constructor. Pass in a handle to player. Needed for when moving platforms
@@ -48,10 +53,35 @@ class Level(object):
  
         # Draw the background
         screen.fill(constants.WHITE)
+        #screen.blit(self.background,(self.world_shift // 3,0))
  
         # Draw all the sprite lists that we have
         self.platform_list.draw(screen)
         self.enemy_list.draw(screen)
+
+    def shift_world_x(self, shift_x):
+        """ When the user moves left/right and we need to scroll everything: """
+
+        # Keep track of the shift amount
+        self.world_shift_x += shift_x
+
+        # Go through all the sprite lists and shift
+        for platform in self.platform_list:
+            platform.rect.x += shift_x
+
+        for enemy in self.enemy_list:
+            enemy.rect.x += shift_x
+
+    def shift_world_y(self, shift_y):
+        #keep track of the shift amount
+        self.world_shift_y += shift_y
+
+        #go through all the aprite lists ans shift
+        for platform in self.platform_list:
+            platform.rect.y += shift_y
+
+        for enemy in self.enemy_list:
+            enemy.rect.y += shift_y
 
 class Platform(pygame.sprite.Sprite):
     """ Platform the user can jump on """
@@ -92,6 +122,9 @@ class Level_01(Level):
             block.player = self.player
             self.platform_list.add(block)
 
+
+            
+
 #Function Main
 def main():
     #this initizates pygame
@@ -122,7 +155,7 @@ def main():
     # List to hold all the sprites
     all_sprite_list = pygame.sprite.Group()
     player.level = current_level
-    player.rect.x = 10
+    player.rect.x = 300
     player.rect.y = constants.SCREEN_HEIGHT - player.rect.height - 20
     active_sprite_list = pygame.sprite.Group()
     active_sprite_list.add(player)
@@ -141,6 +174,31 @@ def main():
         #pygame.draw.rect(screen, constants.BLACK, [player.lead_x, player.lead_y, 10,10])
 
         pygame.display.update()
+
+        #this shifts the camera for the world
+        # If the player gets near the right side, shift the world left (-x)
+        if player.rect.x >= 500:
+            diff = player.rect.x - 500
+            player.rect.x = 500
+            current_level.shift_world_x(-diff)
+
+        # If the player gets near the left side, shift the world right (+x)
+        if player.rect.x <= 100:
+            diff = 120 - player.rect.x
+            player.rect.x = 100
+            current_level.shift_world_x(diff)
+
+        #if the player gets near the top of the screen
+        if player.rect.y <= constants.SCREEN_HEIGHT/4:
+            diff = player.rect.y - constants.SCREEN_HEIGHT/4
+            player.rect.y = constants.SCREEN_HEIGHT/4
+            current_level.shift_world_y(-diff)
+
+        #if the player gets near the bottom of the screen
+        if player.rect.y >= constants.SCREEN_HEIGHT*3/4:
+            diff = constants.SCREEN_HEIGHT*3/4 - player.rect.y
+            player.rect.y = constants.SCREEN_HEIGHT*3/4
+            current_level.shift_world_y(diff)
 
         
         #this is for controlling the Frames per Second
