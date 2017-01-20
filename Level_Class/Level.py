@@ -176,33 +176,57 @@ class Level:
         self.enemy_list.draw(screen)
 
     def create_room(self):
-        """fill in each room based on templates"""
+        """
+        fill in each room based on templates
+
+        """
         #iterate through array of room types
         rooms = []
+        prob_block_5_list = []
+        prob_block_6_list = []
         for row in self.room_type:
             for col in row:
-                rooms.append(self.choose_room(col))
+                rooms.append(self.import_template(col))
         #iterate through rooms to fill screen
         #this number will be part of how we find location of top left corner of room
         #based on 5x5 grid of rooms
         for pos in range(25):
-            room_coord_x = pos % 5
-            room_coord_y = pos // 5
-
             #this will iterate through the number of columns in array
             #the number y will be part of how we find where to place the block on the y axis (according to pygame.draw)
             for y in range(self.blocks_per_room_y):
                 # this will iterate through the number of rows in array
                 # the number x will be part of how we find where to place the block on the x axis (according to pygame.draw)
                 for x in range(self.blocks_per_room_x):
+                    #if cell is a 1 add a platform sprite
                     if rooms[pos][y][x] is 1:
                         block = Platform(self.block_width, self.block_height)
-                        block.rect.x = room_coord_x * self.room_side_length_x + x * self.block_width
-                        block.rect.y = room_coord_y * self.room_side_length_y + y * self.block_height
+                        block.rect.x = (pos % 5) * self.room_side_length_x + x * self.block_width
+                        block.rect.y = (pos // 5) * self.room_side_length_y + y * self.block_height
                         block.player = self.player
                         self.platform_list.add(block)
+                    elif rooms[pos][y][x] is 5:
+                        prob_block_5_list.append([pos, y, x])
+                    elif rooms[pos][y][x] is 6:
+                        prob_block_6_list.append([pos, y, x])
+        #fill probability blocks depending on if it is a floor block (6) or a block in the air (5)
+        #second parameter is used to import the correct block template
+        self.fill_prob_block(prob_block_5_list, 5)
+        self.fill_prob_block(prob_block_6_list, 6)
 
-    def choose_room(self, room_number):
+    def fill_prob_block(self, prob_block_list, block_type):
+        for p_block in prob_block_list:
+            prob_block = self.import_template(block_type)
+            #height of a probability block
+            for y in range(3):
+                #width of a probability block
+                for x in range(5):
+                    if prob_block[y][x] is 1:
+                        block = Platform(self.block_width, self.block_height)
+                        block.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
+                        block.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
+                        self.platform_list.add(block)
+
+    def import_template(self, room_number):
         #if room type is 0 then import random file from r_type_0 directory
         # create empty list that will hold block types
         room = []
@@ -216,6 +240,11 @@ class Level:
             path += "r_type_2/"
         elif room_number is 3:
             path += "r_type_3/"
+        elif room_number is 5:
+            path += "prob_block_5/"
+        elif room_number is 6:
+            path += "prob_block_6/"
+
         # create list of possible files
         file_list = os.listdir(path)
         # randomly choose file

@@ -54,6 +54,14 @@ class Player(pygame.sprite.Sprite):
         #This is used to determine if the player is walking or running
         #w is for walk, r is for run
         self.walk_status = "w"
+
+        #this variable checks if the bottom of the spirte is touching something else our player will
+        #be able to jump in mid air
+        #y for yes the player can jump
+        #and no for the player can not jump
+        self.can_jump = 'y'
+        #this variable is for stopping a player's jump in mid jump
+        self.stop_jump = 'y'
         
     def update(self):
         #this section recieves input from the user.
@@ -80,17 +88,19 @@ class Player(pygame.sprite.Sprite):
                 self.change_x = self.walk_speed
 
         if pressed[pygame.K_UP]:
-            self.jump()
+                if self.can_jump == 'y':
+                    self.jump()
 
         for event in pygame.event.get():
-                    
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT:
                     self.change_x = 0
                 if event.key == pygame.K_RIGHT:
                     self.change_x = 0
                 if event.key == pygame.K_UP:
-                    self.change_y = -3
+                    if self.stop_jump == 'y':
+                        self.change_y = 0
+                        self.stop_jump = 'n'
                     
         """ Move the player. """
         # Gravity
@@ -120,6 +130,8 @@ class Player(pygame.sprite.Sprite):
             # Reset our position based on the top/bottom of the object.
             if self.change_y > 0:
                 self.rect.bottom = block.rect.top
+                self.can_jump = 'y'
+                self.stop_jump = 'y'
             elif self.change_y < 0:
                 self.rect.top = block.rect.bottom
  
@@ -140,7 +152,10 @@ class Player(pygame.sprite.Sprite):
  
     def jump(self):
         """ Called when user hits 'jump' button. """
- 
+
+        #sets the user's ability to jump back to not jump
+        self.can_jump = 'n'
+        
         # move down a bit and see if there is a platform below us.
         # Move down 2 pixels because it doesn't work well if we only move down
         # 1 when working with a platform moving down.
