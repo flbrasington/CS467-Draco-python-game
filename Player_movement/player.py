@@ -14,6 +14,8 @@ movement and actions.
 import pygame
 import constants
 
+CELL_HEIGHT = constants.SCREEN_HEIGHT / (constants.ROOM_HEIGHT * constants.ROOMS_ON_SCREEN)
+
 
 class Player(pygame.sprite.Sprite):
     """ This class represents the bar at the bottom that the player
@@ -45,8 +47,10 @@ class Player(pygame.sprite.Sprite):
         self.run_speed = 8
 
         #the below two variables are for the jump heights
-        self.walk_jump = 6
-        self.run_jump = 12
+        # self.walk_jump = 6
+        #self.run_jump = 12
+        self.walk_jump = CELL_HEIGHT
+        self.run_jump = CELL_HEIGHT
  
         # List of sprites we can bump against
         self.level = None
@@ -87,7 +91,7 @@ class Player(pygame.sprite.Sprite):
             if self.walk_status == 'w':
                 self.change_x = self.walk_speed
 
-        if pressed[pygame.K_UP]:
+        if pressed[pygame.K_z]:
                 if self.can_jump == 'y':
                     self.jump()
 
@@ -97,7 +101,7 @@ class Player(pygame.sprite.Sprite):
                     self.change_x = 0
                 if event.key == pygame.K_RIGHT:
                     self.change_x = 0
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_z:
                     if self.stop_jump == 'y':
                         self.change_y = 0
                         self.stop_jump = 'n'
@@ -164,7 +168,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.y -= 2
 
         pressed = pygame.key.get_pressed()
-        if pressed[pygame.K_UP]:
+        if pressed[pygame.K_z]:
             # If it is ok to jump, set our speed upwards
             if len(platform_hit_list) > 0 or self.rect.bottom >= constants.SCREEN_HEIGHT:
                 #if the player is walking/standing

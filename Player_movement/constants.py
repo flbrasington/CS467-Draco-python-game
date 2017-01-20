@@ -32,6 +32,13 @@ PURPLE = (160,32,240)
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
+#Room Dimensions
+ROOM_HEIGHT = 8
+ROOM_WIDTH = 10
+
+#Rooms on screen at once
+ROOMS_ON_SCREEN = 2
+
 #Sets the display surface for the game
 DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
