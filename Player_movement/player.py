@@ -15,6 +15,7 @@ import pygame
 import constants
 
 CELL_HEIGHT = constants.SCREEN_HEIGHT / (constants.ROOM_HEIGHT * constants.ROOMS_ON_SCREEN)
+CELL_WIDTH = constants.SCREEN_WIDTH / (constants.ROOM_WIDTH * constants.ROOMS_ON_SCREEN)
 
 
 class Player(pygame.sprite.Sprite):
@@ -43,8 +44,11 @@ class Player(pygame.sprite.Sprite):
         self.change_y = 0
 
         #this sets the speed for walking and running
-        self.walk_speed = 4
-        self.run_speed = 8
+        # self.walk_speed = 4
+        # self.run_speed = 8
+
+        self.walk_speed = 0.1  * CELL_WIDTH
+        self.run_speed =  1.5 * self.walk_speed
 
         #the below two variables are for the jump heights
         # self.walk_jump = 6
@@ -147,7 +151,8 @@ class Player(pygame.sprite.Sprite):
         if self.change_y == 0:
             self.change_y = 1
         else:
-            self.change_y += .35
+            # self.change_y += .35
+            self.change_y += 1.8
  
         # See if we are on the ground.
         if self.rect.y >= constants.SCREEN_HEIGHT - self.rect.height and self.change_y >= 0:
