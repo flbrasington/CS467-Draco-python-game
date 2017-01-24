@@ -27,6 +27,7 @@ GOLD = (255,215,0)
 RED = (255,0,0)
 ORANGE = (255,165,0)
 PURPLE = (160,32,240)
+TRASPARENT = (1,2,3)
 
 #Screen Dimensions
 SCREEN_WIDTH = 800

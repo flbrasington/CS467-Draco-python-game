@@ -13,6 +13,8 @@ movement and actions.
 '''
 import pygame
 import constants
+import math
+import rope
 
 CELL_HEIGHT = constants.SCREEN_HEIGHT / (constants.ROOM_HEIGHT * constants.ROOMS_ON_SCREEN)
 CELL_WIDTH = constants.SCREEN_WIDTH / (constants.ROOM_WIDTH * constants.ROOMS_ON_SCREEN)
@@ -29,13 +31,20 @@ class Player(pygame.sprite.Sprite):
         # Call the parent's constructor
         super().__init__()
  
+
+        #adds the rope object to the player
+        #self.rope_object = rope.Rope()
+
         # Create an image of the block, and fill it with a color.
         # This could also be an image loaded from the disk.
         width = 40
         height = 60
         self.image = pygame.Surface([width, height])
         self.image.fill(constants.RED)
- 
+
+        self.width = width
+        self.height = height
+        
         # Set a referance to the image rect.
         self.rect = self.image.get_rect()
  
@@ -51,10 +60,10 @@ class Player(pygame.sprite.Sprite):
         self.run_speed =  1.5 * self.walk_speed
 
         #the below two variables are for the jump heights
-        # self.walk_jump = 6
-        #self.run_jump = 12
-        self.walk_jump = CELL_HEIGHT
-        self.run_jump = CELL_HEIGHT
+        self.walk_jump = 6
+        self.run_jump = 12
+        #self.walk_jump = CELL_HEIGHT
+        #self.run_jump = CELL_HEIGHT
  
         # List of sprites we can bump against
         self.level = None
@@ -70,8 +79,74 @@ class Player(pygame.sprite.Sprite):
         self.can_jump = 'y'
         #this variable is for stopping a player's jump in mid jump
         self.stop_jump = 'y'
+
+
+        #this sets the location of the rope for shooting and swinging
+        #rope_start_ is the location of the player. The rope will follow the player till the rope is
+        #anchored int a wall
+        self.rope_start_point_x = 0
+        self.rope_start_point_y = 0
+        #rope_end is the location of where the rope is shooting off to. 
+        self.rope_end_x = 0
+        self.rope_end_y = 0
+        #rope_speed is the speed at which the rope travels
+        self.rope_speed_x = 8
+        self.rope_speed_y = 8
+        #the rope length is the maximun length that the rope can travel.
+        self.rope_length = 300
+        #rope_change is the change in direction for the rope
+        self.rope_change_x = 0
+        self.rope_change_y = 0
+        #rope_ex is for extending and retracting the rope.
+        #e is for extend and r is for retract
+        self.ex = 'e'
+
+        #This sets up which direction the player is facing
+        #r is for right, l for left
+        self.direction = 'r'
         
+
+
+    #this function allows the user to shoot a rope to be used for swinging & climbing
+    def shoot_rope(self):
+        if self.ex == 'e':
+            if math.sqrt( (self.rope_end_x - (self.rect.x +self.width/2) )**2 + (self.rope_end_y - (self.rect.y +self.height/2))**2 ) <= self.rope_length:
+                if self.direction == 'r':
+                    self.rope_end_x += self.rope_speed_x
+                else:
+                    self.rope_end_x -= self.rope_speed_x
+                self.rope_end_y -= self.rope_speed_y
+                pygame.draw.aaline(constants.DISPLAYSURF, constants.PURPLE, ((self.rect.x+ self.width/2), (self.rect.y+ self.height/2)),(self.rope_end_x,self.rope_end_y))
+            else:
+                self.recall_rope()
+        else:
+            self.recall_rope()
+
+
+    #this is the code for retracting the rope
+    def recall_rope(self):
+        if math.sqrt( (self.rope_end_x - (self.rect.x +self.width/2) )**2 + (self.rope_end_y - (self.rect.y +self.height/2))**2 ) >= 11:
+            self.ex = 'r'
+            if self.rope_end_x != (self.rect.x + self.width/2):
+                if self.rope_end_x > (self.rect.x + self.width/2):
+                    self.rope_end_x -= self.rope_speed_x
+                else:
+                    self.rope_end_x += self.rope_speed_x
+            if self.rope_end_y != (self.rect.y + self.height/2):
+                if self.rope_end_y > (self.rect.y + self.height/2):
+                    self.rope_end_y -= self.rope_speed_y
+                else:
+                    self.rope_end_y += self.rope_speed_y
+            pygame.draw.aaline(constants.DISPLAYSURF, constants.PURPLE, ((self.rect.x+ self.width/2), (self.rect.y+ self.height/2)),(self.rope_end_x,self.rope_end_y))
+        else:
+            self.ex = 'e'
+
+
+
     def update(self):
+        #this updates the location of the anchor for the rope
+        #self.rope_object.update_rope(self.rect.x, self.rect.y, self.width, self.height)
+        
         #this section recieves input from the user.
         #for user commands see player.py
         #checks if the shift key is being pushed which will allow the player to run
@@ -88,16 +163,25 @@ class Player(pygame.sprite.Sprite):
                 self.change_x = -self.run_speed
             if self.walk_status == 'w':
                 self.change_x = -self.walk_speed
+            self.direction = 'l'
 
         if pressed[pygame.K_RIGHT]:
             if self.walk_status == 'r':
                 self.change_x = self.run_speed
             if self.walk_status == 'w':
                 self.change_x = self.walk_speed
+            self.direction = 'r'
 
         if pressed[pygame.K_z]:
                 if self.can_jump == 'y':
                     self.jump()
+
+        if pressed[pygame.K_x]:
+            self.shoot_rope()
+        else:
+            self.recall_rope()
+            
+                       
 
         for event in pygame.event.get():
             if event.type == pygame.KEYUP:
@@ -109,6 +193,8 @@ class Player(pygame.sprite.Sprite):
                     if self.stop_jump == 'y':
                         self.change_y = 0
                         self.stop_jump = 'n'
+                    
+                    
                     
         """ Move the player. """
         # Gravity
@@ -151,8 +237,8 @@ class Player(pygame.sprite.Sprite):
         if self.change_y == 0:
             self.change_y = 1
         else:
-            # self.change_y += .35
-            self.change_y += 1.8
+            self.change_y += .35
+            #self.change_y += 1.8
  
         # See if we are on the ground.
         if self.rect.y >= constants.SCREEN_HEIGHT - self.rect.height and self.change_y >= 0:
