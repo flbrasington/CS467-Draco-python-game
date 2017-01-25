@@ -1,4 +1,3 @@
-
 """
 Course: CS 462 - Capstone
 Program: Python platformer game
@@ -170,6 +169,8 @@ class Level:
 
         # Draw the background
         screen.fill(constants.WHITE)
+        # use ice block for background image
+        screen.blit(constants.TILEDICT['ice block'], constants.TILEDICT['ice block'].get_rect())
 
         # Draw all the sprite lists that we have
         self.platform_list.draw(screen)
@@ -268,6 +269,8 @@ class Level:
         NOTE:  You must pass in the output destination
         """
         screen.fill(WHITE)
+        # use ice block for background
+        screen.blit(constants.TILEDICT['ice block'], constants.TILEDICT['ice block'].get_rect())
         for x in range(self.num_cols):
             for y in range(self.num_rows):
                 #if a room is on the path then color the cell blue on the screen
@@ -293,6 +296,9 @@ class Platform(pygame.sprite.Sprite):
 
         self.image = pygame.Surface([width, height])
         self.image.fill(constants.GREEN)
+
+        # use tundra block for cells that are not empty
+        self.image.blit(constants.TILEDICT['tundra'], constants.TILEDICT['tundra'].get_rect())
 
         self.rect = self.image.get_rect()
 
@@ -341,6 +347,8 @@ def main():
         #        done = True
         # this updates the the display
         screen.fill(constants.WHITE)
+        # use ice block for background image
+        screen.blit(constants.TILEDICT['ice block'], constants.TILEDICT['ice block'].get_rect())
         current_level.draw(screen)
         active_sprite_list.update()
         active_sprite_list.draw(screen)

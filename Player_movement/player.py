@@ -16,6 +16,8 @@ import constants
 import math
 import rope
 
+from spritesheet import SpriteSheet
+
 CELL_HEIGHT = constants.SCREEN_HEIGHT / (constants.ROOM_HEIGHT * constants.ROOMS_ON_SCREEN)
 CELL_WIDTH = constants.SCREEN_WIDTH / (constants.ROOM_WIDTH * constants.ROOMS_ON_SCREEN)
 
@@ -39,14 +41,14 @@ class Player(pygame.sprite.Sprite):
         # This could also be an image loaded from the disk.
         width = 40
         height = 60
-        self.image = pygame.Surface([width, height])
-        self.image.fill(constants.RED)
+        # self.image = pygame.Surface([width, height])
+        # self.image.fill(constants.RED)
 
         self.width = width
         self.height = height
         
         # Set a referance to the image rect.
-        self.rect = self.image.get_rect()
+        # self.rect = self.image.get_rect()
  
         # Set speed vector of player
         self.change_x = 0
@@ -104,6 +106,39 @@ class Player(pygame.sprite.Sprite):
         #This sets up which direction the player is facing
         #r is for right, l for left
         self.direction = 'r'
+
+        # arrays that will hold images of sprite to use for movement
+        # l = left facing and r = right facing
+        self.walking_frames_l = []
+        self.walking_frames_r = []
+
+        # currently this is a direct copy of the SpriteSheet class from the sample program
+        # this takes the image and it will be used to split it into individual pieces
+        # i could do this with a photo editing program and just use the individual images instead
+        sprite_sheet = SpriteSheet("spelunkyGuy.png")
+
+        # get the first sprite.  excluding alpha space around it, it starts at x=12 y=8
+        # its width and height are 55 and 63 for spelunky guy if we use a different sprite, these
+        # values will be different
+        image = sprite_sheet.get_image(12,8,55,63)
+        self.walking_frames_r.append(image) # add image to array for use walking right
+        
+        # append second image to give appearance of movement
+        # unknown right now why it allows the player to intersect a wall section
+        # image = sprite_sheet.get_image(67,8,55,63)
+        # self.walking_frames_r.append(image)
+
+        # same as above for right facing the only difference is the transform.flip to make it
+        # left facing for use when facing left
+        image = sprite_sheet.get_image(12,8,55,63)
+        image = pygame.transform.flip(image, True, False)
+        self.walking_frames_l.append(image) # append image to array for use walking left
+
+        # start with first image in right facing array
+        self.image = self.walking_frames_r[0]
+
+        # Set a reference to the image rect.
+        self.rect = self.image.get_rect()
         
 
 
@@ -202,6 +237,17 @@ class Player(pygame.sprite.Sprite):
  
         # Move left/right
         self.rect.x += self.change_x
+
+        '''
+        '''
+        # pos = self.rect.x + self.level.world_shift
+        pos = self.rect.x
+        if self.direction == 'r':
+            frame = (pos // 30) % len(self.walking_frames_r)
+            self.image = self.walking_frames_r[frame]
+        elif self.direction == 'l':
+            frame = (pos // 30) % len(self.walking_frames_l)
+            self.image = self.walking_frames_l[frame]
  
         # See if we hit anything
         block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
