@@ -98,14 +98,15 @@ class Level:
         print(self.start_room)
 
         #-----SHIFT WORLD SO THAT STARTING VIEW IS ON PLAYER------------#
-        #self.world_shift_x = self.block_width + self.start_room['column'] * self.room_side_length_x
-        #self.world_shift_y = self.level_height - self.room_side_length_y - self.block_height
-        #print('shift x = ', self.world_shift_x)
-        #print('shift y = ', self.world_shift_y)
-        ##shift world to the left
-        #self.shift_world_x(-self.world_shift_x)
-        ##shift world up
-        #self.shift_world_y(-self.world_shift_y)
+        self.world_shift_x = self.block_width + self.start_room['column'] * self.room_side_length_x
+        self.world_shift_y = self.level_height - self.room_side_length_y + self.block_height
+        print('shift x = ', self.world_shift_x)
+        print('shift y = ', self.world_shift_y)
+        #shift world to the left
+        self.shift_world_x(-self.world_shift_x)
+        #shift world up
+        self.shift_world_y(-self.world_shift_y)
+
 
     def level_edge(self):
 
@@ -366,7 +367,7 @@ def main():
     pygame.init()
 
     # this sets up the screen size for the user using the sizes defined in constants
-    screen_size = [constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT]
+    screen_size = [constants.SCREEN_WIDTH + constants.SCREEN_WIDTH//2, constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2]
     screen = pygame.display.set_mode(screen_size)
 
     # this is the caption for the window
@@ -380,7 +381,7 @@ def main():
 
     # this bit create's the level for the program
     level_list = []
-    level_list.append(Level(5, 5, constants.SCREEN_WIDTH * constants.NUM_ROOMS_X, constants.SCREEN_HEIGHT * constants.NUM_ROOMS_Y, p))
+    level_list.append(Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
 
     # set the current level
     current_level_no = 0
@@ -390,8 +391,8 @@ def main():
     all_sprite_list = pygame.sprite.Group()
     p.level = current_level
     print(current_level.start_room['column'])
-    p.rect.x = current_level.block_width + current_level.start_room['column'] * current_level.room_side_length_x
-    p.rect.y = constants.SCREEN_HEIGHT - p.rect.height - 60
+    p.rect.x = 0
+    p.rect.y = constants.SCREEN_HEIGHT - p.rect.height - current_level.block_height
     active_sprite_list = pygame.sprite.Group()
     active_sprite_list.add(p)
 
@@ -408,6 +409,7 @@ def main():
         active_sprite_list.update()
 
         # If the player gets near the right side, shift the world left (-x)
+
         if p.rect.right >= 500:
             diff = p.rect.right - 500
             p.rect.right = 500
