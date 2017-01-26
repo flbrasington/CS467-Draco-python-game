@@ -8,4 +8,4 @@ Changes:
 
 Issues:
 
-1) The start screen does not seem to start on first room of the level unless the room is in column 0.  This could be due to the constructor or the some interplay between the contructor, where the player is being placed and the shift world functions
+1) Just need to institute the starting and ending room templates
