@@ -7,14 +7,14 @@ Dev Team: Frank Brasington
 
 File Description:
 This file stores all the functions and objects related to the player.
-Here is where you will find things such as the player's spirit's sheet,
+Here is where you will find things such as the player's sprite's sheet,
 movement and actions.
 
 '''
 import pygame
 import constants
 import math
-import rope
+from rope import Rope
 
 CELL_HEIGHT = constants.SCREEN_HEIGHT / (constants.ROOM_HEIGHT * constants.ROOMS_ON_SCREEN)
 CELL_WIDTH = constants.SCREEN_WIDTH / (constants.ROOM_WIDTH * constants.ROOMS_ON_SCREEN)
@@ -30,10 +30,7 @@ class Player(pygame.sprite.Sprite):
  
         # Call the parent's constructor
         super().__init__()
- 
 
-        #adds the rope object to the player
-        #self.rope_object = rope.Rope()
 
         # Create an image of the block, and fill it with a color.
         # This could also be an image loaded from the disk.
@@ -60,8 +57,8 @@ class Player(pygame.sprite.Sprite):
         self.run_speed =  1.5 * self.walk_speed
 
         #the below two variables are for the jump heights
-        self.walk_jump = 6
-        self.run_jump = 12
+        self.walk_jump = 7
+        self.run_jump = 10
         #self.walk_jump = CELL_HEIGHT
         #self.run_jump = CELL_HEIGHT
  
@@ -78,74 +75,22 @@ class Player(pygame.sprite.Sprite):
         #and no for the player can not jump
         self.can_jump = 'y'
         #this variable is for stopping a player's jump in mid jump
-        self.stop_jump = 'y'
+        self.stop_jump = 'y'        
 
+        #adds the rope object to the player
+        self.rope_object = Rope()
 
-        #this sets the location of the rope for shooting and swinging
-        #rope_start_ is the location of the player. The rope will follow the player till the rope is
-        #anchored int a wall
-        self.rope_start_point_x = 0
-        self.rope_start_point_y = 0
-        #rope_end is the location of where the rope is shooting off to. 
-        self.rope_end_x = 0
-        self.rope_end_y = 0
-        #rope_speed is the speed at which the rope travels
-        self.rope_speed_x = 8
-        self.rope_speed_y = 8
-        #the rope length is the maximun length that the rope can travel.
-        self.rope_length = 300
-        #rope_change is the change in direction for the rope
-        self.rope_change_x = 0
-        self.rope_change_y = 0
-        #rope_ex is for extending and retracting the rope.
-        #e is for extend and r is for retract
-        self.ex = 'e'
+        #the following code is used for when the rope's anchor is attached to a platform
+        self.swing_speed = .35
+        #this variable is for slowing the swing speed down, other wise the player will swing back and forth forever
+        self.swing_speed_slowdown = .70
 
-        #This sets up which direction the player is facing
-        #r is for right, l for left
+        #this sets the player's direction to the right at the start of the game
         self.direction = 'r'
         
-
-
-    #this function allows the user to shoot a rope to be used for swinging & climbing
-    def shoot_rope(self):
-        if self.ex == 'e':
-            if math.sqrt( (self.rope_end_x - (self.rect.x +self.width/2) )**2 + (self.rope_end_y - (self.rect.y +self.height/2))**2 ) <= self.rope_length:
-                if self.direction == 'r':
-                    self.rope_end_x += self.rope_speed_x
-                else:
-                    self.rope_end_x -= self.rope_speed_x
-                self.rope_end_y -= self.rope_speed_y
-                pygame.draw.aaline(constants.DISPLAYSURF, constants.PURPLE, ((self.rect.x+ self.width/2), (self.rect.y+ self.height/2)),(self.rope_end_x,self.rope_end_y))
-            else:
-                self.recall_rope()
-        else:
-            self.recall_rope()
-
-
-    #this is the code for retracting the rope
-    def recall_rope(self):
-        if math.sqrt( (self.rope_end_x - (self.rect.x +self.width/2) )**2 + (self.rope_end_y - (self.rect.y +self.height/2))**2 ) >= 11:
-            self.ex = 'r'
-            if self.rope_end_x != (self.rect.x + self.width/2):
-                if self.rope_end_x > (self.rect.x + self.width/2):
-                    self.rope_end_x -= self.rope_speed_x
-                else:
-                    self.rope_end_x += self.rope_speed_x
-            if self.rope_end_y != (self.rect.y + self.height/2):
-                if self.rope_end_y > (self.rect.y + self.height/2):
-                    self.rope_end_y -= self.rope_speed_y
-                else:
-                    self.rope_end_y += self.rope_speed_y
-            pygame.draw.aaline(constants.DISPLAYSURF, constants.PURPLE, ((self.rect.x+ self.width/2), (self.rect.y+ self.height/2)),(self.rope_end_x,self.rope_end_y))
-        else:
-            self.ex = 'e'
-
-
-
     def update(self):
         #this updates the location of the anchor for the rope
-        #self.rope_object.update_rope(self.rect.x, self.rect.y, self.width, self.height)
+        self.rope_object.update_rope()
         
         #this section recieves input from the user.
         #for user commands see player.py
@@ -159,46 +104,90 @@ class Player(pygame.sprite.Sprite):
             self.walk_status = 'w'
 
         if pressed[pygame.K_LEFT]:
-            if self.walk_status == 'r':
-                self.change_x = -self.run_speed
-            if self.walk_status == 'w':
-                self.change_x = -self.walk_speed
+            #if the player isn't hanging on to a rope
+            if self.rope_object.ex != 'a':
+                if self.walk_status == 'r':
+                    self.change_x = -self.run_speed
+                if self.walk_status == 'w':
+                    self.change_x = -self.walk_speed
             self.direction = 'l'
 
         if pressed[pygame.K_RIGHT]:
-            if self.walk_status == 'r':
-                self.change_x = self.run_speed
-            if self.walk_status == 'w':
-                self.change_x = self.walk_speed
+            #if the player isn't hanging on to a rope
+            if self.rope_object.ex != 'a':
+                if self.walk_status == 'r':
+                    self.change_x = self.run_speed
+                if self.walk_status == 'w':
+                    self.change_x = self.walk_speed
             self.direction = 'r'
+
+        #the UP arrow keys does the following:
+            #if the player is holding on to the rope the player can climb up the rope to the rope's anchor
+        if pressed[pygame.K_UP]:
+            #if the player is holding on the to the rope
+            if self.rope_object.ex == 'a':
+                #the player can't climb higher than the rope's anchor
+                if self.rope_object.rect.y < self.rect.y:
+                    self.change_y = -self.walk_speed
+                else:
+                    self.change_y = 0
+
+        #the DOWN arrow Key does the following:
+            #if the player is holding on to the rope the player can climb down the rope
+        if pressed[pygame.K_DOWN]:
+            #if the player is holding on the to the rope
+            if self.rope_object.ex == 'a':
+                #the player can't climb lower than the rope's length
+                if (self.rect.y - self.rope_object.rect.y) < self.rope_object.rope_length/3:
+                    print((self.rect.y - self.rope_object.rect.y))
+                    self.change_y = self.walk_speed
+                else:
+                    self.change_y = 0 
+        
 
         if pressed[pygame.K_z]:
                 if self.can_jump == 'y':
                     self.jump()
+                #this detaches the anchors when the player jumps
+                if self.rope_object.ex == 'a':
+                    #this allows the player to jump while attached to a rope
+                    self.jump()
+                    #this stops the player from sliding to the left or right after swinging on the rope
+                    self.change_x = 0
+                    #this returns the anchor to the space space
+                    self.rope_object.change_extention_status()
+
 
         if pressed[pygame.K_x]:
-            self.shoot_rope()
+            self.rope_object.shoot_rope(self.rect.x, self.rect.y, self.width, self.height, self.direction)
         else:
-            self.recall_rope()
+            if self.rope_object.ex != 'n':
+                self.rope_object.recall_rope(self.rect.x, self.rect.y, self.width, self.height)
             
-                       
-
         for event in pygame.event.get():
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT:
                     self.change_x = 0
                 if event.key == pygame.K_RIGHT:
                     self.change_x = 0
+                if event.key == pygame.K_UP:
+                    if self.rope_object.ex == 'a':
+                        self.change_y = 0
                 if event.key == pygame.K_z:
                     if self.stop_jump == 'y':
                         self.change_y = 0
                         self.stop_jump = 'n'
-                    
-                    
+
+        #this swings the player if the player is attached to a rope
+        if self.rope_object.ex == 'a':
+            self.attached_rope()
+            
                     
         """ Move the player. """
         # Gravity
-        self.calc_grav()
+        #this moves the player down if the player isn't attached to a rope
+        if self.rope_object.ex != 'a':
+            self.calc_grav()
  
         # Move left/right
         self.rect.x += self.change_x
@@ -213,6 +202,9 @@ class Player(pygame.sprite.Sprite):
             elif self.change_x < 0:
                 # Otherwise if we are moving left, do the opposite.
                 self.rect.left = block.rect.right
+            #this stops the player from swinging wildly when attached to the rope
+            if self.rope_object.ex == 'a':
+                self.change_x = 0
  
         # Move up/down
         self.rect.y += self.change_y
@@ -260,6 +252,15 @@ class Player(pygame.sprite.Sprite):
 
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_z]:
+            #if the player is attached to a rope this allows the player to up:
+            if self.rope_object.ex == 'a':
+                    #this sets self.change_y to 0 otherwise the player can launch themselves into space
+                self.change_y = 0
+                if self.walk_status == 'w':
+                    self.change_y -= self.walk_jump
+                #if the player is running
+                if self.walk_status == 'r':
+                    self.change_y -= self.run_jump
             # If it is ok to jump, set our speed upwards
             if len(platform_hit_list) > 0 or self.rect.bottom >= constants.SCREEN_HEIGHT:
                 #if the player is walking/standing
@@ -270,16 +271,33 @@ class Player(pygame.sprite.Sprite):
                     self.change_y -= self.run_jump
         else:
             self.change_y = 0
- 
-    # Player-controlled movement:
-    def go_left(self):
-        """ Called when the user hits the left arrow. """
-        self.change_x = -6
- 
-    def go_right(self):
-        """ Called when the user hits the right arrow. """
-        self.change_x = 6
- 
-    def stop(self):
-        """ Called when the user lets off the keyboard. """
-        self.change_x = 0
+
+
+
+    #this function is for when the anchor is attached to a block.
+    #this function currently will cause the player to swing back and forth
+        #disables the left and right arrow keys from moving the player left & right
+        #also allows the player to climb up and down the rope.
+    def attached_rope(self):
+        #this swings the player back and forth
+        if self.rect.x < self.rope_object.rect.x:
+            self.change_x += self.swing_speed
+        else:
+            self.change_x -= self.swing_speed
+        self.swing_slow_down()
+
+
+    #this function checks if the player passes the anchor
+    #if the anchor is passed then the player will be slowed down
+    def swing_slow_down(self):
+        #if the player is swinging from the left to the right.
+        if self.rect.x < self.rope_object.rect.x:
+            if self.rect.x + self.change_x > self.rope_object.rect.x:
+                self.change_x -= self.swing_speed_slowdown
+        else:
+            if self.rect.x + self.change_x < self.rope_object.rect.x:
+                self.change_x += self.swing_speed_slowdown
+
+
+
+            

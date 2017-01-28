@@ -55,13 +55,26 @@ class Rope(pygame.sprite.Sprite):
         #e is for extend, r is for retract
         self.ex = 'e'
 
+        #this variable stores all the platfroms that the user can anchor a rope to
+        self.level = None
+
     #this function allows the user to shoot a rope to be used for swinging & climbing
-    def shoot_rope(self, player_x, player_y, player_width, player_height):
+    def shoot_rope(self, player_x, player_y, player_width, player_height, direction):
+        if self.ex == 'n':
+            self.rect.x = player_x
+            self.rect.y = player_y + player_height/2
+            self.ex = 'e'
+            self.rope_end_x = player_x + player_width/2
+            self.rope_end_y = player_y + player_height/2
+
         if self.ex == 'e':
-            if math.sqrt( (self.rope_end_x - (player_x + player_width/2) )**2 + (self.rope_end_y - ( player_y + player_height/2))**2 ) <= self.rope_length:
-                self.rope_end_x += self.rope_speed_x
+            if math.sqrt( (self.rope_end_x - (player_x + player_width/2) )**2 + (self.rope_end_y - (player_y + player_height/2))**2 ) <= self.rope_length:
+                if direction == 'r':
+                    self.rope_end_x += self.rope_speed_x
+                else:
+                    self.rope_end_x -= self.rope_speed_x
                 self.rope_end_y -= self.rope_speed_y
-                pygame.draw.line(constants.DISPLAYSURF, constants.PURPLE, ((player_x + player_width/2), (player_y + player_height/2)),(self.rope_end_x,self.rope_end_y))
+                pygame.draw.aaline(constants.DISPLAYSURF, constants.PURPLE, ((player_x+ player_width/2), (player_y+ player_height/2)),(self.rope_end_x, self.rope_end_y))
             else:
                 self.recall_rope(player_x, player_y, player_width, player_height)
         else:
@@ -70,48 +83,46 @@ class Rope(pygame.sprite.Sprite):
 
     #this is the code for retracting the rope
     def recall_rope(self, player_x, player_y, player_width, player_height):
-        if math.sqrt( (self.rope_end_x - (player_x + player_width/2) )**2 + (self.rope_end_y - (player_y + player_height/2))**2 ) >= 11:
-            self.ex = 'r'
-            if self.rope_end_x != (player_x + player_width/2):
-                if self.rope_end_x > (player_x + player_width/2):
-                    self.rope_end_x -= self.rope_speed_x
-                else:
-                    self.rope_end_x += self.rope_speed_x
-            if self.rope_end_y != (player_y + player_height/2):
-                if self.rope_end_y > (player_y + player_height/2):
-                    self.rope_end_y -= self.rope_speed_y
-                else:
-                    self.rope_end_y += self.rope_speed_y
-            pygame.draw.line(constants.DISPLAYSURF, constants.PURPLE, ((player_x + player_width/2), (player_y + player_height/2)),(self.rope_end_x,self.rope_end_y))
+        if self.ex != 'a':
+            if math.sqrt( (self.rope_end_x - (player_x + player_width/2) )**2 + (self.rope_end_y - (player_y + player_height/2))**2 ) >= 11:
+                self.ex = 'r'
+                if self.rope_end_x != (player_x + player_width/2):
+                    if self.rope_end_x > (player_x + player_width/2):
+                        self.rope_end_x -= self.rope_speed_x
+                    else:
+                        self.rope_end_x += self.rope_speed_x
+                if self.rope_end_y != (player_y + player_height/2):
+                    if self.rope_end_y > (player_y + player_height/2):
+                        self.rope_end_y -= self.rope_speed_y
+                    else:
+                        self.rope_end_y += self.rope_speed_y
+                pygame.draw.line(constants.DISPLAYSURF, constants.PURPLE, ((player_x + player_width/2), (player_y + player_height/2)),(self.rope_end_x,self.rope_end_y))
+            else:
+                self.ex = 'n'
         else:
-            self.ex = 'e'
+            #this bit of code draws a line to show the rope between the player and the anchor
+            pygame.draw.line(constants.DISPLAYSURF, constants.PURPLE, ((player_x + player_width/2), (player_y + player_height/2)),(self.rope_end_x,self.rope_end_y))
 
     #this updates the rope object to follow the player's movements
-    def update_rope(self, player_x, player_y, player_width, player_height):
-        if self.ex == 'e':
-            self.rect.x = player_x + player_width/2
-            self.rect.y = player_y + player_height/2
-            self.image = pygame.Surface([5, 5])
-        else:
+    def update_rope(self):
+        if self.ex == 'n':
+            self.rect.x = 0
+            self.rect.y = 0
+
+        elif self.ex == 'e' or self.ex == 'r':
             self.rect.x = self.rope_end_x
             self.rect.y = self.rope_end_y
-
-        self.image = pygame.Surface([10,10])
-
-
-
-
-
+            #this checks for the case when the rope's anchor hits an object.
+            #if the anchor hits that object the extend variable (self.ex) will change to attach (a)
+            block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+            for block in block_hit_list:
+                self.ex = 'a'
 
 
-
-
-
-
-
-
-
-
+    #this updates the rope's extention status
+    def change_extention_status(self):
+        self.ex = 'n'
+        
 
 
         

@@ -27,7 +27,7 @@ GOLD = (255,215,0)
 RED = (255,0,0)
 ORANGE = (255,165,0)
 PURPLE = (160,32,240)
-TRASPARENT = (1,2,3)
+TRANSPARENT = (1,2,3)
 
 #Screen Dimensions
 SCREEN_WIDTH = 800
@@ -39,6 +39,10 @@ ROOM_WIDTH = 10
 
 #Rooms on screen at once
 ROOMS_ON_SCREEN = 2
+
+#Level Dimensions
+NUM_ROOMS_X = 5
+NUM_ROOMS_Y = 5
 
 #Sets the display surface for the game
 DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
