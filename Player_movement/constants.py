@@ -50,3 +50,9 @@ DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 #Frames Per Second
 fps = 60
+
+TILEDICT = {'ice block': pygame.image.load('iceBlock.png'),
+			'ice block wall': pygame.image.load('iceBlockWall.png'),
+			'ice block alt': pygame.image.load('iceBlockAlt.png'),
+			'tundra': pygame.image.load('tundra.png'),
+			'tundra center': pygame.image.load('tundraCenter.png')}

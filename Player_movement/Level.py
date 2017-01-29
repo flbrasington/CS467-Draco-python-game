@@ -288,6 +288,7 @@ class Level:
         NOTE:  You must pass in the output destination
         """
         screen.fill(WHITE)
+        # screen.blit(constants.TILEDICT['ice block wall'], constants.TILEDICT['ice block wall'].get_rect())
         for x in range(self.num_cols):
             for y in range(self.num_rows):
                 # if a room is on the path then color the cell blue on the screen
@@ -349,6 +350,7 @@ class Level:
 
         # Draw the background
         screen.fill(constants.WHITE)
+        screen.blit(constants.TILEDICT['ice block wall'], constants.TILEDICT['ice block wall'].get_rect())
 
         # Draw all the sprite lists that we have
         self.platform_list.draw(screen)
@@ -366,6 +368,7 @@ class Platform(pygame.sprite.Sprite):
 
         self.image = pygame.Surface([width, height])
         self.image.fill(constants.GREEN)
+        self.image.blit(constants.TILEDICT['tundra center'], constants.TILEDICT['tundra center'].get_rect())
 
         self.rect = self.image.get_rect()
 

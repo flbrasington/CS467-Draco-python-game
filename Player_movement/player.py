@@ -15,6 +15,7 @@ import pygame
 import constants
 import math
 from rope import Rope
+from spritesheet import SpriteSheet
 
 CELL_HEIGHT = constants.SCREEN_HEIGHT / (constants.ROOM_HEIGHT * constants.ROOMS_ON_SCREEN)
 CELL_WIDTH = constants.SCREEN_WIDTH / (constants.ROOM_WIDTH * constants.ROOMS_ON_SCREEN)
@@ -36,14 +37,14 @@ class Player(pygame.sprite.Sprite):
         # This could also be an image loaded from the disk.
         width = 40
         height = 60
-        self.image = pygame.Surface([width, height])
-        self.image.fill(constants.RED)
+        # self.image = pygame.Surface([width, height])
+        # self.image.fill(constants.RED)
 
         self.width = width
         self.height = height
         
         # Set a referance to the image rect.
-        self.rect = self.image.get_rect()
+        # self.rect = self.image.get_rect()
  
         # Set speed vector of player
         self.change_x = 0
@@ -87,6 +88,30 @@ class Player(pygame.sprite.Sprite):
 
         #this sets the player's direction to the right at the start of the game
         self.direction = 'r'
+
+        #arrays that will hold images of sprite used for movement
+        #l = left-facing and r = right-facing
+        self.walking_frames_l = []
+        self.walking_frames_r = []
+
+        sprite_sheet = SpriteSheet("spelunkyGuy.png")
+
+        for i in range(0, 9):
+            image = sprite_sheet.get_image(12+i*80, 8, 55, 63)
+            self.walking_frames_r.append(image)
+
+        for i in range(0, 9):
+            image = sprite_sheet.get_image(12, 8, 55, 63)
+            image = pygame.transform.flip(image, True, False)
+            self.walking_frames_l.append(image)
+
+        self.image = self.walking_frames_r[0]
+
+        image = sprite_sheet.get_image(92, 8, 55, 63)
+        image = pygame.transform.flip(image, True, False)
+        self.walking_frames_l.append(image)
+
+        self.rect = self.image.get_rect()
         
     def update(self):
         #this updates the location of the anchor for the rope
@@ -191,6 +216,16 @@ class Player(pygame.sprite.Sprite):
  
         # Move left/right
         self.rect.x += self.change_x
+
+        if self.direction == 'r':
+            # i'm not sure why the modulo is not cycling back to the start once it reaches the end of the array
+            # frame = (self.rect.x // 30) % len(self.walking_frames_r)
+            # self.image = self.walking_frames_r[frame]
+            self.image = self.walking_frames_r[0]
+        elif self.direction == 'l':
+            # frame = (self.rect.x // 30) % len(self.walking_frames_l)
+            # self.image = self.walking_frames_l[frame]
+            self.image = self.walking_frames_l[0]
  
         # See if we hit anything
         block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
