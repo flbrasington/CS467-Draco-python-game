@@ -28,6 +28,7 @@ RED = (255,0,0)
 ORANGE = (255,165,0)
 PURPLE = (160,32,240)
 TRANSPARENT = (1,2,3)
+ROPE = (155, 73, 35)
 
 #Screen Dimensions
 SCREEN_WIDTH = 800

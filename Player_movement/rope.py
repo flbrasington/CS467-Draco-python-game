@@ -27,7 +27,11 @@ class Rope(pygame.sprite.Sprite):
         width = 10
         height = 10
         self.image = pygame.Surface([width, height])
-        self.image.fill(constants.PURPLE)
+        self.image.fill(constants.ROPE)
+
+        # currently a primative texture for the block at the end of the rope
+        ropeTexture = pygame.image.load('rope.png')
+        self.image.blit(ropeTexture, ropeTexture.get_rect())
 
         self.width = width
         self.height = height
@@ -74,7 +78,7 @@ class Rope(pygame.sprite.Sprite):
                 else:
                     self.rope_end_x -= self.rope_speed_x
                 self.rope_end_y -= self.rope_speed_y
-                pygame.draw.aaline(constants.DISPLAYSURF, constants.PURPLE, ((player_x+ player_width/2), (player_y+ player_height/2)),(self.rope_end_x, self.rope_end_y))
+                pygame.draw.aaline(constants.DISPLAYSURF, constants.ROPE, ((player_x+ player_width/2), (player_y+ player_height/2)),(self.rope_end_x, self.rope_end_y))
             else:
                 self.recall_rope(player_x, player_y, player_width, player_height)
         else:
@@ -96,12 +100,12 @@ class Rope(pygame.sprite.Sprite):
                         self.rope_end_y -= self.rope_speed_y
                     else:
                         self.rope_end_y += self.rope_speed_y
-                pygame.draw.line(constants.DISPLAYSURF, constants.PURPLE, ((player_x + player_width/2), (player_y + player_height/2)),(self.rope_end_x,self.rope_end_y))
+                pygame.draw.line(constants.DISPLAYSURF, constants.ROPE, ((player_x + player_width/2), (player_y + player_height/2)),(self.rope_end_x,self.rope_end_y))
             else:
                 self.ex = 'n'
         else:
             #this bit of code draws a line to show the rope between the player and the anchor
-            pygame.draw.line(constants.DISPLAYSURF, constants.PURPLE, ((player_x + player_width/2), (player_y + player_height/2)),(self.rope_end_x,self.rope_end_y))
+            pygame.draw.line(constants.DISPLAYSURF, constants.ROPE, ((player_x + player_width/2), (player_y + player_height/2)),(self.rope_end_x,self.rope_end_y))
 
     #this updates the rope object to follow the player's movements
     def update_rope(self):
@@ -122,7 +126,3 @@ class Rope(pygame.sprite.Sprite):
     #this updates the rope's extention status
     def change_extention_status(self):
         self.ex = 'n'
-        
-
-
-        
