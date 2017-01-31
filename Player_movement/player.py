@@ -37,6 +37,8 @@ class Player(pygame.sprite.Sprite):
         # This could also be an image loaded from the disk.
         width = 40
         height = 60
+
+        self.frame = 0
         # self.image = pygame.Surface([width, height])
         # self.image.fill(constants.RED)
 
@@ -94,22 +96,22 @@ class Player(pygame.sprite.Sprite):
         self.walking_frames_l = []
         self.walking_frames_r = []
 
-        sprite_sheet = SpriteSheet("spelunkyGuy.png")
+        sprite_sheet = SpriteSheet("spelunkyGuyWalk.png")
 
         for i in range(0, 9):
-            image = sprite_sheet.get_image(12+i*80, 8, 55, 63)
+            image = sprite_sheet.get_image(0+i*80, 0, 55, 68)
             self.walking_frames_r.append(image)
 
         for i in range(0, 9):
-            image = sprite_sheet.get_image(12, 8, 55, 63)
+            image = sprite_sheet.get_image(0+i*80, 0, 55, 68)
             image = pygame.transform.flip(image, True, False)
             self.walking_frames_l.append(image)
 
         self.image = self.walking_frames_r[0]
 
-        image = sprite_sheet.get_image(92, 8, 55, 63)
-        image = pygame.transform.flip(image, True, False)
-        self.walking_frames_l.append(image)
+        # image = sprite_sheet.get_image(92, 8, 55, 63)
+        # image = pygame.transform.flip(image, True, False)
+        # self.walking_frames_l.append(image)
 
         self.rect = self.image.get_rect()
         
@@ -122,6 +124,7 @@ class Player(pygame.sprite.Sprite):
         #checks if the shift key is being pushed which will allow the player to run
 
         pressed = pygame.key.get_pressed()
+            
 
         if pressed[pygame.K_LSHIFT]:
             self.walk_status = 'r'
@@ -137,6 +140,12 @@ class Player(pygame.sprite.Sprite):
                     self.change_x = -self.walk_speed
             self.direction = 'l'
 
+            if  self.can_jump == 'y':
+                self.frame = (self.frame + 1) % len(self.walking_frames_l)
+                self.image = self.walking_frames_l[self.frame]
+            else:
+                self.image = self.walking_frames_l[0]
+
         if pressed[pygame.K_RIGHT]:
             #if the player isn't hanging on to a rope
             if self.rope_object.ex != 'a':
@@ -145,6 +154,12 @@ class Player(pygame.sprite.Sprite):
                 if self.walk_status == 'w':
                     self.change_x = self.walk_speed
             self.direction = 'r'
+
+            if self.can_jump == 'y':
+                self.frame = (self.frame + 1) % len(self.walking_frames_r)
+                self.image = self.walking_frames_r[self.frame]
+            else:
+                self.image = self.walking_frames_r[0]
 
         #the UP arrow keys does the following:
             #if the player is holding on to the rope the player can climb up the rope to the rope's anchor
@@ -216,16 +231,6 @@ class Player(pygame.sprite.Sprite):
  
         # Move left/right
         self.rect.x += self.change_x
-
-        if self.direction == 'r':
-            # i'm not sure why the modulo is not cycling back to the start once it reaches the end of the array
-            # frame = (self.rect.x // 30) % len(self.walking_frames_r)
-            # self.image = self.walking_frames_r[frame]
-            self.image = self.walking_frames_r[0]
-        elif self.direction == 'l':
-            # frame = (self.rect.x // 30) % len(self.walking_frames_l)
-            # self.image = self.walking_frames_l[frame]
-            self.image = self.walking_frames_l[0]
  
         # See if we hit anything
         block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)

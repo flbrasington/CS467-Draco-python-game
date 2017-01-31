@@ -1,0 +1,3 @@
+1/31/17 10:45 
+	Upon start of Level.py in Player_movement folder, player is inside of a single cell that is surrounded by other cells
+	Screenshot can be found in errors folder.
