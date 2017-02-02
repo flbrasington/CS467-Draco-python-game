@@ -1,0 +1,7 @@
+Changes made since last push to repo:
+
+Organized the files so that all graphics, music, error reports and room templates are in their own directory.
+All of the classes are in the "home" directory and the program is running on Main.py.  I also made it so that there is
+an entry and exit point in each level.  This involved creating a new category of room templates where 7 is the entry/exit
+point for the player.  The exit does not work yet.  I also fixed a weird bug that was making the rope start at a weird
+point in the level.  
