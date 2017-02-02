@@ -31,6 +31,7 @@ ORANGE = (255,165,0)
 PURPLE = (160,32,240)
 TRANSPARENT = (1,2,3)
 ROPE = (155, 73, 35)
+DARK_GREY = (42, 42, 42)
 
 #Screen Dimensions
 SCREEN_WIDTH = 800
@@ -57,7 +58,9 @@ TILEDICT = {'ice block': pygame.image.load('Graphics/iceBlock.png'),
 			'ice block wall': pygame.image.load('Graphics/iceBlockWall.png'),
 			'ice block alt': pygame.image.load('Graphics/iceBlockAlt.png'),
 			'tundra': pygame.image.load('Graphics/tundra.png'),
-			'tundra center': pygame.image.load('Graphics/tundraCenter.png')}
+			'tundra center': pygame.image.load('Graphics/tundraCenter.png'),
+			'dirt block wall': pygame.image.load('Graphics/dirtBlockWall.png'),
+			'dirt center': pygame.image.load('Graphics/dirtCenter.png')}
 
 #Font infomation
 MENU_FONT = pygame.font.SysFont('freesansbold.ttf', 30)

@@ -30,7 +30,7 @@ class Rope(pygame.sprite.Sprite):
         self.image.fill(constants.ROPE)
 
         # currently a primative texture for the block at the end of the rope
-        ropeTexture = pygame.image.load('Graphics/rope.png')
+        ropeTexture = pygame.image.load('Graphics/ropeAttached.png')
         self.image.blit(ropeTexture, ropeTexture.get_rect())
 
         self.width = width

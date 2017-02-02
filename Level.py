@@ -139,7 +139,7 @@ class Level:
                       [self.level_width, self.block_height, self.block_width, self.level_height + self.block_height]]
 
         for edge in self.edges:
-            block = Platform(edge[0], edge[1])
+            block = Platform(edge[0], edge[1], 'edge')
             block.rect.x = edge[2]
             block.rect.y = edge[3]
             self.platform_list.add(block)
@@ -239,7 +239,7 @@ class Level:
                 for x in range(self.blocks_per_room_x):
                     # if cell is a 1 add a platform sprite
                     if rooms[pos][y][x] is 1:
-                        block = Platform(self.block_width, self.block_height)
+                        block = Platform(self.block_width, self.block_height, 'block')
                         block.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                         block.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                         block.player = self.player
@@ -274,7 +274,7 @@ class Level:
                 # width of a probability block
                 for x in range(5):
                     if prob_block[y][x] is 1:
-                        block = Platform(self.block_width, self.block_height)
+                        block = Platform(self.block_width, self.block_height, 'block')
                         block.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
                         block.rect.y = (p_block[0] // 5) * self.room_side_length_y + (
                                                                                          p_block[
@@ -395,14 +395,18 @@ class Level:
 class Platform(pygame.sprite.Sprite):
     """ Platform the user can jump on """
 
-    def __init__(self, width, height):
+    def __init__(self, width, height, platformType):
         """ Platform constructor. Assumes constructed with user passing in
             an array of 5 numbers like what's defined at the top of this
             code. """
         super().__init__()
 
         self.image = pygame.Surface([width, height])
-        self.image.fill(constants.GREEN)
-        self.image.blit(constants.TILEDICT['tundra center'], constants.TILEDICT['tundra center'].get_rect())
+        if platformType == 'edge':
+            self.image.fill(constants.DARK_GREY)
+
+        elif platformType == 'block':
+            self.image.fill(constants.GREEN)
+            self.image.blit(constants.TILEDICT['tundra center'], constants.TILEDICT['tundra center'].get_rect())
 
         self.rect = self.image.get_rect()
