@@ -1,3 +1,18 @@
 1/31/17 10:45 
 	Upon start of Level.py in Player_movement folder, player is inside of a single cell that is surrounded by other cells
 	Screenshot can be found in errors folder.
+
+2/2/17 8:25
+	Player started in room that could not be exited without our Spider-Man wall crawling ability.  Currently being able
+	to hold down z&x simultaneously allows for this Spider-Man ability.
+2/2/17 1:26
+	Traceback (most recent call last):
+  	File "main.py", line 170, in <module>
+    	main()
+  	File "main.py", line 91, in main
+    	level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
+  	File "C:\...\CS467-Draco-python-game\Level.py", line 98, in __init__
+    	self.create_room()
+  	File "C:\...\CS467-Draco-python-game\Level.py", line 241, in create_room
+    	if rooms[pos][y][x] is 1:
+	IndexError: list index out of range
