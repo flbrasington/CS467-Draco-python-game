@@ -2,144 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfe8c979-4701-4d5f-b8a4-f514b896382b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/Changes_made.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/Level.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/constants.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/player.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/prob_block_5/pb5_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/prob_block_6/pb6_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_0/t0_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_1/t1_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_1/t1_2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_1/t1_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_1/t1_4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_1/t1_5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_1/t1_6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_1/t1_7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_1/t1_8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_1/t1_9" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_2/t2_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_2/t2_2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_2/t2_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_2/t2_4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_2/t2_5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_2/t2_6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_2/t2_7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_2/t2_8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_2/t2_9" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_3/t3_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_3/t3_2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_3/t3_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_3/t3_4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_3/t3_5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_3/t3_6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_3/t3_7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_3/t3_8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/room_templates/r_type_3/t3_9" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Level_Class/rope.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/Changes_made.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/Dirt_Road_Traveler.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/Eagle_Rock.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/Guts_and_Bourbon.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/Main.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/Swamp_Stomp.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/Uptown.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/music.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/player.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/prob_block_5/pb5_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/prob_block_6/pb6_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_0/t0_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_1/t1_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_1/t1_2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_1/t1_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_1/t1_4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_1/t1_5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_1/t1_6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_1/t1_7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_1/t1_8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_1/t1_9" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_2/t2_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_2/t2_2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_2/t2_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_2/t2_4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_2/t2_5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_2/t2_6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_2/t2_7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_2/t2_8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_2/t2_9" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_3/t3_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_3/t3_2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_3/t3_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_3/t3_4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_3/t3_5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_3/t3_6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_3/t3_7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_3/t3_8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/room_templates/r_type_3/t3_9" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Menu/rope.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/Changes_made.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/Main.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/constants.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/player.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/prob_block_5/pb5_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/prob_block_6/pb6_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_0/t0_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_1/t1_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_1/t1_2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_1/t1_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_1/t1_4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_1/t1_5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_1/t1_6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_1/t1_7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_1/t1_8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_1/t1_9" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_2/t2_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_2/t2_2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_2/t2_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_2/t2_4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_2/t2_5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_2/t2_6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_2/t2_7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_2/t2_8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_2/t2_9" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_3/t3_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_3/t3_2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_3/t3_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_3/t3_4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_3/t3_5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_3/t3_6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_3/t3_7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_3/t3_8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/room_templates/r_type_3/t3_9" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Music/rope.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/constants.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/iceBlock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/iceBlockAlt.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/iceBlockSmall.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/iceBlockWall.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/iceBlockWall2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/iceBlockWall3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/rope.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/sgStand.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/spelunkyGuy.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/spelunkyGuyWalk.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/tundra.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/tundraCenter.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player_movement/tundraCenterSmall.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Room/constants.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Room/room.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Menu/Menu.py" afterPath="$PROJECT_DIR$/Menu.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Menu/constants.py" afterPath="$PROJECT_DIR$/constants.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Music/music.py" afterPath="$PROJECT_DIR$/music.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Player_movement/Level.py" afterPath="$PROJECT_DIR$/Level.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Player_movement/player.py" afterPath="$PROJECT_DIR$/player.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Player_movement/rope.py" afterPath="$PROJECT_DIR$/rope.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Player_movement/spritesheet.py" afterPath="$PROJECT_DIR$/spritesheet.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/changes.txt" afterPath="$PROJECT_DIR$/changes.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/room_templates/r_type_4/t4_1" afterPath="$PROJECT_DIR$/room_templates/r_type_4/t4_1" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -168,11 +33,21 @@
       <file leaf-file-name="Main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
+            <state relative-caret-position="-270">
               <caret line="136" column="30" lean-forward="true" selection-start-line="136" selection-start-column="30" selection-end-line="136" selection-end-column="30" />
               <folding>
                 <element signature="e#339#352#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="changes.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/changes.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -230,8 +105,8 @@
       <file leaf-file-name="t4_1" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/room_templates/r_type_4/t4_1">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+            <state relative-caret-position="88">
+              <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -250,21 +125,11 @@
       <file leaf-file-name="Level.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Level.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1835">
+            <state relative-caret-position="2464">
               <caret line="139" column="0" lean-forward="true" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
               <folding>
                 <element signature="e#339#352#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="t2_1" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/room_templates/r_type_2/t2_1">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="19" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -308,12 +173,13 @@
         <option value="$PROJECT_DIR$/constants.py" />
         <option value="$PROJECT_DIR$/music.py" />
         <option value="$PROJECT_DIR$/room_templates/r_type_4/t2_0" />
-        <option value="$PROJECT_DIR$/room_templates/r_type_4/t4_1" />
         <option value="$PROJECT_DIR$/room_templates/r_type_4/t4_2" />
         <option value="$PROJECT_DIR$/room_templates/r_type_4/t4_3" />
         <option value="$PROJECT_DIR$/room_templates/r_type_4/t4_0" />
         <option value="$PROJECT_DIR$/Level.py" />
         <option value="$PROJECT_DIR$/Main.py" />
+        <option value="$PROJECT_DIR$/changes.txt" />
+        <option value="$PROJECT_DIR$/room_templates/r_type_4/t4_1" />
       </list>
     </option>
   </component>
@@ -375,24 +241,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="r_type_4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CS467-Draco-python-game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CS467-Draco-python-game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="room_templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="r_type_3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -757,6 +605,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="dfe8c979-4701-4d5f-b8a4-f514b896382b" name="Default" comment="" />
@@ -768,7 +619,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -802,14 +653,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/room_templates/r_type_1/t1_1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Player_movement/main.py" />
     <entry file="file://$PROJECT_DIR$/Room/room.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1115,14 +958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/room_templates/r_type_4/t4_1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/room_templates/r_type_4/t4_2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1163,6 +998,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/changes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/room_templates/r_type_4/t4_0">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -1171,9 +1014,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/room_templates/r_type_4/t4_1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Level.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1835">
+        <state relative-caret-position="2464">
           <caret line="139" column="0" lean-forward="true" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
           <folding>
             <element signature="e#339#352#0" expanded="true" />
@@ -1183,7 +1034,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
+        <state relative-caret-position="-270">
           <caret line="136" column="30" lean-forward="true" selection-start-line="136" selection-start-column="30" selection-end-line="136" selection-end-column="30" />
           <folding>
             <element signature="e#339#352#0" expanded="true" />
