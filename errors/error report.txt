@@ -1,3 +1,7 @@
 1/31/17 10:45 
 	Upon start of Level.py in Player_movement folder, player is inside of a single cell that is surrounded by other cells
 	Screenshot can be found in errors folder.
+
+2/2/17 8:25
+	Player started in room that could not be exited without our Spider-Man wall crawling ability.  Currently being able
+	to hold down z&x simultaneously allows for this Spider-Man ability.
