@@ -1,6 +1,3 @@
-
-
-
 2/3/17 8:02
   Image is attached.  I started at the point marked by the circle.
   With the changes to eliminate the Spider-Man crawling, I can now Superman jump tall builings in a single bound.
@@ -10,3 +7,9 @@
 2/3/17
   General observation:  When the up key is released, the player slides down to the end of the outstretched rope.
   I do not remember this being the case yesterday.
+
+2/3/17 15:27-15:29
+	Once in the second level, the rope attaches to empty cells and travels through filled ones.  The image from
+	15:27 shows the rope attaching to an empty area right above the player at the start of the level.  The image
+	from 15:28 shows that the rope has some pixels below the platform instead of to the platform.  The image from
+	15:29 shows the rope passing through a solid wall.
