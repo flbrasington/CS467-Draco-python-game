@@ -14,6 +14,7 @@ movement and actions.
 import pygame
 import constants
 import math
+import time
 
 class Rope(pygame.sprite.Sprite):
     #this class is for the rope that a player can shoot out to swing on objects
@@ -56,11 +57,33 @@ class Rope(pygame.sprite.Sprite):
         self.rope_change_x = 0
         self.rope_change_y = 0
         #rope_ex is for extending and retracting the rope.
-        #e is for extend, r is for retract
+            #e is for extend
+            #r is for retract
+            #n for not being used
         self.ex = 'e'
 
         #this variable stores all the platfroms that the user can anchor a rope to
         self.level = None
+
+        #this function is a cool down
+            #self.start_time is for the start of the cool down function
+            #self.end_time is for the current time in the cool down function
+            #self.cool_down_time is for the total time required before the player can use the rope again
+        self.start_time = 0
+        self.end_time = 0
+        self.cool_down_time = 1
+
+    def start_timer(self):
+        self.start_time = time.clock()
+
+    def end_timer(self):
+        self.end_time = time.clock()
+
+    def check_cool_down(self):
+        self.end_time = time.clock()
+        if self.end_time - self.start_time > self.cool_down_time:
+            return True
+        
 
     #this function allows the user to shoot a rope to be used for swinging & climbing
     def shoot_rope(self, player_x, player_y, player_width, player_height, direction):

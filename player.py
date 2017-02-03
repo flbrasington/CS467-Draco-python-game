@@ -16,6 +16,7 @@ import constants
 import math
 from rope import Rope
 from spritesheet import SpriteSheet
+import time
 
 CELL_HEIGHT = constants.SCREEN_HEIGHT / (constants.ROOM_HEIGHT * constants.ROOMS_ON_SCREEN)
 CELL_WIDTH = constants.SCREEN_WIDTH / (constants.ROOM_WIDTH * constants.ROOMS_ON_SCREEN)
@@ -62,8 +63,6 @@ class Player(pygame.sprite.Sprite):
         #the below two variables are for the jump heights
         self.walk_jump = 7
         self.run_jump = 10
-        #self.walk_jump = CELL_HEIGHT
-        #self.run_jump = CELL_HEIGHT
  
         # List of sprites we can bump against
         self.level = None
@@ -98,6 +97,8 @@ class Player(pygame.sprite.Sprite):
 
         sprite_sheet = SpriteSheet("Graphics/spelunkyGuyWalk.png")
 
+
+
         for i in range(0, 9):
             image = sprite_sheet.get_image(0+i*80, 0, 55, 68)
             self.walking_frames_r.append(image)
@@ -114,9 +115,17 @@ class Player(pygame.sprite.Sprite):
         # self.walking_frames_l.append(image)
 
         self.rect = self.image.get_rect()
+        self.jump_start_time = 0
+        self.jump_end_time = 0
+        self.can_double_jump = 'y'
+        #this is for the double jump
+        self.double_jump_count = 2
+        
         
     def update(self):
         #this updates the location of the anchor for the rope
+        if self.rope_object.ex == 'a':
+            self.double_jump_count = 2
         self.rope_object.update_rope()
         
         #this section recieves input from the user.
@@ -125,6 +134,22 @@ class Player(pygame.sprite.Sprite):
 
         pressed = pygame.key.get_pressed()
             
+
+        if pressed[pygame.K_f]:
+            self.double_jump()
+            #this detaches the anchors when the player jumps
+            if self.rope_object.ex == 'a':
+            #this starts the timer for the rope.
+                #the player will be able to use the rope again afer the cool_down time has expired
+                self.rope_object.start_timer()
+                    
+                #this allows the player to jump while attached to a rope
+                self.double_jump()
+                #this stops the player from sliding to the left or right after swinging on the rope
+                self.change_x = 0
+                #this returns the anchor to the space space
+                self.rope_object.change_extention_status()
+
 
         if pressed[pygame.K_LSHIFT]:
             self.walk_status = 'r'
@@ -140,6 +165,16 @@ class Player(pygame.sprite.Sprite):
                     self.change_x = -self.walk_speed
             self.direction = 'l'
 
+            #if the player is hanging on to the rope
+            """
+            if self.rope_object.ex == 'a':
+                distance = self.rope_distance()
+                print (distance)
+                if distance < (self.rope_object.rope_length - 100):
+                    self.change_x -= self.walk_speed
+                    self.calc_grav()
+            """
+
             if  self.can_jump == 'y':
                 self.frame = (self.frame + 1) % len(self.walking_frames_l)
                 self.image = self.walking_frames_l[self.frame]
@@ -153,6 +188,17 @@ class Player(pygame.sprite.Sprite):
                     self.change_x = self.run_speed
                 if self.walk_status == 'w':
                     self.change_x = self.walk_speed
+
+            """
+            #if the player is hanging on to the rope
+            if self.rope_object.ex == 'a':
+                distance = self.rope_distance()
+                print (distance)
+                if distance < (self.rope_object.rope_length - 100):
+                    self.change_x += self.walk_speed
+                    self.calc_grav()
+            """
+
             self.direction = 'r'
 
             if self.can_jump == 'y':
@@ -190,6 +236,10 @@ class Player(pygame.sprite.Sprite):
                     self.jump()
                 #this detaches the anchors when the player jumps
                 if self.rope_object.ex == 'a':
+                    #this starts the timer for the rope.
+                        #the player will be able to use the rope again afer the cool_down time has expired
+                    self.rope_object.start_timer()
+                    
                     #this allows the player to jump while attached to a rope
                     self.jump()
                     #this stops the player from sliding to the left or right after swinging on the rope
@@ -197,9 +247,15 @@ class Player(pygame.sprite.Sprite):
                     #this returns the anchor to the space space
                     self.rope_object.change_extention_status()
 
-
+        #the x button is used for the following
+            #when the player is touching the ground
+                #shoots the rope if the rope timer is is valid
+            #when hanging from the rope
+                #no effect
         if pressed[pygame.K_x]:
-            self.rope_object.shoot_rope(self.rect.x, self.rect.y, self.width, self.height, self.direction)
+            can_shoot_rope = self.rope_object.check_cool_down()
+            if can_shoot_rope == True:
+                self.rope_object.shoot_rope(self.rect.x, self.rect.y, self.width, self.height, self.direction)
         else:
             if self.rope_object.ex != 'n':
                 self.rope_object.recall_rope(self.rect.x, self.rect.y, self.width, self.height)
@@ -226,10 +282,15 @@ class Player(pygame.sprite.Sprite):
         """ Move the player. """
         # Gravity
         #this moves the player down if the player isn't attached to a rope
-        if self.rope_object.ex != 'a':
-            self.calc_grav()
+        self.calc_grav()
  
         # Move left/right
+        #this makes sure that change_x doesn't get too great else the player can fly around the screen
+        if abs(self.change_x) > 10:
+            if self.change_x < 0:
+                self.change_x = -10
+            elif self.change_x > 0:
+                self.change_x = 10
         self.rect.x += self.change_x
  
         # See if we hit anything
@@ -256,6 +317,7 @@ class Player(pygame.sprite.Sprite):
             # Reset our position based on the top/bottom of the object.
             if self.change_y > 0:
                 self.rect.bottom = block.rect.top
+                self.double_jump_count = 2
                 self.can_jump = 'y'
                 self.stop_jump = 'y'
             elif self.change_y < 0:
@@ -263,19 +325,38 @@ class Player(pygame.sprite.Sprite):
  
             # Stop our vertical movement
             self.change_y = 0
- 
+
     def calc_grav(self):
         """ Calculate effect of gravity. """
-        if self.change_y == 0:
-            self.change_y = 1
-        else:
-            self.change_y += .35
-            #self.change_y += 1.8
- 
+        if self.rope_object.ex == 'n':
+            if self.change_y == 0:
+                self.change_y = 1
+            else:
+                self.change_y += .35
+                #self.change_y += 1.8
+        elif self.rope_object.ex == 'a':
+            distance = self.rope_distance()
+            if distance < self.rope_object.rope_length - 100:
+                if self.change_y == 0:
+                    self.change_y = 1
+                else:
+                    self.change_y += .35
+            else:
+                #This stops the player from falling down too far
+                if self.change_y > 0:
+                    self.change_y = 0
+                
+     
         # See if we are on the ground.
         if self.rect.y >= constants.SCREEN_HEIGHT - self.rect.height and self.change_y >= 0:
             self.change_y = 0
             self.rect.y = constants.SCREEN_HEIGHT - self.rect.height
+
+
+    #this function calculates the distance between the player and the rope
+    def rope_distance(self):
+        return math.sqrt((self.rect.y - self.rope_object.rect.y)**2 + (self.rect.x - self.rope_object.rect.x)**2)
+        
  
     def jump(self):
         """ Called when user hits 'jump' button. """
@@ -338,6 +419,34 @@ class Player(pygame.sprite.Sprite):
             if self.rect.x + self.change_x < self.rope_object.rect.x:
                 self.change_x += self.swing_speed_slowdown
 
+
+    def double_jump(self):
+        """ Called when user hits 'double jump' button. """
+        if self.double_jump_count > 0:
+            if self.can_double_jump == 'y':
+                self.jump_start_time = time.clock()
+                self.can_double_jump = 'n'
+                self.double_jump_count -= 1
+            
+                # move down a bit and see if there is a platform below us.
+                # Move down 2 pixels because it doesn't work well if we only move down
+                # 1 when working with a platform moving down.
+                self.rect.y += 2
+                platform_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+                self.rect.y -= 2
+
+                self.change_y -= self.walk_jump
+
+
+            elif self.can_double_jump == 'n':
+                if self.double_jump_timer() > .33:
+                    self.can_double_jump = 'y'
+                
+
+    #this function is used to delayed te double jump for the player
+    def double_jump_timer(self):
+        self.end_time = time.clock()
+        return self.end_time - self.jump_start_time
 
 
             
