@@ -87,6 +87,7 @@ class Level:
         # -----CONSTRUCTOR VARIABLES FOR SPRITES AND ROOM GENERATION----#
         self.platform_list = pygame.sprite.Group()
         self.enemy_list = pygame.sprite.Group()
+        self.exit_sprite = pygame.sprite.Group()
         self.blocks_per_room_x = constants.ROOM_WIDTH
         self.blocks_per_room_y = constants.ROOM_HEIGHT
         self.block_width = self.room_side_length_x / self.blocks_per_room_x
@@ -244,23 +245,29 @@ class Level:
                         block.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                         block.player = self.player
                         self.platform_list.add(block)
+                    #if cell is a 5 then add a probability block in the air
                     elif rooms[pos][y][x] is 5:
                         prob_block_5_list.append([pos, y, x])
+                    #if cell is a 6 then add a probabiliy block on the ground
                     elif rooms[pos][y][x] is 6:
                         prob_block_6_list.append([pos, y, x])
                     # this is the starting and ending points of the level
                     elif rooms[pos][y][x] is 7:
-                        # exit of the game
+                        # exit of the game on the top row of the level
                         if pos // 5 is 0:
-                            self.exit_coords['x'] = self.block_width + (
-                                                                           pos % 5) * self.room_side_length_x + x * self.block_width
-                            self.exit_coords['y'] = self.block_height + (
-                                                                            pos // 5) * self.room_side_length_y + y * self.block_height
+                            #calculate coordinates of the exit
+                            self.exit_coords['x'] = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                            self.exit_coords['y'] = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                            exit = exit_door_sprite(self.block_width, self.block_height)
+                            exit.rect.x = self.exit_coords['x']
+                            exit.rect.y = self.exit_coords['y']
+                            exit.player = self.player
+                            self.exit_sprite.add(exit)
+                        #entance of the game on the bottom row of the level
                         elif pos // 5 is 4:
-                            self.entrance_coords['x'] = self.block_width + (
-                                                                               pos % 5) * self.room_side_length_x + x * self.block_width
-                            self.entrance_coords['y'] = self.block_height + (
-                                                                                pos // 5) * self.room_side_length_y + y * self.block_height
+                            #calculate coordinates of the entrance
+                            self.entrance_coords['x'] = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                            self.entrance_coords['y'] = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
         # fill probability blocks depending on if it is a floor block (6) or a block in the air (5)
         # second parameter is used to import the correct block template
         self.fill_prob_block(prob_block_5_list, 5)
@@ -352,6 +359,9 @@ class Level:
         for enemy in self.enemy_list:
             enemy.rect.x += shift_x
 
+        for exit_door in self.exit_sprite:
+            exit_door.rect.x += shift_x
+
         # this shifts the rope_object as needed
         self.player.rope_object.rect.x += shift_x
         self.player.rope_object.rope_end_x += shift_x
@@ -370,6 +380,9 @@ class Level:
         for enemy in self.enemy_list:
             enemy.rect.y += shift_y
 
+        for exit_door in self.exit_sprite:
+            exit_door.rect.y += shift_y
+
         # this shifts the rope_object as needed
         self.player.rope_object.rect.y += shift_y
         self.player.rope_object.rope_end_y += shift_y
@@ -379,6 +392,7 @@ class Level:
         """ Update everything in this level."""
         self.platform_list.update()
         self.enemy_list.update()
+        self.exit_sprite.update()
 
     def draw(self, screen):
         """ Draw everything on this level. """
@@ -390,6 +404,7 @@ class Level:
         # Draw all the sprite lists that we have
         self.platform_list.draw(screen)
         self.enemy_list.draw(screen)
+        self.exit_sprite.draw(screen)
 
 
 class Platform(pygame.sprite.Sprite):
@@ -409,4 +424,17 @@ class Platform(pygame.sprite.Sprite):
             self.image.fill(constants.GREEN)
             self.image.blit(constants.TILEDICT['tundra center'], constants.TILEDICT['tundra center'].get_rect())
 
+        self.rect = self.image.get_rect()
+
+class exit_door_sprite(pygame.sprite.Sprite):
+    """ The exit sprite for the level """
+
+    def __init__(self, width, height):
+        """ Creates a sprite that, when the player collides with it, will
+            prompt the user to exit. """
+
+        super().__init__()
+
+        self.image = pygame.Surface([width, height])
+        self.image.fill(constants.BLUE)
         self.rect = self.image.get_rect()

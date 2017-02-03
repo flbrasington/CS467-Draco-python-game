@@ -45,6 +45,9 @@ class Player(pygame.sprite.Sprite):
 
         self.width = width
         self.height = height
+
+        #check if player has reached the exit
+        self.exit_level = 'n'
         
         # Set a referance to the image rect.
         # self.rect = self.image.get_rect()
@@ -327,6 +330,13 @@ class Player(pygame.sprite.Sprite):
  
             # Stop our vertical movement
             self.change_y = 0
+
+        #check if we are at the exit for the level
+        block_hit_list = pygame.sprite.spritecollide(self, self.level.exit_sprite, False)
+        for block in block_hit_list:
+            if pressed[pygame.K_UP]:
+                self.exit_level = 'y'
+
 
     def calc_grav(self):
         """ Calculate effect of gravity. """

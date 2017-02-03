@@ -9,3 +9,19 @@ point in the level.
 -player.py & rope.py
 Added in timer function. Now the player has to wait 1 sec (rope.py self.cool_down_time & check_cool_down())
 This was added to avoid the player spamming the rope and jump button to 'fly' thru the levels
+
+2/3/2017
+-level.py
+added a sprite group (not sure if a group is necessary since it is just one block) for the exit door to the room along
+with all the necessary world shifting to make it stay in the right place
+
+-player.py
+added a collide check to see if the player is touching the exit sprite, if they are and the player presses up with
+advance to the next level or exit the game if it is the last level.  Also added a variable that checks if 'up' was
+pressed to exit the level so that the Main.py can check to see if that was requested and either move to the next level
+or exit the game
+
+-Main.py
+added a check to see if the player was trying to move onto the next level based on the 'exit_level' variable added to
+player.py.  Levels must be pre-loaded and added to the level_list like it was done on line 91-92.  This can be changed
+to a for loop later depending on how many levels we want to do

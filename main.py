@@ -89,6 +89,7 @@ def main():
     # this bit create's the level for the program
     level_list = []
     level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
+    level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
 
     # set the current level
     current_level_no = 0
@@ -154,6 +155,16 @@ def main():
             diff = 150 - p.rect.top
             p.rect.top = 150
             current_level.shift_world_y(diff)
+
+        if p.exit_level == 'y':
+            if current_level_no < len(level_list) - 1:
+                current_level_no += 1
+                current_level = level_list[current_level_no]
+                p.level = current_level
+                p.exit_level = 'n'
+            else:
+                pygame.quit()
+                quit()
 
         active_sprite_list.draw(screen)
         # p.update()
