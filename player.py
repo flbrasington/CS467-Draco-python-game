@@ -92,27 +92,27 @@ class Player(pygame.sprite.Sprite):
 
         #arrays that will hold images of sprite used for movement
         #l = left-facing and r = right-facing
-        self.walking_frames_l = []
-        self.walking_frames_r = []
+        self.walking_frames_left = []
+        self.walking_frames_right = []
+        self.climbing_frames_up = []
+        self.climbing_frames_down = []
 
-        sprite_sheet = SpriteSheet("Graphics/spelunkyGuyWalk.png")
-
-
-
-        for i in range(0, 9):
-            image = sprite_sheet.get_image(0+i*80, 0, 55, 68)
-            self.walking_frames_r.append(image)
-
-        for i in range(0, 9):
-            image = sprite_sheet.get_image(0+i*80, 0, 55, 68)
+        for i in range(1,10):
+            filename = 'Graphics/spelunkyGuyWalk' + str(i) + '.png'
+            image = pygame.image.load(filename)
+            self.walking_frames_right.append(image)
             image = pygame.transform.flip(image, True, False)
-            self.walking_frames_l.append(image)
+            self.walking_frames_left.append(image)
 
-        self.image = self.walking_frames_r[0]
+        for i in range(1,11):
+            filename = 'Graphics/spelunkyGuyClimb' + str(i) + '.png'
+            image = pygame.image.load(filename)
+            self.climbing_frames_up.append(image)
+            self.climbing_frames_down.append(image)
 
-        # image = sprite_sheet.get_image(92, 8, 55, 63)
-        # image = pygame.transform.flip(image, True, False)
-        # self.walking_frames_l.append(image)
+        self.climbing_frames_down.reverse()
+
+        self.image = self.walking_frames_right[0]
 
         self.rect = self.image.get_rect()
         self.jump_start_time = 0
@@ -176,10 +176,10 @@ class Player(pygame.sprite.Sprite):
             """
 
             if  self.can_jump == 'y':
-                self.frame = (self.frame + 1) % len(self.walking_frames_l)
-                self.image = self.walking_frames_l[self.frame]
+                self.frame = (self.frame + 1) % len(self.walking_frames_left)
+                self.image = self.walking_frames_left[self.frame]
             else:
-                self.image = self.walking_frames_l[0]
+                self.image = self.walking_frames_left[0]
 
         if pressed[pygame.K_RIGHT]:
             #if the player isn't hanging on to a rope
@@ -202,10 +202,10 @@ class Player(pygame.sprite.Sprite):
             self.direction = 'r'
 
             if self.can_jump == 'y':
-                self.frame = (self.frame + 1) % len(self.walking_frames_r)
-                self.image = self.walking_frames_r[self.frame]
+                self.frame = (self.frame + 1) % len(self.walking_frames_right)
+                self.image = self.walking_frames_right[self.frame]
             else:
-                self.image = self.walking_frames_r[0]
+                self.image = self.walking_frames_right[0]
 
         #the UP arrow keys does the following:
             #if the player is holding on to the rope the player can climb up the rope to the rope's anchor
@@ -217,6 +217,8 @@ class Player(pygame.sprite.Sprite):
                     self.change_y = -self.walk_speed
                 else:
                     self.change_y = 0
+                self.frame = (self.frame + 1) % len(self.climbing_frames_up)
+                self.image = self.climbing_frames_up[self.frame]
 
         #the DOWN arrow Key does the following:
             #if the player is holding on to the rope the player can climb down the rope
