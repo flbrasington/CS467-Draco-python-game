@@ -5,3 +5,7 @@ All of the classes are in the "home" directory and the program is running on Mai
 an entry and exit point in each level.  This involved creating a new category of room templates where 7 is the entry/exit
 point for the player.  The exit does not work yet.  I also fixed a weird bug that was making the rope start at a weird
 point in the level.
+
+-player.py & rope.py
+Added in timer function. Now the player has to wait 1 sec (rope.py self.cool_down_time & check_cool_down())
+This was added to avoid the player spamming the rope and jump button to 'fly' thru the levels
