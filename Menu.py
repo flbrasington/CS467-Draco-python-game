@@ -53,10 +53,12 @@ def text_objects(text, font, x, y, screen, mouse, click, action, music=None):
     screen.blit(label, (x+5,y+height/3))
                      
 #this function stores all the actions that a player can take on the menu screen
-    #q is for quit program
-    #n_s: Next Song
-    #p_s: previous Song
-    #r  : return to game
+    #q   : Quit program
+    #n_s : Next Song
+    #p_s : previous Song
+    #r   : return to game
+    #MV_D: music volume down
+    #MV_U: music volume up
 def menu_action(action, music=None):
     #list of possible actions
     if action == 'q':
@@ -70,6 +72,10 @@ def menu_action(action, music=None):
         music.prev_song()
     if action == 'r':
         music.pause = False
+    if action == 'MV_D':
+        music.music_volume_down()
+    if action == 'MV_U':
+        music.music_volume_up()
         
 
 def game_menu(gamemusic):
@@ -99,9 +105,13 @@ def game_menu(gamemusic):
 
         #this is for returning to the game
         text_objects("Return to Game", myFont, 450, 450, screen, mouse, click, 'r', gamemusic)
-        print("$$$$$$$$$$$$$")
-        print(pause)
-        print("$$$$$$$$$$$$$")
+
+        #this sets the music volume up
+        text_objects("Music Volume++", myFont, 450, 550, screen, mouse, click, 'MV_U', gamemusic)
+
+        #this sets the music volume down
+        text_objects("Music Volume--", myFont, 450, 650, screen, mouse, click, 'MV_D', gamemusic)
+
 
         
         #this allows the player to exit the paused menu via the keyboard

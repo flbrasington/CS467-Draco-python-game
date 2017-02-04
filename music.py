@@ -32,8 +32,11 @@ class Game_Music:
         #the variable stores the current location in the list
         self.current_song = 0
 
+        #set the music's volume to 50%
+        self.music_volume = 0.2
+
     def play_music(self):
-        pygame.mixer.music.play(self.current_song)
+        pygame.mixer.music.play(-1)
 
     def next_song(self):
         pygame.mixer.music.stop()
@@ -65,4 +68,14 @@ class Game_Music:
 
     def unpause_music(self):
         pygame.mixer.music.unpause()
+
+    def music_volume_up(self):
+        if self.music_volume < 1:
+            self.music_volume += .1
+            pygame.mixer.music.set_volume(self.music_volume)
+
+    def music_volume_down(self):
+        if self.music_volume > 0:
+            self.music_volume = 0.1
+            pygame.mixer.music.set_volume(self.music_volume)
 

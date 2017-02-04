@@ -17,6 +17,7 @@ import math
 from rope import Rope
 from spritesheet import SpriteSheet
 import time
+import sound_effects
 
 CELL_HEIGHT = constants.SCREEN_HEIGHT / (constants.ROOM_HEIGHT * constants.ROOMS_ON_SCREEN)
 CELL_WIDTH = constants.SCREEN_WIDTH / (constants.ROOM_WIDTH * constants.ROOMS_ON_SCREEN)
@@ -32,6 +33,10 @@ class Player(pygame.sprite.Sprite):
  
         # Call the parent's constructor
         super().__init__()
+
+        
+        #this loads all the sound effects & sound effect functions for the game
+        self.soundEffects = sound_effects.Player_Sound_Effects()
 
 
         # Create an image of the block, and fill it with a color.
@@ -49,8 +54,6 @@ class Player(pygame.sprite.Sprite):
         #check if player has reached the exit
         self.exit_level = 'n'
         
-        # Set a referance to the image rect.
-        # self.rect = self.image.get_rect()
  
         # Set speed vector of player
         self.change_x = 0
@@ -160,6 +163,7 @@ class Player(pygame.sprite.Sprite):
             self.walk_status = 'w'
 
         if pressed[pygame.K_LEFT]:
+            
             #if the player isn't hanging on to a rope
             if self.rope_object.ex != 'a':
                 if self.walk_status == 'r':
@@ -168,23 +172,21 @@ class Player(pygame.sprite.Sprite):
                     self.change_x = -self.walk_speed
             self.direction = 'l'
 
-            #if the player is hanging on to the rope
-            """
-            if self.rope_object.ex == 'a':
-                distance = self.rope_distance()
-                print (distance)
-                if distance < (self.rope_object.rope_length - 100):
-                    self.change_x -= self.walk_speed
-                    self.calc_grav()
-            """
-
             if  self.can_jump == 'y':
                 self.frame = (self.frame + 1) % len(self.walking_frames_left)
                 self.image = self.walking_frames_left[self.frame]
+                #this plays the sound effect for walking
+                if self.walk_status == 'w':
+                    self.soundEffects.player_walking_sound()
+                else:
+                    #plays the player's running sound effect
+                    self.soundEffects.player_running_sound()
             else:
                 self.image = self.walking_frames_left[0]
 
         if pressed[pygame.K_RIGHT]:
+            
+            
             #if the player isn't hanging on to a rope
             if self.rope_object.ex != 'a':
                 if self.walk_status == 'r':
@@ -192,21 +194,17 @@ class Player(pygame.sprite.Sprite):
                 if self.walk_status == 'w':
                     self.change_x = self.walk_speed
 
-            """
-            #if the player is hanging on to the rope
-            if self.rope_object.ex == 'a':
-                distance = self.rope_distance()
-                print (distance)
-                if distance < (self.rope_object.rope_length - 100):
-                    self.change_x += self.walk_speed
-                    self.calc_grav()
-            """
-
             self.direction = 'r'
 
             if self.can_jump == 'y':
                 self.frame = (self.frame + 1) % len(self.walking_frames_right)
                 self.image = self.walking_frames_right[self.frame]
+                #this plays the sound effect for walking
+                if self.walk_status == 'w':
+                    self.soundEffects.player_walking_sound()
+                else:
+                    #plays the player's running sound effect
+                    self.soundEffects.player_running_sound()
             else:
                 self.image = self.walking_frames_right[0]
 
@@ -268,8 +266,10 @@ class Player(pygame.sprite.Sprite):
         for event in pygame.event.get():
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT:
+                    self.soundEffects.player_sounds_stop()#stops the player's walk/run sound effect
                     self.change_x = 0
                 if event.key == pygame.K_RIGHT:
+                    self.soundEffects.player_sounds_stop()#stops the player's walk/run sound effect
                     self.change_x = 0
                 if event.key == pygame.K_UP:
                     if self.rope_object.ex == 'a':

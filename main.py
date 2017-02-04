@@ -17,6 +17,7 @@ import random
 import constants
 import player
 import music
+import sound_effects
 import Menu
 import Level
 
@@ -86,6 +87,7 @@ def main():
     #this loads all the music & music function for the game
     gamemusic = music.Game_Music()
 
+
     # this bit create's the level for the program
     level_list = []
     level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
@@ -110,6 +112,8 @@ def main():
 
     #this plays the music for the game
     gamemusic.load_music()
+    #this sets the music for the game
+    gamemusic.music_volume_up()
     #this plays the music
     gamemusic.play_music()
         
