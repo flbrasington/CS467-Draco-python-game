@@ -29,3 +29,9 @@
   File "C:\...\CS467-Draco-python-game\Level.py", line 241, in create_room
     if rooms[pos][y][x] is 1:
   IndexError: list index out of range
+
+  2/3/17 15:27-15:29
+	Once in the second level, the rope attaches to empty cells and travels through filled ones.  The image from
+	15:27 shows the rope attaching to an empty area right above the player at the start of the level.  The image
+	from 15:28 shows that the rope has some pixels below the platform instead of to the platform.  The image from
+	15:29 shows the rope passing through a solid wall.

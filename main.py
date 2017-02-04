@@ -161,6 +161,7 @@ def main():
                 current_level_no += 1
                 current_level = level_list[current_level_no]
                 p.level = current_level
+                p.rope_object.level = current_level
                 p.exit_level = 'n'
             else:
                 pygame.quit()
