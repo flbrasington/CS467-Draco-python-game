@@ -53,7 +53,6 @@ class Player(pygame.sprite.Sprite):
 
         #check if player has reached the exit
         self.exit_level = 'n'
-        
  
         # Set speed vector of player
         self.change_x = 0
@@ -128,7 +127,7 @@ class Player(pygame.sprite.Sprite):
         self.double_jump_count = 2
         
         
-    def update(self):
+    def update(self, player=None):
         #this updates the location of the anchor for the rope
         if self.rope_object.ex == 'a':
             self.double_jump_count = 2
@@ -175,6 +174,8 @@ class Player(pygame.sprite.Sprite):
             if  self.can_jump == 'y':
                 self.frame = (self.frame + 1) % len(self.walking_frames_left)
                 self.image = self.walking_frames_left[self.frame]
+                if self.frame > len(self.walking_frames_right):
+                    self.frame = 0
                 #this plays the sound effect for walking
                 if self.walk_status == 'w':
                     self.soundEffects.player_walking_sound()
@@ -199,6 +200,8 @@ class Player(pygame.sprite.Sprite):
             if self.can_jump == 'y':
                 self.frame = (self.frame + 1) % len(self.walking_frames_right)
                 self.image = self.walking_frames_right[self.frame]
+                if self.frame > len(self.walking_frames_right):
+                    self.frame = 0
                 #this plays the sound effect for walking
                 if self.walk_status == 'w':
                     self.soundEffects.player_walking_sound()
@@ -219,6 +222,8 @@ class Player(pygame.sprite.Sprite):
                 else:
                     self.change_y = 0
                 self.frame = (self.frame + 1) % len(self.climbing_frames_up)
+                if self.frame > len(self.climbing_frames_up):
+                    self.frame = 0
                 self.image = self.climbing_frames_up[self.frame]
 
         #the DOWN arrow Key does the following:
@@ -228,7 +233,6 @@ class Player(pygame.sprite.Sprite):
             if self.rope_object.ex == 'a':
                 #the player can't climb lower than the rope's length
                 if (self.rect.y - self.rope_object.rect.y) < self.rope_object.rope_length/3:
-                    print((self.rect.y - self.rope_object.rect.y))
                     self.change_y = self.walk_speed
                 else:
                     self.change_y = 0 

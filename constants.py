@@ -66,3 +66,6 @@ TILEDICT = {'ice block': pygame.image.load('Graphics/iceBlock.png'),
 MENU_FONT = pygame.font.SysFont('freesansbold.ttf', 30)
 BUTTON_WIDTH = 125
 BUTTON_HEIGHT = 100
+
+#Detection distance for enemies
+DETECTION_DISTANCE = 600

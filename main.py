@@ -20,6 +20,7 @@ import music
 import sound_effects
 import Menu
 import Level
+import enemies
 
 FPS = constants.fps
 
@@ -82,7 +83,7 @@ def main():
     clock = pygame.time.Clock()
 
     # this bit of code sets up the players for the game
-    p = player.Player()
+    p = player.Player()    
 
     #this loads all the music & music function for the game
     gamemusic = music.Game_Music()
@@ -102,9 +103,47 @@ def main():
     p.rope_object.level = current_level
     p.rect.x = current_level.entrance_coords['x']
     p.rect.y = current_level.entrance_coords['y']
+
     active_sprite_list = pygame.sprite.Group()
     active_sprite_list.add(p)
     active_sprite_list.add(p.rope_object)
+
+
+    #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    #$$$ This is for testing for enemies $$$
+    #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+    #$$$$$$$$$$$$$$$$$$$$$
+    #$$$ GHOST TESTING $$$
+    #$$$$$$$$$$$$$$$$$$$$$
+    g1 = enemies.ghost()
+    g2 = enemies.ghost()
+    g1.rect.x = 300
+    g1.rect.y = 300
+    g2.rect.x = 500
+    g2.rect.y = 500
+
+    #$$$$$$$$$$$$$$$$$$$$$$$$
+    #$$$ Snow Man Testing $$$
+    #$$$$$$$$$$$$$$$$$$$$$$$$
+    sm1 = enemies.SnowMan()
+    sm1.rect.x = 400
+    sm1.rect.y = 100
+
+    #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    #$$$ This sets up all the enemies in a list $$$
+    #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    enemy_sprite_list = pygame.sprite.Group()
+    enemy_sprite_list.add(g1)
+    enemy_sprite_list.add(g2)
+    enemy_sprite_list.add(sm1)
+    #adds the platforms to the enemies
+    for i in enemy_sprite_list:
+        i.level = current_level
+    active_sprite_list.add(enemy_sprite_list)
+    #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    #$$$ This is for testing for enemies $$$
+    #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
     # this is the heart of the main program.
     # currently the program runs on a loop until the python sheet is closed.
@@ -133,7 +172,7 @@ def main():
         # this updates the the display
         screen.fill(constants.WHITE)
         current_level.draw(screen)
-        active_sprite_list.update()
+        active_sprite_list.update(p)
 
         # If the player gets near the right side, shift the world left (-x)
 
@@ -141,24 +180,32 @@ def main():
             diff = p.rect.right - 500
             p.rect.right = 500
             current_level.shift_world_x(-diff)
+            for enemy in enemy_sprite_list:
+                enemy.rect.x -= diff
 
         # If the player gets near the left side, shift the world right (+x)
         if p.rect.left <= 300:
             diff = 300 - p.rect.left
             p.rect.left = 300
             current_level.shift_world_x(diff)
+            for enemy in enemy_sprite_list:
+                enemy.rect.x += diff
 
         # If the player gets near the bottom, shift the world up (-x)
         if p.rect.bottom >= 550:
             diff = p.rect.bottom - 550
             p.rect.bottom = 550
             current_level.shift_world_y(-diff)
+            for enemy in enemy_sprite_list:
+                enemy.rect.y -= diff
 
         # If the player gets near the top, shift the world down (+x)
         if p.rect.top <= 150:
             diff = 150 - p.rect.top
             p.rect.top = 150
             current_level.shift_world_y(diff)
+            for enemy in enemy_sprite_list:
+                enemy.rect.y += diff
 
         if p.exit_level == 'y':
             if current_level_no < len(level_list) - 1:
