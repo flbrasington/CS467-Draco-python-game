@@ -130,13 +130,22 @@ def main():
     sm1.rect.x = 400
     sm1.rect.y = 100
 
+    #$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    #$$$ Green Snake Testing $$$
+    #$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    s1 = enemies.green_snake()
+    s1.rect.x = p.rect.x
+    s1.rect.y = p.rect.y
+
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     #$$$ This sets up all the enemies in a list $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     enemy_sprite_list = pygame.sprite.Group()
-    enemy_sprite_list.add(g1)
-    enemy_sprite_list.add(g2)
-    enemy_sprite_list.add(sm1)
+    #enemy_sprite_list.add(g1)
+    #enemy_sprite_list.add(g2)
+    #enemy_sprite_list.add(sm1)
+    enemy_sprite_list.add(s1)
+
     #adds the platforms to the enemies
     for i in enemy_sprite_list:
         i.level = current_level

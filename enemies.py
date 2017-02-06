@@ -15,13 +15,15 @@ import sound_effects
 import math
 import time
 
-#$$$$$$$$$$$$$$$$$$$$$$
-#$$$ MONSTER LIST   $$$
-#$$$ ctrl-f to find $$$
-#$$$ GHOST - AAA1   $$$
-#$$$ Snowman -BBB1  $$$
-#$$$ SnowBall -CCC1 $$$
-#$$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$$$
+#$$$ MONSTER LIST    $$$
+#$$$ ctrl-f to find  $$$
+#$$$ GHOST - AAA1    $$$
+#$$$ Snowman -BBB1   $$$
+#$$$ SnowBall -CCC1  $$$
+#$$$ Greensnake-DDD1 $$$
+#$$$ Bluesnake-EEE1  $$$
+#$$$$$$$$$$$$$$$$$$$$$$$
 
 #this is for the ghost class of bad guy
 #AA1
@@ -399,8 +401,205 @@ class SnowBall(pygame.sprite.Sprite):
         self.level = objects
 
         
+#this is the code for the smiple green snake. The green snake moves left and right
+#and will attack the player if the player gets too close
+#EEE1
+class green_snake(pygame.sprite.Sprite):
+
+    def __init__(self):
+        super().__init__()
+
+        #this loads all the images for the snake
+        #arrays for the left/right walk &
+        #left/right attack
+        self.walking_frames_left = []
+        self.walking_frames_right = []
+        self.attacking_frames_left = []
+        self.attacking_frames_right = []
+
+        #loads the walking frames
+        for i in range(1,12):
+            filename = 'Graphics/Snake/Snake_walk_' + str(i) + '.png'
+            image = pygame.image.load(filename)
+            for j in range(1,5):
+                self.walking_frames_right.append(image)
+            image = pygame.transform.flip(image, True, False)
+            for k in range(1,5):
+                self.walking_frames_left.append(image)
+
+        #loads the attack frames
+        for i in range(1,9):
+            filename = 'Graphics/Snake/Snake_attack_' + str(i) + '.png'
+            image = pygame.image.load(filename)
+            for j in range(1,5):
+                self.attacking_frames_right.append(image)
+            image = pygame.transform.flip(image, True, False)
+            for k in range(1,5):
+                self.attacking_frames_left.append(image)
+
+        #this loads the distance that the snake will detect the player
+        #and begin to move around
+        self.detection_distance = constants.DETECTION_DISTANCE
+
+        #this varaible is used to have the snake attack the player.
+        #if the player is closer than this distance the snake will attack
+        self.attack_distance = 100
+
+        #this sets the snake's speed
+        self.speed_x = 2
+        self.change_x = 0
+        self.change_y = 0
+
+        #this sets the direction of the snake
+        self.direction = 'r'
+
+        #this sets the current frame for the animations
+        self.frame = 0
+
+        #this loads all the sprites that the snake can bump into
+        self.level = None
+
+        #this sets the snake's image
+        self.image = self.walking_frames_right[self.frame]
+
+        #this get's the snakes' rect
+        self.rect = self.image.get_rect()
+
+        #this stores if the snake is attacking or 'walking'
+            #w: walking
+            #a: attacking
+        self.action = 'w'
+
+        #this is used to see if the snake needs to fall.
+        #the snake shouldn't fall. The snake should move left/right
+        #if there is no platform under te snake the snake should turn around
+        #this variable is used in the move function
+            #y: TURN AROUND
+            #n: DON'T TURN AROUND
+        self.turn_around = 'y'
+
+        #this sets the snake to fall if needed
+        self.fall = 'y'
+
+    #this function updates the snakes' action
+    def update(self, player=None):
+        #if the player is within the detection distance then the snake will move around
+        if self.detect_player(player) == True:
+            if self.attack_range(player) == True:
+                self.attack()
+            else:
+                self.move()
+
+        self.rect.x += self.change_x
+        if self.fall == 'y':
+            self.rect.y += self.change_y
+
+    #this checks if the player is within the snake's detection range
+    def detect_player(self, player=None):
+        #calculates the distance to the player
+        distance = abs((player.rect.x - self.rect.x)**2 + (player.rect.y - self.rect.y)**2)
+        distance = math.sqrt(distance)
+        #if the player is within the detection distance return true
+        if distance < self.detection_distance:
+            return True
+        else:
+            return False
+
+    #this checks if the player is within the snake's attack range
+    def attack_range(self, player=None):
+        #calculates the distance to the player
+        distance = abs((player.rect.x - self.rect.x)**2 + (player.rect.y - self.rect.y)**2)
+        distance = math.sqrt(distance)
+        #if the player is within the detection distance return true
+        if distance < self.attack_distance:
+            if player.rect.x < self.rect.x:
+                self.direction = 'l'
+            else:
+                self.direction = 'r'
+            return True
+        else:
+            return False
+
+    #this makes the snake attack
+    def attack(self):
+        print("attack")
+
+    #this moves the snake around
+    def move(self):
+        #this switches the attacking to the moving
+        if self.action != 'w':
+            self.frame = 0
+            self.action = 'w'
+        #moves the snake in the direction the snake is moving
+        if self.direction == 'l':
+            self.change_x = -self.speed_x
+            self.frame = (self.frame + 1) % len(self.walking_frames_left)
+            self.image = self.walking_frames_left[self.frame]
+            if self.frame > len(self.walking_frames_left):
+                self.frame = 0
+        else:
+            self.change_x = self.speed_x
+            self.frame = (self.frame + 1) % len(self.walking_frames_right)
+            self.image = self.walking_frames_right[self.frame]
+            if self.frame > len(self.walking_frames_right):
+                self.frame = 0
+
+        #this checks to see if the snake has hit anything left/right
+        block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+        for block in block_hit_list:
+            #if the snake is moving to the right
+            if self.change_x > 0:
+                self.rect.right = block.rect.left
+                self.direction = 'l'
+                self.rect.x -= 3
+            elif self.change_x < 0:
+                self.rect.left = block.rect.right
+                self.direction = 'r'
+                self.rect.x += 3
+
+        """
+        #this checks to see if the snake needs to turn around because of the platform
+        self.turn_around = 'y'
+        block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+        for block in block_hit_list:
+            self.turn_around = 'n'
+            #resets the position based on the top/bottom of the object
+            if self.change_y > 0:
+                self.rect.bottom = block.rect.top
+                self.fall = 'n'
+            elif self.change_y < 0:
+                self.rect.top = block.rect.bottom
+
+            #stops the vertical movement
+            self.change_y = 0
+        
+        #turns the snake around is needed
+        if self.turn_around == 'y':
+            if self.direction == 'l':
+                self.direction = 'r'
+                self.change_x = self.speed_x
+            else:
+                self.direction = 'l'
+                self.change_x = -self.speed_x
+
+            self.rect.x += self.change_x
+        
+        #shifts the snake down if needed
+        if self.change_y == 0:
+            self.change_y = 1
+        else:
+            self.change_y += .35
+        """ 
+        
 
         
+
+        
+        
+        
+        
+        
+            
     
 
         
