@@ -259,6 +259,7 @@ class Level:
                             self.exit_coords['x'] = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                             self.exit_coords['y'] = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                             exit = exit_door_sprite(self.block_width, self.block_height)
+                            # print('width = ' + str(self.block_width) + ' height = ' + str(self.block_height))
                             exit.rect.x = self.exit_coords['x']
                             exit.rect.y = self.exit_coords['y']
                             exit.player = self.player
@@ -437,4 +438,7 @@ class exit_door_sprite(pygame.sprite.Sprite):
 
         self.image = pygame.Surface([width, height])
         self.image.fill(constants.BLUE)
+        door = pygame.image.load('Graphics/Door1.png')
+        self.image.blit(door, door.get_rect())
+        self.image.set_colorkey(constants.BLUE)
         self.rect = self.image.get_rect()
