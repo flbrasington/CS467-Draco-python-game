@@ -25,3 +25,12 @@ or exit the game
 added a check to see if the player was trying to move onto the next level based on the 'exit_level' variable added to
 player.py.  Levels must be pre-loaded and added to the level_list like it was done on line 91-92.  This can be changed
 to a for loop later depending on how many levels we want to do
+
+2/7/17
+-level.py
+constructor for level and platform now take a level number and assign blocks and background based on level 1 or 2
+
+-main.py
+an initial level is now generated at the start of main.  all other levels will be constructed in the while not done loop
+this will allow a single change to the new maxLevels variable to generate any number of levels.  Currently the setup will
+only assign background and block images to levels 1 and 2 but a higher number can be generated with solid colors.

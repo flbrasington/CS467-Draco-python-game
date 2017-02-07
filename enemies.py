@@ -522,7 +522,8 @@ class green_snake(pygame.sprite.Sprite):
 
     #this makes the snake attack
     def attack(self):
-        print("attack")
+        # print("attack")
+        True
 
     #this moves the snake around
     def move(self):
@@ -590,47 +591,3 @@ class green_snake(pygame.sprite.Sprite):
         else:
             self.change_y += .35
         """ 
-        
-
-        
-
-        
-        
-        
-        
-        
-            
-    
-
-        
-    
-
-        
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        

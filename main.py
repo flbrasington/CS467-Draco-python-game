@@ -91,12 +91,15 @@ def main():
 
     # this bit create's the level for the program
     level_list = []
-    level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
-    level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
+    # level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
+    # level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
+    maxLevels = 2
 
     # set the current level
-    current_level_no = 0
-    current_level = level_list[current_level_no]
+    # current_level_no = 0
+    current_level_no = 1
+    # current_level = level_list[current_level_no]
+    current_level = Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, 1)
 
     # List to hold all the sprites
     p.level = current_level
@@ -118,32 +121,45 @@ def main():
     #$$$$$$$$$$$$$$$$$$$$$
     g1 = enemies.ghost()
     g2 = enemies.ghost()
-    g1.rect.x = 300
-    g1.rect.y = 300
-    g2.rect.x = 500
-    g2.rect.y = 500
+    # g1.rect.x = 300
+    g1.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
+    # g1.rect.y = 300
+    g1.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
+    # g2.rect.x = 500
+    g2.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
+    # g2.rect.y = 500
+    g2.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
+    print('g1 ' + str(g1.rect.x) + ' ' + str(g1.rect.y))
+    print('g2 ' + str(g2.rect.x) + ' ' + str(g2.rect.y))
 
     #$$$$$$$$$$$$$$$$$$$$$$$$
     #$$$ Snow Man Testing $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$
     sm1 = enemies.SnowMan()
-    sm1.rect.x = 400
-    sm1.rect.y = 100
+    # sm1.rect.x = 400
+    # sm1.rect.y = 100
+    sm1.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
+    sm1.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
+    print('sm1 ' + str(sm1.rect.x) + ' ' + str(sm1.rect.y))
+
 
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$
     #$$$ Green Snake Testing $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$
     s1 = enemies.green_snake()
-    s1.rect.x = p.rect.x
-    s1.rect.y = p.rect.y
+    # s1.rect.x = p.rect.x
+    # s1.rect.y = p.rect.y
+    s1.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
+    s1.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
+    print('s1 ' + str(s1.rect.x) + ' ' + str(s1.rect.y))
 
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     #$$$ This sets up all the enemies in a list $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     enemy_sprite_list = pygame.sprite.Group()
-    #enemy_sprite_list.add(g1)
-    #enemy_sprite_list.add(g2)
-    #enemy_sprite_list.add(sm1)
+    enemy_sprite_list.add(g1)
+    enemy_sprite_list.add(g2)
+    enemy_sprite_list.add(sm1)
     enemy_sprite_list.add(s1)
 
     #adds the platforms to the enemies
@@ -217,9 +233,10 @@ def main():
                 enemy.rect.y += diff
 
         if p.exit_level == 'y':
-            if current_level_no < len(level_list) - 1:
+            if current_level_no < maxLevels:
                 current_level_no += 1
-                current_level = level_list[current_level_no]
+                # current_level = level_list[current_level_no]
+                current_level = Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, current_level_no)
                 p.level = current_level
                 p.rope_object.level = current_level
                 p.exit_level = 'n'

@@ -35,7 +35,7 @@ class Level:
     """This class will create procedurally generated levels including
     a path of cells from entrance to exit and random cells"""
 
-    def __init__(self, numRow, numCol, level_width, level_height, player):
+    def __init__(self, numRow, numCol, level_width, level_height, player, levelNum):
         # constructor for level class
 
         # http://tinysubversions.com/spelunkyGen/
@@ -50,6 +50,8 @@ class Level:
         # save height and width of level
         self.level_height = level_height
         self.level_width = level_width
+
+        self.levelNum = levelNum
 
         # save number of rows and columns (cell grid) of level
         self.num_rows = numRow
@@ -140,7 +142,7 @@ class Level:
                       [self.level_width, self.block_height, self.block_width, self.level_height + self.block_height]]
 
         for edge in self.edges:
-            block = Platform(edge[0], edge[1], 'edge')
+            block = Platform(edge[0], edge[1], 'edge', self.levelNum)
             block.rect.x = edge[2]
             block.rect.y = edge[3]
             self.platform_list.add(block)
@@ -240,7 +242,7 @@ class Level:
                 for x in range(self.blocks_per_room_x):
                     # if cell is a 1 add a platform sprite
                     if rooms[pos][y][x] is 1:
-                        block = Platform(self.block_width, self.block_height, 'block')
+                        block = Platform(self.block_width, self.block_height, 'block', self.levelNum)
                         block.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                         block.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                         block.player = self.player
@@ -282,7 +284,7 @@ class Level:
                 # width of a probability block
                 for x in range(5):
                     if prob_block[y][x] is 1:
-                        block = Platform(self.block_width, self.block_height, 'block')
+                        block = Platform(self.block_width, self.block_height, 'block', self.levelNum)
                         block.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
                         block.rect.y = (p_block[0] // 5) * self.room_side_length_y + (
                                                                                          p_block[
@@ -400,7 +402,10 @@ class Level:
 
         # Draw the background
         screen.fill(constants.WHITE)
-        screen.blit(constants.TILEDICT['ice block wall'], constants.TILEDICT['ice block wall'].get_rect())
+        if self.levelNum == 1:
+            screen.blit(constants.TILEDICT['dirt block wall'], constants.TILEDICT['dirt block wall'].get_rect())
+        elif self.levelNum == 2:
+            screen.blit(constants.TILEDICT['ice block wall'], constants.TILEDICT['ice block wall'].get_rect())
 
         # Draw all the sprite lists that we have
         self.platform_list.draw(screen)
@@ -411,7 +416,7 @@ class Level:
 class Platform(pygame.sprite.Sprite):
     """ Platform the user can jump on """
 
-    def __init__(self, width, height, platformType):
+    def __init__(self, width, height, platformType, levelNum):
         """ Platform constructor. Assumes constructed with user passing in
             an array of 5 numbers like what's defined at the top of this
             code. """
@@ -423,7 +428,10 @@ class Platform(pygame.sprite.Sprite):
 
         elif platformType == 'block':
             self.image.fill(constants.GREEN)
-            self.image.blit(constants.TILEDICT['tundra center'], constants.TILEDICT['tundra center'].get_rect())
+            if levelNum == 1:
+                self.image.blit(constants.TILEDICT['dirt center'], constants.TILEDICT['dirt center'].get_rect())
+            elif levelNum == 2:
+                self.image.blit(constants.TILEDICT['tundra center'], constants.TILEDICT['tundra center'].get_rect())
 
         self.rect = self.image.get_rect()
 
