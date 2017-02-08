@@ -269,13 +269,13 @@ class Player(pygame.sprite.Sprite):
             
         for event in pygame.event.get():
             if event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                     self.soundEffects.player_sounds_stop()#stops the player's walk/run sound effect
                     self.change_x = 0
-                if event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                     self.soundEffects.player_sounds_stop()#stops the player's walk/run sound effect
                     self.change_x = 0
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_UP or event.key == pygame.K_w:
                     if self.rope_object.ex == 'a':
                         self.change_y = 0
                 if event.key == pygame.K_z:
