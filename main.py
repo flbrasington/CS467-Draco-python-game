@@ -248,18 +248,26 @@ def main():
             if current_level_no < maxLevels:
                 current_level_no += 1
                 # current_level = level_list[current_level_no]
+
+                # current level is generated from a call to Level.  Calling it when it is needed instead
+                # of at the beginning of the game will allow for easier expansion in the number of levels
                 current_level = Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, current_level_no)
                 # p.level = current_level
                 # p.rope_object.level = current_level
                 p.exit_level = 'n'
 
+                # remove all enemy sprites from active list
                 for sprite in enemy_sprite_list:
                     if sprite in active_sprite_list:
                         active_sprite_list.remove(sprite)
+
+                # generate new set of enemies for new level
                 enemy_sprite_list = generateEnemies()
 
+                # add newly generated list of enemies to active list
                 active_sprite_list.add(enemy_sprite_list)
 
+                # update level for all sprites (enemy, player, and rope)
                 for sprite in active_sprite_list:
                     sprite.level = current_level
             else:
@@ -269,6 +277,15 @@ def main():
         active_sprite_list.draw(screen)
         # p.update()
         # pygame.draw.rect(screen, constants.BLACK, [p.lead_x, p.lead_y, 10,10])
+
+        # if an enemy collides with the player, add it to enemies Hit
+        enemiesHit = pygame.sprite.spritecollide(p, enemy_sprite_list, True)
+
+        # for all enemies in enemiesHit, kill the enemy
+        # once a health system is implemented, we will need to change the detection
+        # for how we want the enemies to die otherwise, they will harm the player
+        for enemy in enemiesHit:
+            enemy.kill()
 
         pygame.display.update()
 
