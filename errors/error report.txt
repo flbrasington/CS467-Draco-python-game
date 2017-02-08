@@ -13,5 +13,5 @@
 
 2/8/17 7:29
 	Image is in folder.  The room the player is in seems to be t3_7 but I am not sure which one is the room
-	above it which is blocking the path.  Maybe some way to print the room templates that are chosen should
-	be implemented to help debug these situations in the future.
+	above it which is blocking the path.  It might be t3_5 but I don't think it is.  Maybe some way to print
+  the room templates that are chosen should	be implemented to help debug these situations in the future.
