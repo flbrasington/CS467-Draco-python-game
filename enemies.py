@@ -910,3 +910,12 @@ class Yeti(pygame.sprite.Sprite):
                 self.rect.left = block.rect.right
                 self.direction = 'r'
                 self.rect.x += 3
+
+
+class Spikes(pygame.sprite.Sprite):
+    def __init__(self, width, height):
+        super().__init__()
+
+        self.image = pygame.Surface([width, height])
+        self.image.fill(constants.RED)
+        self.rect = self.image.get_rect()

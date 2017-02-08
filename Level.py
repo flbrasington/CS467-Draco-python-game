@@ -16,7 +16,7 @@ import pygame
 import random
 import os
 import constants
-import player
+import enemies
 
 FPS = constants.fps
 
@@ -247,6 +247,24 @@ class Level:
                         block.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                         block.player = self.player
                         self.platform_list.add(block)
+
+
+                    # if the cell is a 4 then it will be either a spike, if the space is on the bottom of the room,
+                    # otherwise it is a randomized block or nothing
+                    elif rooms[pos][y][x] is 4:
+                        # if the cell is at the bottom of the level, randomly choose whether to place a spike or not
+                        if y is 6 and random.randrange(0, 3) is 1:
+                            spike = enemies.Spikes(self.block_width, self.block_height)
+                            spike.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                            spike.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                            spike.player = self.player
+                            self.enemy_list.add(spike)
+                        elif y != 6 and random.randrange(0, 2) is 0:
+                            block = Platform(self.block_width, self.block_height, 'block', self.levelNum)
+                            block.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                            block.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                            block.player = self.player
+                            self.platform_list.add(block)
                     #if cell is a 5 then add a probability block in the air
                     elif rooms[pos][y][x] is 5:
                         prob_block_5_list.append([pos, y, x])
@@ -271,6 +289,11 @@ class Level:
                             #calculate coordinates of the entrance
                             self.entrance_coords['x'] = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                             self.entrance_coords['y'] = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                    elif rooms[pos][y][x] is 8:
+                        snake = enemies.green_snake()
+                        snake.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                        snake.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                        self.enemy_list.add(snake)
         # fill probability blocks depending on if it is a floor block (6) or a block in the air (5)
         # second parameter is used to import the correct block template
         self.fill_prob_block(prob_block_5_list, 5)
@@ -286,10 +309,20 @@ class Level:
                     if prob_block[y][x] is 1:
                         block = Platform(self.block_width, self.block_height, 'block', self.levelNum)
                         block.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
-                        block.rect.y = (p_block[0] // 5) * self.room_side_length_y + (
-                                                                                         p_block[
-                                                                                             1] + y) * self.block_height
+                        block.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
                         self.platform_list.add(block)
+                    elif prob_block[y][x] is 4:
+                        # if the cell is at the bottom of the level, randomly choose whether to place a spike or not
+                        if y is 2 and random.randrange(0, 3) in (0, 1):
+                            spike = enemies.Spikes(self.block_width, self.block_height)
+                            spike.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
+                            spike.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
+                            self.enemy_list.add(spike)
+                        elif y != 2 and random.randrange(0, 2) is 0:
+                            block = Platform(self.block_width, self.block_height, 'block', self.levelNum)
+                            block.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
+                            block.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
+                            self.platform_list.add(block)
 
     def import_template(self, room_number):
         # if room type is 0 then import random file from r_type_0 directory
@@ -394,7 +427,6 @@ class Level:
     def update(self):
         """ Update everything in this level."""
         self.platform_list.update()
-        self.enemy_list.update()
         self.exit_sprite.update()
 
     def draw(self, screen):
@@ -409,7 +441,6 @@ class Level:
 
         # Draw all the sprite lists that we have
         self.platform_list.draw(screen)
-        self.enemy_list.draw(screen)
         self.exit_sprite.draw(screen)
 
 

@@ -205,8 +205,9 @@ def main():
     active_sprite_list.add(p.rope_object)
 
 
-    enemy_sprite_list = generateEnemies(current_level_no)
-
+    #enemy_sprite_list = generateEnemies(current_level_no)
+    enemy_sprite_list = current_level.enemy_list
+    enemy_sprite_list.add(generateEnemies(current_level_no))
     active_sprite_list.add(enemy_sprite_list)
 
     for sprite in active_sprite_list:
@@ -251,32 +252,34 @@ def main():
             diff = p.rect.right - 500
             p.rect.right = 500
             current_level.shift_world_x(-diff)
-            for enemy in enemy_sprite_list:
-                enemy.rect.x -= diff
+
+            #The enemies are being spawned in the level class so the shifting is done in that class as well
+            #for enemy in enemy_sprite_list:
+            #    enemy.rect.x -= diff
 
         # If the player gets near the left side, shift the world right (+x)
         if p.rect.left <= 300:
             diff = 300 - p.rect.left
             p.rect.left = 300
             current_level.shift_world_x(diff)
-            for enemy in enemy_sprite_list:
-                enemy.rect.x += diff
+            #for enemy in enemy_sprite_list:
+            #    enemy.rect.x += diff
 
         # If the player gets near the bottom, shift the world up (-x)
         if p.rect.bottom >= 550:
             diff = p.rect.bottom - 550
             p.rect.bottom = 550
             current_level.shift_world_y(-diff)
-            for enemy in enemy_sprite_list:
-                enemy.rect.y -= diff
+            #for enemy in enemy_sprite_list:
+            #    enemy.rect.y -= diff
 
         # If the player gets near the top, shift the world down (+x)
         if p.rect.top <= 150:
             diff = 150 - p.rect.top
             p.rect.top = 150
             current_level.shift_world_y(diff)
-            for enemy in enemy_sprite_list:
-                enemy.rect.y += diff
+            #for enemy in enemy_sprite_list:
+            #    enemy.rect.y += diff
 
         if p.exit_level == 'y':
             if current_level_no < maxLevels:
@@ -296,7 +299,8 @@ def main():
                         active_sprite_list.remove(sprite)
 
                 # generate new set of enemies for new level
-                enemy_sprite_list = generateEnemies(current_level_no)
+                #enemy_sprite_list = generateEnemies(current_level_no)
+                enemy_sprite_list = current_level.enemy_list
 
                 # add newly generated list of enemies to active list
                 active_sprite_list.add(enemy_sprite_list)
