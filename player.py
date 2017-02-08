@@ -161,7 +161,7 @@ class Player(pygame.sprite.Sprite):
         else:
             self.walk_status = 'w'
 
-        if pressed[pygame.K_LEFT]:
+        if pressed[pygame.K_LEFT] or pressed[pygame.K_a]:
             
             #if the player isn't hanging on to a rope
             if self.rope_object.ex != 'a':
@@ -185,7 +185,7 @@ class Player(pygame.sprite.Sprite):
             else:
                 self.image = self.walking_frames_left[0]
 
-        if pressed[pygame.K_RIGHT]:
+        if pressed[pygame.K_RIGHT] or pressed[pygame.K_d]:
             
             
             #if the player isn't hanging on to a rope
@@ -213,7 +213,7 @@ class Player(pygame.sprite.Sprite):
 
         #the UP arrow keys does the following:
             #if the player is holding on to the rope the player can climb up the rope to the rope's anchor
-        if pressed[pygame.K_UP]:
+        if pressed[pygame.K_UP] or pressed[pygame.K_w]:
             #if the player is holding on the to the rope
             if self.rope_object.ex == 'a':
                 #the player can't climb higher than the rope's anchor
@@ -228,7 +228,7 @@ class Player(pygame.sprite.Sprite):
 
         #the DOWN arrow Key does the following:
             #if the player is holding on to the rope the player can climb down the rope
-        if pressed[pygame.K_DOWN]:
+        if pressed[pygame.K_DOWN] or pressed[pygame.K_s]:
             #if the player is holding on the to the rope
             if self.rope_object.ex == 'a':
                 #the player can't climb lower than the rope's length

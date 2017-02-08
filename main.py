@@ -67,51 +67,7 @@ def game_menu():
                 if event.key == pygame.K_a:
                     pause = False
 
-# Function Main
-def main():
-    # this initializes pygame
-    pygame.init()
-
-    # this sets up the screen size for the user using the sizes defined in constants
-    screen_size = [constants.SCREEN_WIDTH + constants.SCREEN_WIDTH//2, constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2]
-    screen = pygame.display.set_mode(screen_size)
-
-    # this is the caption for the window
-    pygame.display.set_caption("Climbing Game")
-
-    # this time function is used to manage the frames per second
-    clock = pygame.time.Clock()
-
-    # this bit of code sets up the players for the game
-    p = player.Player()    
-
-    #this loads all the music & music function for the game
-    gamemusic = music.Game_Music()
-
-
-    # this bit create's the level for the program
-    level_list = []
-    # level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
-    # level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
-    maxLevels = 2
-
-    # set the current level
-    # current_level_no = 0
-    current_level_no = 1
-    # current_level = level_list[current_level_no]
-    current_level = Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, 1)
-
-    # List to hold all the sprites
-    p.level = current_level
-    p.rope_object.level = current_level
-    p.rect.x = current_level.entrance_coords['x']
-    p.rect.y = current_level.entrance_coords['y']
-
-    active_sprite_list = pygame.sprite.Group()
-    active_sprite_list.add(p)
-    active_sprite_list.add(p.rope_object)
-
-
+def generateEnemies():
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     #$$$ This is for testing for enemies $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -163,12 +119,64 @@ def main():
     enemy_sprite_list.add(s1)
 
     #adds the platforms to the enemies
-    for i in enemy_sprite_list:
-        i.level = current_level
-    active_sprite_list.add(enemy_sprite_list)
+    # for i in enemy_sprite_list:
+    #     i.level = current_level
+    return enemy_sprite_list
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     #$$$ This is for testing for enemies $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+# Function Main
+def main():
+    # this initializes pygame
+    pygame.init()
+
+    # this sets up the screen size for the user using the sizes defined in constants
+    screen_size = [constants.SCREEN_WIDTH + constants.SCREEN_WIDTH//2, constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2]
+    screen = pygame.display.set_mode(screen_size)
+
+    # this is the caption for the window
+    pygame.display.set_caption("Climbing Game")
+
+    # this time function is used to manage the frames per second
+    clock = pygame.time.Clock()
+
+    # this bit of code sets up the players for the game
+    p = player.Player()    
+
+    #this loads all the music & music function for the game
+    gamemusic = music.Game_Music()
+
+
+    # this bit create's the level for the program
+    level_list = []
+    # level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
+    # level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
+    maxLevels = 2
+
+    # set the current level
+    # current_level_no = 0
+    current_level_no = 1
+    # current_level = level_list[current_level_no]
+    current_level = Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, 1)
+
+    # List to hold all the sprites
+    p.level = current_level
+    p.rope_object.level = current_level
+    p.rect.x = current_level.entrance_coords['x']
+    p.rect.y = current_level.entrance_coords['y']
+
+    active_sprite_list = pygame.sprite.Group()
+    active_sprite_list.add(p)
+    active_sprite_list.add(p.rope_object)
+
+
+    enemy_sprite_list = generateEnemies()
+
+    active_sprite_list.add(enemy_sprite_list)
+
+    for sprite in active_sprite_list:
+        sprite.level = current_level
 
     # this is the heart of the main program.
     # currently the program runs on a loop until the python sheet is closed.
@@ -180,8 +188,12 @@ def main():
     gamemusic.music_volume_up()
     #this plays the music
     gamemusic.play_music()
-        
+    print('sprites')
+    for s in active_sprite_list:
+        print(s)
+
     while not done:
+
 
         #this updates the music based on player's input
         #gamemusic.up_date_music()
@@ -237,9 +249,19 @@ def main():
                 current_level_no += 1
                 # current_level = level_list[current_level_no]
                 current_level = Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, current_level_no)
-                p.level = current_level
-                p.rope_object.level = current_level
+                # p.level = current_level
+                # p.rope_object.level = current_level
                 p.exit_level = 'n'
+
+                for sprite in enemy_sprite_list:
+                    if sprite in active_sprite_list:
+                        active_sprite_list.remove(sprite)
+                enemy_sprite_list = generateEnemies()
+
+                active_sprite_list.add(enemy_sprite_list)
+
+                for sprite in active_sprite_list:
+                    sprite.level = current_level
             else:
                 pygame.quit()
                 quit()
