@@ -8,3 +8,10 @@
   General observation:  When the up key is released, the player slides down to the end of the outstretched rope.
   I do not remember this being the case yesterday.
 
+2/8/17 6:57
+	Image is in folder.	 It appears that the player is in room t3_4 and that the exit room is t4_1.
+
+2/8/17 7:29
+	Image is in folder.  The room the player is in seems to be t3_7 but I am not sure which one is the room
+	above it which is blocking the path.  Maybe some way to print the room templates that are chosen should
+	be implemented to help debug these situations in the future.
