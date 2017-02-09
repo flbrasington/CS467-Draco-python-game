@@ -196,19 +196,19 @@ def main():
 
     # List to hold all the sprites
     p.level = current_level
-    p.rope_object.level = current_level
+    #p.rope_object.level = current_level
     p.rect.x = current_level.entrance_coords['x']
     p.rect.y = current_level.entrance_coords['y']
 
     active_sprite_list = pygame.sprite.Group()
     active_sprite_list.add(p)
-    active_sprite_list.add(p.rope_object)
+    #active_sprite_list.add(p.rope_object)
 
 
     #enemy_sprite_list = generateEnemies(current_level_no)
     enemy_sprite_list = current_level.enemy_list
-    enemy_sprite_list.add(generateEnemies(current_level_no))
-    active_sprite_list.add(enemy_sprite_list)
+    #enemy_sprite_list.add(generateEnemies(current_level_no))
+    #active_sprite_list.add(enemy_sprite_list)
 
     for sprite in active_sprite_list:
         sprite.level = current_level
