@@ -133,8 +133,10 @@ class Player(pygame.sprite.Sprite):
         self.num_of_ropes = 0
         for i in range(0,10):
             rope_object = Rope()
+            rope_object.level = self.level
             self.rope_list.append(rope_object)
             self.num_of_ropes += 1
+            
         
 
         #this code is used for the cool down time for the ropes
@@ -172,7 +174,6 @@ class Player(pygame.sprite.Sprite):
                     self.current_rope = 0
             else:
                 self.can_shoot = self.check_cool_down()
-            print (pygame.mouse.get_pos())
 
         #CHEAT FOR DEBUGGING ONLY
         if pressed[pygame.K_u]:
