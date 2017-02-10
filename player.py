@@ -34,6 +34,7 @@ CELL_WIDTH = constants.SCREEN_WIDTH / (constants.ROOM_WIDTH * constants.ROOMS_ON
 #$$$ Double Jump - AA7         $$$
 #$$$ Double Jump Timer - AAA8  $$$
 #$$$ start/end/cooldown - AAA9 $$$
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 class Player(pygame.sprite.Sprite):
     """ This class represents the bar at the bottom that the player
@@ -136,9 +137,7 @@ class Player(pygame.sprite.Sprite):
             rope_object.level = self.level
             self.rope_list.append(rope_object)
             self.num_of_ropes += 1
-            
-        
-
+                    
         #this code is used for the cool down time for the ropes
         self.start_time = 0
         self.end_time = 0
@@ -182,7 +181,14 @@ class Player(pygame.sprite.Sprite):
             self.jump_end_time = 0
             self.can_double_jump = 'y'
             self.double_jump_count = 2
-            
+
+        #DEBUGGING CODE
+        #if pressed[pygame.K_o]:
+        #    self.rope_list[self.current_rope].rect.x = pygame.mouse.get_pos()[0]
+        #    self.rope_list[self.current_rope].rect.y = pygame.mouse.get_pos()[1]
+        #    print("self.rect.x & self.rect.y = ", self.rope_list[self.current_rope].rect.x, self.rope_list[self.current_rope].rect.y)
+        #    self.rope_list[self.current_rope].image = self.rope_list[self.current_rope].rot_center(self.rope_list[self.current_rope].image, 45)
+        #    print("self.rect.x & self.rect.y = ", self.rope_list[self.current_rope].rect.x, self.rope_list[self.current_rope].rect.y)            
             
         if pressed[pygame.K_SPACE]:
             self.double_jump()

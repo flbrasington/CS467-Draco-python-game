@@ -18,15 +18,21 @@ import time
 
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 #$$$ -------------- Ctrl + F ------------- $$$
+#$$$ --------- Rope class - AAA ---------- $$$
 #$$$ Opposite, Adjacent, Hypotenuse - AAA1 $$$
 #$$$ Calculate rope's speed - AAA2         $$$
 #$$$ Update Rope - AAA3                    $$$
 #$$$ Shoot the rope - AAA4                 $$$
-#$$$                                       $$$
 #$$$ Collision detections - AAA6           $$$
 #$$$ Rotate Image- AAA7                    $$$
 #$$$ Calculates Angle - AAA8               $$$
 #$$$ update_angle - AAA9                   $$$
+#$$$ Update the rope segments - AAA10      $$$
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#$$$ ------------- Ctrl + F -------------- $$$
+#$$$ --------- Rope Segment Class -------- $$$
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
@@ -54,13 +60,21 @@ class Rope(pygame.sprite.Sprite):
         self.draw_line = 'n'
 
         #this is used for calculating the speed of which the rope is shot out and the direction
-        self.speed = 10
+        self.speed = 15
         self.speed_x = 0
         self.speed_y = 0
 
         #this loads all the images needed for a rope
-        rope_anchor = pygame.image.load('Graphics/Rope/rope_anchor.png')
-        self.image = rope_anchor
+        self.rope_anchor_thrown = pygame.image.load('Graphics/Rope/rope_anchor_thrown.png')
+        self.rope_anchor = pygame.image.load('Graphics/Rope/rope_anchor.png')
+        
+        self.image = self.rope_anchor_thrown
+
+        #add rope segments to the rope
+        self.rope_segments = []
+        for i in range(0,3):
+            rope_segment = Rope_Segment()
+            self.rope_segments.append(rope_segment)
 
         #this is a set of locations for the rope_anchor positions
         self.rect = self.image.get_rect()
@@ -69,8 +83,6 @@ class Rope(pygame.sprite.Sprite):
 
         #this stores all the platfroms that could be hit by the rope's anchor
         self.level = None
-
-        
 
 
 #$$$ AAA3
@@ -83,17 +95,10 @@ class Rope(pygame.sprite.Sprite):
         if self.draw_line == 'y':
             self.end_point_x += self.speed_x
             self.end_point_y += self.speed_y
-            pygame.draw.lines(constants.DISPLAYSURF, constants.ROPE, False, [(self.start_point_x,self.start_point_y),
-                                                                             (self.end_point_x,self.end_point_y)], 8)
             self.rect.centerx = self.end_point_x
             self.rect.centery = self.end_point_y
 
             self.rope_Collision()
-
-        if self.draw_line == 'a':
-            pygame.draw.lines(constants.DISPLAYSURF, constants.ROPE, False, [(self.start_point_x,self.start_point_y),
-                                                                             (self.end_point_x,self.end_point_y)], 8)
-            
 
         
 #AAA6
@@ -102,6 +107,18 @@ class Rope(pygame.sprite.Sprite):
         block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
         for block in block_hit_list:
             self.draw_line = 'a'
+            self.image = self.rope_anchor
+            self.image = self.rot_center(self.image, self.angle)
+
+            #this updates all the rope segments
+            end_point_x = self.rect.centerx - self.rope_segments[0].rect.width/2
+            end_point_y = self.rect.centery
+            for seg in self.rope_segments:
+                seg.rect.x = end_point_x
+                seg.rect.y = end_point_y
+            
+                end_point_x = seg.rect.bottomleft[0]
+                end_point_y = seg.rect.bottomleft[1]
 
             
 #$$$ AAA4
@@ -116,9 +133,10 @@ class Rope(pygame.sprite.Sprite):
         H = self.find_Hypotenuse(start_x, start_y, end_x, end_y)
         
         self. calc_speed(O,A,H)
-        angle = self.find_angle(O, A)
-        angle = self.update_angle(angle, start_x, start_y, end_x, end_y)
-        self.image = self.rot_center(self.image, angle)
+        self.angle = self.find_angle(O, A)
+        self.angle = self.update_angle(self.angle, start_x, start_y, end_x, end_y)
+        self.image = self.rope_anchor_thrown
+        self.image = self.rot_center(self.image, self.angle)
 
         self.end_point_x = self.start_point_x
         self.end_point_y = self.start_point_y
@@ -150,12 +168,10 @@ class Rope(pygame.sprite.Sprite):
 #$$$ AAA7
 #Rotates an image around the image's center
     def rot_center(self, image, angle):
-        orig_rect = image.get_rect()
-        rot_image = pygame.transform.rotate(image, angle)
-        rot_rect = orig_rect.copy()
-        rot_rect.center = rot_image.get_rect().center
-        rot_image = rot_image.subsurface(rot_rect).copy()
-        return rot_image
+        loc = image.get_rect().center  #rot_image is not defined 
+        rot_sprite = pygame.transform.rotate(image, angle)
+        rot_sprite.get_rect().center = loc
+        return rot_sprite
 
 #$$$ AAA8
 #this find the angle for the rope
@@ -177,5 +193,33 @@ class Rope(pygame.sprite.Sprite):
         
         
         
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#$$$ ------------- Ctrl + F -------------- $$$
+#$$$ --------- Rope Segment Class -------- $$$
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+class Rope_Segment(pygame.sprite.Sprite):
+    #this class is for the rope that a player can shoot out to swing on objects
+
+    #this is the constructor for the rope class
+    def __init__(self):
+         #call the parent's constructor
+        super().__init__()
+
+        #this loads all the images needed for the rope segments
+        rope_segment = pygame.image.load('Graphics/Rope/rope_long.png')
+        
+        self.image = rope_segment
+
+        #this stores all the platfroms that could be hit by the rope's anchor
+        self.level = None
+
+        #this is a set of locations for the rope_anchor positions
+        self.rect = self.image.get_rect()
+
+        #this is for how much the segment needs to be shifted
+        self.length = self.rect.height/2
+    
 
         
