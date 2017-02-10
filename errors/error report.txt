@@ -15,3 +15,13 @@
 	Image is in folder.  The room the player is in seems to be t3_7 but I am not sure which one is the room
 	above it which is blocking the path.  It might be t3_5 but I don't think it is.  Maybe some way to print
   the room templates that are chosen should	be implemented to help debug these situations in the future.
+
+2/10/17 8:36
+  Fatal Python error: (pygame parachute) Segmentation Fault
+
+  Current thread 0x000013fc (most recent call first):
+    File "C:\Users\barry3\Documents\OSU\CS467\CS467-Draco-python-game\enemies.py", line 501 in detect_player
+    File "C:\Users\barry3\Documents\OSU\CS467\CS467-Draco-python-game\enemies.py", line 488 in update
+    File "C:\Python34\lib\site-packages\pygame\sprite.py", line 462 in update
+    File "main.py", line 249 in main
+    File "main.py", line 366 in <module>

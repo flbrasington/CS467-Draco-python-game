@@ -15,7 +15,6 @@ import pygame
 import constants
 import math
 from rope import Rope
-from spritesheet import SpriteSheet
 import time
 import sound_effects
 
