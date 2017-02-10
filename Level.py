@@ -112,17 +112,7 @@ class Level:
         self.entrance_coords['x'] -= self.world_shift_x
         self.world_shift_y = self.level_height - self.room_side_length_y + self.block_height
         self.entrance_coords['y'] -= self.world_shift_y
-        # shift rope so that it starts with the player
-        self.player.rope_object.x = self.block_width + self.start_room['column'] * self.room_side_length_x + \
-                                    self.entrance_coords['x']
-        self.player.rope_object.rope_end_x = self.block_width + self.start_room['column'] * self.room_side_length_x + \
-                                             self.entrance_coords['x']
-        self.player.rope_object.y = self.level_height - self.room_side_length_y + self.block_height + \
-                                    self.entrance_coords['y']
-        self.player.rope_object.rope_end_y = self.level_height - self.room_side_length_y + self.block_height + \
-                                             self.entrance_coords['y']
-        print('shift x = ', self.world_shift_x)
-        print('shift y = ', self.world_shift_y)
+        
         # shift world to the left
         self.shift_world_x(-self.world_shift_x)
         # shift world up
@@ -398,9 +388,6 @@ class Level:
         for exit_door in self.exit_sprite:
             exit_door.rect.x += shift_x
 
-        # this shifts the rope_object as needed
-        self.player.rope_object.rect.x += shift_x
-        self.player.rope_object.rope_end_x += shift_x
 
     def shift_world_y(self, shift_y):
         """ When the user moves up/down and we need to scroll
@@ -418,10 +405,6 @@ class Level:
 
         for exit_door in self.exit_sprite:
             exit_door.rect.y += shift_y
-
-        # this shifts the rope_object as needed
-        self.player.rope_object.rect.y += shift_y
-        self.player.rope_object.rope_end_y += shift_y
 
     # Update everything on this level
     def update(self):

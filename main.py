@@ -196,13 +196,15 @@ def main():
 
     # List to hold all the sprites
     p.level = current_level
-    p.rope_object.level = current_level
     p.rect.x = current_level.entrance_coords['x']
     p.rect.y = current_level.entrance_coords['y']
 
     active_sprite_list = pygame.sprite.Group()
     active_sprite_list.add(p)
-    active_sprite_list.add(p.rope_object)
+    for rope in p.rope_list:
+        active_sprite_list.add(rope)
+        for segment in rope.rope_segments:
+            active_sprite_list.add(segment)
 
 
     #enemy_sprite_list = generateEnemies(current_level_no)
@@ -253,6 +255,12 @@ def main():
             p.rect.right = 500
             current_level.shift_world_x(-diff)
 
+            #this shifts all the rope objects as needed
+            for rope in p.rope_list:
+                rope.rect.x -= diff
+                for segment in rope.rope_segments:
+                    segment.rect.x -= diff
+
             #The enemies are being spawned in the level class so the shifting is done in that class as well
             #for enemy in enemy_sprite_list:
             #    enemy.rect.x -= diff
@@ -262,6 +270,13 @@ def main():
             diff = 300 - p.rect.left
             p.rect.left = 300
             current_level.shift_world_x(diff)
+
+            #this shifts all the rope objects as needed
+            for rope in p.rope_list:
+                rope.rect.x += diff
+                for segment in rope.rope_segments:
+                    segment.rect.x += diff
+                    
             #for enemy in enemy_sprite_list:
             #    enemy.rect.x += diff
 
@@ -270,6 +285,13 @@ def main():
             diff = p.rect.bottom - 550
             p.rect.bottom = 550
             current_level.shift_world_y(-diff)
+
+            #this shifts all the rope objects as needed
+            for rope in p.rope_list:
+                rope.rect.y -= diff
+                for segment in rope.rope_segments:
+                    segment.rect.y -= diff
+                    
             #for enemy in enemy_sprite_list:
             #    enemy.rect.y -= diff
 
@@ -278,6 +300,14 @@ def main():
             diff = 150 - p.rect.top
             p.rect.top = 150
             current_level.shift_world_y(diff)
+
+            #this shifts all the rope objects as needed
+            for rope in p.rope_list:
+                rope.rect.y += diff
+                for segment in rope.rope_segments:
+                    segment.rect.y += diff
+
+                    
             #for enemy in enemy_sprite_list:
             #    enemy.rect.y += diff
 
