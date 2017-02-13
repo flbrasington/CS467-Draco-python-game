@@ -54,14 +54,6 @@ DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 #Frames Per Second
 fps = 60
 
-TILEDICT = {'ice block': pygame.image.load('Graphics/iceBlock.png'),
-			'ice block wall': pygame.image.load('Graphics/iceBlockWall.png'),
-			'ice block alt': pygame.image.load('Graphics/iceBlockAlt.png'),
-			'tundra': pygame.image.load('Graphics/tundra.png'),
-			'tundra center': pygame.image.load('Graphics/tundraCenter.png'),
-			'dirt block wall': pygame.image.load('Graphics/dirtBlockWall.png'),
-			'dirt center': pygame.image.load('Graphics/dirtCenter.png')}
-
 #Font infomation
 MENU_FONT = pygame.font.SysFont('freesansbold.ttf', 30)
 BUTTON_WIDTH = 125

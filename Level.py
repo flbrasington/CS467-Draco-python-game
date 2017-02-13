@@ -19,6 +19,7 @@ import constants
 import enemies
 import collections
 from sys import exit
+import graphics
 
 FPS = constants.fps
 
@@ -434,9 +435,11 @@ class Level:
         # Draw the background
         screen.fill(constants.WHITE)
         if self.theme == 'dirt':
-            screen.blit(constants.TILEDICT['dirt block wall'], constants.TILEDICT['dirt block wall'].get_rect())
+            screen.blit(graphics.TILEDICT['dirt block wall'], graphics.TILEDICT['dirt block wall'].get_rect())
         elif self.theme == 'snow':
-            screen.blit(constants.TILEDICT['ice block wall'], constants.TILEDICT['ice block wall'].get_rect())
+            screen.blit(graphics.TILEDICT['ice block wall'], graphics.TILEDICT['ice block wall'].get_rect())
+        elif self.theme == 'castle':
+            screen.blit(graphics.TILEDICT['castle wall'], graphics.TILEDICT['castle wall'].get_rect())
 
         # Draw all the sprite lists that we have
         self.platform_list.draw(screen)
@@ -511,6 +514,39 @@ class snow_level(Level):
         # shift world up
         self.shift_world_y(-self.world_shift_y)
 
+class castle_level(Level):
+    """
+    create the dirt level themed levels
+    """
+    def __init__(self, numRow, numCol, level_width, level_height, player, levelNum):
+
+        #make a dictionary of enemies for this level theme.  I am using an order dictionary for the enemy generation function
+        self.enemy_types = collections.OrderedDict()
+
+        #enter the likelihood of an enemy being spawned (make sure that it is in descending order starting with the
+        #most likely enemy to spawn in a level
+        self.enemy_types['green_snake'] = 4
+        self.enemy_types['BlueSnake'] = 2
+
+        self.total_enemies = sum(self.enemy_types.values())
+
+        #specify theme
+        self.theme = 'castle'
+
+        super().__init__(numRow, numCol, level_width, level_height, player, levelNum, self.theme)
+
+        # -----SHIFT WORLD SO THAT STARTING VIEW IS ON PLAYER------------#
+        self.world_shift_x = self.block_width + self.start_room['column'] * self.room_side_length_x
+        # world has been shifted so starting point is based on new zero position
+        self.entrance_coords['x'] -= self.world_shift_x
+        self.world_shift_y = self.level_height - self.room_side_length_y + self.block_height
+        self.entrance_coords['y'] -= self.world_shift_y
+
+        # shift world to the left
+        self.shift_world_x(-self.world_shift_x)
+        # shift world up
+        self.shift_world_y(-self.world_shift_y)
+
 
 
 
@@ -530,9 +566,11 @@ class Platform(pygame.sprite.Sprite):
         elif platformType == 'block':
             self.image.fill(constants.GREEN)
             if theme == 'dirt':
-                self.image.blit(constants.TILEDICT['dirt center'], constants.TILEDICT['dirt center'].get_rect())
+                self.image.blit(graphics.TILEDICT['dirt center'], graphics.TILEDICT['dirt center'].get_rect())
             elif theme == 'snow':
-                self.image.blit(constants.TILEDICT['tundra center'], constants.TILEDICT['tundra center'].get_rect())
+                self.image.blit(graphics.TILEDICT['tundra center'], graphics.TILEDICT['tundra center'].get_rect())
+            elif theme == 'castle':
+                self.image.blit(graphics.TILEDICT['castle center'], graphics.TILEDICT['castle center'].get_rect())
 
         self.rect = self.image.get_rect()
 

@@ -59,3 +59,22 @@ and may be useful later when generating level graphics
 
 -Level.py
 created subclasses for the snow and dirt levels and added enemy generation to the levels.
+
+2/13/17
+-constants.py
+Moved TILEDICT to graphics.py
+
+-graphics.py
+This file now loads images for the TILEDICT and creates arrays with the names of all images for sprites
+
+-enemies.py
+Green snake, blue snake, yeti, ghost, and snowman are all subclasses of Enemy
+
+-level.py
+New castle level (this can probably be renamed, I just took it from the name of the tiles used).
+
+-main.py
+There are now three levels.
+
+-player.py
+Restored climbing animation

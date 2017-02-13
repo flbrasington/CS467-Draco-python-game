@@ -17,6 +17,7 @@ import math
 from rope import Rope
 import time
 import sound_effects
+import graphics
 
 CELL_HEIGHT = constants.SCREEN_HEIGHT / (constants.ROOM_HEIGHT * constants.ROOMS_ON_SCREEN)
 CELL_WIDTH = constants.SCREEN_WIDTH / (constants.ROOM_WIDTH * constants.ROOMS_ON_SCREEN)
@@ -93,16 +94,14 @@ class Player(pygame.sprite.Sprite):
         self.climbing_frames_up = []
         self.climbing_frames_down = []
 
-        for i in range(1,10):
-            filename = 'Graphics/spelunkyGuyWalk' + str(i) + '.png'
-            image = pygame.image.load(filename)
+        for img in graphics.spelunkyGuyWalk:
+            image = pygame.image.load(img)
             self.walking_frames_right.append(image)
             image = pygame.transform.flip(image, True, False)
             self.walking_frames_left.append(image)
 
-        for i in range(1,11):
-            filename = 'Graphics/spelunkyGuyClimb' + str(i) + '.png'
-            image = pygame.image.load(filename)
+        for img in graphics.spelunkyGuyClimb:
+            image = pygame.image.load(img)
             self.climbing_frames_up.append(image)
             self.climbing_frames_down.append(image)
 
@@ -252,6 +251,11 @@ class Player(pygame.sprite.Sprite):
                     #this is for the double jump
                     self.double_jump_count = 2
 
+                    self.frame = (self.frame + 1) % len(self.climbing_frames_up)
+                    self.image = self.climbing_frames_up[self.frame]
+                    if self.frame > len(self.climbing_frames_up):
+                        self.frame = 0
+
         if pressed[pygame.K_DOWN] or pressed[pygame.K_s]:
             if self.action == 'c':
                 #if the player wants to climb the rope
@@ -264,6 +268,11 @@ class Player(pygame.sprite.Sprite):
                         self.can_double_jump = 'y'
                         #this is for the double jump
                         self.double_jump_count = 2
+
+                        self.frame = (self.frame + 1) % len(self.climbing_frames_down)
+                        self.image = self.climbing_frames_down[self.frame]
+                        if self.frame > len(self.climbing_frames_down):
+                            self.frame = 0
             
         for event in pygame.event.get():
             if event.type == pygame.KEYUP:
