@@ -17,6 +17,8 @@ import random
 import os
 import constants
 import enemies
+import collections
+from sys import exit
 
 FPS = constants.fps
 
@@ -35,7 +37,7 @@ class Level:
     """This class will create procedurally generated levels including
     a path of cells from entrance to exit and random cells"""
 
-    def __init__(self, numRow, numCol, level_width, level_height, player, levelNum):
+    def __init__(self, numRow, numCol, level_width, level_height, player, levelNum, theme):
         # constructor for level class
 
         # http://tinysubversions.com/spelunkyGen/
@@ -52,6 +54,8 @@ class Level:
         self.level_width = level_width
 
         self.levelNum = levelNum
+
+        self.theme = theme
 
         # save number of rows and columns (cell grid) of level
         self.num_rows = numRow
@@ -101,23 +105,6 @@ class Level:
         self.create_room()
         # --------------------------------------------------------------#
 
-        # for rows in self.room_type:
-        #    print(rows)
-
-        # print(self.start_room)
-
-        # -----SHIFT WORLD SO THAT STARTING VIEW IS ON PLAYER------------#
-        self.world_shift_x = self.block_width + self.start_room['column'] * self.room_side_length_x
-        # world has been shifted so starting point is based on new zero position
-        self.entrance_coords['x'] -= self.world_shift_x
-        self.world_shift_y = self.level_height - self.room_side_length_y + self.block_height
-        self.entrance_coords['y'] -= self.world_shift_y
-        
-        # shift world to the left
-        self.shift_world_x(-self.world_shift_x)
-        # shift world up
-        self.shift_world_y(-self.world_shift_y)
-
     def level_edge(self):
 
         # setting parameters for level edge
@@ -132,7 +119,7 @@ class Level:
                       [self.level_width, self.block_height, self.block_width, self.level_height + self.block_height]]
 
         for edge in self.edges:
-            block = Platform(edge[0], edge[1], 'edge', self.levelNum)
+            block = Platform(edge[0], edge[1], 'edge', self.theme)
             block.rect.x = edge[2]
             block.rect.y = edge[3]
             self.platform_list.add(block)
@@ -232,11 +219,15 @@ class Level:
                 for x in range(self.blocks_per_room_x):
                     # if cell is a 1 add a platform sprite
                     if rooms[pos][y][x] is 1:
-                        block = Platform(self.block_width, self.block_height, 'block', self.levelNum)
-                        block.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                        block = Platform(self.block_width, self.block_height, 'block', self.theme)
+                        coord_x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                        block.rect.x = coord_x
                         block.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                         block.player = self.player
                         self.platform_list.add(block)
+                        #if the space above this block is empty see if we spawn an enemy on the spot above current block
+                        if rooms[pos][y-1][x] is 0:
+                            self.enemy_generation(coord_x, self.block_height + (pos // 5) * self.room_side_length_y + (y - 1) * self.block_height)
 
 
                     # if the cell is a 4 then it will be either a spike, if the space is on the bottom of the room,
@@ -250,7 +241,7 @@ class Level:
                             spike.player = self.player
                             self.enemy_list.add(spike)
                         elif y != 6 and random.randrange(0, 2) is 0:
-                            block = Platform(self.block_width, self.block_height, 'block', self.levelNum)
+                            block = Platform(self.block_width, self.block_height, 'block', self.theme)
                             block.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                             block.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                             block.player = self.player
@@ -279,11 +270,6 @@ class Level:
                             #calculate coordinates of the entrance
                             self.entrance_coords['x'] = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                             self.entrance_coords['y'] = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
-                    elif rooms[pos][y][x] is 8:
-                        snake = enemies.green_snake()
-                        snake.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
-                        snake.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
-                        self.enemy_list.add(snake)
         # fill probability blocks depending on if it is a floor block (6) or a block in the air (5)
         # second parameter is used to import the correct block template
         self.fill_prob_block(prob_block_5_list, 5)
@@ -297,7 +283,7 @@ class Level:
                 # width of a probability block
                 for x in range(5):
                     if prob_block[y][x] is 1:
-                        block = Platform(self.block_width, self.block_height, 'block', self.levelNum)
+                        block = Platform(self.block_width, self.block_height, 'block', self.theme)
                         block.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
                         block.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
                         self.platform_list.add(block)
@@ -309,7 +295,7 @@ class Level:
                             spike.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
                             self.enemy_list.add(spike)
                         elif y != 2 and random.randrange(0, 2) is 0:
-                            block = Platform(self.block_width, self.block_height, 'block', self.levelNum)
+                            block = Platform(self.block_width, self.block_height, 'block', self.theme)
                             block.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
                             block.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
                             self.platform_list.add(block)
@@ -352,9 +338,39 @@ class Level:
                     room.append(line)
         return room
 
+    def enemy_generation(self, coord_x, coord_y):
+        """
+        :Description: Uses probability to decide whether or not to spawn an enemy.  If an enemy is to be spawned then
+        :             it uses randomization again to choose which enemy to spawn with less difficult enemies at a higher
+        :             likelihood than more difficult enemies.
+        :param coord_x:
+        :param coord_y:
+        :return:
+        """
+        total_value = 0
+        #randomization of whether or not spawn an enemy, the higher the level the more likely an enemy will spawn
+        if random.randrange(0, 20) is 1:
+            #generate value based on total of values in the enemy_types ordered dictionary
+            enemy_choice = random.randrange(0, self.total_enemies)
+            #iterate through list and check enemy choice value against enemy likelihood
+            for enemy, value in self.enemy_types.items():
+                print(enemy, " spawned")
+                if enemy_choice < value:
+                    enemy_class = getattr(enemies, enemy)
+                    enemy_instance = enemy_class()
+                    enemy_instance.rect.x = coord_x
+                    enemy_instance.rect.y = coord_y
+                    self.enemy_list.add(enemy_instance)
+                    break
+                total_value += value
+
+
+
     def draw_screen_path(self, screen):
-        """Print path to screen
-        NOTE:  You must pass in the output destination
+        """
+        :Description: draws the path through the level onto screen
+        :param screen:
+        :return:
         """
         screen.fill(WHITE)
         # screen.blit(constants.TILEDICT['ice block wall'], constants.TILEDICT['ice block wall'].get_rect())
@@ -417,9 +433,9 @@ class Level:
 
         # Draw the background
         screen.fill(constants.WHITE)
-        if self.levelNum == 1:
+        if self.theme == 'dirt':
             screen.blit(constants.TILEDICT['dirt block wall'], constants.TILEDICT['dirt block wall'].get_rect())
-        elif self.levelNum == 2:
+        elif self.theme == 'snow':
             screen.blit(constants.TILEDICT['ice block wall'], constants.TILEDICT['ice block wall'].get_rect())
 
         # Draw all the sprite lists that we have
@@ -427,10 +443,81 @@ class Level:
         self.exit_sprite.draw(screen)
 
 
+class dirt_level(Level):
+    """
+    create the dirt level themed levels
+    """
+    def __init__(self, numRow, numCol, level_width, level_height, player, levelNum):
+
+        #make a dictionary of enemies for this level theme.  I am using an order dictionary for the enemy generation function
+        self.enemy_types = collections.OrderedDict()
+
+        #enter the likelihood of an enemy being spawned (make sure that it is in descending order starting with the
+        #most likely enemy to spawn in a level
+        self.enemy_types['green_snake'] = 4
+        self.enemy_types['BlueSnake'] = 2
+
+        self.total_enemies = sum(self.enemy_types.values())
+
+        #specify theme
+        self.theme = 'dirt'
+
+        super().__init__(numRow, numCol, level_width, level_height, player, levelNum, self.theme)
+
+        # -----SHIFT WORLD SO THAT STARTING VIEW IS ON PLAYER------------#
+        self.world_shift_x = self.block_width + self.start_room['column'] * self.room_side_length_x
+        # world has been shifted so starting point is based on new zero position
+        self.entrance_coords['x'] -= self.world_shift_x
+        self.world_shift_y = self.level_height - self.room_side_length_y + self.block_height
+        self.entrance_coords['y'] -= self.world_shift_y
+
+        # shift world to the left
+        self.shift_world_x(-self.world_shift_x)
+        # shift world up
+        self.shift_world_y(-self.world_shift_y)
+
+class snow_level(Level):
+    """
+    create the snow level themed levels
+    """
+    def __init__(self, numRow, numCol, level_width, level_height, player, levelNum):
+
+        #make a dictionary of enemies for this level theme.  I am using an order dictionary for the enemy generation function
+        self.enemy_types = collections.OrderedDict()
+
+        # enter the likelihood of an enemy being spawned (make sure that it is in descending order starting with the
+        # most likely enemy to spawn in a level
+        self.enemy_types['green_snake'] = 4
+        self.enemy_types['BlueSnake'] = 2
+        self.enemy_types['SnowMan'] = 1
+        self.enemy_types['Yeti'] = 1
+
+        self.total_enemies = sum(self.enemy_types.values())
+
+        #specify theme
+        self.theme = 'snow'
+
+        super().__init__(numRow, numCol, level_width, level_height, player, levelNum, self.theme)
+
+        # -----SHIFT WORLD SO THAT STARTING VIEW IS ON PLAYER------------#
+        self.world_shift_x = self.block_width + self.start_room['column'] * self.room_side_length_x
+        # world has been shifted so starting point is based on new zero position
+        self.entrance_coords['x'] -= self.world_shift_x
+        self.world_shift_y = self.level_height - self.room_side_length_y + self.block_height
+        self.entrance_coords['y'] -= self.world_shift_y
+
+        # shift world to the left
+        self.shift_world_x(-self.world_shift_x)
+        # shift world up
+        self.shift_world_y(-self.world_shift_y)
+
+
+
+
 class Platform(pygame.sprite.Sprite):
     """ Platform the user can jump on """
 
-    def __init__(self, width, height, platformType, levelNum):
+    def __init__(self, width, height, platformType, theme):
         """ Platform constructor. Assumes constructed with user passing in
             an array of 5 numbers like what's defined at the top of this
             code. """
@@ -442,9 +529,9 @@ class Platform(pygame.sprite.Sprite):
 
         elif platformType == 'block':
             self.image.fill(constants.GREEN)
-            if levelNum == 1:
+            if theme == 'dirt':
                 self.image.blit(constants.TILEDICT['dirt center'], constants.TILEDICT['dirt center'].get_rect())
-            elif levelNum == 2:
+            elif theme == 'snow':
                 self.image.blit(constants.TILEDICT['tundra center'], constants.TILEDICT['tundra center'].get_rect())
 
         self.rect = self.image.get_rect()

@@ -192,7 +192,7 @@ def main():
     # current_level_no = 0
     current_level_no = 1
     # current_level = level_list[current_level_no]
-    current_level = Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, 1)
+    current_level = Level.dirt_level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, 1)
 
     # List to hold all the sprites
     p.level = current_level
@@ -318,7 +318,7 @@ def main():
 
                 # current level is generated from a call to Level.  Calling it when it is needed instead
                 # of at the beginning of the game will allow for easier expansion in the number of levels
-                current_level = Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, current_level_no)
+                current_level = Level.snow_level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, current_level_no)
                 # p.level = current_level
                 # p.rope_object.level = current_level
                 p.exit_level = 'n'

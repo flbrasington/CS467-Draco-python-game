@@ -44,10 +44,18 @@ really think of another way to do it.
 
 -enemies.py
 created a simple Spikes class that can be added to when we figure out the HP for the character and how we want to work
-that.  
+that.
 
 -main.py
 made it so that the enemy_list in the level class is added to the enemy_sprite_list in main.py.
 
 -room templates
 changed room templates to take advantage of new features
+
+2/12/2017
+-constants.py
+Added some constants for the level themes.  This will be used in level generation to figure out what enemies to spawn
+and may be useful later when generating level graphics
+
+-Level.py
+created subclasses for the snow and dirt levels and added enemy generation to the levels.

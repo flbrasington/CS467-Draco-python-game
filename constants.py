@@ -69,3 +69,5 @@ BUTTON_HEIGHT = 100
 
 #Detection distance for enemies
 DETECTION_DISTANCE = 600
+
+
