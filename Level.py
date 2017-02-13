@@ -17,6 +17,7 @@ import random
 import os
 import constants
 import enemies
+import graphics
 
 FPS = constants.fps
 
@@ -280,10 +281,17 @@ class Level:
                             self.entrance_coords['x'] = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                             self.entrance_coords['y'] = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                     elif rooms[pos][y][x] is 8:
-                        snake = enemies.green_snake()
-                        snake.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
-                        snake.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
-                        self.enemy_list.add(snake)
+                        if self.levelNum == 1:
+                            # attack distance = 100, speed X = 2
+                            snake = enemies.green_snake(graphics.greenSnakeWalk, graphics.greenSnakeAttack, 100, 2)
+                            snake.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                            snake.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                            self.enemy_list.add(snake)
+                        else:
+                            snowman = enemies.SnowMan(graphics.snowmanAttack)
+                            snowman.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                            snowman.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                            self.enemy_list.add(snowman)
         # fill probability blocks depending on if it is a floor block (6) or a block in the air (5)
         # second parameter is used to import the correct block template
         self.fill_prob_block(prob_block_5_list, 5)

@@ -21,6 +21,7 @@ import sound_effects
 import Menu
 import Level
 import enemies
+import graphics
 
 FPS = constants.fps
 
@@ -82,8 +83,8 @@ def generateEnemies(levelNum):
     #$$$$$$$$$$$$$$$$$$$$$
 
     # ghosts can be in any level at the moment
-    g1 = enemies.ghost()
-    g2 = enemies.ghost()
+    g1 = enemies.ghost(graphics.ghostWalk, 3, 3)
+    g2 = enemies.ghost(graphics.ghostWalk, 3, 3)
     # g1.rect.x = 300
     g1.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
     # g1.rect.y = 300
@@ -97,21 +98,20 @@ def generateEnemies(levelNum):
 
     enemy_sprite_list.add(g1)
     enemy_sprite_list.add(g2)
-
+    '''
     #$$$$$$$$$$$$$$$$$$$$$$$$
     #$$$ Snow Man Testing $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$
 
     # snowman can only be in ice level
     if levelNum == 2:
-        sm1 = enemies.SnowMan()
+        sm1 = enemies.SnowMan(graphics.snowmanAttack)
         # sm1.rect.x = 400
         # sm1.rect.y = 100
-        sm1.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
-        sm1.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
+        sm1.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+        sm1.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
         print('sm1 ' + str(sm1.rect.x) + ' ' + str(sm1.rect.y))
         enemy_sprite_list.add(sm1)
-
 
     #$$$$$$$$$$$$$$$$$$$$$$$$
     #$$$ Yeti Testing $$$
@@ -125,20 +125,20 @@ def generateEnemies(levelNum):
         print('y1 ' + str(y1.rect.x) + ' ' + str(y1.rect.y))
         enemy_sprite_list.add(y1)
 
-
+    '''
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$
     #$$$ Green Snake Testing $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$
     # green snake can only be in dirt level
-    if levelNum == 1:
-        s1 = enemies.green_snake()
-        # s1.rect.x = p.rect.x
-        # s1.rect.y = p.rect.y
-        s1.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
-        s1.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
-        print('s1 ' + str(s1.rect.x) + ' ' + str(s1.rect.y))
-        enemy_sprite_list.add(s1)
-
+    # if levelNum == 1:
+    s1 = enemies.green_snake(graphics.greenSnakeWalk, graphics.greenSnakeAttack, 100, 2)
+    # s1.rect.x = p.rect.x
+    # s1.rect.y = p.rect.y
+    s1.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
+    s1.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
+    print('s1 ' + str(s1.rect.x) + ' ' + str(s1.rect.y))
+    enemy_sprite_list.add(s1)
+    '''
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$
     #$$$ Blue Snake Testing $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -151,7 +151,7 @@ def generateEnemies(levelNum):
         bs1.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
         print('bs1 ' + str(bs1.rect.x) + ' ' + str(bs1.rect.y))
         enemy_sprite_list.add(bs1)
-
+    '''
     #adds the platforms to the enemies
     # for i in enemy_sprite_list:
     #     i.level = current_level
@@ -329,7 +329,7 @@ def main():
                         active_sprite_list.remove(sprite)
 
                 # generate new set of enemies for new level
-                #enemy_sprite_list = generateEnemies(current_level_no)
+                # enemy_sprite_list = generateEnemies(current_level_no)
                 enemy_sprite_list = current_level.enemy_list
 
                 # add newly generated list of enemies to active list
