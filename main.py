@@ -206,11 +206,17 @@ def main():
         for segment in rope.rope_segments:
             active_sprite_list.add(segment)
 
+    #adds the player's health bar
+    active_sprite_list.add(p.health)
+
 
     #enemy_sprite_list = generateEnemies(current_level_no)
     enemy_sprite_list = current_level.enemy_list
     enemy_sprite_list.add(generateEnemies(current_level_no))
     active_sprite_list.add(enemy_sprite_list)
+
+    #adds the enemies to the player list
+    p.enemies = enemy_sprite_list
 
     for sprite in active_sprite_list:
         sprite.level = current_level

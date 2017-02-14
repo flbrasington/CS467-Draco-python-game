@@ -18,6 +18,7 @@ from rope import Rope
 import time
 import sound_effects
 import graphics
+from health import Health
 
 CELL_HEIGHT = constants.SCREEN_HEIGHT / (constants.ROOM_HEIGHT * constants.ROOMS_ON_SCREEN)
 CELL_WIDTH = constants.SCREEN_WIDTH / (constants.ROOM_WIDTH * constants.ROOMS_ON_SCREEN)
@@ -34,6 +35,8 @@ CELL_WIDTH = constants.SCREEN_WIDTH / (constants.ROOM_WIDTH * constants.ROOMS_ON
 #$$$ Double Jump - AA7         $$$
 #$$$ Double Jump Timer - AAA8  $$$
 #$$$ start/end/cooldown - AAA9 $$$
+#$$$ Take Damage - AAA10       $$$
+#$$$ Hit enemies - AAA11       $$$
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 class Player(pygame.sprite.Sprite):
@@ -71,6 +74,9 @@ class Player(pygame.sprite.Sprite):
  
         # List of sprites we can bump against
         self.level = None
+
+        #added the enemies to the list
+        self.enemies = None
 
         #This is used to determine if the player is walking or running
         #w is for walk, r is for run
@@ -141,6 +147,22 @@ class Player(pygame.sprite.Sprite):
         #j: jumping
         #f: falling
         self.action = 'w'
+
+        #this adds the health object to the player
+        self.health = Health()
+
+        #this loads the empty image for the taking damage
+        self.empty = pygame.image.load('Graphics/SpelunkyGuy/empty.png')
+
+        #this is to set the amount of time that the player is invicable after taking damage
+        self.damage_timer = 1 #currently set to 1 sec of invicablily
+        self.damage_start_time = 0
+        self.damage_end_time = 0
+
+        #this sets the timer and image if the player is taking damage
+        #n: not taking damage
+        #y: player is or has taken damage
+        self.damage = 'n'
 
 
         
@@ -323,6 +345,12 @@ class Player(pygame.sprite.Sprite):
         #this checks for any collisons with blocks up/down
         self.collision_blocks_y()
 
+        #this checks for collision with enemies
+        self.collision_enemies()
+
+        #this checks the damage for the player
+        self.take_damage()
+
 #AAA3
 #this limits the maximun speed of the player
 #if the speed (or change_x/change_y) is greater than 10 then limit that number to 10
@@ -361,6 +389,17 @@ class Player(pygame.sprite.Sprite):
  
             # Stop our vertical movement
             self.change_y = 0
+
+
+#AAA11
+    def collision_enemies(self):
+        enemy_hit_list = pygame.sprite.spritecollide(self, self.enemies, False)
+        for bad_guy in enemy_hit_list:
+            if self.damage == 'n':
+                self.damage = 'y'
+                self.damage_start_time = 0
+
+        
 #AAA6
     def calc_grav(self):
         #if the player is not climbing the rope
@@ -407,11 +446,17 @@ class Player(pygame.sprite.Sprite):
 
 
 #AAA9
-    def start_timer(self):
-        self.start_time = time.clock()
+    def start_timer(self, damage = 'n'):
+        if damage == 'n':
+            self.start_time = time.clock()
+        else:
+            self.damage_start_time = time.clock()
 
-    def end_timer(self):
-        self.end_time = time.clock()
+    def end_timer(self, damage = 'n'):
+        if damage == 'n':
+            self.end_time = time.clock()
+        else:
+            self.damage_end_time = time.clock()
 
     def check_cool_down(self):
         self.end_time = time.clock()
@@ -420,5 +465,40 @@ class Player(pygame.sprite.Sprite):
         else:
             return False
 
+#AAA10
+    #this function allows the player to take damage and then starts a countdown
+    def take_damage(self):
+        if self.damage == 'y':
+            if self.damage_start_time == 0:
+                self.start_timer('y')
+                self.health.update_health()
+            else:
+                self.end_timer('y')
+                time = self.damage_end_time - self.damage_start_time
+                print("time = ", time)
+                print("self.damage_timer = ", self.damage_timer)
+                if time > self.damage_timer:
+                    self.damage = 'n'
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             
+                    
