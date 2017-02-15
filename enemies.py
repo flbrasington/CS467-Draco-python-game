@@ -109,8 +109,8 @@ class Enemy(pygame.sprite.Sprite):
         #if the player is within the detection distance then the snake will move around
         if self.hp <= 0:
             self.kill()
-        if self.detect_player(player) == True:
-            if self.attack_range(player) == True:
+        if self.detect_player(player):
+            if self.attack_range(player) and self.facingPlayer(player):
                 self.attack()
             else:
                 self.move()
@@ -118,6 +118,25 @@ class Enemy(pygame.sprite.Sprite):
             self.rect.x += self.change_x
         if self.fall == 'y':
             self.rect.y += self.change_y
+
+    def facingPlayer(self, player=None):
+        # enemy is facing left
+        if self.direction == 'l':
+            # player is to the left of the enemy
+            if player.rect.x <= self.rect.x:
+                return True
+            # player is to the right of the enemy
+            else:
+                return False
+        # enemy is facing right
+        else:
+            # player is to the right of the enemy
+            if player.rect.x >= self.rect.x:
+                return True
+            # player is to the left of the enemy
+            else:
+                return False
+
 
     #this checks if the player is within the snake's detection range
     def detect_player(self, player=None):
@@ -137,21 +156,47 @@ class Enemy(pygame.sprite.Sprite):
         distance = math.sqrt(distance)
         #if the player is within the detection distance return true
         if distance < self.attack_distance:
-            if player.rect.x < self.rect.x:
-                self.direction = 'l'
-            else:
-                self.direction = 'r'
+            # if player.rect.x < self.rect.x:
+            #     self.direction = 'l'
+            # else:
+            #     self.direction = 'r'
             return True
         else:
             return False
 
     #this makes the snake attack
     def attack(self):
-        True
         # print("attack")
-        # if self.action != 'a':
-        #     self.frame = 0
-        #     self.action = 'a'
+        # if not in attack mode, switch to attack mode
+        if self.action != 'a':
+            self.frame = 0
+            self.action = 'a'
+
+        if self.direction == 'l':
+            self.change_x = -self.speed_x
+            self.frame = (self.frame + 1) % len(self.attacking_frames_left)
+            self.image = self.attacking_frames_left[self.frame]
+            if self.frame > len(self.attacking_frames_left):
+                self.frame = 0
+        else:
+            self.change_x = self.speed_x
+            self.frame = (self.frame + 1) % len(self.attacking_frames_right)
+            self.image = self.attacking_frames_right[self.frame]
+            if self.frame > len(self.attacking_frames_right):
+                self.frame = 0
+
+        #this checks to see if the snake has hit anything left/right
+        block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+        for block in block_hit_list:
+            #if the snake is moving to the right
+            if self.change_x > 0:
+                self.rect.right = block.rect.left
+                self.direction = 'l'
+                self.rect.x -= 3
+            elif self.change_x < 0:
+                self.rect.left = block.rect.right
+                self.direction = 'r'
+                self.rect.x += 3
 
     #this moves the snake around
     def move(self):
@@ -476,7 +521,9 @@ class BlueSnake(Enemy):
 class Spikes(pygame.sprite.Sprite):
     def __init__(self, width, height):
         super().__init__()
-
+        # spikes are always in attack mode
+        self.action = 'a'
+        
         self.image = pygame.Surface([width, height])
         # self.image.fill(constants.RED)
         self.image.blit(graphics.TILEDICT['spikes'], graphics.TILEDICT['spikes'].get_rect())
@@ -484,6 +531,3 @@ class Spikes(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
 
         self.hp = 1000
-
-    def detectCollision(self, player=None):
-        None

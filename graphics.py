@@ -17,7 +17,7 @@ def addImages(numImg, folder, prefix):
 
 # to add images, list the number of images to add, the name of the folder, and
 # the start of the filename for the images
-greenSnakeAttack = addImages(8, 'GreenSnake', 'Snake_attack_')
+greenSnakeAttack = addImages(10, 'GreenSnake', 'Snake_attack_')
 
 greenSnakeWalk = addImages(11, 'GreenSnake', 'Snake_walk_')
  
