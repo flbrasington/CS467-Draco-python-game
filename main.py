@@ -21,6 +21,7 @@ import sound_effects
 import Menu
 import Level
 import enemies
+import graphics
 
 FPS = constants.fps
 
@@ -239,6 +240,12 @@ def main():
     # for s in active_sprite_list:
     #     print(s)
 
+    ropeCounter = []
+    for img in graphics.ropeCounter:
+        print(img)
+        image = pygame.image.load(img)
+        ropeCounter.append(image)
+
     while not done:
 
 
@@ -316,6 +323,14 @@ def main():
                 rope.rect.y += diff
                 for segment in rope.rope_segments:
                     segment.rect.y += diff
+
+
+        if p.num_of_ropes >= 10:
+            ropeDisplay = ropeCounter[10]
+        else:
+            ropeDisplay = ropeCounter[p.num_of_ropes]
+
+        screen.blit(ropeDisplay, (200,0))
 
                     
             #for enemy in enemy_sprite_list:

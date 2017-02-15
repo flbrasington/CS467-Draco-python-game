@@ -37,7 +37,6 @@ class Health(pygame.sprite.Sprite):
         self.life = 2
         
         self.image = self.hearts[self.life]
-        self.image.set_colorkey((240, 186, 34))
 
         #this is a set of locations for the player's life bar
         self.rect = self.image.get_rect()

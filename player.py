@@ -133,7 +133,7 @@ class Player(pygame.sprite.Sprite):
             rope_object = Rope()
             rope_object.level = self.level
             self.rope_list.append(rope_object)
-            self.num_of_ropes += 1
+            self.num_of_ropes += 1        
                     
         #this code is used for the cool down time for the ropes
         self.start_time = 0
@@ -185,7 +185,7 @@ class Player(pygame.sprite.Sprite):
         #a rope will travel in the direction of the mouse click
         #a cool down time will also begin, else the player will shoot too many ropes
         if pygame.mouse.get_pressed()[0]:
-            if self.can_shoot == True:
+            if self.can_shoot and self.num_of_ropes > 0:
                 self.rope_list[self.current_rope].shoot_rope(self.rect.centerx, self.rect.centery,
                                                              pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])
                 self.start_timer()
@@ -193,6 +193,8 @@ class Player(pygame.sprite.Sprite):
                 self.can_shoot = False
                 if self.current_rope > self.num_of_ropes - 1:
                     self.current_rope = 0
+
+                self.num_of_ropes -= 1
             else:
                 self.can_shoot = self.check_cool_down()
 

@@ -35,6 +35,10 @@ spelunkyGuyClimb = addImages(10, 'SpelunkyGuy', 'spelunkyGuyClimb')
 
 yetiWalk = addImages(7, 'Yeti', 'yetiWalk')
 
+ropeCounter = []
+for i in range(0, 11):
+	ropeCounter.append("Graphics/Rope/RopeCount" + str(i) + ".png")
+
 TILEDICT = {'ice block': pygame.image.load('Graphics/tiles/iceBlock.png'),
 			'ice block wall': pygame.image.load('Graphics/tiles/iceBlockWall.png'),
 			'ice block alt': pygame.image.load('Graphics/tiles/iceBlockAlt.png'),
