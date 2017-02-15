@@ -28,7 +28,7 @@ import graphics
 
 
 class Enemy(pygame.sprite.Sprite):
-    def __init__(self, walkingImages, attackingImages, attackDist, speedX, speedY):
+    def __init__(self, walkingImages, attackingImages, attackDist, speedX, speedY, hp):
         super().__init__()
 
         #this loads all the images for the snake
@@ -102,9 +102,13 @@ class Enemy(pygame.sprite.Sprite):
         #this sets the snake to fall if needed
         self.fall = 'y'
 
+        self.hp = hp
+
     #this function updates the snakes' action
     def update(self, player=None):
         #if the player is within the detection distance then the snake will move around
+        if self.hp <= 0:
+            self.kill()
         if self.detect_player(player) == True:
             if self.attack_range(player) == True:
                 self.attack()
@@ -213,12 +217,26 @@ class Enemy(pygame.sprite.Sprite):
             self.change_y += .35
         '''
 
+    # this method is intended to deal one damage to an enemy if the player jumps on it
+    # however, it only works for a small range of speeds for the player, so falling at
+    # full speed does not kill the enemy, but switching from going up to going down,
+    # does kill it
+    # def detectCollision(self, player=None):
+    #     if player.falling:
+    #         if self.rect.top == player.rect.bottom:
+    #             if self.rect.left <= player.rect.right and self.rect.right >= player.rect.left:
+    #                 self.hp -= 1
+    #     if self.hp > 0:
+    #         return True
+    #     else:
+    #         return False
+
 #this is for the ghost class of bad guy
 #AA1
 class ghost(Enemy):
 
     def __init__(self):
-        Enemy.__init__(self, graphics.ghostWalk, None, 0, 3, 3)
+        Enemy.__init__(self, graphics.ghostWalk, None, 0, 3, 3, 10)
 
 
     #this function updates the ghost's actions
@@ -266,7 +284,7 @@ class SnowMan(Enemy):
 
     def __init__(self):
         #calls the parent's constructor
-        Enemy.__init__(self, None, graphics.snowmanAttack, 0, 0, 0)
+        Enemy.__init__(self, None, graphics.snowmanAttack, 0, 0, 0, 10)
 
         #these are timers for the throwing animation
         self.timer_start = 0
@@ -386,7 +404,7 @@ FFF1
 class Yeti(Enemy):
     def __init__(self):
         # for now the walking images and attacking images are the same
-        Enemy.__init__(self, graphics.yetiWalk, graphics.yetiWalk, 100, 2, 0)
+        Enemy.__init__(self, graphics.yetiWalk, graphics.yetiWalk, 100, 2, 0, 50)
 
 '''
 #this is for the snowball which can be thrown by a snowman or possiblely other objects
@@ -444,15 +462,15 @@ class SnowBall(pygame.sprite.Sprite):
 class green_snake(Enemy):
 
     def __init__(self):
-        Enemy.__init__(self, graphics.greenSnakeWalk, graphics.greenSnakeAttack, 100, 2, 0)
+        Enemy.__init__(self, graphics.greenSnakeWalk, graphics.greenSnakeAttack, 100, 2, 0, 1)
 
 #this is the code for the smiple blue snake. The blue snake moves left and right
 #and will attack the player if the player gets too close
 #EEE1
-class green_snake(Enemy):
+class BlueSnake(Enemy):
 
     def __init__(self):
-        Enemy.__init__(self, graphics.blueSnakeWalk, graphics.blueSnakeAttack, 100, 3, 0)
+        Enemy.__init__(self, graphics.blueSnakeWalk, graphics.blueSnakeAttack, 100, 3, 0, 1)
 
 
 class Spikes(pygame.sprite.Sprite):
@@ -464,3 +482,8 @@ class Spikes(pygame.sprite.Sprite):
         self.image.blit(graphics.TILEDICT['spikes'], graphics.TILEDICT['spikes'].get_rect())
         self.image.set_colorkey(constants.BLACK)
         self.rect = self.image.get_rect()
+
+        self.hp = 1000
+
+    def detectCollision(self, player=None):
+        None

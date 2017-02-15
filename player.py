@@ -164,6 +164,8 @@ class Player(pygame.sprite.Sprite):
         #y: player is or has taken damage
         self.damage = 'n'
 
+        self.falling = False
+
 
         
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -407,13 +409,15 @@ class Player(pygame.sprite.Sprite):
             if self.change_y == 0:
                 self.change_y = 1
             else:
-                self.change_y += .35
-                    
+                self.change_y += .35                    
          
             # See if we are on the ground.
             if self.rect.y >= constants.SCREEN_HEIGHT - self.rect.height and self.change_y >= 0:
                 self.change_y = 0
                 self.rect.y = constants.SCREEN_HEIGHT - self.rect.height
+
+            if self.change_y > 0:
+                self.falling = True
 
 
 #AAA7
@@ -477,28 +481,6 @@ class Player(pygame.sprite.Sprite):
                 time = self.damage_end_time - self.damage_start_time
                 print("time = ", time)
                 print("self.damage_timer = ", self.damage_timer)
+                print(self.rect.right)
                 if time > self.damage_timer:
                     self.damage = 'n'
-                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-                    

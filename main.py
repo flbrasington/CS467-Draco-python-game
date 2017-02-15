@@ -80,7 +80,7 @@ def generateEnemies(levelNum):
     #$$$$$$$$$$$$$$$$$$$$$
     #$$$ GHOST TESTING $$$
     #$$$$$$$$$$$$$$$$$$$$$
-
+    '''
     # ghosts can be in any level at the moment
     g1 = enemies.ghost()
     g2 = enemies.ghost()
@@ -97,7 +97,7 @@ def generateEnemies(levelNum):
 
     enemy_sprite_list.add(g1)
     enemy_sprite_list.add(g2)
-
+    '''
     #$$$$$$$$$$$$$$$$$$$$$$$$
     #$$$ Snow Man Testing $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$
@@ -160,6 +160,10 @@ def generateEnemies(levelNum):
     #$$$ This is for testing for enemies $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
+def detectCollision(player, enemy):
+    enemy.detectCollision(player)
+    # bottomLeft = rect.collidepoint()
+
 # Function Main
 def main():
     # this initializes pygame
@@ -212,7 +216,7 @@ def main():
 
     #enemy_sprite_list = generateEnemies(current_level_no)
     enemy_sprite_list = current_level.enemy_list
-    enemy_sprite_list.add(generateEnemies(current_level_no))
+    # enemy_sprite_list.add(generateEnemies(current_level_no))
     active_sprite_list.add(enemy_sprite_list)
 
     #adds the enemies to the player list
@@ -231,9 +235,9 @@ def main():
     gamemusic.music_volume_up()
     #this plays the music
     gamemusic.play_music()
-    print('sprites')
-    for s in active_sprite_list:
-        print(s)
+    # print('sprites')
+    # for s in active_sprite_list:
+    #     print(s)
 
     while not done:
 
@@ -338,7 +342,7 @@ def main():
                         active_sprite_list.remove(sprite)
 
                 # generate new set of enemies for new level
-                #enemy_sprite_list = generateEnemies(current_level_no)
+                # enemy_sprite_list = generateEnemies(current_level_no)
                 enemy_sprite_list = current_level.enemy_list
 
                 # add newly generated list of enemies to active list
@@ -352,6 +356,10 @@ def main():
                 quit()
 
         active_sprite_list.draw(screen)
+
+        # for enemy in enemy_sprite_list:
+        #     enemy.detectCollision(p)
+
         # p.update()
         # pygame.draw.rect(screen, constants.BLACK, [p.lead_x, p.lead_y, 10,10])
 
