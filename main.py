@@ -365,6 +365,8 @@ def main():
 
         if p.num_of_ropes >= 10:
             ropeDisplay = ropeCounter[10]
+        elif p.num_of_ropes <= 0:
+            ropeDisplay = ropeCounter[0]
         else:
             ropeDisplay = ropeCounter[p.num_of_ropes]
 
@@ -372,6 +374,8 @@ def main():
 
         if p.num_of_knives == 10:
             knifeDisplay = knifeCounter[10]
+        elif p.num_of_knives <= 0:
+            knifeDisplay = knifeCounter[0]
         else:
             knifeDisplay = knifeCounter[p.num_of_knives]
 

@@ -147,21 +147,25 @@ class Player(pygame.sprite.Sprite):
 
         #this creates 10 rope objects
         self.num_of_ropes = 0
+        self.total_ropes = 0
         for i in range(0,10):
             rope_object = Rope()
             rope_object.level = self.level
             self.rope_list.append(rope_object)
             self.num_of_ropes += 1
+            self.total_ropes += 1
 
         #the following code is for the player's knives
         self.knife_list = []
         self.current_knife = 0
         self.num_of_knives = 0
+        self.total_knives = 0
         for i in range(0,10):
             knife_object = Knife()
             knife_object.level = self.level
             self.knife_list.append(knife_object)
             self.num_of_knives += 1
+            self.total_knives += 1
 
 
         #loads in the whip objects
@@ -547,13 +551,15 @@ class Player(pygame.sprite.Sprite):
 #AAA12
     def throw_rope(self):
         if self.can_shoot and self.num_of_ropes > 0:
+            print("current rope = ", self.current_rope)
+            print("num_of_ropes = ", self.num_of_ropes)
             self.rope_list[self.current_rope].shoot_rope(self.rect.centerx, self.rect.centery,
                                                          pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])
             self.start_timer()
             self.current_rope += 1
             self.num_of_ropes -= 1
             self.can_shoot = False
-            if self.current_rope > self.num_of_ropes - 1:
+            if self.current_rope > self.total_ropes - 1:
                 self.current_rope = 0
                 self.num_of_ropes -= 1
         else:
@@ -568,7 +574,7 @@ class Player(pygame.sprite.Sprite):
             self.current_knife += 1
             self.num_of_knives -= 1
             self.can_shoot = False
-            if self.current_knife > self.num_of_knives - 1:
+            if self.current_knife > self.total_knives - 1:
                 self.current_knife = 0
                 self.num_of_knives-= 1
         else:
