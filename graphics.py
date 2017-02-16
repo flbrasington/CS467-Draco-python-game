@@ -39,6 +39,14 @@ ropeCounter = []
 for i in range(0, 11):
 	ropeCounter.append("Graphics/Rope/RopeCount" + str(i) + ".png")
 
+knifeCounter = []
+for i in range(0,11):
+        knifeCounter.append("Graphics/Inventory/KnifeCount" + str(i) + ".png")
+
+selection_box = pygame.image.load("Graphics/Inventory/selection_box.png")
+
+whip_large = pygame.image.load("Graphics/Inventory/whip_large.png")
+
 TILEDICT = {'ice block': pygame.image.load('Graphics/tiles/iceBlock.png'),
 			'ice block wall': pygame.image.load('Graphics/tiles/iceBlockWall.png'),
 			'ice block alt': pygame.image.load('Graphics/tiles/iceBlockAlt.png'),
