@@ -56,18 +56,32 @@ class Whip(pygame.sprite.Sprite):
         self.image = self.whip_frames_right[0]
         self.rect = self.image.get_rect()
 
+        #sets the direction of the whip
+        self.direction = 'r'
+
         
     #this plays the whip's animation
     #AAA1
     def whip_animation(self):
-        if self.whip_being_used == 'y':
-            self.whip_correction()
-            self.frame = (self.frame + 1) % len(self.whip_frames_right)
-            self.image = self.whip_frames_right[self.frame]
+        if self.direction == 'r':
+            if self.whip_being_used == 'y':
+                self.whip_correction()
+                self.frame = (self.frame + 1) % len(self.whip_frames_right)
+                self.image = self.whip_frames_right[self.frame]
 
-            if self.frame == 17:
-                self.whip_being_used = 'n'
-                self.frame = 0
+                if self.frame == 17:
+                    self.whip_being_used = 'n'
+                    self.frame = 0
+        else:
+            if self.whip_being_used == 'y':
+                self.whip_correction()
+                self.frame = (self.frame + 1) % len(self.whip_frames_left)
+                self.image = self.whip_frames_left[self.frame]
+
+                if self.frame == 17:
+                    self.whip_being_used = 'n'
+                    self.frame = 0
+            
 
     #this updates the whip as needed
     #AAA2

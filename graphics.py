@@ -33,6 +33,8 @@ spelunkyGuyWalk = addImages(9, 'SpelunkyGuy', 'spelunkyGuyWalk')
 
 spelunkyGuyClimb = addImages(10, 'SpelunkyGuy', 'spelunkyGuyClimb')
 
+spelunkyGuyAttack = addImages(6, 'SpelunkyGuy', 'spelunkyGuyAttack')
+
 yetiWalk = addImages(7, 'Yeti', 'yetiWalk')
 
 ropeCounter = []

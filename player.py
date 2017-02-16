@@ -41,6 +41,7 @@ CELL_WIDTH = constants.SCREEN_WIDTH / (constants.ROOM_WIDTH * constants.ROOMS_ON
 #$$$ Hit enemies - AAA11       $$$
 #$$$ throw rope - AAA12        $$$
 #$$$ Throw knife - AAA13       $$$
+#$$$ Player Animation - AAA14  $$$
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 class Player(pygame.sprite.Sprite):
@@ -103,6 +104,8 @@ class Player(pygame.sprite.Sprite):
         self.walking_frames_right = []
         self.climbing_frames_up = []
         self.climbing_frames_down = []
+        self.attacking_frames_left = []
+        self.attacking_frames_right = []
 
         for img in graphics.spelunkyGuyWalk:
             image = pygame.image.load(img)
@@ -114,6 +117,17 @@ class Player(pygame.sprite.Sprite):
             image = pygame.image.load(img)
             self.climbing_frames_up.append(image)
             self.climbing_frames_down.append(image)
+
+        for img in graphics.spelunkyGuyAttack:
+            image = pygame.image.load(img)
+            self.attacking_frames_right.append(image)
+            self.attacking_frames_right.append(image)
+            self.attacking_frames_right.append(image)
+            image = pygame.transform.flip(image, True, False)
+            self.attacking_frames_left.append(image)
+            self.attacking_frames_left.append(image)
+            self.attacking_frames_left.append(image)
+            
 
         self.climbing_frames_down.reverse()
 
@@ -196,6 +210,9 @@ class Player(pygame.sprite.Sprite):
         self.inv_end_time = 0
         self.inv_timer = 0.1
 
+        #used for animations
+        self.player_status = 'walk'
+
 
         
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -216,12 +233,23 @@ class Player(pygame.sprite.Sprite):
         #a rope will travel in the direction of the mouse click
         #a cool down time will also begin, else the player will shoot too many ropes
         if pygame.mouse.get_pressed()[0]:
+            if self.player_status != 'attack':
+                    self.player_status = 'attack'
+                    self.frame = 0
+                    if pygame.mouse.get_pos()[0] > self.rect.x:
+                        self.direction = 'r'
+                    else:
+                        self.direction = 'l'
+
             if self.inv == 0:
                 self.throw_rope()
             elif self.inv == 1:
                 self.throw_knife()
             else:
+                self.whip.direction = self.direction
                 self.whip.whip_being_used = 'y'
+
+            
 
         #this is for changing the player's inventory
         if pygame.mouse.get_pressed()[2]:
@@ -263,20 +291,8 @@ class Player(pygame.sprite.Sprite):
                 self.change_x = -self.walk_speed
 
             self.direction = 'l'
-            
-            if  self.walk_animation == 'y':
-                self.frame = (self.frame + 1) % len(self.walking_frames_left)
-                self.image = self.walking_frames_left[self.frame]
-                if self.frame > len(self.walking_frames_right):
-                    self.frame = 0
-                #this plays the sound effect for walking
-                if self.walk_status == 'w':
-                    self.soundEffects.player_walking_sound()
-                else:
-                    #plays the player's running sound effect
-                    self.soundEffects.player_running_sound()
-            else:
-                self.image = self.walking_frames_left[0]
+            self.player_status = 'walk'
+            self.player_animation()
 
         if pressed[pygame.K_RIGHT] or pressed[pygame.K_d]:
             if self.walk_status == 'r':
@@ -285,20 +301,8 @@ class Player(pygame.sprite.Sprite):
                 self.change_x = self.walk_speed
 
             self.direction = 'r'
-
-            if self.walk_animation == 'y':
-                self.frame = (self.frame + 1) % len(self.walking_frames_right)
-                self.image = self.walking_frames_right[self.frame]
-                if self.frame > len(self.walking_frames_right):
-                    self.frame = 0
-                #this plays the sound effect for walking
-                if self.walk_status == 'w':
-                    self.soundEffects.player_walking_sound()
-                else:
-                    #plays the player's running sound effect
-                    self.soundEffects.player_running_sound()
-            else:
-                self.image = self.walking_frames_right[0]
+            self.player_status = 'walk'
+            self.player_animation()
 
         if pressed[pygame.K_UP] or pressed[pygame.K_w]:
             block_hit_list = pygame.sprite.spritecollide(self, self.level.exit_sprite, False)
@@ -316,12 +320,10 @@ class Player(pygame.sprite.Sprite):
                     self.can_double_jump = 'y'
                     #this is for the double jump
                     self.double_jump_count = 2
-
-                    self.frame = (self.frame + 1) % len(self.climbing_frames_up)
-                    self.image = self.climbing_frames_up[self.frame]
-                    if self.frame > len(self.climbing_frames_up):
-                        self.frame = 0
-
+                    
+                    self.player_status = 'climb'
+                    self.player_animation()
+                    
         if pressed[pygame.K_DOWN] or pressed[pygame.K_s]:
             if self.action == 'c':
                 #if the player wants to climb the rope
@@ -335,10 +337,8 @@ class Player(pygame.sprite.Sprite):
                         #this is for the double jump
                         self.double_jump_count = 2
 
-                        self.frame = (self.frame + 1) % len(self.climbing_frames_down)
-                        self.image = self.climbing_frames_down[self.frame]
-                        if self.frame > len(self.climbing_frames_down):
-                            self.frame = 0
+                        self.player_status = 'climb'
+                        self.player_animation()
             
         for event in pygame.event.get():
             if event.type == pygame.KEYUP:
@@ -370,6 +370,10 @@ class Player(pygame.sprite.Sprite):
 
         #this updates the whip as needed
         self.whip.whip_update(self.rect.x, self.rect.y)
+
+        #adds attack animation
+        if self.player_status == 'attack':
+            self.player_animation()
 
         
         #this section recieves input from the user.
@@ -547,6 +551,7 @@ class Player(pygame.sprite.Sprite):
                                                          pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])
             self.start_timer()
             self.current_rope += 1
+            self.num_of_ropes -= 1
             self.can_shoot = False
             if self.current_rope > self.num_of_ropes - 1:
                 self.current_rope = 0
@@ -561,10 +566,88 @@ class Player(pygame.sprite.Sprite):
                                                             pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])
             self.start_timer()
             self.current_knife += 1
+            self.num_of_knives -= 1
             self.can_shoot = False
             if self.current_knife > self.num_of_knives - 1:
                 self.current_knife = 0
                 self.num_of_knives-= 1
         else:
             self.can_shoot = self.check_cool_down()
+
+#AAA14
+    def player_animation(self):
+        if self.player_status == 'walk':
+            self.player_walk_animation()
+        if self.player_status == 'climb':
+            self.player_climb_animation()
+        if self.player_status == 'attack':
+            self.player_attack_animation()
+
+#AAA15
+    def player_walk_animation(self):
+        if self.direction == 'l':
+            if self.walk_animation == 'y':
+                if self.frame > len(self.walking_frames_right):
+                    self.frame = 0
+                    
+                self.frame = (self.frame + 1) % len(self.walking_frames_left)
+                self.image = self.walking_frames_left[self.frame]
+                
+                #this plays the sound effect for walking
+                if self.walk_status == 'w':
+                    self.soundEffects.player_walking_sound()
+                else:
+                    #plays the player's running sound effect
+                    self.soundEffects.player_running_sound()
+            else:
+                self.image = self.walking_frames_left[0]
+        else:
+            if self.walk_animation == 'y':
+
+                if self.frame > len(self.walking_frames_right):
+                    self.frame = 0
+                    
+                self.frame = (self.frame + 1) % len(self.walking_frames_right)
+                self.image = self.walking_frames_right[self.frame]
+                
+                #this plays the sound effect for walking
+                if self.walk_status == 'w':
+                    self.soundEffects.player_walking_sound()
+                else:
+                    #plays the player's running sound effect
+                    self.soundEffects.player_running_sound()
+            else:
+                self.image = self.walking_frames_right[0]
+#AAA16
+    def player_climb_animation(self):
+        self.frame = (self.frame + 1) % len(self.climbing_frames_up)
+        self.image = self.climbing_frames_up[self.frame]
+        if self.frame > len(self.climbing_frames_up):
+            self.frame = 0
+
+#AAA17
+    def player_attack_animation(self):
+        if self.frame >= 12:
+            self.frame = 0
+            self.player_status = 'walk'
+            if self.direction == 'r':
+                self.image = self.walking_frames_right[self.frame]
+            else:
+                self.image = self.walking_frames_left[self.frame]
+
+        if self.direction == 'r':
+
+                self.frame = (self.frame + 1) % len(self.attacking_frames_right)
+                self.image = self.attacking_frames_right[self.frame]
+        else:
+                if self.frame > len(self.attacking_frames_left):
+                    self.frame = 0
+
+                self.frame = (self.frame + 1) % len(self.attacking_frames_left)
+                self.image = self.attacking_frames_left[self.frame]
+            
+                
+
+        
+        
         
