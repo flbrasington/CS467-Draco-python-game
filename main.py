@@ -214,6 +214,9 @@ def main():
     for knife in p.knife_list:
         active_sprite_list.add(knife)
 
+    #adds the whip
+        active_sprite_list.add(p.whip)
+
     #adds the player's health bar
     active_sprite_list.add(p.health)
 
@@ -257,6 +260,7 @@ def main():
         print(img)
         image = pygame.image.load(img)
         knifeCounter.append(image)
+
 
     #adds the selection box image
     selection_box = graphics.selection_box

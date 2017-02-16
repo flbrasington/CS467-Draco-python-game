@@ -16,6 +16,7 @@ import constants
 import math
 from rope import Rope
 from knife import Knife
+from whip import Whip
 import time
 import sound_effects
 import graphics
@@ -147,6 +148,11 @@ class Player(pygame.sprite.Sprite):
             knife_object.level = self.level
             self.knife_list.append(knife_object)
             self.num_of_knives += 1
+
+
+        #loads in the whip objects
+        self.whip = Whip()
+        
                     
         #this code is used for the cool down time for the ropes
         self.start_time = 0
@@ -214,6 +220,8 @@ class Player(pygame.sprite.Sprite):
                 self.throw_rope()
             elif self.inv == 1:
                 self.throw_knife()
+            else:
+                self.whip.whip_being_used = 'y'
 
         #this is for changing the player's inventory
         if pygame.mouse.get_pressed()[2]:
@@ -356,8 +364,13 @@ class Player(pygame.sprite.Sprite):
         for rope in self.rope_list:
             rope.update_rope()
 
+        #this updates the knives as needed
         for knife in self.knife_list:
             knife.update_knife()
+
+        #this updates the whip as needed
+        self.whip.whip_update(self.rect.x, self.rect.y)
+
         
         #this section recieves input from the user.
         #for user commands see player.py
