@@ -49,7 +49,7 @@ class Health(pygame.sprite.Sprite):
     #This function updates the player's bar
     def update_health(self):
         #checks that the life isn't below zero
-        if self.life > 0:
+        if self.life >= 0:
             self.life -= 1
             self.image = self.hearts[self.life]
 

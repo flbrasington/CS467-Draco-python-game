@@ -516,7 +516,7 @@ class snow_level(Level):
 
 class castle_level(Level):
     """
-    create the dirt level themed levels
+    create the castle level themed levels
     """
     def __init__(self, numRow, numCol, level_width, level_height, player, levelNum):
 

@@ -54,8 +54,8 @@ DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 #Frames Per Second
 fps = 60
 
-#Font infomation
-MENU_FONT = pygame.font.SysFont('freesansbold.ttf', 30)
+#Font information
+MENU_FONT = pygame.font.SysFont('Berlin Sans FB', 30)
 BUTTON_WIDTH = 125
 BUTTON_HEIGHT = 100
 
