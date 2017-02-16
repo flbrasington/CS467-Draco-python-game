@@ -2,7 +2,1674 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfe8c979-4701-4d5f-b8a4-f514b896382b" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeAttack1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeAttack2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeAttack3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeAttack4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeAttack5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeAttack6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeAttack7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeAttack8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeWalk1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeWalk2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeWalk3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeWalk4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeWalk5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeWalk6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeWalk7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/BlueSnake/BlueSnakeWalk8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Door.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Door1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/57053.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_attack_1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_attack_10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_attack_2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_attack_3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_attack_4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_attack_5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_attack_6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_attack_7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_attack_8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_attack_9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_walk_1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_walk_10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_walk_11.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_walk_2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_walk_3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_walk_4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_walk_5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_walk_6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_walk_7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_walk_8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/GreenSnake/Snake_walk_9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Health/148705975476967.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Health/flat,800x800,075,f.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Health/hearts.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Health/hearts_1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Health/hearts_2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Health/hearts_3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/KnifeCount0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/KnifeCount1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/KnifeCount10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/KnifeCount2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/KnifeCount3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/KnifeCount4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/KnifeCount5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/KnifeCount6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/KnifeCount7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/KnifeCount8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/KnifeCount9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/knife_large.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/knife_small.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/ropeCount10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/ropeCount7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/ropeCount8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/ropeCount9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/selection_box.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Inventory/whip_large.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/PC Computer - Rayman Legends - Dark Creature.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/148663741045198.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/4df0abea10adc270448c460c13c4efed.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/ropeCount0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/ropeCount1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/ropeCount10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/ropeCount2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/ropeCount3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/ropeCount4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/ropeCount5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/ropeCount6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/ropeCount7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/ropeCount8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/ropeCount9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/rope_anchor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/rope_anchor_thrown.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/rope_end.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/rope_extra_long.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/rope_long.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/rope_med.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/rope_pile.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Rope/rope_short.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/empty.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyAttack1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyAttack2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyAttack3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyAttack4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyAttack5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyAttack6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyClimb.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyClimb1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyClimb10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyClimb2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyClimb3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyClimb4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyClimb5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyClimb6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyClimb7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyClimb8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyClimb9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyWalk1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyWalk2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyWalk3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyWalk4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyWalk5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyWalk6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyWalk7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyWalk8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/SpelunkyGuy/spelunkyGuyWalk9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Whip/whip1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Whip/whip2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Whip/whip3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Whip/whip4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Whip/whip5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Whip/whip6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Whip/whip7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Whip/whip8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Whip/whip9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Yeti/56967.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Yeti/yetiStand1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Yeti/yetiStand2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Yeti/yetiStand3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Yeti/yetiStand4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Yeti/yetiStand5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Yeti/yetiWalk1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Yeti/yetiWalk2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Yeti/yetiWalk3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Yeti/yetiWalk4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Yeti/yetiWalk5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Yeti/yetiWalk6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/Yeti/yetiWalk7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/enemies.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/ghost/ghost.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/ghost/ghost_walk1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/ghost/ghost_walk2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/ghost/ghost_walk3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/ghost/ghost_walk4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/iceBlockSmall.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/iceBlockWall2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/iceBlockWall3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/main.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/rope.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/ropeAttached.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/sgStand.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/snowman/snowball.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/snowman/snowball_pile.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/snowman/snowman1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/snowman/snowman2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/snowman/snowman3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/spelunkyGuy.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/spelunkyGuyWalk.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/tiles/castleCenter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/tiles/castleWall.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/tiles/dirtBlockWall.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/tiles/dirtBlockWall2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/tiles/dirtCenter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/tiles/iceBlock.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/tiles/iceBlockAlt.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/tiles/iceBlockWall.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/tiles/spikes.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/tiles/spikesb.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/tiles/tundra.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/tiles/tundraCenter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Graphics/tundraCenterSmall.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Music/Dirt_Road_Traveler.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Music/Eagle_Rock.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Music/Guts_and_Bourbon.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Music/Swamp_Stomp.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/Music/Uptown.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/SoundEffects/Jog_On_Grit.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/SoundEffects/WalkConcreteStairs.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/SoundEffects/Walking_on_Grit.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/_bz2.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/_ctypes.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/_hashlib.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/_lzma.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/_multiprocessing.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/_socket.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/_ssl.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/_testcapi.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/_tkinter.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/ctypes/macholib/README.ctypes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/ctypes/macholib/fetch_macholib" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/ctypes/macholib/fetch_macholib.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distutils/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distutils/command/command_template" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distutils/command/wininst-10.0-amd64.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distutils/command/wininst-10.0.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distutils/command/wininst-6.0.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distutils/command/wininst-7.1.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distutils/command/wininst-8.0.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distutils/command/wininst-9.0-amd64.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distutils/command/wininst-9.0.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distutils/tests/Setup.sample" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/email/architecture.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib2to3/Grammar.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib2to3/PatternGrammar.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/lib2to3/tests/data/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/main.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pydoc_data/_pydoc.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pyexpat.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/LGPL" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/SDL.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/SDL_image.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/SDL_mixer.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/SDL_ttf.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/_camera.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/_freetype.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/base.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/bufferproxy.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/cdrom.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/color.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/constants.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/display.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/docs/logos.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/docs/pygame_logo.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/docs/pygame_powered.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/docs/pygame_small.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/docs/pygame_tiny.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/docs/ref/docscomments.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/draw.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/event.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/alien1.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/alien1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/alien1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/alien2.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/alien2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/alien3.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/alien3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/arraydemo.bmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/asprite.bmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/background.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/blue.mpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/bomb.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/boom.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/brick.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/car_door.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/chimp.bmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/city.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/danger.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/explosion1.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/fist.bmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/house_lo.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/house_lo.ogg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/house_lo.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/liquid.bmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/midikeys.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/oldplayer.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/player1.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/punch.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/sans.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/secosmic_lo.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/shot.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/static.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/whiff.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/data/yuv_1.pgm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/JavaCompiling.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/_MainMenu_EOArchive_English.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/classes.nib" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/info.nib" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/macosx/aliens_app_example/English.lproj/MainMenu.nib/keyedobjects.nib" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/macosx/aliens_app_example/English.lproj/aliens.icns" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/examples/macosx/aliens_app_example/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/fastevent.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/font.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/freesansbold.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/gfxdraw.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/image.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/imageext.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/install.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/joystick.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/key.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/libogg.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/libvorbis.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/libvorbisfile.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/mask.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/math.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/mikmod.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/mixer.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/mixer_music.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/mouse.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/movie.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/newbuffer.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/overlay.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/pixelarray.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/pixelcopy.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/pygame.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/pygame_icon.bmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/pygame_icon.icns" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/pygame_icon.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/pygame_icon.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/pypm.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/readme.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/rect.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/rwobject.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/scrap.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/smpeg.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/surface.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/surflock.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/tests/fixtures/fonts/A_PyGameMono-8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/tests/fixtures/fonts/PyGameMono-18-100dpi.bdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/tests/fixtures/fonts/PyGameMono-18-75dpi.bdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/tests/fixtures/fonts/PyGameMono-8.bdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/tests/fixtures/fonts/PyGameMono.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/tests/fixtures/fonts/test_fixed.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/tests/fixtures/fonts/test_sans.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/tests/fixtures/fonts/u13079_PyGameMono-8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/tests/fixtures/xbm_cursors/white_sizing.xbm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/tests/fixtures/xbm_cursors/white_sizing_mask.xbm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/time.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/transform.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/pygame/zlib1.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/python34.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/python34.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/prob_block_5/pb5_1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/prob_block_6/pb6_1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_0/t0_1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_1/t1_1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_1/t1_2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_1/t1_3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_1/t1_4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_1/t1_5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_1/t1_6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_1/t1_7" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_1/t1_8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_1/t1_9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_2/t2_1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_2/t2_2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_2/t2_3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_2/t2_4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_2/t2_5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_2/t2_6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_2/t2_7" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_2/t2_8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_2/t2_9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_3/t3_1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_3/t3_2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_3/t3_3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_3/t3_4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_3/t3_5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_3/t3_6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_3/t3_7" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_3/t3_8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_3/t3_9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_4/t4_0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_4/t4_1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/room_templates/r_type_4/t4_2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/select.pyd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/auto.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/clock.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/ascii.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/big5.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp1250.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp1251.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp1252.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp1253.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp1254.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp1255.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp1256.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp1257.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp1258.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp437.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp737.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp775.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp850.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp852.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp855.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp857.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp860.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp861.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp862.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp863.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp864.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp865.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp866.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp869.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp874.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp932.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp936.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp949.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/cp950.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/dingbats.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/ebcdic.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/euc-cn.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/euc-jp.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/euc-kr.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/gb12345.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/gb1988.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/gb2312-raw.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/gb2312.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso2022-jp.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso2022-kr.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso2022.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-1.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-10.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-13.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-14.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-15.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-16.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-2.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-3.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-4.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-5.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-6.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-7.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-8.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/iso8859-9.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/jis0201.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/jis0208.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/jis0212.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/koi8-r.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/koi8-u.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/ksc5601.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/macCentEuro.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/macCroatian.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/macCyrillic.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/macDingbats.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/macGreek.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/macIceland.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/macJapan.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/macRoman.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/macRomania.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/macThai.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/macTurkish.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/macUkraine.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/shiftjis.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/symbol.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/encoding/tis-620.enc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/history.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/http1.0/http.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/http1.0/pkgIndex.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/init.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/af.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/af_za.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ar.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ar_in.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ar_jo.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ar_lb.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ar_sy.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/be.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/bg.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/bn.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/bn_in.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ca.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/cs.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/da.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/de.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/de_at.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/de_be.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/el.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/en_au.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/en_be.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/en_bw.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/en_ca.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/en_gb.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/en_hk.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/en_ie.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/en_in.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/en_nz.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/en_ph.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/en_sg.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/en_za.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/en_zw.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/eo.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_ar.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_bo.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_cl.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_co.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_cr.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_do.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_ec.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_gt.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_hn.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_mx.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_ni.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_pa.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_pe.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_pr.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_py.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_sv.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_uy.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/es_ve.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/et.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/eu.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/eu_es.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/fa.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/fa_in.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/fa_ir.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/fi.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/fo.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/fo_fo.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/fr.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/fr_be.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/fr_ca.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/fr_ch.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ga.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ga_ie.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/gl.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/gl_es.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/gv.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/gv_gb.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/he.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/hi.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/hi_in.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/hr.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/hu.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/id.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/id_id.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/is.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/it.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/it_ch.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ja.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/kl.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/kl_gl.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ko.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ko_kr.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/kok.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/kok_in.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/kw.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/kw_gb.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/lt.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/lv.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/mk.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/mr.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/mr_in.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ms.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ms_my.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/mt.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/nb.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/nl.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/nl_be.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/nn.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/pl.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/pt.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/pt_br.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ro.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ru.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ru_ua.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/sh.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/sk.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/sl.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/sq.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/sr.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/sv.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/sw.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ta.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/ta_in.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/te.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/te_in.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/th.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/tr.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/uk.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/vi.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/zh.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/zh_cn.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/zh_hk.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/zh_sg.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/msgs/zh_tw.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/opt0.4/optparse.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/opt0.4/pkgIndex.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/package.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/parray.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/safe.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tclIndex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tm.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Abidjan" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Accra" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Addis_Ababa" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Algiers" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Asmara" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Asmera" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Bamako" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Bangui" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Banjul" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Bissau" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Blantyre" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Brazzaville" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Bujumbura" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Cairo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Casablanca" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Ceuta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Conakry" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Dakar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Dar_es_Salaam" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Djibouti" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Douala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/El_Aaiun" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Freetown" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Gaborone" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Harare" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Johannesburg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Juba" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Kampala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Khartoum" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Kigali" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Kinshasa" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Lagos" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Libreville" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Lome" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Luanda" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Lubumbashi" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Lusaka" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Malabo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Maputo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Maseru" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Mbabane" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Mogadishu" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Monrovia" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Nairobi" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Ndjamena" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Niamey" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Nouakchott" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Ouagadougou" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Porto-Novo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Sao_Tome" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Timbuktu" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Tripoli" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Tunis" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Africa/Windhoek" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Adak" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Anchorage" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Anguilla" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Antigua" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Araguaina" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Argentina/Buenos_Aires" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Argentina/Catamarca" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Argentina/ComodRivadavia" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Argentina/Cordoba" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Argentina/Jujuy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Argentina/La_Rioja" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Argentina/Mendoza" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Argentina/Rio_Gallegos" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Argentina/Salta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Argentina/San_Juan" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Argentina/San_Luis" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Argentina/Tucuman" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Argentina/Ushuaia" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Aruba" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Asuncion" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Atikokan" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Atka" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Bahia" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Bahia_Banderas" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Barbados" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Belem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Belize" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Blanc-Sablon" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Boa_Vista" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Bogota" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Boise" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Buenos_Aires" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Cambridge_Bay" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Campo_Grande" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Cancun" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Caracas" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Catamarca" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Cayenne" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Cayman" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Chicago" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Chihuahua" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Coral_Harbour" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Cordoba" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Costa_Rica" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Creston" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Cuiaba" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Curacao" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Danmarkshavn" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Dawson" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Dawson_Creek" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Denver" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Detroit" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Dominica" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Edmonton" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Eirunepe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/El_Salvador" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Ensenada" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Fort_Wayne" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Fortaleza" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Glace_Bay" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Godthab" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Goose_Bay" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Grand_Turk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Grenada" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Guadeloupe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Guatemala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Guayaquil" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Guyana" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Halifax" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Havana" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Hermosillo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Indiana/Indianapolis" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Indiana/Knox" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Indiana/Marengo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Indiana/Petersburg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Indiana/Tell_City" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Indiana/Vevay" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Indiana/Vincennes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Indiana/Winamac" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Indianapolis" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Inuvik" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Iqaluit" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Jamaica" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Jujuy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Juneau" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Kentucky/Louisville" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Kentucky/Monticello" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Knox_IN" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Kralendijk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/La_Paz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Lima" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Los_Angeles" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Louisville" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Lower_Princes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Maceio" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Managua" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Manaus" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Marigot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Martinique" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Matamoros" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Mazatlan" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Mendoza" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Menominee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Merida" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Metlakatla" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Mexico_City" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Miquelon" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Moncton" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Monterrey" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Montevideo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Montreal" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Montserrat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Nassau" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/New_York" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Nipigon" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Nome" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Noronha" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/North_Dakota/Beulah" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/North_Dakota/Center" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/North_Dakota/New_Salem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Ojinaga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Panama" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Pangnirtung" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Paramaribo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Phoenix" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Port-au-Prince" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Port_of_Spain" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Porto_Acre" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Porto_Velho" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Puerto_Rico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Rainy_River" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Rankin_Inlet" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Recife" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Regina" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Resolute" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Rio_Branco" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Rosario" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Santa_Isabel" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Santarem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Santiago" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Santo_Domingo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Sao_Paulo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Scoresbysund" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Shiprock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Sitka" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/St_Barthelemy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/St_Johns" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/St_Kitts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/St_Lucia" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/St_Thomas" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/St_Vincent" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Swift_Current" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Tegucigalpa" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Thule" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Thunder_Bay" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Tijuana" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Toronto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Tortola" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Vancouver" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Virgin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Whitehorse" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Winnipeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Yakutat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/America/Yellowknife" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Antarctica/Casey" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Antarctica/Davis" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Antarctica/DumontDUrville" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Antarctica/Macquarie" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Antarctica/Mawson" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Antarctica/McMurdo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Antarctica/Palmer" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Antarctica/Rothera" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Antarctica/South_Pole" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Antarctica/Syowa" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Antarctica/Vostok" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Arctic/Longyearbyen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Aden" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Almaty" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Amman" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Anadyr" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Aqtau" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Aqtobe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Ashgabat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Ashkhabad" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Baghdad" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Bahrain" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Baku" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Bangkok" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Beirut" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Bishkek" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Brunei" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Calcutta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Choibalsan" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Chongqing" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Chungking" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Colombo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Dacca" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Damascus" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Dhaka" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Dili" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Dubai" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Dushanbe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Gaza" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Harbin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Hebron" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Ho_Chi_Minh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Hong_Kong" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Hovd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Irkutsk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Istanbul" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Jakarta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Jayapura" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Jerusalem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Kabul" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Kamchatka" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Karachi" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Kashgar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Kathmandu" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Katmandu" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Khandyga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Kolkata" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Krasnoyarsk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Kuala_Lumpur" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Kuching" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Kuwait" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Macao" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Macau" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Magadan" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Makassar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Manila" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Muscat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Nicosia" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Novokuznetsk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Novosibirsk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Omsk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Oral" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Phnom_Penh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Pontianak" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Pyongyang" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Qatar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Qyzylorda" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Rangoon" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Riyadh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Saigon" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Sakhalin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Samarkand" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Seoul" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Shanghai" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Singapore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Taipei" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Tashkent" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Tbilisi" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Tehran" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Tel_Aviv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Thimbu" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Thimphu" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Tokyo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Ujung_Pandang" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Ulaanbaatar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Ulan_Bator" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Urumqi" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Ust-Nera" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Vientiane" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Vladivostok" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Yakutsk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Yekaterinburg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Asia/Yerevan" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Atlantic/Azores" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Atlantic/Bermuda" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Atlantic/Canary" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Atlantic/Cape_Verde" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Atlantic/Faeroe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Atlantic/Faroe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Atlantic/Jan_Mayen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Atlantic/Madeira" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Atlantic/Reykjavik" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Atlantic/South_Georgia" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Atlantic/St_Helena" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Atlantic/Stanley" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/ACT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Adelaide" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Brisbane" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Broken_Hill" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Canberra" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Currie" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Darwin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Eucla" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Hobart" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/LHI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Lindeman" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Lord_Howe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Melbourne" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/NSW" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/North" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Perth" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Queensland" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/South" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Sydney" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Tasmania" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Victoria" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/West" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Australia/Yancowinna" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Brazil/Acre" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Brazil/DeNoronha" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Brazil/East" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Brazil/West" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/CET" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/CST6CDT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Canada/Atlantic" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Canada/Central" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Canada/East-Saskatchewan" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Canada/Eastern" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Canada/Mountain" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Canada/Newfoundland" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Canada/Pacific" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Canada/Saskatchewan" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Canada/Yukon" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Chile/Continental" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Chile/EasterIsland" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Cuba" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/EET" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/EST" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/EST5EDT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Egypt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Eire" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT+0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT+1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT+10" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT+11" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT+12" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT+2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT+3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT+4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT+5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT+6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT+7" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT+8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT+9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-10" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-11" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-12" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-13" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-14" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-7" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT-9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/GMT0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/Greenwich" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/UCT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/UTC" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/Universal" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Etc/Zulu" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Amsterdam" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Andorra" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Athens" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Belfast" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Belgrade" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Berlin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Bratislava" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Brussels" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Bucharest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Budapest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Busingen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Chisinau" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Copenhagen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Dublin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Gibraltar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Guernsey" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Helsinki" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Isle_of_Man" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Istanbul" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Jersey" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Kaliningrad" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Kiev" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Lisbon" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Ljubljana" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/London" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Luxembourg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Madrid" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Malta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Mariehamn" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Minsk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Monaco" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Moscow" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Nicosia" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Oslo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Paris" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Podgorica" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Prague" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Riga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Rome" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Samara" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/San_Marino" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Sarajevo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Simferopol" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Skopje" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Sofia" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Stockholm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Tallinn" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Tirane" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Tiraspol" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Uzhgorod" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Vaduz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Vatican" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Vienna" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Vilnius" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Volgograd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Warsaw" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Zagreb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Zaporozhye" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Europe/Zurich" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/GB" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/GB-Eire" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/GMT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/GMT+0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/GMT-0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/GMT0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Greenwich" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/HST" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Hongkong" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Iceland" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Indian/Antananarivo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Indian/Chagos" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Indian/Christmas" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Indian/Cocos" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Indian/Comoro" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Indian/Kerguelen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Indian/Mahe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Indian/Maldives" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Indian/Mauritius" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Indian/Mayotte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Indian/Reunion" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Iran" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Israel" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Jamaica" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Japan" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Kwajalein" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Libya" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/MET" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/MST" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/MST7MDT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Mexico/BajaNorte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Mexico/BajaSur" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Mexico/General" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/NZ" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/NZ-CHAT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Navajo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/PRC" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/PST8PDT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Apia" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Auckland" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Chatham" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Chuuk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Easter" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Efate" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Enderbury" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Fakaofo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Fiji" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Funafuti" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Galapagos" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Gambier" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Guadalcanal" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Guam" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Honolulu" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Johnston" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Kiritimati" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Kosrae" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Kwajalein" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Majuro" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Marquesas" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Midway" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Nauru" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Niue" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Norfolk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Noumea" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Pago_Pago" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Palau" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Pitcairn" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Pohnpei" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Ponape" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Port_Moresby" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Rarotonga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Saipan" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Samoa" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Tahiti" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Tarawa" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Tongatapu" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Truk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Wake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Wallis" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Pacific/Yap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Poland" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Portugal" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/ROC" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/ROK" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Singapore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/SystemV/AST4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/SystemV/AST4ADT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/SystemV/CST6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/SystemV/CST6CDT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/SystemV/EST5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/SystemV/EST5EDT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/SystemV/HST10" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/SystemV/MST7" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/SystemV/MST7MDT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/SystemV/PST8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/SystemV/PST8PDT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/SystemV/YST9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/SystemV/YST9YDT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Turkey" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/UCT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/US/Alaska" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/US/Aleutian" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/US/Arizona" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/US/Central" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/US/East-Indiana" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/US/Eastern" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/US/Hawaii" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/US/Indiana-Starke" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/US/Michigan" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/US/Mountain" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/US/Pacific" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/US/Pacific-New" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/US/Samoa" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/UTC" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Universal" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/W-SU" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/WET" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/tzdata/Zulu" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl/word.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tcl86t.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/185test.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/Sine-1000Hz-300ms.aif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-alaw.aifc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-pcm16.aiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-pcm16.au" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-pcm16.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-pcm24.aiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-pcm24.au" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-pcm24.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-pcm32.aiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-pcm32.au" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-pcm32.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-pcm8.aiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-pcm8.au" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-pcm8.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-ulaw.aifc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiodata/pluck-ulaw.au" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/audiotest.au" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/badcert.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/badkey.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/capath/4e1295a3.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/capath/5ed36f99.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/capath/6e88d7b8.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/capath/99d0fa06.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cfgparser.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cfgparser.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cfgparser.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/check_soundcard.vbs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/big5-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/big5.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/big5hkscs-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/big5hkscs.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/cp949-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/cp949.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/euc_jisx0213-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/euc_jisx0213.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/euc_jp-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/euc_jp.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/euc_kr-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/euc_kr.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/gb18030-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/gb18030.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/gb2312-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/gb2312.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/gbk-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/gbk.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/hz-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/hz.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/iso2022_jp-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/iso2022_jp.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/iso2022_kr-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/iso2022_kr.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/johab-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/johab.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/shift_jis-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/shift_jis.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/shift_jisx0213-utf8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cjkencodings/shift_jisx0213.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/cmath_testcases.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/crashers/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/data/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/abs.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/add.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/and.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/base.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/clamp.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/class.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/compare.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/comparetotal.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/comparetotmag.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/copy.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/copyabs.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/copynegate.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/copysign.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddAbs.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddAdd.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddAnd.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddBase.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddCanonical.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddClass.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddCompare.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddCompareSig.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddCompareTotal.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddCompareTotalMag.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddCopy.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddCopyAbs.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddCopyNegate.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddCopySign.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddDivide.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddDivideInt.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddEncode.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddFMA.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddInvert.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddLogB.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddMax.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddMaxMag.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddMin.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddMinMag.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddMinus.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddMultiply.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddNextMinus.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddNextPlus.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddNextToward.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddOr.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddPlus.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddQuantize.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddReduce.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddRemainder.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddRemainderNear.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddRotate.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddSameQuantum.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddScaleB.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddShift.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddSubtract.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddToIntegral.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ddXor.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/decDouble.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/decQuad.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/decSingle.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/divide.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/divideint.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqAbs.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqAdd.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqAnd.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqBase.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqCanonical.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqClass.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqCompare.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqCompareSig.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqCompareTotal.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqCompareTotalMag.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqCopy.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqCopyAbs.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqCopyNegate.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqCopySign.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqDivide.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqDivideInt.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqEncode.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqFMA.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqInvert.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqLogB.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqMax.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqMaxMag.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqMin.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqMinMag.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqMinus.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqMultiply.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqNextMinus.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqNextPlus.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqNextToward.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqOr.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqPlus.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqQuantize.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqReduce.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqRemainder.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqRemainderNear.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqRotate.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqSameQuantum.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqScaleB.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqShift.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqSubtract.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqToIntegral.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dqXor.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dsBase.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/dsEncode.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/exp.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/extra.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/fma.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/inexact.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/invert.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/ln.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/log10.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/logb.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/max.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/maxmag.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/min.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/minmag.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/minus.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/multiply.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/nextminus.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/nextplus.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/nexttoward.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/or.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/plus.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/power.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/powersqrt.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/quantize.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/randomBound32.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/randoms.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/reduce.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/remainder.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/remainderNear.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/rescale.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/rotate.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/rounding.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/samequantum.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/scaleb.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/shift.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/squareroot.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/subtract.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/testall.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/tointegral.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/tointegralx.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/decimaltestdata/xor.decTest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/dh512.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/empty.vbs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/exception_hierarchy.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/floating_points.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/formatfloat_testcases.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/https_svn_python_org_root.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/ieee754.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/imghdrdata/python.bmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/imghdrdata/python.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/imghdrdata/python.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/imghdrdata/python.pbm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/imghdrdata/python.pgm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/imghdrdata/python.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/imghdrdata/python.ppm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/imghdrdata/python.ras" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/imghdrdata/python.sgi" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/imghdrdata/python.tiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/imghdrdata/python.xbm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/keycert.passwd.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/keycert.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/keycert2.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/keycert3.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/keycert4.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/leakers/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/mailcap.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/math_testcases.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/mime.types" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/nokia.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/nullbytecert.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/nullcert.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/pstats.pck" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/pycacert.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/pycakey.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/randv2_32.pck" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/randv2_64.pck" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/randv3.pck" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/revocation.crl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/sgml_input.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/sha256.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/sndhdrdata/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/sndhdrdata/sndhdr.8svx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/sndhdrdata/sndhdr.aifc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/sndhdrdata/sndhdr.aiff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/sndhdrdata/sndhdr.au" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/sndhdrdata/sndhdr.hcom" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/sndhdrdata/sndhdr.sndt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/sndhdrdata/sndhdr.voc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/sndhdrdata/sndhdr.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/ssl_cert.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/ssl_key.passwd.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/ssl_key.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_asyncio/keycert3.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_asyncio/pycacert.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_asyncio/ssl_cert.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_asyncio/ssl_key.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_difflib_expect.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_doctest.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_doctest2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_doctest3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_doctest4.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/PyBanner048.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/audiotest.au" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_01.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_02.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_03.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_04.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_05.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_06.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_07.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_08.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_09.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_10.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_11.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_12.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_12a.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_13.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_14.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_15.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_16.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_17.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_18.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_19.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_20.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_21.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_22.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_23.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_24.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_25.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_26.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_27.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_28.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_29.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_30.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_31.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_32.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_33.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_34.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_35.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_36.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_37.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_38.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_39.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_40.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_41.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_42.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_43.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_44.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_45.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_email/data/msg_46.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_importlib/namespace_pkgs/missing_directory.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_importlib/namespace_pkgs/module_and_namespace_package/a_test/empty" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_importlib/namespace_pkgs/nested_portion1.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/test_importlib/namespace_pkgs/top_level_portion1.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/testtar.tar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/tokenize_tests-latin1-coding-cookie-and-utf8-bom-sig.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/tokenize_tests-no-coding-cookie-and-utf8-bom-sig-only.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/tokenize_tests-utf8-coding-cookie-and-no-utf8-bom-sig.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/tokenize_tests-utf8-coding-cookie-and-utf8-bom-sig.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/tokenize_tests.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/xmltestdata/test.xml.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/zip_cp437_header.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/zipdir.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/bgerror.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/button.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/choosedir.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/clrpick.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/comdlg.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/console.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/README" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/anilabel.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/aniwave.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/arrow.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/bind.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/bitmap.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/browse" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/button.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/check.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/clrpick.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/colors.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/combo.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/cscroll.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/ctext.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/dialog1.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/dialog2.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/en.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/entry1.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/entry2.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/entry3.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/filebox.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/floor.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/fontchoose.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/form.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/goldberg.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/hello" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/hscale.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/icon.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/image1.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/image2.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/images/earth.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/images/earthris.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/images/flagdown.xbm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/images/flagup.xbm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/images/gray25.xbm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/images/letters.xbm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/images/noletter.xbm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/images/ouster.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/images/pattern.xbm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/images/tcllogo.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/images/teapot.ppm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/items.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/ixset" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/knightstour.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/label.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/labelframe.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/license.terms" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/mclist.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/menu.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/menubu.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/msgbox.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/nl.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/paned1.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/paned2.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/pendulum.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/plot.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/puzzle.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/radio.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/rmt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/rolodex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/ruler.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/sayings.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/search.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/spin.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/square" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/states.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/style.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/tclIndex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/tcolor" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/text.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/textpeer.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/timer" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/toolbar.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/tree.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/ttkbut.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/ttkmenu.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/ttknote.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/ttkpane.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/ttkprogress.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/ttkscale.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/twind.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/unicodeout.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/vscale.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/demos/widget" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/dialog.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/entry.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/focus.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/fontchooser.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/iconlist.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/icons.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/README" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/lamp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/lamp.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/logo.eps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/logo100.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/logo64.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/logoLarge.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/logoMed.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/pwrdLogo.eps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/pwrdLogo100.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/pwrdLogo150.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/pwrdLogo175.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/pwrdLogo200.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/pwrdLogo75.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/images/tai-ku.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/license.terms" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/listbox.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/megawidget.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/menu.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/mkpsenc.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgbox.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/cs.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/da.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/de.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/el.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/en.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/en_gb.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/eo.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/es.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/fr.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/hu.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/it.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/nl.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/pl.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/pt.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/ru.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/msgs/sv.msg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/obsolete.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/optMenu.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/palette.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/panedwindow.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/pkgIndex.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/safetk.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/scale.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/scrlbar.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/spinbox.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/tclIndex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/tearoff.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/text.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/tk.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/tkfbox.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/altTheme.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/aquaTheme.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/button.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/clamTheme.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/classicTheme.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/combobox.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/cursors.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/defaults.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/entry.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/fonts.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/menubutton.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/notebook.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/panedwindow.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/progress.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/scale.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/scrollbar.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/sizegrip.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/spinbox.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/treeview.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/ttk.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/utils.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/vistaTheme.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/winTheme.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/ttk/xpTheme.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/unsupported.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk/xmfbox.tcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tk86t.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tkinter/test/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/unicodedata.pyd" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,21 +1696,23 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-              <folding />
+            <state relative-caret-position="308">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="e#339#352#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="setup.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="418">
+              <caret line="21" column="53" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -74,11 +1743,10 @@
       <file leaf-file-name="Level.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Level.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11330">
+            <state relative-caret-position="11352">
               <caret line="523" column="40" lean-forward="false" selection-start-line="523" selection-start-column="40" selection-end-line="523" selection-end-column="40" />
               <folding>
                 <element signature="e#339#352#0" expanded="true" />
-                <marker date="1487264621706" expanded="true" signature="18205:18222" ph="..." />
               </folding>
             </state>
           </provider>
@@ -117,7 +1785,7 @@
       <file leaf-file-name="player.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/player.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
+            <state relative-caret-position="1078">
               <caret line="58" column="68" lean-forward="false" selection-start-line="58" selection-start-column="68" selection-end-line="58" selection-end-column="68" />
               <folding>
                 <element signature="e#320#333#0" expanded="true" />
@@ -213,9 +1881,9 @@
         <option value="$PROJECT_DIR$/changes.txt" />
         <option value="$PROJECT_DIR$/health.py" />
         <option value="$PROJECT_DIR$/Level.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/constants.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
       </list>
     </option>
   </component>
@@ -227,7 +1895,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="976" />
+    <option name="width" value="1783" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -248,6 +1916,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -263,7 +1932,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -622,27 +2290,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="976" height="1038" extended-state="0" />
+    <frame x="-8" y="0" width="1783" height="1038" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28914404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1569405" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2963776" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2963374" sideWeight="0.5042493" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22832052" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3529412" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3529412" sideWeight="0.4957507" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -928,25 +2596,60 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1738">
           <caret line="79" column="27" lean-forward="false" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sound_effects.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/player.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="58" column="68" lean-forward="false" selection-start-line="58" selection-start-column="68" selection-end-line="58" selection-end-column="68" />
+        <state relative-caret-position="308">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#320#333#0" expanded="true" />
+            <element signature="e#339#352#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="21" column="53" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Menu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <element signature="e#229#242#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="68" lean-forward="false" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Level.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11352">
+          <caret line="523" column="40" lean-forward="false" selection-start-line="523" selection-start-column="40" selection-end-line="523" selection-end-column="40" />
+          <folding>
+            <element signature="e#339#352#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="57" column="33" lean-forward="false" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -966,55 +2669,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphics.py">
+    <entry file="file://$PROJECT_DIR$/player.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="68" lean-forward="false" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Level.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11330">
-          <caret line="523" column="40" lean-forward="false" selection-start-line="523" selection-start-column="40" selection-end-line="523" selection-end-column="40" />
+        <state relative-caret-position="1078">
+          <caret line="58" column="68" lean-forward="false" selection-start-line="58" selection-start-column="68" selection-end-line="58" selection-end-column="68" />
           <folding>
-            <element signature="e#339#352#0" expanded="true" />
-            <marker date="1487264621706" expanded="true" signature="18205:18222" ph="..." />
+            <element signature="e#320#333#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Menu.py">
+    <entry file="file://$PROJECT_DIR$/sound_effects.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="13" />
-          <folding>
-            <element signature="e#229#242#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1254">
-          <caret line="57" column="33" lean-forward="false" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+        <state relative-caret-position="44">
+          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="21" />
           <folding />
         </state>
       </provider>
