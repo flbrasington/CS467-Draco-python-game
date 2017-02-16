@@ -355,13 +355,14 @@ class Level:
             enemy_choice = random.randrange(0, self.total_enemies)
             #iterate through list and check enemy choice value against enemy likelihood
             for enemy, value in self.enemy_types.items():
-                print(enemy, " spawned")
                 if enemy_choice < value:
+                    print(enemy, " spawned in level ", self.levelNum)
                     enemy_class = getattr(enemies, enemy)
                     enemy_instance = enemy_class()
                     enemy_instance.rect.x = coord_x
                     enemy_instance.rect.y = coord_y
                     self.enemy_list.add(enemy_instance)
+                    print(coord_x, coord_y)
                     break
                 total_value += value
 
@@ -490,9 +491,9 @@ class snow_level(Level):
 
         # enter the likelihood of an enemy being spawned (make sure that it is in descending order starting with the
         # most likely enemy to spawn in a level
-        self.enemy_types['green_snake'] = 4
+        # self.enemy_types['green_snake'] = 4
         self.enemy_types['BlueSnake'] = 2
-        self.enemy_types['SnowMan'] = 1
+        self.enemy_types['SnowMan'] = 4
         self.enemy_types['Yeti'] = 1
 
         self.total_enemies = sum(self.enemy_types.values())

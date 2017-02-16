@@ -28,7 +28,7 @@ import graphics
 
 
 class Enemy(pygame.sprite.Sprite):
-    def __init__(self, walkingImages, attackingImages, attackDist, speedX, speedY):
+    def __init__(self, walkingImages, attackingImages, attackDist, speedX, speedY, hp):
         super().__init__()
 
         #this loads all the images for the snake
@@ -102,11 +102,15 @@ class Enemy(pygame.sprite.Sprite):
         #this sets the snake to fall if needed
         self.fall = 'y'
 
+        self.hp = hp
+
     #this function updates the snakes' action
     def update(self, player=None):
         #if the player is within the detection distance then the snake will move around
-        if self.detect_player(player) == True:
-            if self.attack_range(player) == True:
+        if self.hp <= 0:
+            self.kill()
+        if self.detect_player(player):
+            if self.attack_range(player) and self.facingPlayer(player):
                 self.attack()
             else:
                 self.move()
@@ -114,6 +118,25 @@ class Enemy(pygame.sprite.Sprite):
             self.rect.x += self.change_x
         if self.fall == 'y':
             self.rect.y += self.change_y
+
+    def facingPlayer(self, player=None):
+        # enemy is facing left
+        if self.direction == 'l':
+            # player is to the left of the enemy
+            if player.rect.x <= self.rect.x:
+                return True
+            # player is to the right of the enemy
+            else:
+                return False
+        # enemy is facing right
+        else:
+            # player is to the right of the enemy
+            if player.rect.x >= self.rect.x:
+                return True
+            # player is to the left of the enemy
+            else:
+                return False
+
 
     #this checks if the player is within the snake's detection range
     def detect_player(self, player=None):
@@ -133,21 +156,47 @@ class Enemy(pygame.sprite.Sprite):
         distance = math.sqrt(distance)
         #if the player is within the detection distance return true
         if distance < self.attack_distance:
-            if player.rect.x < self.rect.x:
-                self.direction = 'l'
-            else:
-                self.direction = 'r'
+            # if player.rect.x < self.rect.x:
+            #     self.direction = 'l'
+            # else:
+            #     self.direction = 'r'
             return True
         else:
             return False
 
     #this makes the snake attack
     def attack(self):
-        True
         # print("attack")
-        # if self.action != 'a':
-        #     self.frame = 0
-        #     self.action = 'a'
+        # if not in attack mode, switch to attack mode
+        if self.action != 'a':
+            self.frame = 0
+            self.action = 'a'
+
+        if self.direction == 'l':
+            self.change_x = -self.speed_x
+            self.frame = (self.frame + 1) % len(self.attacking_frames_left)
+            self.image = self.attacking_frames_left[self.frame]
+            if self.frame > len(self.attacking_frames_left):
+                self.frame = 0
+        else:
+            self.change_x = self.speed_x
+            self.frame = (self.frame + 1) % len(self.attacking_frames_right)
+            self.image = self.attacking_frames_right[self.frame]
+            if self.frame > len(self.attacking_frames_right):
+                self.frame = 0
+
+        #this checks to see if the snake has hit anything left/right
+        block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+        for block in block_hit_list:
+            #if the snake is moving to the right
+            if self.change_x > 0:
+                self.rect.right = block.rect.left
+                self.direction = 'l'
+                self.rect.x -= 3
+            elif self.change_x < 0:
+                self.rect.left = block.rect.right
+                self.direction = 'r'
+                self.rect.x += 3
 
     #this moves the snake around
     def move(self):
@@ -213,12 +262,26 @@ class Enemy(pygame.sprite.Sprite):
             self.change_y += .35
         '''
 
+    # this method is intended to deal one damage to an enemy if the player jumps on it
+    # however, it only works for a small range of speeds for the player, so falling at
+    # full speed does not kill the enemy, but switching from going up to going down,
+    # does kill it
+    # def detectCollision(self, player=None):
+    #     if player.falling:
+    #         if self.rect.top == player.rect.bottom:
+    #             if self.rect.left <= player.rect.right and self.rect.right >= player.rect.left:
+    #                 self.hp -= 1
+    #     if self.hp > 0:
+    #         return True
+    #     else:
+    #         return False
+
 #this is for the ghost class of bad guy
 #AA1
 class ghost(Enemy):
 
     def __init__(self):
-        Enemy.__init__(self, graphics.ghostWalk, None, 0, 3, 3)
+        Enemy.__init__(self, graphics.ghostWalk, None, 0, 3, 3, 10)
 
 
     #this function updates the ghost's actions
@@ -266,7 +329,7 @@ class SnowMan(Enemy):
 
     def __init__(self):
         #calls the parent's constructor
-        Enemy.__init__(self, None, graphics.snowmanAttack, 0, 0, 0)
+        Enemy.__init__(self, None, graphics.snowmanAttack, 0, 0, 0, 10)
 
         #these are timers for the throwing animation
         self.timer_start = 0
@@ -386,7 +449,7 @@ FFF1
 class Yeti(Enemy):
     def __init__(self):
         # for now the walking images and attacking images are the same
-        Enemy.__init__(self, graphics.yetiWalk, graphics.yetiWalk, 100, 2, 0)
+        Enemy.__init__(self, graphics.yetiWalk, graphics.yetiWalk, 100, 2, 0, 50)
 
 '''
 #this is for the snowball which can be thrown by a snowman or possiblely other objects
@@ -444,23 +507,27 @@ class SnowBall(pygame.sprite.Sprite):
 class green_snake(Enemy):
 
     def __init__(self):
-        Enemy.__init__(self, graphics.greenSnakeWalk, graphics.greenSnakeAttack, 100, 2, 0)
+        Enemy.__init__(self, graphics.greenSnakeWalk, graphics.greenSnakeAttack, 100, 2, 0, 1)
 
 #this is the code for the smiple blue snake. The blue snake moves left and right
 #and will attack the player if the player gets too close
 #EEE1
-class green_snake(Enemy):
+class BlueSnake(Enemy):
 
     def __init__(self):
-        Enemy.__init__(self, graphics.blueSnakeWalk, graphics.blueSnakeAttack, 100, 3, 0)
+        Enemy.__init__(self, graphics.blueSnakeWalk, graphics.blueSnakeAttack, 100, 3, 0, 1)
 
 
 class Spikes(pygame.sprite.Sprite):
     def __init__(self, width, height):
         super().__init__()
-
+        # spikes are always in attack mode
+        self.action = 'a'
+        
         self.image = pygame.Surface([width, height])
         # self.image.fill(constants.RED)
         self.image.blit(graphics.TILEDICT['spikes'], graphics.TILEDICT['spikes'].get_rect())
         self.image.set_colorkey(constants.BLACK)
         self.rect = self.image.get_rect()
+
+        self.hp = 1000

@@ -21,6 +21,7 @@ import sound_effects
 import Menu
 import Level
 import enemies
+import graphics
 
 FPS = constants.fps
 
@@ -80,7 +81,7 @@ def generateEnemies(levelNum):
     #$$$$$$$$$$$$$$$$$$$$$
     #$$$ GHOST TESTING $$$
     #$$$$$$$$$$$$$$$$$$$$$
-
+    '''
     # ghosts can be in any level at the moment
     g1 = enemies.ghost()
     g2 = enemies.ghost()
@@ -97,7 +98,7 @@ def generateEnemies(levelNum):
 
     enemy_sprite_list.add(g1)
     enemy_sprite_list.add(g2)
-
+    '''
     #$$$$$$$$$$$$$$$$$$$$$$$$
     #$$$ Snow Man Testing $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$
@@ -160,6 +161,10 @@ def generateEnemies(levelNum):
     #$$$ This is for testing for enemies $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
+def detectCollision(player, enemy):
+    enemy.detectCollision(player)
+    # bottomLeft = rect.collidepoint()
+
 # Function Main
 def main():
     # this initializes pygame
@@ -206,13 +211,19 @@ def main():
         for segment in rope.rope_segments:
             active_sprite_list.add(segment)
 
+    for knife in p.knife_list:
+        active_sprite_list.add(knife)
+
+    #adds the whip
+        active_sprite_list.add(p.whip)
+
     #adds the player's health bar
     active_sprite_list.add(p.health)
 
 
     #enemy_sprite_list = generateEnemies(current_level_no)
     enemy_sprite_list = current_level.enemy_list
-    enemy_sprite_list.add(generateEnemies(current_level_no))
+    # enemy_sprite_list.add(generateEnemies(current_level_no))
     active_sprite_list.add(enemy_sprite_list)
 
     #adds the enemies to the player list
@@ -231,9 +242,31 @@ def main():
     gamemusic.music_volume_up()
     #this plays the music
     gamemusic.play_music()
-    print('sprites')
-    for s in active_sprite_list:
-        print(s)
+    # print('sprites')
+    # for s in active_sprite_list:
+    #     print(s)
+
+
+    #adds the images for the number of ropes the player has
+    ropeCounter = []
+    for img in graphics.ropeCounter:
+        print(img)
+        image = pygame.image.load(img)
+        ropeCounter.append(image)
+
+    #adds the images for the number of knives the player has
+    knifeCounter = []
+    for img in graphics.knifeCounter:
+        print(img)
+        image = pygame.image.load(img)
+        knifeCounter.append(image)
+
+
+    #adds the selection box image
+    selection_box = graphics.selection_box
+
+    #adds the whip image for the item selection
+    whip_item = graphics.whip_large
 
     while not done:
 
@@ -267,6 +300,10 @@ def main():
                 for segment in rope.rope_segments:
                     segment.rect.x -= diff
 
+            #updates all the knife objects as needed
+            for knife in p.knife_list:
+                knife.rect.x -= diff
+
             #The enemies are being spawned in the level class so the shifting is done in that class as well
             #for enemy in enemy_sprite_list:
             #    enemy.rect.x -= diff
@@ -283,6 +320,10 @@ def main():
                 for segment in rope.rope_segments:
                     segment.rect.x += diff
                     
+            #updates all the knife objects as needed
+            for knife in p.knife_list:
+                knife.rect.x += diff
+                
             #for enemy in enemy_sprite_list:
             #    enemy.rect.x += diff
 
@@ -298,6 +339,10 @@ def main():
                 for segment in rope.rope_segments:
                     segment.rect.y -= diff
                     
+            #updates all the knife objects as needed
+            for knife in p.knife_list:
+                knife.rect.y -= diff
+                
             #for enemy in enemy_sprite_list:
             #    enemy.rect.y -= diff
 
@@ -306,13 +351,44 @@ def main():
             diff = 150 - p.rect.top
             p.rect.top = 150
             current_level.shift_world_y(diff)
-
+            
+            #updates all the knife objects as needed
+            for knife in p.knife_list:
+                knife.rect.y += diff
+                
             #this shifts all the rope objects as needed
             for rope in p.rope_list:
                 rope.rect.y += diff
                 for segment in rope.rope_segments:
                     segment.rect.y += diff
 
+
+        if p.num_of_ropes >= 10:
+            ropeDisplay = ropeCounter[10]
+        elif p.num_of_ropes <= 0:
+            ropeDisplay = ropeCounter[0]
+        else:
+            ropeDisplay = ropeCounter[p.num_of_ropes]
+
+        screen.blit(ropeDisplay, (200,5))
+
+        if p.num_of_knives == 10:
+            knifeDisplay = knifeCounter[10]
+        elif p.num_of_knives <= 0:
+            knifeDisplay = knifeCounter[0]
+        else:
+            knifeDisplay = knifeCounter[p.num_of_knives]
+
+        screen.blit(knifeDisplay, (350,5))
+
+        screen.blit(whip_item, (500, 5))
+
+        if p.inv == 0:
+            screen.blit(selection_box, (190,0))
+        elif p.inv == 1:
+            screen.blit(selection_box, (340,0))
+        else:
+            screen.blit(selection_box, (490,0))
                     
             #for enemy in enemy_sprite_list:
             #    enemy.rect.y += diff
@@ -338,7 +414,7 @@ def main():
                         active_sprite_list.remove(sprite)
 
                 # generate new set of enemies for new level
-                #enemy_sprite_list = generateEnemies(current_level_no)
+                # enemy_sprite_list = generateEnemies(current_level_no)
                 enemy_sprite_list = current_level.enemy_list
 
                 # add newly generated list of enemies to active list
@@ -352,6 +428,10 @@ def main():
                 quit()
 
         active_sprite_list.draw(screen)
+
+        # for enemy in enemy_sprite_list:
+        #     enemy.detectCollision(p)
+
         # p.update()
         # pygame.draw.rect(screen, constants.BLACK, [p.lead_x, p.lead_y, 10,10])
 
