@@ -81,7 +81,7 @@ def generateEnemies(levelNum):
     #$$$$$$$$$$$$$$$$$$$$$
     #$$$ GHOST TESTING $$$
     #$$$$$$$$$$$$$$$$$$$$$
-    '''
+    
     # ghosts can be in any level at the moment
     g1 = enemies.ghost()
     g2 = enemies.ghost()
@@ -98,7 +98,7 @@ def generateEnemies(levelNum):
 
     enemy_sprite_list.add(g1)
     enemy_sprite_list.add(g2)
-    '''
+    
     #$$$$$$$$$$$$$$$$$$$$$$$$
     #$$$ Snow Man Testing $$$
     #$$$$$$$$$$$$$$$$$$$$$$$$
@@ -221,9 +221,9 @@ def main():
     active_sprite_list.add(p.health)
 
 
-    #enemy_sprite_list = generateEnemies(current_level_no)
+    # enemy_sprite_list = generateEnemies(current_level_no)
     enemy_sprite_list = current_level.enemy_list
-    # enemy_sprite_list.add(generateEnemies(current_level_no))
+    enemy_sprite_list.add(generateEnemies(current_level_no))
     active_sprite_list.add(enemy_sprite_list)
 
     #adds the enemies to the player list

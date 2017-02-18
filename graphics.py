@@ -3,6 +3,7 @@ image credits
 
 backgrounds and blocks: http://opengameart.org/content/platformer-art-deluxe
 spelunky guy, snakes, and yeti: https://www.spriters-resource.com/pc_computer/spelunky/
+ghost https://www.spriters-resource.com/snes/smarioworld/
 '''
 
 import pygame
@@ -21,7 +22,8 @@ greenSnakeAttack = addImages(10, 'GreenSnake', 'Snake_attack_')
 
 greenSnakeWalk = addImages(11, 'GreenSnake', 'Snake_walk_')
  
-ghostWalk = addImages(4, 'ghost', 'ghost_walk')
+# ghostWalk = addImages(4, 'ghost', 'ghost_walk')
+ghostWalk = addImages(5, 'ghost', 'marioGhost')
 
 snowmanAttack = addImages(3, 'snowman', 'snowman')
 
