@@ -569,11 +569,13 @@ class Player(pygame.sprite.Sprite):
     def throw_knife(self):
         if self.can_shoot and self.num_of_knives > 0:
             self.knife_list[self.current_knife].throw_knife(self.rect.centerx, self.rect.centery,
-                                                            pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])
+                                                            pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1], self.level.enemy_list)
             self.start_timer()
+
             self.current_knife += 1
             self.num_of_knives -= 1
             self.can_shoot = False
+
             if self.current_knife > self.total_knives - 1:
                 self.current_knife = 0
                 self.num_of_knives-= 1

@@ -55,11 +55,9 @@ DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 fps = 60
 
 #Font information
-MENU_FONT = pygame.font.SysFont('Berlin Sans FB', 30)
+MENU_FONT = pygame.font.SysFont('Times New Roman', 30)
 BUTTON_WIDTH = 125
 BUTTON_HEIGHT = 100
 
 #Detection distance for enemies
 DETECTION_DISTANCE = 600
-
-

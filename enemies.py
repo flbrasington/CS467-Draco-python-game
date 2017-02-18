@@ -14,6 +14,7 @@ import sound_effects
 import math
 import time
 import graphics
+from knife import Knife
 
 #$$$$$$$$$$$$$$$$$$$$$$$
 #$$$ MONSTER LIST    $$$

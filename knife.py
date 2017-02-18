@@ -65,6 +65,8 @@ class Knife(pygame.sprite.Sprite):
         self.center_y = self.rect.centery
 
         self.angle = 0
+
+        self.enemies = None
         
 #$$$ AAA1
     def update_knife(self):
@@ -81,13 +83,25 @@ class Knife(pygame.sprite.Sprite):
 
         
 #$$$ AAA2
+    # this detects collisions between the knife and other items
     def knife_Collision(self):
         block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
         for block in block_hit_list:
             self.thrown = 's'
 
+        # for every update of the knife, a list of enemies which collide with it
+        # will be returned
+        enemiesHit = pygame.sprite.spritecollide(self, self.enemies, False)
+        
+        # if an enemy is hit (enemiesHit will be an empty list for open space)
+        if len(enemiesHit) >= 1:
+            # deal damage to the first enemy hit
+            enemiesHit[0].hp -= 5
+            # remove knife from game
+            self.kill()
+
 #$$$ AAA3
-    def throw_knife(self, start_x, start_y, end_x, end_y):
+    def throw_knife(self, start_x, start_y, end_x, end_y, enemies):
         self.end_point_x = end_x
         self.end_point_y = end_y
         self.start_point_x = start_x
@@ -106,6 +120,8 @@ class Knife(pygame.sprite.Sprite):
         self.end_point_y = self.start_point_y
 
         self.thrown = 'y'
+
+        self.enemies = enemies
 
 #$$$ AAA4
     def find_Opposite(self, start_y, end_y):
@@ -154,7 +170,3 @@ class Knife(pygame.sprite.Sprite):
             return -angle + 180
         else:
             return -angle
-        
-        
-        
-        
