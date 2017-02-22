@@ -171,7 +171,9 @@ def main():
     pygame.init()
 
     # this sets up the screen size for the user using the sizes defined in constants
-    screen_size = [constants.SCREEN_WIDTH + constants.SCREEN_WIDTH//2, constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2]
+    screen_width = constants.SCREEN_WIDTH + constants.SCREEN_WIDTH//2
+    screen_height = constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2
+    screen_size = [screen_width, screen_height]
     screen = pygame.display.set_mode(screen_size)
 
     # this is the caption for the window
@@ -289,7 +291,7 @@ def main():
 
         # If the player gets near the right side, shift the world left (-x)
 
-        if p.rect.right >= 500:
+        if p.rect.right >= 500 and p.level.edge_sprites[1].rect.right > screen_width:
             diff = p.rect.right - 500
             p.rect.right = 500
             current_level.shift_world_x(-diff)
@@ -309,7 +311,7 @@ def main():
             #    enemy.rect.x -= diff
 
         # If the player gets near the left side, shift the world right (+x)
-        if p.rect.left <= 300:
+        if p.rect.left <= 300 and p.level.edge_sprites[0].rect.left < 0:
             diff = 300 - p.rect.left
             p.rect.left = 300
             current_level.shift_world_x(diff)
@@ -328,7 +330,7 @@ def main():
             #    enemy.rect.x += diff
 
         # If the player gets near the bottom, shift the world up (-x)
-        if p.rect.bottom >= 550:
+        if p.rect.bottom >= 550 and p.level.edge_sprites[3].rect.bottom >= screen_height:
             diff = p.rect.bottom - 550
             p.rect.bottom = 550
             current_level.shift_world_y(-diff)
@@ -347,7 +349,7 @@ def main():
             #    enemy.rect.y -= diff
 
         # If the player gets near the top, shift the world down (+x)
-        if p.rect.top <= 150:
+        if p.rect.top <= 150 and p.level.edge_sprites[2].rect.top < 0:
             diff = 150 - p.rect.top
             p.rect.top = 150
             current_level.shift_world_y(diff)

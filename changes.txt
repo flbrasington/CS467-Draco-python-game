@@ -78,3 +78,15 @@ There are now three levels.
 
 -player.py
 Restored climbing animation
+
+2/21/17
+-level.py
+changed the screen position so that it doesn't start over the edge of the level
+
+-main.py
+changed when the game shifts perspectives on the world so that it doesn't go over the edge of the level
+
+-player.py
+had to change the calc_grav function so that the screen height is correct (this is something we need to talk about, our
+screen height and width are weird because I took a shortcut when we first started coding.  We should talk about this
+during a meeting).

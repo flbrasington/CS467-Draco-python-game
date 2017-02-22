@@ -54,6 +54,9 @@ class Level:
         self.level_height = level_height
         self.level_width = level_width
 
+        self.screen_width = constants.SCREEN_WIDTH + constants.SCREEN_WIDTH//2
+        self.screen_height = constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2
+
         self.levelNum = levelNum
 
         self.theme = theme
@@ -101,10 +104,35 @@ class Level:
         self.block_height = self.room_side_length_y / self.blocks_per_room_y
         self.player = player
         self.edges = None
+        self.edge_sprites = []
 
         self.level_edge()
         self.create_room()
         # --------------------------------------------------------------#
+        # -----SHIFT WORLD SO THAT STARTING VIEW IS ON PLAYER------------#
+        self.world_shift_x = self.block_width + self.start_room['column'] * self.room_side_length_x
+        # world has been shifted so starting point is based on new zero position
+        self.entrance_coords['x'] -= self.world_shift_x
+        self.world_shift_y = self.level_height - self.room_side_length_y + self.block_height
+        self.entrance_coords['y'] -= self.world_shift_y
+
+        # shift world to the left
+        self.shift_world_x(-self.world_shift_x)
+        # shift world up
+        self.shift_world_y(-self.world_shift_y)
+
+        #if we start on the left side of screen, shift world so that the view is not over the edge of the map
+        if (self.player.rect.left - self.edge_sprites[0].rect.left) < 300:
+            self.entrance_coords['x'] += self.edge_sprites[0].rect.left - self.player.rect.left
+            self.shift_world_x(self.edge_sprites[0].rect.left - self.player.rect.left)
+        #if we start on the right side of screen, shift world so that the view is not over the edge of the map
+        elif self.edge_sprites[1].rect.right < self.screen_width:
+            self.entrance_coords['x'] += (self.screen_width - self.edge_sprites[1].rect.right)
+            self.shift_world_x(self.screen_width - self.edge_sprites[1].rect.right)
+
+        if self.edge_sprites[3].rect.bottom < (constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2):
+            self.entrance_coords['y'] += self.screen_height - self.edge_sprites[3].rect.bottom
+            self.shift_world_y(self.screen_height - self.edge_sprites[3].rect.bottom)
 
     def level_edge(self):
 
@@ -113,6 +141,7 @@ class Level:
         # edges[1] = right edge
         # edges[2] = top edge
         # edges[3] = bottom edge
+        #[width, height, x coord, y coord]
         self.edges = [[self.block_width, self.level_height + self.block_height * 2, 0, 0],
                       [self.block_width, self.level_height + self.block_height * 2, self.level_width + self.block_width,
                        0],
@@ -124,6 +153,7 @@ class Level:
             block.rect.x = edge[2]
             block.rect.y = edge[3]
             self.platform_list.add(block)
+            self.edge_sprites.append(block)
 
     def path(self):
         """Create a path through level"""
@@ -407,6 +437,8 @@ class Level:
             exit_door.rect.x += shift_x
 
 
+
+
     def shift_world_y(self, shift_y):
         """ When the user moves up/down and we need to scroll
         everything: """
@@ -468,18 +500,6 @@ class dirt_level(Level):
 
         super().__init__(numRow, numCol, level_width, level_height, player, levelNum, self.theme)
 
-        # -----SHIFT WORLD SO THAT STARTING VIEW IS ON PLAYER------------#
-        self.world_shift_x = self.block_width + self.start_room['column'] * self.room_side_length_x
-        # world has been shifted so starting point is based on new zero position
-        self.entrance_coords['x'] -= self.world_shift_x
-        self.world_shift_y = self.level_height - self.room_side_length_y + self.block_height
-        self.entrance_coords['y'] -= self.world_shift_y
-
-        # shift world to the left
-        self.shift_world_x(-self.world_shift_x)
-        # shift world up
-        self.shift_world_y(-self.world_shift_y)
-
 class snow_level(Level):
     """
     create the snow level themed levels
@@ -503,18 +523,6 @@ class snow_level(Level):
 
         super().__init__(numRow, numCol, level_width, level_height, player, levelNum, self.theme)
 
-        # -----SHIFT WORLD SO THAT STARTING VIEW IS ON PLAYER------------#
-        self.world_shift_x = self.block_width + self.start_room['column'] * self.room_side_length_x
-        # world has been shifted so starting point is based on new zero position
-        self.entrance_coords['x'] -= self.world_shift_x
-        self.world_shift_y = self.level_height - self.room_side_length_y + self.block_height
-        self.entrance_coords['y'] -= self.world_shift_y
-
-        # shift world to the left
-        self.shift_world_x(-self.world_shift_x)
-        # shift world up
-        self.shift_world_y(-self.world_shift_y)
-
 class castle_level(Level):
     """
     create the castle level themed levels
@@ -535,18 +543,6 @@ class castle_level(Level):
         self.theme = 'castle'
 
         super().__init__(numRow, numCol, level_width, level_height, player, levelNum, self.theme)
-
-        # -----SHIFT WORLD SO THAT STARTING VIEW IS ON PLAYER------------#
-        self.world_shift_x = self.block_width + self.start_room['column'] * self.room_side_length_x
-        # world has been shifted so starting point is based on new zero position
-        self.entrance_coords['x'] -= self.world_shift_x
-        self.world_shift_y = self.level_height - self.room_side_length_y + self.block_height
-        self.entrance_coords['y'] -= self.world_shift_y
-
-        # shift world to the left
-        self.shift_world_x(-self.world_shift_x)
-        # shift world up
-        self.shift_world_y(-self.world_shift_y)
 
 
 
