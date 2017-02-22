@@ -90,3 +90,13 @@ changed when the game shifts perspectives on the world so that it doesn't go ove
 had to change the calc_grav function so that the screen height is correct (this is something we need to talk about, our
 screen height and width are weird because I took a shortcut when we first started coding.  We should talk about this
 during a meeting).
+
+2/22/17  Barry
+-enemies.py
+ghost and snowman now will be killed if hp is <= 0
+
+-knife.py
+a counter has been added so that it only counts once for hitting an enemy
+
+-main.py
+player enemies are now updated for each level

@@ -201,8 +201,6 @@ class Player(pygame.sprite.Sprite):
         #y: player is or has taken damage
         self.damage = 'n'
 
-        self.falling = False
-
         #This variable is for selecting which item is currently selected by the player
         #r: rope selected
         #k: knife selected

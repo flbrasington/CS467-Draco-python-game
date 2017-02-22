@@ -67,6 +67,9 @@ class Knife(pygame.sprite.Sprite):
         self.angle = 0
 
         self.enemies = None
+
+        # track the number of times that an enemy is hit by a knife
+        self.numHits = 0
         
 #$$$ AAA1
     def update_knife(self):
@@ -84,6 +87,9 @@ class Knife(pygame.sprite.Sprite):
         
 #$$$ AAA2
     # this detects collisions between the knife and other items
+    # it is called everytime the knife updates, so it may be called a second
+    # time before it even finisheds, so a tracker numHits has been added to
+    # only work on the first call that hits an enemy
     def knife_Collision(self):
         block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
         for block in block_hit_list:
@@ -95,10 +101,18 @@ class Knife(pygame.sprite.Sprite):
         
         # if an enemy is hit (enemiesHit will be an empty list for open space)
         if len(enemiesHit) >= 1:
-            # deal damage to the first enemy hit
-            enemiesHit[0].hp -= 5
+            self.numHits += 1
+
             # remove knife from game
             self.kill()
+
+            # one knife throw was killing stronger enemies because it was counting
+            # as multiple hits.  this if statement only registers the first hit
+            if self.numHits == 1:
+                # deal damage to the first enemy hit
+                print(enemiesHit[0], enemiesHit[0].hp)
+                enemiesHit[0].hp -= 5
+            
 
 #$$$ AAA3
     def throw_knife(self, start_x, start_y, end_x, end_y, enemies):

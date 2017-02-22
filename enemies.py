@@ -289,6 +289,8 @@ class ghost(Enemy):
     def update(self, player=None):
         #if the player is within the detection distance then move the ghost
         #towards the player else the ghost sleeps
+        if self.hp <= 0:
+            self.kill()
         if self.detect_player(player) == True:
             self.looking_at_ghost(player)
 
@@ -349,6 +351,8 @@ class SnowMan(Enemy):
     #this is the update function for the snowman
         #this function updates the ghost's actions
     def update(self, player=None):
+        if self.hp <= 0:
+            self.kill()
         #if the player is within the detection distance
         #then start the snowball throwing animation
         if self.detect_player(player) == True:
@@ -413,7 +417,7 @@ class SnowMan(Enemy):
     def make_snow_ball(self, player=None):
         #checks for the conditions
         if self.frame == 2 and self.throw == 'y':
-            sb = enemies.SnowBall()
+            sb = enemies.SnowBall(player)
             sb.set_starting_location(self.rect.x+2, self.rect.y+2)
             sb.set_up_platforms(self.level)
             #if the snowman is facing to the right
@@ -452,11 +456,11 @@ class Yeti(Enemy):
         # for now the walking images and attacking images are the same
         Enemy.__init__(self, graphics.yetiWalk, graphics.yetiWalk, 100, 2, 0, 50)
 
-'''
+
 #this is for the snowball which can be thrown by a snowman or possiblely other objects
 #CCC1
 class SnowBall(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, player):
         super().__init__()
         # this sets up the screen size for the user using the sizes defined in constants
         screen_size = [constants.SCREEN_WIDTH + constants.SCREEN_WIDTH//2, constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2]
@@ -470,6 +474,12 @@ class SnowBall(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.level = None
         self.delete = 'n'
+
+        # snowball is a weapon, so it is always in attack mode
+        self.action = 'a'
+
+        self.player = player
+
     #this is the update for the snowball
     def update(self):
         print("print")
@@ -478,7 +488,15 @@ class SnowBall(pygame.sprite.Sprite):
         self.rect.y += self.speed_y
         #this draws the snowball
         self.image.draw(screen)
-        #this checks to see if the snowball has hit any of the objects in the game
+
+        snowball_Collision()
+            
+
+    # this detects collisions between the knife and other items
+    # it is called everytime the knife updates, so it may be called a second
+    # time before it even finisheds, so a tracker numHits has been added to
+    # only work on the first call that hits an enemy
+    def snowball_Collision(self):
         block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
         for block in block_hit_list:
             #if the snowball hits a platfrom then the update is to return delete so that the
@@ -489,6 +507,18 @@ class SnowBall(pygame.sprite.Sprite):
             elif self.speed_x < 0:
                 # Otherwise if we are moving left, do the opposite.
                 self.rect.left = block.rect.right
+
+        # for every update of the knife, a list of enemies which collide with it
+        # will be returned
+        playerHit = pygame.sprite.spritecollide(self, self.player, False)
+        
+        # if an enemy is hit (enemiesHit will be an empty list for open space)
+        if len(playerHit) >= 1:
+            self.numHits += 1
+
+            # remove knife from game
+            self.kill()
+            
     #this sets up the speed for the snowball
     def set_speed(self, speedx, speedy):
         self.speed_x = speedx
@@ -500,7 +530,7 @@ class SnowBall(pygame.sprite.Sprite):
     #this adds all the platforms to the snowball object
     def set_up_platfroms(self, objects):
         self.level = objects
-'''
+
 
 #this is the code for the smiple green snake. The green snake moves left and right
 #and will attack the player if the player gets too close

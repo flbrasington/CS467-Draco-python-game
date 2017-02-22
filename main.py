@@ -93,8 +93,8 @@ def generateEnemies(levelNum):
     g2.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
     # g2.rect.y = 500
     g2.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
-    print('g1 ' + str(g1.rect.x) + ' ' + str(g1.rect.y))
-    print('g2 ' + str(g2.rect.x) + ' ' + str(g2.rect.y))
+    # print('g1 ' + str(g1.rect.x) + ' ' + str(g1.rect.y))
+    # print('g2 ' + str(g2.rect.x) + ' ' + str(g2.rect.y))
 
     enemy_sprite_list.add(g1)
     enemy_sprite_list.add(g2)
@@ -110,7 +110,7 @@ def generateEnemies(levelNum):
         # sm1.rect.y = 100
         sm1.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
         sm1.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
-        print('sm1 ' + str(sm1.rect.x) + ' ' + str(sm1.rect.y))
+        # print('sm1 ' + str(sm1.rect.x) + ' ' + str(sm1.rect.y))
         enemy_sprite_list.add(sm1)
 
 
@@ -123,7 +123,7 @@ def generateEnemies(levelNum):
         y1 = enemies.Yeti()
         y1.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
         y1.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
-        print('y1 ' + str(y1.rect.x) + ' ' + str(y1.rect.y))
+        # print('y1 ' + str(y1.rect.x) + ' ' + str(y1.rect.y))
         enemy_sprite_list.add(y1)
 
 
@@ -137,7 +137,7 @@ def generateEnemies(levelNum):
         # s1.rect.y = p.rect.y
         s1.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
         s1.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
-        print('s1 ' + str(s1.rect.x) + ' ' + str(s1.rect.y))
+        # print('s1 ' + str(s1.rect.x) + ' ' + str(s1.rect.y))
         enemy_sprite_list.add(s1)
 
     #$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -150,7 +150,7 @@ def generateEnemies(levelNum):
         # s1.rect.y = p.rect.y
         bs1.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
         bs1.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
-        print('bs1 ' + str(bs1.rect.x) + ' ' + str(bs1.rect.y))
+        # print('bs1 ' + str(bs1.rect.x) + ' ' + str(bs1.rect.y))
         enemy_sprite_list.add(bs1)
 
     #adds the platforms to the enemies
@@ -252,14 +252,14 @@ def main():
     #adds the images for the number of ropes the player has
     ropeCounter = []
     for img in graphics.ropeCounter:
-        print(img)
+        # print(img)
         image = pygame.image.load(img)
         ropeCounter.append(image)
 
     #adds the images for the number of knives the player has
     knifeCounter = []
     for img in graphics.knifeCounter:
-        print(img)
+        # print(img)
         image = pygame.image.load(img)
         knifeCounter.append(image)
 
@@ -425,6 +425,9 @@ def main():
                 # update level for all sprites (enemy, player, and rope)
                 for sprite in active_sprite_list:
                     sprite.level = current_level
+
+                p.level = current_level
+                p.enemies = enemy_sprite_list
             else:
                 pygame.quit()
                 quit()
