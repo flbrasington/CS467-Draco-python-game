@@ -477,9 +477,9 @@ class Player(pygame.sprite.Sprite):
                 self.change_y += .35                    
          
             # See if we are on the ground.
-            if self.rect.y >= constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2 - self.rect.height and self.change_y >= 0:
+            if self.rect.y >= constants.SCREEN_HEIGHT - self.rect.height and self.change_y >= 0:
                 self.change_y = 0
-                self.rect.y = constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2 - self.rect.height
+                self.rect.y = constants.SCREEN_HEIGHT - self.rect.height
 
             if self.change_y > 0:
                 self.falling = True
