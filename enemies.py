@@ -281,7 +281,6 @@ class Enemy(pygame.sprite.Sprite):
         for block in block_hit_list:
             # Reset our position based on the top/bottom of the object.
             if self.change_y > 0:
-                print("fuck")
                 self.rect.bottom = block.rect.top
                 # Stop our vertical movement
                 self.change_y = 0
