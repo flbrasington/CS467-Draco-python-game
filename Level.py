@@ -130,8 +130,8 @@ class Level:
             self.entrance_coords['x'] += (self.screen_width - self.edge_sprites[1].rect.right)
             self.shift_world_x(self.screen_width - self.edge_sprites[1].rect.right)
 
-        if self.edge_sprites[3].rect.bottom < (constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2):
-            self.entrance_coords['y'] += self.screen_height - self.edge_sprites[3].rect.bottom
+        if self.edge_sprites[3].rect.bottom < self.screen_height:
+            self.entrance_coords['y'] += self.screen_height - self.edge_sprites[3].rect.top
             self.shift_world_y(self.screen_height - self.edge_sprites[3].rect.bottom)
 
     def level_edge(self):

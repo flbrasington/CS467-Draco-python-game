@@ -404,8 +404,14 @@ def main():
                 # of at the beginning of the game will allow for easier expansion in the number of levels
                 if current_level_no == 2:
                     current_level = Level.castle_level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, current_level_no)
+                    p.level = current_level
+                    p.rect.x = current_level.entrance_coords['x']
+                    p.rect.y = current_level.entrance_coords['y']
                 elif current_level_no == 3:
                     current_level = Level.snow_level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, current_level_no)
+                    p.level = current_level
+                    p.rect.x = current_level.entrance_coords['x']
+                    p.rect.y = current_level.entrance_coords['y']
                 # p.level = current_level
                 # p.rope_object.level = current_level
                 p.exit_level = 'n'
