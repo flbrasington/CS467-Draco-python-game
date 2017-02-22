@@ -171,8 +171,8 @@ def main():
     pygame.init()
 
     # this sets up the screen size for the user using the sizes defined in constants
-    screen_width = constants.SCREEN_WIDTH + constants.SCREEN_WIDTH//2
-    screen_height = constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2
+    screen_width = constants.SCREEN_WIDTH
+    screen_height = constants.SCREEN_HEIGHT
     screen_size = [screen_width, screen_height]
     screen = pygame.display.set_mode(screen_size)
 

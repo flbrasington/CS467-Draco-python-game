@@ -54,8 +54,8 @@ class Level:
         self.level_height = level_height
         self.level_width = level_width
 
-        self.screen_width = constants.SCREEN_WIDTH + constants.SCREEN_WIDTH//2
-        self.screen_height = constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2
+        self.screen_width = constants.SCREEN_WIDTH
+        self.screen_height = constants.SCREEN_HEIGHT
 
         self.levelNum = levelNum
 
