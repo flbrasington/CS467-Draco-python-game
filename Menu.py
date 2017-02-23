@@ -33,24 +33,19 @@ myFont = constants.MENU_FONT
 
 
 #this object diplays the rect and text for a button
-    #Text is for the desired text to be displayed
     #x and y are for the x & cooridnates
     #Screen is for the display of the game
     #Mouse is for the mouse cursor's current location
     #Click is for deteching a left mouse click
     #action is for the action to be taken in menu_action
     #music is for if music is being passed thru
-def text_objects(text, font, x, y, screen, mouse, click, action, music=None):
-    pygame.draw.rect(screen, NAVY, (x, y, width,height))
-
-    #this changes the color of the button if the mouse is over the button
-    if x+width > mouse[0] > x and y+height > mouse[1] > y:
-        pygame.draw.rect(screen, BLUE, (x,y,width,height))
+def menu_button(x, y, screen, mouse, click, action, image1, image2, music=None):
+    if x+190 > mouse[0] > x and y+50 > mouse[1] > y:
+        screen.blit(image2, (x, y))
         if click[0] == 1:
             menu_action(action,music)
-
-    label = font.render(text, 1, WHITE)
-    screen.blit(label, (x+5,y+height/3))
+    else:
+        screen.blit(image1, (x, y))
                      
 #this function stores all the actions that a player can take on the menu screen
     #q   : Quit program
@@ -88,29 +83,57 @@ def game_menu(gamemusic):
 
     gamemusic.pause = True
 
+    #sets all the images up for the menu
+    #quit game buttons
+    quit1 = graphics.quit_button1
+    quit2 = graphics.quit_button2
+
+    #next song
+    next1 = graphics.next_song1
+    next2 = graphics.next_song2
+
+    #previous song
+    prev1 = graphics.prev_song1
+    prev2 = graphics.prev_song2
+
+    #music volume
+    music_up1 = graphics.music_up1
+    music_up2 = graphics.music_up2
+    music_down1 = graphics.music_down1
+    music_down2 = graphics.music_down2
+
+    #return to game
+    return1 = graphics.return1
+    return2 = graphics.return2
+
+    #background button
+    button_back = graphics.button_back
+    background_image = graphics.background_menu
+
     #this loop is used to display the options of what to do for the player.
     while gamemusic.pause == True:
         mouse = pygame.mouse.get_pos()
         click = pygame.mouse.get_pressed()
-        screen.fill(constants.ORANGE)
+        screen.fill(BACKGOUND_COLOR)
 
-        #this displays the quit game button
-        text_objects("Quit Game", myFont, 150, 450, screen, mouse, click, 'q')
+        #adds the background image
+        screen.blit(background_image, (0,0))
 
-        #This displays the next song button
-        text_objects("Next Song", myFont, 150, 550, screen, mouse, click, 'n_s', gamemusic)
+        #adds teh background button
+        screen.blit(button_back, (50, 50))
 
-        #displays the prev song button
-        text_objects("Prev Song", myFont, 150, 650, screen, mouse, click, 'p_s', gamemusic)
-
-        #this is for returning to the game
-        text_objects("Return to Game", myFont, 450, 450, screen, mouse, click, 'r', gamemusic)
-
-        #this sets the music volume up
-        text_objects("Music Volume++", myFont, 450, 550, screen, mouse, click, 'MV_U', gamemusic)
-
-        #this sets the music volume down
-        text_objects("Music Volume--", myFont, 450, 650, screen, mouse, click, 'MV_D', gamemusic)
+        #quit button
+        menu_button(100, 100, screen, mouse, click, 'q',quit1, quit2)
+        #next song
+        menu_button(100, 175, screen, mouse, click, 'n_s', next1, next2, gamemusic)
+        #Music volume up
+        menu_button(100, 250, screen, mouse, click, 'MV_U', music_up1, music_up2, gamemusic)
+        #prev song
+        menu_button(300, 100, screen, mouse, click, 'p_s', prev1, prev2, gamemusic)
+        #return to game
+        menu_button(300, 175, screen, mouse, click, 'r', return1, return2, gamemusic)
+        #Music volume down
+        menu_button(300, 250, screen, mouse, click, 'MV_D', music_down1, music_down2, gamemusic)
 
 
         
