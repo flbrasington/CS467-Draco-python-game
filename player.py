@@ -15,7 +15,7 @@ import pygame
 import constants
 import math
 from rope import Rope
-from knife import Knife
+from projectiles import Knife
 from whip import Whip
 import time
 import sound_effects
@@ -69,8 +69,8 @@ class Player(pygame.sprite.Sprite):
         self.change_y = 0
 
         #this sets the speed for walking and running
-        self.walk_speed = 0.04 * CELL_WIDTH
-        self.run_speed = 1.3 * self.walk_speed
+        self.walk_speed = 0.04  * CELL_WIDTH
+        self.run_speed =  1.3 * self.walk_speed
         self.climb_speed = self.walk_speed
 
         #the below two variables are for the jump heights
@@ -399,7 +399,7 @@ class Player(pygame.sprite.Sprite):
 
         #this updates the knives as needed
         for knife in self.knife_list:
-            knife.update_knife()
+            knife.update_projectile()
 
         #this updates the whip as needed
         self.whip.whip_update(self.rect.x, self.rect.y)
@@ -450,7 +450,7 @@ class Player(pygame.sprite.Sprite):
             else:
                 speed = 9
         return speed
-
+        
     def max_speed_y(self, speed=None):
         if abs(speed) > 10:
             if speed < 10:
@@ -725,10 +725,3 @@ class Player(pygame.sprite.Sprite):
             self.image = self.wall_climbing_left[self.frame]
         else:
             self.image = self.wall_climbing_right[self.frame]
-            
-            
-                
-
-        
-        
-        

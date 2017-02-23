@@ -104,14 +104,13 @@ def generateEnemies(levelNum):
     #$$$$$$$$$$$$$$$$$$$$$$$$
 
     # snowman can only be in ice level
-    if levelNum == 2:
-        sm1 = enemies.SnowMan()
-        # sm1.rect.x = 400
-        # sm1.rect.y = 100
-        sm1.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
-        sm1.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
-        # print('sm1 ' + str(sm1.rect.x) + ' ' + str(sm1.rect.y))
-        enemy_sprite_list.add(sm1)
+    # sm1 = enemies.SnowMan()
+    # sm1.rect.x = 400
+    # sm1.rect.y = 100
+    # sm1.rect.x = random.randint(0, constants.SCREEN_WIDTH * 2)
+    # sm1.rect.y = random.randint(0, constants.SCREEN_HEIGHT * 2)
+    # print('sm1 ' + str(sm1.rect.x) + ' ' + str(sm1.rect.y))
+    # enemy_sprite_list.add(sm1)
 
 
     #$$$$$$$$$$$$$$$$$$$$$$$$

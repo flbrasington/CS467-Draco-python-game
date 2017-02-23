@@ -25,6 +25,8 @@ greenSnakeWalk = addImages(11, 'GreenSnake', 'Snake_walk_')
 # ghostWalk = addImages(4, 'ghost', 'ghost_walk')
 ghostWalk = addImages(5, 'ghost', 'marioGhost')
 
+snowmanStand = addImages(1, 'snowman', 'snowman')
+
 snowmanAttack = addImages(3, 'snowman', 'snowman')
 
 blueSnakeAttack = addImages(8, 'BlueSnake', 'BlueSnakeAttack')
