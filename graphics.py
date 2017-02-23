@@ -37,7 +37,9 @@ spelunkyGuyClimb = addImages(10, 'SpelunkyGuy', 'spelunkyGuyClimb')
 
 spelunkyGuyAttack = addImages(6, 'SpelunkyGuy', 'spelunkyGuyAttack')
 
-spelunkyGuyWallClimb = addImages(8, 'SpelunkyGuy', 'spelunkyGuyWall')
+spelunkyGuyWallClimbLeft = addImages(8, 'SpelunkyGuy', 'spelunkyGuyWall')
+
+spelunkyGuyWallClimbRight = addImages(8, 'SpelunkyGuy', 'spelunkyGuyWall_right')
 
 yetiWalk = addImages(7, 'Yeti', 'yetiWalk')
 
