@@ -14,11 +14,13 @@ import pygame
 import music
 import constants
 import time
+import graphics
 
 WHITE = constants.WHITE
 BLUE = constants.BLUE
 BLACK = constants.BLACK
 NAVY = constants.NAVY
+BACKGOUND_COLOR = constants.DARK_YELLOW
 
 # set height and width of window
 SCREEN_WIDTH = constants.SCREEN_WIDTH
@@ -27,9 +29,6 @@ SCREEN_HEIGHT = constants.SCREEN_HEIGHT
 #sets the button's width and height
 width = constants.BUTTON_WIDTH
 height = constants.BUTTON_HEIGHT
-
-#for the font
-myFont = constants.MENU_FONT
 
 
 #this object diplays the rect and text for a button
