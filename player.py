@@ -106,6 +106,8 @@ class Player(pygame.sprite.Sprite):
         self.climbing_frames_down = []
         self.attacking_frames_left = []
         self.attacking_frames_right = []
+        self.wall_climbing_left = []
+        self.wall_climbing_right = []
 
         for img in graphics.spelunkyGuyWalk:
             image = pygame.image.load(img)
@@ -127,7 +129,17 @@ class Player(pygame.sprite.Sprite):
             self.attacking_frames_left.append(image)
             self.attacking_frames_left.append(image)
             self.attacking_frames_left.append(image)
-            
+
+        for img in graphics.spelunkyGuyWallClimbLeft:
+            image = pygame.image.load(img)
+            image = pygame.transform.flip(image, True, False)
+            self.wall_climbing_left.append(image)
+            self.wall_climbing_left.append(image)
+
+        for img in graphics.spelunkyGuyWallClimbRight:
+            image = pygame.image.load(img)
+            self.wall_climbing_right.append(image)
+            self.wall_climbing_right.append(image)
 
         self.climbing_frames_down.reverse()
 
@@ -183,6 +195,7 @@ class Player(pygame.sprite.Sprite):
         #w: walking/running
         #j: jumping
         #f: falling
+        #wc: wall climbing
         self.action = 'w'
 
         #this adds the health object to the player
@@ -292,7 +305,8 @@ class Player(pygame.sprite.Sprite):
             if self.walk_status == 'w':
                 self.change_x = -self.walk_speed
 
-            self.direction = 'l'
+            if self.action != 'wc':
+                self.direction = 'l'
             self.player_status = 'walk'
             self.player_animation()
 
@@ -302,7 +316,9 @@ class Player(pygame.sprite.Sprite):
             if self.walk_status == 'w':
                 self.change_x = self.walk_speed
 
-            self.direction = 'r'
+            if self.action != 'wc':
+                self.direction = 'r'
+
             self.player_status = 'walk'
             self.player_animation()
 
@@ -313,20 +329,35 @@ class Player(pygame.sprite.Sprite):
                     self.exit_level = 'y'
 
             #if the player wants to climb the rope
-            self.action = 'w'
-            for rope in self.rope_list:
-                rope_hit_list = pygame.sprite.spritecollide(self, rope.rope_segments, False)
-                for seg in rope_hit_list:
-                    self.action = 'c'
-                    self.change_y = -self.climb_speed
-                    self.can_double_jump = 'y'
-                    #this is for the double jump
-                    self.double_jump_count = 2
-                    
-                    self.player_status = 'climb'
-                    self.player_animation()
+            #self.action = 'w'
+            if self.action != 'wc':
+                for rope in self.rope_list:
+                    rope_hit_list = pygame.sprite.spritecollide(self, rope.rope_segments, False)
+                    for seg in rope_hit_list:
+                        self.action = 'c'
+                        self.change_y = -self.climb_speed
+                        self.can_double_jump = 'y'
+                        #this is for the double jump
+                        self.double_jump_count = 2
+                        
+                        self.player_status = 'climb'
+                        self.player_animation()
+
+            elif self.action == 'wc':
+                self.change_y = -self.climb_speed
+                self.player_status = 'wall_climb'
+                self.player_animation()
+                self.can_double_jump = 'y'
+                self.double_jump_count = 2
                     
         if pressed[pygame.K_DOWN] or pressed[pygame.K_s]:
+            if self.action == 'wc':
+                self.change_y = self.climb_speed
+                self.can_double_jump = 'y'
+                #this is for the double jump
+                self.double_jump_count = 2
+
+                
             if self.action == 'c':
                 #if the player wants to climb the rope
                 self.action = 'w'
@@ -423,6 +454,7 @@ class Player(pygame.sprite.Sprite):
 #AAA4
     def collision_blocks_x(self):
         block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+        fall = True
         for block in block_hit_list:
             # If we are moving right,
             # set our right side to the left side of the item we hit
@@ -431,6 +463,25 @@ class Player(pygame.sprite.Sprite):
             elif self.change_x < 0:
                 # Otherwise if we are moving left, do the opposite.
                 self.rect.left = block.rect.right
+
+        #sets up for climbing walls
+            pressed = pygame.key.get_pressed()
+            if pressed[pygame.K_UP] or pressed[pygame.K_w]:
+                fall = False
+                if self.action != 'wc':
+                    if self.direction == 'r':
+                        self.rect.right = block.rect.left
+                    self.change_y = 0
+                    self.action = 'wc'
+                    self.player_status = 'wall_climb'
+                    
+
+        if fall == True:
+            if self.action == 'wc':
+                self.action = 'f'
+                self.player_status = 'walk'
+                self.player_animation()
+            
 
 #AAA5
     def collision_blocks_y(self):
@@ -462,7 +513,7 @@ class Player(pygame.sprite.Sprite):
 #AAA6
     def calc_grav(self):
         #if the player is not climbing the rope
-        if self.action != 'c':
+        if self.action != 'c' or self.action != 'wc':
             if self.change_y == 0:
                 self.change_y = 1
             else:
@@ -588,6 +639,8 @@ class Player(pygame.sprite.Sprite):
             self.player_climb_animation()
         if self.player_status == 'attack':
             self.player_attack_animation()
+        if self.player_status == 'wall_climb':
+            self.player_wall_climb_animation()
 
 #AAA15
     def player_walk_animation(self):
@@ -651,6 +704,20 @@ class Player(pygame.sprite.Sprite):
 
                 self.frame = (self.frame + 1) % len(self.attacking_frames_left)
                 self.image = self.attacking_frames_left[self.frame]
+
+#AAA18
+    def player_wall_climb_animation(self):
+        if self.frame >= 15:
+            self.frame = 0
+            self.player_status = 'wall_climb'
+
+        self.frame = (self.frame + 1) % len(self.wall_climbing_left)
+
+        if self.direction == 'l':
+            self.image = self.wall_climbing_left[self.frame]
+        else:
+            self.image = self.wall_climbing_right[self.frame]
+            
             
                 
 
