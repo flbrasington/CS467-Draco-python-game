@@ -110,6 +110,8 @@ class Enemy(pygame.sprite.Sprite):
         #if the player is within the detection distance then the snake will move around
         if self.hp <= 0:
             self.kill()
+        if self.fall == 'y':
+            self.calc_grav()
         if self.detect_player(player):
             if self.attack_range(player) and self.facingPlayer(player):
                 self.attack()
@@ -117,8 +119,11 @@ class Enemy(pygame.sprite.Sprite):
                 self.move()
 
             self.rect.x += self.change_x
-        if self.fall == 'y':
-            self.rect.y += self.change_y
+
+        self.rect.y += self.change_y
+        self.fall = 'y'
+        self.collision_blocks_y()
+
 
     def facingPlayer(self, player=None):
         # enemy is facing left
@@ -263,7 +268,25 @@ class Enemy(pygame.sprite.Sprite):
             self.change_y += .35
         '''
 
-    # this method is intended to deal one damage to an enemy if the player jumps on it
+    def calc_grav(self):
+        # if the player is not climbing the rope
+        if self.change_y == 0:
+            self.change_y = 1
+        else:
+            self.change_y += .35
+
+
+    def collision_blocks_y(self):
+        block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+        for block in block_hit_list:
+            # Reset our position based on the top/bottom of the object.
+            if self.change_y > 0:
+                self.rect.bottom = block.rect.top
+                # Stop our vertical movement
+                self.change_y = 0
+                self.fall = 'n'
+
+                    # this method is intended to deal one damage to an enemy if the player jumps on it
     # however, it only works for a small range of speeds for the player, so falling at
     # full speed does not kill the enemy, but switching from going up to going down,
     # does kill it

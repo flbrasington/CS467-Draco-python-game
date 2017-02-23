@@ -4,7 +4,11 @@
     <list default="true" id="dfe8c979-4701-4d5f-b8a4-f514b896382b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Level.py" afterPath="$PROJECT_DIR$/Level.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Menu.py" afterPath="$PROJECT_DIR$/Menu.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/constants.py" afterPath="$PROJECT_DIR$/constants.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/enemies.py" afterPath="$PROJECT_DIR$/enemies.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/player.py" afterPath="$PROJECT_DIR$/player.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,6 +19,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/CS467-Draco-python-game$Level.coverage" NAME="Level Coverage Results" MODIFIED="1487721856735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CS467-Draco-python-game$enemies.coverage" NAME="enemies Coverage Results" MODIFIED="1487796866475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CS467-Draco-python-game$player.coverage" NAME="player Coverage Results" MODIFIED="1484778126424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Level_Class" />
     <SUITE FILE_PATH="coverage/CS467-Draco-python-game$Menu.coverage" NAME="Menu Coverage Results" MODIFIED="1485979204760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Menu" />
     <SUITE FILE_PATH="coverage/CS467-Draco-python-game$path.coverage" NAME="path Coverage Results" MODIFIED="1484764372660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Level_Class" />
@@ -23,7 +28,7 @@
     <SUITE FILE_PATH="coverage/CS467-Draco-python-game$Main__1_.coverage" NAME="Main (1) Coverage Results" MODIFIED="1485979815887" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Menu" />
     <SUITE FILE_PATH="coverage/CS467-Draco-python-game$Level__1_.coverage" NAME="Level (1) Coverage Results" MODIFIED="1485978711051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Player_movement" />
     <SUITE FILE_PATH="coverage/CS467-Draco-python-game$Main.coverage" NAME="Main Coverage Results" MODIFIED="1485978778325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Music" />
-    <SUITE FILE_PATH="coverage/CS467-Draco-python-game$main.coverage" NAME="main Coverage Results" MODIFIED="1487788915252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CS467-Draco-python-game$main.coverage" NAME="main Coverage Results" MODIFIED="1487870497906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -34,21 +39,11 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="413" column="20" lean-forward="false" selection-start-line="413" selection-start-column="20" selection-end-line="413" selection-end-column="20" />
+            <state relative-caret-position="176">
+              <caret line="295" column="28" lean-forward="false" selection-start-line="295" selection-start-column="28" selection-end-line="295" selection-end-column="28" />
               <folding>
                 <element signature="e#339#352#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Graphics/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4114">
-              <caret line="195" column="29" lean-forward="false" selection-start-line="195" selection-start-column="29" selection-end-line="195" selection-end-column="29" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -66,8 +61,8 @@
       <file leaf-file-name="Level.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Level.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8045">
-              <caret line="132" column="64" lean-forward="false" selection-start-line="132" selection-start-column="64" selection-end-line="132" selection-end-column="64" />
+            <state relative-caret-position="-6417">
+              <caret line="274" column="50" lean-forward="false" selection-start-line="274" selection-start-column="50" selection-end-line="274" selection-end-column="50" />
               <folding>
                 <element signature="e#339#352#0" expanded="true" />
               </folding>
@@ -78,18 +73,29 @@
       <file leaf-file-name="enemies.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/enemies.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6116">
-              <caret line="284" column="42" lean-forward="false" selection-start-line="284" selection-start-column="42" selection-end-line="284" selection-end-column="42" />
-              <folding>
-                <marker date="1487786785727" expanded="true" signature="19543:19688" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="19714:19834" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="19739:19834" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="19836:19979" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="20003:20121" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="20028:20121" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="20159:20605" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="20198:20605" ph="..." />
-              </folding>
+            <state relative-caret-position="456">
+              <caret line="283" column="0" lean-forward="false" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="error report.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/errors/error report.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="16" column="104" lean-forward="false" selection-start-line="16" selection-start-column="104" selection-end-line="16" selection-end-column="104" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resolved_errors.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/errors/resolved_errors.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="792">
+              <caret line="36" column="54" lean-forward="false" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,18 +103,8 @@
       <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/constants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="36" column="16" lean-forward="false" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="health.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/health.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+            <state relative-caret-position="223">
+              <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -117,113 +113,21 @@
       <file leaf-file-name="player.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/player.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10186">
-              <caret line="469" column="9" lean-forward="false" selection-start-line="469" selection-start-column="9" selection-end-line="469" selection-end-column="9" />
+            <state relative-caret-position="11528">
+              <caret line="524" column="34" lean-forward="false" selection-start-line="524" selection-start-column="34" selection-end-line="524" selection-end-column="34" />
               <folding>
                 <element signature="e#320#333#0" expanded="true" />
-                <marker date="1487786785727" expanded="true" signature="1321:23271" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="1454:6874" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="6886:7425" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="7457:12623" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="7510:7702" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="7744:8307" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="7791:8056" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="8206:8307" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="8417:8885" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="8458:8619" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="8637:8885" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="8952:9133" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="9191:9252" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="9462:9749" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="9809:10094" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="10151:10975" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="10286:10369" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="10491:10975" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="10626:10975" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="11054:11721" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="11089:11721" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="11222:11721" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="11365:11721" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="11775:12623" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="11818:12623" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="11892:12030" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="12105:12243" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="12485:12623" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="12658:14149" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="13115:13283" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="13377:13497" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="13528:13627" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="13724:13807" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="14151:14286" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="14323:14471" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="14351:14450" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="14512:14993" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="14641:14993" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="14654:14748" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="14868:14986" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="15027:15602" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="15156:15593" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="15262:15434" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="15635:15932" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="15754:15932" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="15792:15932" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="15831:15916" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="15957:16574" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="16036:16574" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="16123:16233" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="16359:16495" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="16601:17506" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="16700:17506" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="16744:17338" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="16913:17120" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="17385:17506" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="17607:17696" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="17745:17970" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="18010:18212" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="18244:18418" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="18525:19039" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="18556:19039" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="18600:18682" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="18700:19039" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="19065:19780" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="19118:19706" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="19629:19706" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="19807:20447" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="19861:20373" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="20295:20373" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="20479:20739" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="20776:22245" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="20810:21515" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="20853:21440" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="21318:21440" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="21529:22245" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="21572:22162" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="22040:22162" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="22283:22498" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="22537:23271" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="22566:22822" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="22857:23008" ph="..." />
-                <marker date="1487786785727" expanded="true" signature="23022:23271" ph="..." />
+                <marker date="1487869872154" expanded="true" signature="1261:25768" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="changes.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/changes.txt">
+      <file leaf-file-name="Menu.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Menu.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="101" column="45" lean-forward="false" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sound_effects.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sound_effects.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="21" />
+            <state relative-caret-position="1672">
+              <caret line="79" column="66" lean-forward="false" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -251,6 +155,13 @@
       <find>font</find>
       <find>shift</find>
       <find>player</find>
+      <find>walk_jump</find>
+      <find>max_speed</find>
+      <find>CELL_HEIGHT</find>
+      <find>block_width</find>
+      <find>turn_around</find>
+      <find>self.action</find>
+      <find>self.fall</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -259,7 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Level_Class/room_templates/r_type_2/t2_1" />
         <option value="$PROJECT_DIR$/Level_Class/room_templates/r_type_3/t3_1" />
         <option value="$PROJECT_DIR$/Level_Class/room_templates/prob_block_5/pb5_1" />
         <option value="$PROJECT_DIR$/Level_Class/room_templates/r_type_0/t0_1" />
@@ -275,7 +185,6 @@
         <option value="$PROJECT_DIR$/errors/error report.txt" />
         <option value="$PROJECT_DIR$/errors/resolved_errors.txt" />
         <option value="$PROJECT_DIR$/Main.py" />
-        <option value="$PROJECT_DIR$/enemies.py" />
         <option value="$PROJECT_DIR$/room_templates/r_type_4/t4_0" />
         <option value="$PROJECT_DIR$/room_templates/r_type_4/t4_1" />
         <option value="$PROJECT_DIR$/room_templates/r_type_4/t4_2" />
@@ -305,10 +214,12 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/Graphics/main.py" />
         <option value="$PROJECT_DIR$/graphics.py" />
-        <option value="$PROJECT_DIR$/constants.py" />
-        <option value="$PROJECT_DIR$/player.py" />
         <option value="$PROJECT_DIR$/changes.txt" />
+        <option value="$PROJECT_DIR$/Menu.py" />
         <option value="$PROJECT_DIR$/Level.py" />
+        <option value="$PROJECT_DIR$/player.py" />
+        <option value="$PROJECT_DIR$/enemies.py" />
+        <option value="$PROJECT_DIR$/constants.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -343,6 +254,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -357,8 +270,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -379,24 +290,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
-    <configuration default="false" name="Main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Menu" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CS467-Draco-python-game" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Menu/Main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="Main (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -465,6 +358,24 @@
       <module name="CS467-Draco-python-game" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/constants.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="enemies" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CS467-Draco-python-game" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/enemies.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -684,19 +595,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.Main (1)" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Main (2)" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Level" />
-      <item index="3" class="java.lang.String" itemvalue="Python.main" />
-      <item index="4" class="java.lang.String" itemvalue="Python.constants" />
+      <item index="0" class="java.lang.String" itemvalue="Python.Main (2)" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Level" />
+      <item index="2" class="java.lang.String" itemvalue="Python.main" />
+      <item index="3" class="java.lang.String" itemvalue="Python.constants" />
+      <item index="4" class="java.lang.String" itemvalue="Python.enemies" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.main" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Level" />
-        <item index="2" class="java.lang.String" itemvalue="Python.constants" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Main (2)" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Main (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.enemies" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Level" />
+        <item index="3" class="java.lang.String" itemvalue="Python.constants" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Main (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -720,13 +631,13 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15677084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20677084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35236004" sideWeight="0.5083333" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26015368" sideWeight="0.5104167" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22832052" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35236004" sideWeight="0.49166667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26015368" sideWeight="0.48958334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -751,23 +662,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/errors/2-6-17 1308.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/errors/room_error.JPG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/errors/resolved_errors.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="36" column="54" lean-forward="false" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/errors/2-8-17 0729.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -776,13 +670,6 @@
     <entry file="file://$PROJECT_DIR$/errors/2-8-17 0657.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/errors/error report.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="104" lean-forward="false" selection-start-line="16" selection-start-column="104" selection-end-line="16" selection-end-column="104" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/room_templates/r_type_4/t4_0">
@@ -1015,13 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Menu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/music.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -1053,20 +933,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/enemies.py">
+    <entry file="file://$PROJECT_DIR$/changes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6116">
-          <caret line="284" column="42" lean-forward="false" selection-start-line="284" selection-start-column="42" selection-end-line="284" selection-end-column="42" />
-          <folding>
-            <marker date="1487786785727" expanded="true" signature="19543:19688" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="19714:19834" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="19739:19834" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="19836:19979" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="20003:20121" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="20028:20121" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="20159:20605" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="20198:20605" ph="..." />
-          </folding>
+        <state relative-caret-position="513">
+          <caret line="101" column="45" lean-forward="false" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/SpelunkyGuy/spelunkyGuyClimb1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Menu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1672">
+          <caret line="79" column="66" lean-forward="false" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,119 +962,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="36" column="16" lean-forward="false" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/player.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10186">
-          <caret line="469" column="9" lean-forward="false" selection-start-line="469" selection-start-column="9" selection-end-line="469" selection-end-column="9" />
+        <state relative-caret-position="11528">
+          <caret line="524" column="34" lean-forward="false" selection-start-line="524" selection-start-column="34" selection-end-line="524" selection-end-column="34" />
           <folding>
             <element signature="e#320#333#0" expanded="true" />
-            <marker date="1487786785727" expanded="true" signature="1321:23271" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="1454:6874" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="6886:7425" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="7457:12623" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="7510:7702" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="7744:8307" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="7791:8056" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="8206:8307" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="8417:8885" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="8458:8619" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="8637:8885" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="8952:9133" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="9191:9252" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="9462:9749" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="9809:10094" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="10151:10975" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="10286:10369" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="10491:10975" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="10626:10975" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="11054:11721" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="11089:11721" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="11222:11721" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="11365:11721" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="11775:12623" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="11818:12623" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="11892:12030" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="12105:12243" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="12485:12623" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="12658:14149" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="13115:13283" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="13377:13497" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="13528:13627" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="13724:13807" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="14151:14286" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="14323:14471" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="14351:14450" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="14512:14993" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="14641:14993" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="14654:14748" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="14868:14986" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="15027:15602" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="15156:15593" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="15262:15434" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="15635:15932" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="15754:15932" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="15792:15932" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="15831:15916" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="15957:16574" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="16036:16574" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="16123:16233" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="16359:16495" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="16601:17506" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="16700:17506" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="16744:17338" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="16913:17120" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="17385:17506" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="17607:17696" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="17745:17970" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="18010:18212" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="18244:18418" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="18525:19039" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="18556:19039" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="18600:18682" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="18700:19039" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="19065:19780" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="19118:19706" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="19629:19706" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="19807:20447" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="19861:20373" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="20295:20373" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="20479:20739" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="20776:22245" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="20810:21515" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="20853:21440" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="21318:21440" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="21529:22245" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="21572:22162" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="22040:22162" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="22283:22498" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="22537:23271" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="22566:22822" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="22857:23008" ph="..." />
-            <marker date="1487786785727" expanded="true" signature="23022:23271" ph="..." />
+            <marker date="1487869872154" expanded="true" signature="1261:25768" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/changes.txt">
+    <entry file="file://$PROJECT_DIR$/errors/error report.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="101" column="45" lean-forward="false" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
+        <state relative-caret-position="352">
+          <caret line="16" column="104" lean-forward="false" selection-start-line="16" selection-start-column="104" selection-end-line="16" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/errors/room_error.JPG">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/errors/resolved_errors.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="36" column="54" lean-forward="false" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enemies.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="283" column="0" lean-forward="false" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Level.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8045">
-          <caret line="132" column="64" lean-forward="false" selection-start-line="132" selection-start-column="64" selection-end-line="132" selection-end-column="64" />
+        <state relative-caret-position="-6417">
+          <caret line="274" column="50" lean-forward="false" selection-start-line="274" selection-start-column="50" selection-end-line="274" selection-end-column="50" />
           <folding>
             <element signature="e#339#352#0" expanded="true" />
           </folding>
@@ -1199,8 +1022,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="413" column="20" lean-forward="false" selection-start-line="413" selection-start-column="20" selection-end-line="413" selection-end-column="20" />
+        <state relative-caret-position="176">
+          <caret line="295" column="28" lean-forward="false" selection-start-line="295" selection-start-column="28" selection-end-line="295" selection-end-column="28" />
           <folding>
             <element signature="e#339#352#0" expanded="true" />
           </folding>

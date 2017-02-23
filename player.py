@@ -22,8 +22,8 @@ import sound_effects
 import graphics
 from health import Health
 
-CELL_HEIGHT = constants.SCREEN_HEIGHT / (constants.ROOM_HEIGHT * constants.ROOMS_ON_SCREEN)
-CELL_WIDTH = constants.SCREEN_WIDTH / (constants.ROOM_WIDTH * constants.ROOMS_ON_SCREEN)
+CELL_HEIGHT = constants.SCREEN_HEIGHT / constants.ROOM_HEIGHT
+CELL_WIDTH = constants.SCREEN_WIDTH / constants.ROOM_WIDTH
 
 
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -69,13 +69,13 @@ class Player(pygame.sprite.Sprite):
         self.change_y = 0
 
         #this sets the speed for walking and running
-        self.walk_speed = 0.1  * CELL_WIDTH
-        self.run_speed =  1.5 * self.walk_speed
+        self.walk_speed = 0.04 * CELL_WIDTH
+        self.run_speed = 1.3 * self.walk_speed
         self.climb_speed = self.walk_speed
 
         #the below two variables are for the jump heights
-        self.walk_jump = 7
-        self.run_jump = 10
+        self.walk_jump = 7.5
+        self.run_jump = 10.5
  
         # List of sprites we can bump against
         self.level = None
@@ -160,7 +160,7 @@ class Player(pygame.sprite.Sprite):
         #this creates 10 rope objects
         self.num_of_ropes = 0
         self.total_ropes = 0
-        for i in range(0,10):
+        for i in range(0, 10):
             rope_object = Rope()
             rope_object.level = self.level
             self.rope_list.append(rope_object)
@@ -172,7 +172,7 @@ class Player(pygame.sprite.Sprite):
         self.current_knife = 0
         self.num_of_knives = 0
         self.total_knives = 0
-        for i in range(0,10):
+        for i in range(0, 10):
             knife_object = Knife()
             knife_object.level = self.level
             self.knife_list.append(knife_object)
@@ -420,7 +420,7 @@ class Player(pygame.sprite.Sprite):
         # Move left/right
         #this makes sure that change_x doesn't get too great else the player can fly around the screen
         if self.action != 'c':
-            self.change_x = self.max_speed(self.change_x)
+            self.change_x = self.max_speed_x(self.change_x)
             self.rect.x += self.change_x
 
         #this checks for any collisons with blocks
@@ -428,7 +428,7 @@ class Player(pygame.sprite.Sprite):
  
         # Move up/down
         #also checks that the player doesn't fall or fly too quickly
-        self.change_y = self.max_speed(self.change_y)
+        self.change_y = self.max_speed_y(self.change_y)
         self.rect.y += self.change_y
 
         #this checks for any collisons with blocks up/down
@@ -443,9 +443,17 @@ class Player(pygame.sprite.Sprite):
 #AAA3
 #this limits the maximun speed of the player
 #if the speed (or change_x/change_y) is greater than 10 then limit that number to 10
-    def max_speed(self, speed=None):
-        if abs(speed) > 10:
+    def max_speed_x(self, speed=None):
+        if abs(speed) > 9:
             if speed < 0:
+                speed = -9
+            else:
+                speed = 9
+        return speed
+
+    def max_speed_y(self, speed=None):
+        if abs(speed) > 10:
+            if speed < 10:
                 speed = -10
             else:
                 speed = 10
@@ -520,9 +528,9 @@ class Player(pygame.sprite.Sprite):
                 self.change_y += .35                    
          
             # See if we are on the ground.
-            if self.rect.y >= constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2 - self.rect.height and self.change_y >= 0:
+            if self.rect.y >= constants.SCREEN_HEIGHT - self.rect.height and self.change_y >= 0:
                 self.change_y = 0
-                self.rect.y = constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2 - self.rect.height
+                self.rect.y = constants.SCREEN_HEIGHT - self.rect.height
 
             if self.change_y > 0:
                 self.falling = True

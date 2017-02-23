@@ -35,15 +35,15 @@ DARK_GREY = (42, 42, 42)
 DARK_YELLOW = (204,204,0)
 
 #Screen Dimensions
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 1200
+SCREEN_HEIGHT = 800
 
 #Room Dimensions
 ROOM_HEIGHT = 8
 ROOM_WIDTH = 10
 
 #Rooms on screen at once
-ROOMS_ON_SCREEN = 2
+ROOMS_ON_SCREEN = 1
 
 #Level Dimensions
 NUM_ROOMS_X = 5
@@ -60,4 +60,5 @@ BUTTON_WIDTH = 125
 BUTTON_HEIGHT = 100
 
 #Detection distance for enemies
-DETECTION_DISTANCE = 600
+DETECTION_DISTANCE = 1200
+

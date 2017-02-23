@@ -77,7 +77,7 @@ def game_menu(gamemusic):
     #The pause variable is used to keep the pause loop going.
     pause = True
     # this sets up the screen size for the user using the sizes defined in constants
-    screen_size = [constants.SCREEN_WIDTH + constants.SCREEN_WIDTH//2, constants.SCREEN_HEIGHT + constants.SCREEN_HEIGHT//2]
+    screen_size = [constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT]
     screen = pygame.display.set_mode(screen_size)
 
     gamemusic.pause = True
