@@ -37,6 +37,8 @@ spelunkyGuyClimb = addImages(10, 'SpelunkyGuy', 'spelunkyGuyClimb')
 
 spelunkyGuyAttack = addImages(6, 'SpelunkyGuy', 'spelunkyGuyAttack')
 
+spelunkyGuyWallClimb = addImages(8, 'SpelunkyGuy', 'spelunkyGuyWall')
+
 yetiWalk = addImages(7, 'Yeti', 'yetiWalk')
 
 ropeCounter = []
@@ -65,3 +67,19 @@ TILEDICT = {'ice block': pygame.image.load('Graphics/tiles/iceBlock.png'),
 			'castle wall': pygame.image.load('Graphics/tiles/castleWall.png'),
 			'castle center': pygame.image.load('Graphics/tiles/castleCenter.png'),
 			'spikes': pygame.image.load('Graphics/tiles/spikes.png')}
+
+#buttons for the menu
+quit_button1 = pygame.image.load("Graphics/menu/quitgame1.png")
+quit_button2 = pygame.image.load("Graphics/menu/quitgame2.png")
+next_song1 = pygame.image.load("Graphics/menu/next_song1.png")
+next_song2 = pygame.image.load("Graphics/menu/next_song2.png")
+prev_song1 = pygame.image.load("Graphics/menu/prev_song1.png")
+prev_song2 = pygame.image.load("Graphics/menu/prev_song2.png")
+music_up1 = pygame.image.load("Graphics/menu/music_up1.png")
+music_up2 = pygame.image.load("Graphics/menu/muisc_up2.png")
+music_down1 = pygame.image.load("Graphics/menu/music_down1.png")
+music_down2 = pygame.image.load("Graphics/menu/music_down2.png")
+return1 = pygame.image.load("Graphics/menu/return1.png")
+return2 = pygame.image.load("Graphics/menu/return2.png")
+button_back = pygame.image.load("Graphics/menu/button_background.png")
+background_menu = pygame.image.load("Graphics/menu/background_menu.png")
