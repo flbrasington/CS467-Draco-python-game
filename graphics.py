@@ -25,9 +25,11 @@ greenSnakeWalk = addImages(11, 'GreenSnake', 'Snake_walk_')
 # ghostWalk = addImages(4, 'ghost', 'ghost_walk')
 ghostWalk = addImages(5, 'ghost', 'marioGhost')
 
-snowmanStand = addImages(1, 'snowman', 'snowman')
+snowmanStand = []
+for i in range(0, 10):
+	snowmanStand.append("Graphics/snowman/snowman1.png")
 
-snowmanAttack = addImages(3, 'snowman', 'snowman')
+snowmanAttack = addImages(7, 'snowman', 'snowman')
 
 blueSnakeAttack = addImages(8, 'BlueSnake', 'BlueSnakeAttack')
 

@@ -195,4 +195,4 @@ class SnowBall(Projectile):
         Projectile.__init__(self, image)
     
     def throw_snowball(self, start_x, start_y, end_x, end_y, player):
-        None
+        Projectile.shoot(self, start_x, start_y, end_x, end_y, player)

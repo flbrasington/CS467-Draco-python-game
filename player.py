@@ -493,7 +493,7 @@ class Player(pygame.sprite.Sprite):
                 if block.rect.y < self.rect.y < block.rect.y + block.rect.height:
                     if self.direction == 'l':
                         if block.rect.x + block.rect.width - 1 < self.rect.x < block.rect.x + block.rect.width + 2:
-                            print("HEY!!")
+                            # print("HEY!!")
                             fall == False
 
                     
@@ -612,17 +612,17 @@ class Player(pygame.sprite.Sprite):
             else:
                 self.end_timer('y')
                 time = self.damage_end_time - self.damage_start_time
-                print("time = ", time)
-                print("self.damage_timer = ", self.damage_timer)
-                print(self.rect.right)
+                # print("time = ", time)
+                # print("self.damage_timer = ", self.damage_timer)
+                # print(self.rect.right)
                 if time > self.damage_timer:
                     self.damage = 'n'
 
 #AAA12
     def throw_rope(self):
         if self.can_shoot and self.num_of_ropes > 0:
-            print("current rope = ", self.current_rope)
-            print("num_of_ropes = ", self.num_of_ropes)
+            # print("current rope = ", self.current_rope)
+            # print("num_of_ropes = ", self.num_of_ropes)
             self.rope_list[self.current_rope].shoot_rope(self.rect.centerx, self.rect.centery,
                                                          pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])
             self.start_timer()

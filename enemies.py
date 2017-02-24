@@ -116,7 +116,7 @@ class Enemy(pygame.sprite.Sprite):
             if self.attack_range(player) and self.facingPlayer(player):
                 self.attack()
             else:
-                self.move()
+                self.walk()
 
             self.rect.y += self.change_y
             self.fall = 'y'
@@ -176,50 +176,31 @@ class Enemy(pygame.sprite.Sprite):
             self.frame = 0
             self.action = 'a'
 
-        if self.direction == 'l':
-            self.change_x = -self.speed_x
-            self.frame = (self.frame + 1) % len(self.attacking_frames_left)
-            self.image = self.attacking_frames_left[self.frame]
-            if self.frame > len(self.attacking_frames_left):
-                self.frame = 0
-        else:
-            self.change_x = self.speed_x
-            self.frame = (self.frame + 1) % len(self.attacking_frames_right)
-            self.image = self.attacking_frames_right[self.frame]
-            if self.frame > len(self.attacking_frames_right):
-                self.frame = 0
+        self.move(self.attacking_frames_left, self.attacking_frames_right)
 
-        #this checks to see if the snake has hit anything left/right
-        block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
-        for block in block_hit_list:
-            #if the snake is moving to the right
-            if self.change_x > 0:
-                self.rect.right = block.rect.left
-                self.direction = 'l'
-                self.rect.x -= 3
-            elif self.change_x < 0:
-                self.rect.left = block.rect.right
-                self.direction = 'r'
-                self.rect.x += 3
-
-    #this moves the snake around
-    def move(self):
+    def walk(self):
         #this switches the attacking to the moving
         if self.action != 'w':
             self.frame = 0
             self.action = 'w'
+
+        self.move(self.walking_frames_left, self.walking_frames_right)
+
+    #this moves the snake around
+    def move(self, leftFrames, rightFrames):
+        
         #moves the snake in the direction the snake is moving
         if self.direction == 'l':
             self.change_x = -self.speed_x
-            self.frame = (self.frame + 1) % len(self.walking_frames_left)
-            self.image = self.walking_frames_left[self.frame]
-            if self.frame > len(self.walking_frames_left):
+            self.frame = (self.frame + 1) % len(leftFrames)
+            self.image = leftFrames[self.frame]
+            if self.frame > len(leftFrames):
                 self.frame = 0
         else:
             self.change_x = self.speed_x
-            self.frame = (self.frame + 1) % len(self.walking_frames_right)
-            self.image = self.walking_frames_right[self.frame]
-            if self.frame > len(self.walking_frames_right):
+            self.frame = (self.frame + 1) % len(rightFrames)
+            self.image = rightFrames[self.frame]
+            if self.frame > len(rightFrames):
                 self.frame = 0
 
         #this checks to see if the snake has hit anything left/right
@@ -352,14 +333,17 @@ class SnowMan(Enemy):
 
     def __init__(self):
         #calls the parent's constructor
-        Enemy.__init__(self, graphics.snowmanStand, graphics.snowmanAttack, 100, 0, 0, 10)
+        Enemy.__init__(self, graphics.snowmanStand, graphics.snowmanAttack, 500, 0, 0, 10)
 
         self.time = time.clock()
 
         #these are timers for the throwing animation
-        self.timer_start = 0
+        self.start_time = 0
+        self.end_time = 0
+        self.cool_down_time = 1
         self.timer = 0
         self.timer_limit = 2
+        self.can_shoot = True
 
         #this variable is used to move the snowman down if needed
         self.move_snowman_down = 'y'
@@ -379,29 +363,39 @@ class SnowMan(Enemy):
             self.num_of_snowballs += 1
             self.total_snowballs += 1
 
-    def move(self):
+    def walk(self):
         #this switches the attacking to the moving
         if self.action != 'w':
             self.frame = 0
             self.action = 'w'
-        if time.clock() >= self.time + 2:
-            self.time = time.clock()
-            if self.direction == '1':
-                self.direction = 'r'
-            else:
-                self.direction = 'l'
+        # if time.clock() >= self.time + 2:
+        #     self.time = time.clock()
+        #     if self.direction == '1':
+        #         self.direction = 'r'
+        #     else:
+        #         self.direction = 'l'
 
         #moves the snake in the direction the snake is moving
         if self.direction == 'l':
             self.frame = (self.frame + 1) % len(self.walking_frames_left)
             self.image = self.walking_frames_left[self.frame]
-            if self.frame > len(self.walking_frames_left):
+            # if self.frame > len(self.walking_frames_left):
+            #     self.frame = 0
+            # print("frame number ", self.frame)
+            if self.frame == len(self.walking_frames_left) - 1:
+                self.direction = 'r'
                 self.frame = 0
+                # print("switch l to r")
         else:
             self.frame = (self.frame + 1) % len(self.walking_frames_right)
             self.image = self.walking_frames_right[self.frame]
-            if self.frame > len(self.walking_frames_right):
+            # if self.frame > len(self.walking_frames_right):
+            #     self.frame = 0
+            # print("frame number ", self.frame)
+            if self.frame == len(self.walking_frames_left) - 1:
+                self.direction = 'l'
                 self.frame = 0
+                # print("switch r to l")
 
     def attack(self):
         # print("attack")
@@ -415,24 +409,24 @@ class SnowMan(Enemy):
             self.image = self.attacking_frames_left[self.frame]
             if self.frame > len(self.attacking_frames_left):
                 self.frame = 0
-            if self.frame == 2:
-                None
-                # self.throw_snowball(self, -20, self.player)
+            if self.frame == 3:
+                self.throw_snowball(self)
         else:
             self.frame = (self.frame + 1) % len(self.attacking_frames_right)
             self.image = self.attacking_frames_right[self.frame]
             if self.frame > len(self.attacking_frames_right):
                 self.frame = 0
-            if self.frame == 2:
-                None
-                # self.throw_snowball(self, 20, self.player)
+            if self.frame == 3:
+                self.throw_snowball(self)
 
 
     #this begins the snowman animation for throwing snowballs
-    def throw_snowball(self, change_x, player=None):
-        if self.num_of_snowballs > 0:
+    def throw_snowball(self, player=None):
+        if self.can_shoot and self.num_of_snowballs > 0:
             self.snowball_list[self.current_snowball].throw_snowball(self.rect.centerx, self.rect.centery,
-                                                            self.rect.centerx+change_x, self.rect.centery, player)
+                                                            int(self.rect.centerx)+self.attack_distance,
+                                                            self.rect.centery, player)
+            self.start_time = time.clock()
             self.current_snowball += 1
             self.num_of_snowballs -= 1
             self.can_shoot = False
@@ -441,7 +435,14 @@ class SnowMan(Enemy):
                 self.current_snowball = 0
                 self.num_of_snowballs -= 1
         else:
-            None
+            self.can_shoot = self.check_cool_down()
+
+    def check_cool_down(self):
+        self.end_time = time.clock()
+        if self.end_time - self.start_time > self.cool_down_time:
+            return True
+        else:
+            return False
 
 '''
 This class is the yeti.
