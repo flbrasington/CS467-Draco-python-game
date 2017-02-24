@@ -300,27 +300,31 @@ class Player(pygame.sprite.Sprite):
             self.walk_status = 'w'
 
         if pressed[pygame.K_LEFT] or pressed[pygame.K_a]:
-            if self.walk_status == 'r':
-                self.change_x = -self.run_speed
-            if self.walk_status == 'w':
-                self.change_x = -self.walk_speed
-
             if self.action != 'wc':
                 self.direction = 'l'
-            self.player_status = 'walk'
-            self.player_animation()
+                if self.walk_status == 'r':
+                    self.change_x = -self.run_speed
+                if self.walk_status == 'w':
+                    self.change_x = -self.walk_speed
+
+
+                self.player_status = 'walk'
+                self.player_animation()
 
         if pressed[pygame.K_RIGHT] or pressed[pygame.K_d]:
-            if self.walk_status == 'r':
-                self.change_x = self.run_speed
-            if self.walk_status == 'w':
-                self.change_x = self.walk_speed
+            if self.action !='wc':
+                if self.walk_status == 'r':
+                    self.change_x = self.run_speed
+                if self.walk_status == 'w':
+                    self.change_x = self.walk_speed
 
-            if self.action != 'wc':
-                self.direction = 'r'
+                if self.action != 'wc':
+                    self.direction = 'r'
 
-            self.player_status = 'walk'
-            self.player_animation()
+                self.player_status = 'walk'
+                self.player_animation()
+                    
+                    
 
         if pressed[pygame.K_UP] or pressed[pygame.K_w]:
             block_hit_list = pygame.sprite.spritecollide(self, self.level.exit_sprite, False)
@@ -393,6 +397,7 @@ class Player(pygame.sprite.Sprite):
 #the effects of gravity
     def update(self, player=None):
 
+
         #this updates all the ropes as needed
         for rope in self.rope_list:
             rope.update_rope()
@@ -402,7 +407,7 @@ class Player(pygame.sprite.Sprite):
             knife.update_projectile()
 
         #this updates the whip as needed
-        self.whip.whip_update(self.rect.x, self.rect.y)
+        self.whip.whip_update(self.rect.centerx, self.rect.centery)
 
         #adds attack animation
         if self.player_status == 'attack':
@@ -420,8 +425,9 @@ class Player(pygame.sprite.Sprite):
         # Move left/right
         #this makes sure that change_x doesn't get too great else the player can fly around the screen
         if self.action != 'c':
-            self.change_x = self.max_speed_x(self.change_x)
-            self.rect.x += self.change_x
+            if self.action != 'wc':
+                self.change_x = self.max_speed_x(self.change_x)
+                self.rect.x += self.change_x
 
         #this checks for any collisons with blocks
         self.collision_blocks_x()
@@ -470,9 +476,9 @@ class Player(pygame.sprite.Sprite):
                 self.rect.right = block.rect.left
             elif self.change_x < 0:
                 # Otherwise if we are moving left, do the opposite.
-                self.rect.left = block.rect.right
+                    self.rect.left = block.rect.right
 
-        #sets up for climbing walls
+            #sets up for climbing walls
             pressed = pygame.key.get_pressed()
             if pressed[pygame.K_UP] or pressed[pygame.K_w]:
                 fall = False
@@ -482,13 +488,19 @@ class Player(pygame.sprite.Sprite):
                     self.change_y = 0
                     self.action = 'wc'
                     self.player_status = 'wall_climb'
+
+            if self.action == 'wc':
+                if block.rect.y < self.rect.y < block.rect.y + block.rect.height:
+                    if self.direction == 'l':
+                        if block.rect.x + block.rect.width - 1 < self.rect.x < block.rect.x + block.rect.width + 2:
+                            print("HEY!!")
+                            fall == False
+
                     
 
         if fall == True:
             if self.action == 'wc':
-                self.action = 'f'
-                self.player_status = 'walk'
-                self.player_animation()
+                self.change_y = 0
             
 
 #AAA5
@@ -521,7 +533,8 @@ class Player(pygame.sprite.Sprite):
 #AAA6
     def calc_grav(self):
         #if the player is not climbing the rope
-        if self.action != 'c' or self.action != 'wc':
+
+        if self.action != 'c' and self.action != 'wc':
             if self.change_y == 0:
                 self.change_y = 1
             else:

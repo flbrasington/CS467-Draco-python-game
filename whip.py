@@ -36,7 +36,7 @@ class Whip(pygame.sprite.Sprite):
         self.whip_frames_left = []
         self.whip_frames_right = []
 
-        for img in graphics.whip_animation:
+        for img in graphics.whip:
             image = pygame.image.load(img)
             self.whip_frames_right.append(image)
             self.whip_frames_right.append(image)
@@ -63,13 +63,14 @@ class Whip(pygame.sprite.Sprite):
     #this plays the whip's animation
     #AAA1
     def whip_animation(self):
+        #test = 16
         if self.direction == 'r':
             if self.whip_being_used == 'y':
-                self.whip_correction()
                 self.frame = (self.frame + 1) % len(self.whip_frames_right)
                 self.image = self.whip_frames_right[self.frame]
+                #self.image = self.whip_frames_right[test]
 
-                if self.frame == 17:
+                if self.frame == 5:
                     self.whip_being_used = 'n'
                     self.frame = 0
         else:
@@ -77,10 +78,14 @@ class Whip(pygame.sprite.Sprite):
                 self.whip_correction()
                 self.frame = (self.frame + 1) % len(self.whip_frames_left)
                 self.image = self.whip_frames_left[self.frame]
+                #self.image = self.whip_frames_left[test]
 
-                if self.frame == 17:
+                if self.frame == 5:
                     self.whip_being_used = 'n'
                     self.frame = 0
+
+        
+        print("frame = ", self.frame)
             
 
     #this updates the whip as needed
@@ -90,41 +95,35 @@ class Whip(pygame.sprite.Sprite):
             self.rect.x = -50
             self.rect.y = -50
         else:
-            self.rect.x = player_x
-            self.rect.y = player_y
+            self.rect.centerx = player_x
+            self.rect.centery = player_y
+            self.whip_correction()
             self.whip_animation()
+            #time.sleep(1)
 
     #this corrects the animation of the whip to look better
     #AAA3
     def whip_correction(self):
-        #correct this
-        #if the player is facing to the right
-        if self.frame == 0 or self.frame == 1:
-            self.rect.x -= 25
-            self.rect.y -= 25
-        if self.frame == 2 or self.frame == 3:
-            self.rect.x -= 25
-            self.rect.y -= 25 
-        if self.frame == 4 or self.frame == 5:
-            self.rect.x -= 35
-            self.rect.y -= 25  
-        if self.frame == 6 or self.frame == 7:
-            self.rect.x -= 35
-            self.rect.y -= 35  
-        if self.frame == 8 or self.frame == 9:
-            self.rect.x -= 15
-            self.rect.y -= 35  
-        if self.frame == 10 or self.frame == 11:
-            self.rect.x += 10
-            self.rect.y -= 25   
-        if self.frame == 12 or self.frame == 13:
-            self.rect.x += 10
-            self.rect.y += 10   
-        if self.frame == 14 or self.frame == 15:
-            self.rect.x += 10
-            self.rect.y += 10   
-        if self.frame == 16 or self.frame == 17:
-            self.rect.x += 10
-            self.rect.y += 10        
+        if self.frame >= 0 and self.frame <= 2:
+            self.rect.y -= 5
+            if self.direction == 'r':
+                self.rect.x += 38
+            else:
+                self.rect.x -= 18
+        if self.frame >= 3 and self.frame <= 6:
+            self.rect.y -= 0
+            if self.direction == 'r':
+                self.rect.x += 38
+            else:
+                self.rect.x -= 18
+        if self.frame >= 7 and self.frame <= 9:
+            self.rect.y -= 0
+            if self.direction == 'r':
+                self.rect.x += 38
+            else:
+                self.rect.x -= 18
+            
+        
+            
             
         
