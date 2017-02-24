@@ -192,7 +192,7 @@ def main():
     level_list = []
     # level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
     # level_list.append(Level.Level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p))
-    maxLevels = 3
+    maxLevels = 9
 
     # set the current level
     # current_level_no = 0
@@ -395,18 +395,23 @@ def main():
             #    enemy.rect.y += diff
 
         if p.exit_level == 'y':
-            if current_level_no < maxLevels:
+            if current_level_no <= maxLevels:
                 current_level_no += 1
                 # current_level = level_list[current_level_no]
 
                 # current level is generated from a call to Level.  Calling it when it is needed instead
                 # of at the beginning of the game will allow for easier expansion in the number of levels
-                if current_level_no == 2:
+                if current_level_no <= 3:
+                    current_level = Level.dirt_level(5,5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT *5, p, current_level_no)
+                    p.level = current_level
+                    p.rect.x = current_level.entrance_coords['x']
+                    p.rect.y = current_level.entrance_coords['y']
+                elif current_level_no > 3 and current_level_no <= 6:
                     current_level = Level.castle_level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, current_level_no)
                     p.level = current_level
                     p.rect.x = current_level.entrance_coords['x']
                     p.rect.y = current_level.entrance_coords['y']
-                elif current_level_no == 3:
+                elif current_level_no > 6:
                     current_level = Level.snow_level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, current_level_no)
                     p.level = current_level
                     p.rect.x = current_level.entrance_coords['x']

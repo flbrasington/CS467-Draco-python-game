@@ -380,7 +380,9 @@ class Level:
         """
         total_value = 0
         #randomization of whether or not spawn an enemy, the higher the level the more likely an enemy will spawn
-        if random.randrange(0, 20) is 1:
+        gen_chance = 42//((self.levelNum - 1) % 3 + 1)
+        print("generation chance: ", gen_chance)
+        if random.randrange(0, gen_chance) is 1:
             #generate value based on total of values in the enemy_types ordered dictionary
             enemy_choice = random.randrange(0, self.total_enemies)
             print("enemy_choice number: ", enemy_choice)
@@ -514,8 +516,8 @@ class snow_level(Level):
         # enter the likelihood of an enemy being spawned (make sure that it is in descending order starting with the
         # most likely enemy to spawn in a level
         # self.enemy_types['green_snake'] = 4
-        self.enemy_types['BlueSnake'] = 2
         self.enemy_types['SnowMan'] = 4
+        self.enemy_types['BlueSnake'] = 2
         self.enemy_types['Yeti'] = 1
 
         self.total_enemies = sum(self.enemy_types.values())
