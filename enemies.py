@@ -118,10 +118,10 @@ class Enemy(pygame.sprite.Sprite):
             else:
                 self.move()
 
-            self.rect.x += self.change_x
             self.rect.y += self.change_y
             self.fall = 'y'
             self.collision_blocks_y()
+            self.rect.x += self.change_x
 
     def facingPlayer(self, player=None):
         # enemy is facing left
