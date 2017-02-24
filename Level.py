@@ -381,11 +381,9 @@ class Level:
         total_value = 0
         #randomization of whether or not spawn an enemy, the higher the level the more likely an enemy will spawn
         gen_chance = 42//((self.levelNum - 1) % 3 + 1)
-        print("generation chance: ", gen_chance)
         if random.randrange(0, gen_chance) is 1:
             #generate value based on total of values in the enemy_types ordered dictionary
             enemy_choice = random.randrange(0, self.total_enemies)
-            print("enemy_choice number: ", enemy_choice)
             #iterate through list and check enemy choice value against enemy likelihood
             for enemy, value in self.enemy_types.items():
                 value += total_value
