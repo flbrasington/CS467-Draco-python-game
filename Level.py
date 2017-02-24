@@ -383,8 +383,10 @@ class Level:
         if random.randrange(0, 20) is 1:
             #generate value based on total of values in the enemy_types ordered dictionary
             enemy_choice = random.randrange(0, self.total_enemies)
+            print("enemy_choice number: ", enemy_choice)
             #iterate through list and check enemy choice value against enemy likelihood
             for enemy, value in self.enemy_types.items():
+                value += total_value
                 if enemy_choice < value:
                     print(enemy, " spawned in level ", self.levelNum)
                     enemy_class = getattr(enemies, enemy)
