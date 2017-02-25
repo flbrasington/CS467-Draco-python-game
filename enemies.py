@@ -74,6 +74,8 @@ class Enemy(pygame.sprite.Sprite):
 
         #this sets the current frame for the animations
         self.frame = 0
+        # number of steps that an enemy takes
+        self.frameCount = 0
 
         #this loads all the sprites that the snake can bump into
         self.level = None
@@ -202,6 +204,8 @@ class Enemy(pygame.sprite.Sprite):
             self.image = rightFrames[self.frame]
             if self.frame > len(rightFrames):
                 self.frame = 0
+        # enemy has taken another step
+        self.frameCount += 1
 
         #this checks to see if the snake has hit anything left/right
         block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
@@ -211,10 +215,22 @@ class Enemy(pygame.sprite.Sprite):
                 self.rect.right = block.rect.left
                 self.direction = 'l'
                 self.rect.x -= 3
+                # direction changed so reset frame counter
+                self.frameCount = 0
             elif self.change_x < 0:
                 self.rect.left = block.rect.right
                 self.direction = 'r'
                 self.rect.x += 3
+                # direction changed so reset frame counter
+                self.frameCount = 0
+
+        # after 100 frames (steps) the enemy will change direction
+        if self.frameCount >= 100:
+            if self.direction == 'l':
+                self.direction = 'r'
+            else:
+                self.direction = 'l'
+            self.frameCount = 0
         '''
         #this checks to see if the snake needs to turn around because of the platform
         self.turn_around = 'y'
