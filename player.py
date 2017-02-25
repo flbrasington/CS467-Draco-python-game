@@ -228,6 +228,9 @@ class Player(pygame.sprite.Sprite):
         #used for animations
         self.player_status = 'walk'
 
+        self.knifePickup = False
+        self.ropePickup = False
+
 
         
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -331,6 +334,13 @@ class Player(pygame.sprite.Sprite):
             for block in block_hit_list:
                 if pressed[pygame.K_UP]:
                     self.exit_level = 'y'
+
+            bagHitList = pygame.sprite.spritecollide(self, self.level.bagGroup, True)
+            for bag in bagHitList:
+                if bag.type == 'knife':
+                    self.knifePickup = True
+                elif bag.type == 'rope':
+                    self.ropePickup = True
 
             #if the player wants to climb the rope
             #self.action = 'w'
@@ -631,7 +641,8 @@ class Player(pygame.sprite.Sprite):
             self.can_shoot = False
             if self.current_rope > self.total_ropes - 1:
                 self.current_rope = 0
-                self.num_of_ropes -= 1
+                if self.num_of_ropes > 0:
+                    self.num_of_ropes -= 1
         else:
             self.can_shoot = self.check_cool_down()
 

@@ -22,6 +22,8 @@ import Menu
 import Level
 import enemies
 import graphics
+from projectiles import Knife
+from rope import Rope
 
 FPS = constants.fps
 
@@ -373,7 +375,7 @@ def main():
 
         screen.blit(ropeDisplay, (200,5))
 
-        if p.num_of_knives == 10:
+        if p.num_of_knives >= 10:
             knifeDisplay = knifeCounter[10]
         elif p.num_of_knives <= 0:
             knifeDisplay = knifeCounter[0]
@@ -441,6 +443,28 @@ def main():
             else:
                 pygame.quit()
                 quit()
+
+        if p.knifePickup:
+            for i in range(0, 5):
+                knife_object = Knife()
+                knife_object.level = current_level
+                p.knife_list.append(knife_object)
+                p.num_of_knives += 1
+                p.total_knives += 1
+                active_sprite_list.add(knife_object)
+            p.knifePickup = False
+        if p.ropePickup:
+            for i in range(0, 5):
+                rope_object = Rope()
+                rope_object.level = current_level
+                p.rope_list.append(rope_object)
+                p.num_of_ropes += 1
+                p.total_ropes += 1
+                active_sprite_list.add(rope_object)
+            p.ropePickup = False
+        
+            
+
 
         active_sprite_list.draw(screen)
 

@@ -98,6 +98,7 @@ class Level:
         self.platform_list = pygame.sprite.Group()
         self.enemy_list = pygame.sprite.Group()
         self.exit_sprite = pygame.sprite.Group()
+        self.bagGroup = pygame.sprite.Group()
         self.blocks_per_room_x = constants.ROOM_WIDTH
         self.blocks_per_room_y = constants.ROOM_HEIGHT
         self.block_width = self.room_side_length_x / self.blocks_per_room_x
@@ -235,6 +236,9 @@ class Level:
         rooms = []
         prob_block_5_list = []
         prob_block_6_list = []
+        pickupRopeList = []
+        pickupKnifeList = []
+
         for row in self.room_type:
             for col in row:
                 rooms.append(self.import_template(col))
@@ -259,6 +263,25 @@ class Level:
                         #if the space above this block is empty see if we spawn an enemy on the spot above current block
                         if rooms[pos][y-1][x] is 0:
                             self.enemy_generation(coord_x, self.block_height + (pos // 5) * self.room_side_length_y + (y - 1) * self.block_height)
+                    # if the cell is a 3 then it will be an item pickup
+                    elif rooms[pos][y][x] is 3:
+                        rand = random.randrange(0, 3)
+                        if rand == 0:
+                            #calculate coordinates of the bag
+                            bag = pickupSprite('rope')
+                            # print('width = ' + str(self.block_width) + ' height = ' + str(self.block_height))
+                            bag.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                            bag.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                            bag.player = self.player
+                            self.bagGroup.add(bag)
+                        elif rand == 1:
+                            #calculate coordinates of the bag
+                            bag = pickupSprite('knife')
+                            # print('width = ' + str(self.block_width) + ' height = ' + str(self.block_height))
+                            bag.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                            bag.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                            bag.player = self.player
+                            self.bagGroup.add(bag)
 
 
                     # if the cell is a 4 then it will be either a spike, if the space is on the bottom of the room,
@@ -438,7 +461,8 @@ class Level:
         for exit_door in self.exit_sprite:
             exit_door.rect.x += shift_x
 
-
+        for bag in self.bagGroup:
+            bag.rect.x += shift_x
 
 
     def shift_world_y(self, shift_y):
@@ -458,11 +482,15 @@ class Level:
         for exit_door in self.exit_sprite:
             exit_door.rect.y += shift_y
 
+        for bag in self.bagGroup:
+            bag.rect.y += shift_y
+
     # Update everything on this level
     def update(self):
         """ Update everything in this level."""
         self.platform_list.update()
         self.exit_sprite.update()
+        self.bagGroup.update()
 
     def draw(self, screen):
         """ Draw everything on this level. """
@@ -479,6 +507,7 @@ class Level:
         # Draw all the sprite lists that we have
         self.platform_list.draw(screen)
         self.exit_sprite.draw(screen)
+        self.bagGroup.draw(screen)
 
 
 class dirt_level(Level):
@@ -588,3 +617,13 @@ class exit_door_sprite(pygame.sprite.Sprite):
         self.image.blit(door, door.get_rect())
         self.image.set_colorkey(constants.BLUE)
         self.rect = self.image.get_rect()
+
+class pickupSprite(pygame.sprite.Sprite):
+
+    def __init__(self, pickupType):
+
+        super().__init__()
+
+        self.image = pygame.image.load('Graphics/bag.png')
+        self.rect = self.image.get_rect()
+        self.type = pickupType
