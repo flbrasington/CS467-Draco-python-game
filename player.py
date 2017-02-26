@@ -390,11 +390,13 @@ class Player(pygame.sprite.Sprite):
         for event in pygame.event.get():
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-                    self.soundEffects.player_sounds_stop()#stops the player's walk/run sound effect
-                    self.change_x = 0
+                    if self.action != 'wc':
+                        self.soundEffects.player_sounds_stop()#stops the player's walk/run sound effect
+                        self.change_x = 0
                 if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                    self.soundEffects.player_sounds_stop()#stops the player's walk/run sound effect
-                    self.change_x = 0
+                    if self.action != 'wc':
+                        self.soundEffects.player_sounds_stop()#stops the player's walk/run sound effect
+                        self.change_x = 0
                 if event.key == pygame.K_UP or event.key == pygame.K_w:
                     self.change_y = 0
                 if event.key == pygame.K_DOWN or event.key == pygame.K_s:
@@ -431,13 +433,14 @@ class Player(pygame.sprite.Sprite):
         
         # Gravity
         self.calc_grav()
+        self.move_left_right()
  
         # Move left/right
         #this makes sure that change_x doesn't get too great else the player can fly around the screen
         if self.action != 'c':
             if self.action != 'wc':
                 self.change_x = self.max_speed_x(self.change_x)
-                self.rect.x += self.change_x
+        self.rect.x += self.change_x
 
         #this checks for any collisons with blocks
         self.collision_blocks_x()
@@ -493,6 +496,8 @@ class Player(pygame.sprite.Sprite):
             if pressed[pygame.K_UP] or pressed[pygame.K_w]:
                 fall = False
                 if self.action != 'wc':
+                    self.wall_x = self.rect.x
+                    print("wall_x = ", self.wall_x)
                     if self.direction == 'r':
                         self.rect.right = block.rect.left
                     self.change_y = 0
@@ -508,9 +513,7 @@ class Player(pygame.sprite.Sprite):
 
                     
 
-        if fall == True:
-            if self.action == 'wc':
-                self.change_y = 0
+
             
 
 #AAA5
@@ -673,6 +676,9 @@ class Player(pygame.sprite.Sprite):
             self.player_attack_animation()
         if self.player_status == 'wall_climb':
             self.player_wall_climb_animation()
+        if self.player_status == 'fall':
+            self.frame = 0
+            self.image = self.walking_frames_left[self.frame]
 
 #AAA15
     def player_walk_animation(self):
@@ -749,3 +755,17 @@ class Player(pygame.sprite.Sprite):
             self.image = self.wall_climbing_left[self.frame]
         else:
             self.image = self.wall_climbing_right[self.frame]
+
+
+    def move_left_right(self):
+        if self.action == 'wc':
+            if self.wall_x != self.rect.x:
+                self.action = 'f'
+                self.player_status = 'fall'
+                self.change_x = 0
+                self.player_animation()
+            else:
+                if self.direction == 'l':
+                    self.change_x = -2
+                else:
+                    self.change_x = 2
