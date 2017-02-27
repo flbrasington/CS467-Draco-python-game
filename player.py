@@ -22,6 +22,8 @@ import sound_effects
 import graphics
 from health import Health
 
+import Level
+
 CELL_HEIGHT = constants.SCREEN_HEIGHT / constants.ROOM_HEIGHT
 CELL_WIDTH = constants.SCREEN_WIDTH / constants.ROOM_WIDTH
 
@@ -51,11 +53,15 @@ class Player(pygame.sprite.Sprite):
     # -- Methods
     def __init__(self):
         """ Constructor function """
+
  
         # Call the parent's constructor
         super().__init__()
 
-        
+
+        #sets the block for climbing
+        self.block = None
+
         #this loads all the sound effects & sound effect functions for the game
         self.soundEffects = sound_effects.Player_Sound_Effects()
 
@@ -370,6 +376,7 @@ class Player(pygame.sprite.Sprite):
                 self.can_double_jump = 'y'
                 #this is for the double jump
                 self.double_jump_count = 2
+                self.player_animation()
 
                 
             if self.action == 'c':
@@ -481,7 +488,6 @@ class Player(pygame.sprite.Sprite):
 #AAA4
     def collision_blocks_x(self):
         block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
-        fall = True
         for block in block_hit_list:
             # If we are moving right,
             # set our right side to the left side of the item we hit
@@ -496,7 +502,9 @@ class Player(pygame.sprite.Sprite):
             if pressed[pygame.K_UP] or pressed[pygame.K_w]:
                 fall = False
                 if self.action != 'wc':
-                    self.wall_x = self.rect.x
+                    self.block = block
+                    self.wall_x = self.block.rect.x
+                            
                     print("wall_x = ", self.wall_x)
                     if self.direction == 'r':
                         self.rect.right = block.rect.left
@@ -504,17 +512,6 @@ class Player(pygame.sprite.Sprite):
                     self.action = 'wc'
                     self.player_status = 'wall_climb'
 
-            if self.action == 'wc':
-                if block.rect.y < self.rect.y < block.rect.y + block.rect.height:
-                    if self.direction == 'l':
-                        if block.rect.x + block.rect.width - 1 < self.rect.x < block.rect.x + block.rect.width + 2:
-                            # print("HEY!!")
-                            fall == False
-
-                    
-
-
-            
 
 #AAA5
     def collision_blocks_y(self):
@@ -759,13 +756,26 @@ class Player(pygame.sprite.Sprite):
 
     def move_left_right(self):
         if self.action == 'wc':
-            if self.wall_x != self.rect.x:
-                self.action = 'f'
-                self.player_status = 'fall'
-                self.change_x = 0
-                self.player_animation()
-            else:
-                if self.direction == 'l':
-                    self.change_x = -2
+            if self.direction == 'l':
+                if self.rect.x -self.block.rect.width != self.block.rect.x:
+                     self.action = 'f'
+                     self.player_status = 'fall'
+                     self.change_x = 0
+                     self.player_animation()
                 else:
-                    self.change_x = 2
+                    if self.direction == 'l':
+                        self.change_x = -2
+                    else:
+                        self.change_x = 2
+            else:
+                if self.rect.x + self.rect.width != self.block.rect.x:
+                     self.action = 'f'
+                     self.player_status = 'fall'
+                     self.change_x = 0
+                     self.player_animation()
+                else:
+                    if self.direction == 'l':
+                        self.change_x = -2
+                    else:
+                        self.change_x = 2
+                
