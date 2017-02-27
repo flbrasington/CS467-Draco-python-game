@@ -32,6 +32,8 @@ class Enemy(pygame.sprite.Sprite):
     def __init__(self, walkingImages, attackingImages, attackDist, speedX, speedY, hp):
         super().__init__()
 
+        self.attackingImages = attackingImages
+
         #this loads all the images for the snake
         #arrays for the left/right walk &
         #left/right attack
@@ -106,6 +108,8 @@ class Enemy(pygame.sprite.Sprite):
         self.fall = 'y'
 
         self.hp = hp
+
+        self.total_snowballs = 0
 
     #this function updates the snakes' action
     def update(self, player=None):
@@ -372,9 +376,13 @@ class SnowMan(Enemy):
         self.current_snowball = 0
         self.num_of_snowballs = 0
         self.total_snowballs = 0
+
+        self.snowballGroup = pygame.sprite.Group()
+
         for i in range(0,10):
             snowball_object = SnowBall()
             snowball_object.level = self.level
+            self.snowballGroup.add(snowball_object)
             self.snowball_list.append(snowball_object)
             self.num_of_snowballs += 1
             self.total_snowballs += 1
@@ -439,9 +447,14 @@ class SnowMan(Enemy):
     #this begins the snowman animation for throwing snowballs
     def throw_snowball(self, player=None):
         if self.can_shoot and self.num_of_snowballs > 0:
-            self.snowball_list[self.current_snowball].throw_snowball(self.rect.centerx, self.rect.centery,
-                                                            int(self.rect.centerx)+self.attack_distance,
-                                                            self.rect.centery, player)
+            if self.direction == 'r':
+                self.snowball_list[self.current_snowball].throw_snowball(self.rect.centerx, self.rect.centery,
+                                                                        int(self.rect.centerx)+self.attack_distance,
+                                                                        self.rect.centery, self.playerGroup)
+            elif self.direction == 'l':
+                self.snowball_list[self.current_snowball].throw_snowball(self.rect.centerx, self.rect.centery,
+                                                                        int(self.rect.centerx)-self.attack_distance,
+                                                                        self.rect.centery, self.playerGroup)
             self.start_time = time.clock()
             self.current_snowball += 1
             self.num_of_snowballs -= 1
@@ -500,3 +513,5 @@ class Spikes(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
 
         self.hp = 1000
+
+        self.total_snowballs = 0

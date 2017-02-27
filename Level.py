@@ -613,7 +613,7 @@ class exit_door_sprite(pygame.sprite.Sprite):
 
         self.image = pygame.Surface([width, height])
         self.image.fill(constants.BLUE)
-        door = pygame.image.load('Graphics/Door1.png')
+        door = pygame.image.load('Graphics/Door.png')
         self.image.blit(door, door.get_rect())
         self.image.set_colorkey(constants.BLUE)
         self.rect = self.image.get_rect()

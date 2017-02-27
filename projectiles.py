@@ -103,10 +103,11 @@ class Projectile(pygame.sprite.Sprite):
             # as multiple hits.  this if statement only registers the first hit
             if self.numHits == 1:
                 # deal damage to the first enemy hit
-                print(enemiesHit[0], enemiesHit[0].hp)
+                # print(enemiesHit[0], enemiesHit[0].hp)
                 enemiesHit[0].hp -= 5
 #$$$ AAA3
     def shoot(self, start_x, start_y, end_x, end_y, enemies):
+        # print(enemies)
         self.enemies = enemies
 
         self.end_point_x = end_x
@@ -194,5 +195,42 @@ class SnowBall(Projectile):
         image = "Graphics/snowman/snowball.png"
         Projectile.__init__(self, image)
     
-    def throw_snowball(self, start_x, start_y, end_x, end_y, player):
-        Projectile.shoot(self, start_x, start_y, end_x, end_y, player)
+    def throw_snowball(self, start_x, start_y, end_x, end_y, playerGroup):
+        Projectile.shoot(self, start_x, start_y, end_x, end_y, playerGroup)
+        # print("snowball thrown")
+
+    #$$$ AAA1
+    def update(self, player=None):
+        if self.thrown == 'n':
+            self.rect.x = -50
+            self.rect.y = -50
+        elif self.thrown == 'y':
+            self.end_point_x += self.speed_x
+            self.end_point_y += self.speed_y
+            self.rect.centerx = self.end_point_x
+            self.rect.centery = self.end_point_y
+
+            self.collision()
+
+    #$$$ AAA2
+    # this detects collisions between the knife and other items
+    # it is called everytime the knife updates, so it may be called a second
+    # time before it even finisheds, so a tracker numHits has been added to
+    # only work on the first call that hits an enemy
+    def collision(self):
+        hits = pygame.sprite.spritecollide(self, self.enemies, False)
+        if len(hits) > 0:
+            self.numHits += 1
+
+            # remove knife from game
+            self.kill()
+
+            # one knife throw was killing stronger enemies because it was counting
+            # as multiple hits.  this if statement only registers the first hit
+            if self.numHits == 1:
+                # deal damage to the first enemy hit
+                hits[0].damage = 'y'
+        else:        
+            block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+            for block in block_hit_list:
+                self.kill()

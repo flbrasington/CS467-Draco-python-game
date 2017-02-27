@@ -22,7 +22,7 @@ import Menu
 import Level
 import enemies
 import graphics
-from projectiles import Knife
+from projectiles import Knife, SnowBall
 from rope import Rope
 
 FPS = constants.fps
@@ -184,7 +184,9 @@ def main():
     clock = pygame.time.Clock()
 
     # this bit of code sets up the players for the game
-    p = player.Player()    
+    p = player.Player() 
+    playerGroup = pygame.sprite.Group()
+    playerGroup.add(p)   
 
     #this loads all the music & music function for the game
     gamemusic = music.Game_Music()
@@ -198,9 +200,9 @@ def main():
 
     # set the current level
     # current_level_no = 0
-    current_level_no = 1
+    current_level_no = 6
     # current_level = level_list[current_level_no]
-    current_level = Level.dirt_level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, 1)
+    current_level = Level.snow_level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, 1)
 
     # List to hold all the sprites
     p.level = current_level
@@ -228,6 +230,10 @@ def main():
     enemy_sprite_list = current_level.enemy_list
     enemy_sprite_list.add(generateEnemies(current_level_no))
     active_sprite_list.add(enemy_sprite_list)
+    for enemy in enemy_sprite_list:
+        enemy.playerGroup = playerGroup
+        if enemy.total_snowballs > 0:
+            active_sprite_list.add(enemy.snowballGroup)
 
     #adds the enemies to the player list
     p.enemies = enemy_sprite_list
@@ -424,6 +430,8 @@ def main():
 
                 # remove all enemy sprites from active list
                 for sprite in enemy_sprite_list:
+                    if sprite.total_snowballs > 0:
+                        active_sprite_list.remove(sprite.snowballGroup)
                     if sprite in active_sprite_list:
                         active_sprite_list.remove(sprite)
 
@@ -433,6 +441,12 @@ def main():
 
                 # add newly generated list of enemies to active list
                 active_sprite_list.add(enemy_sprite_list)
+
+                for enemy in enemy_sprite_list:
+                    enemy.playerGroup = playerGroup
+                    if enemy.total_snowballs > 0:
+                        for snowball in enemy.snowballGroup:
+                            active_sprite_list.add(snowball)
 
                 # update level for all sprites (enemy, player, and rope)
                 for sprite in active_sprite_list:
