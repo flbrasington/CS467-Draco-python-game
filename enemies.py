@@ -492,10 +492,11 @@ class Spikes(pygame.sprite.Sprite):
         # spikes are always in attack mode
         self.action = 'a'
         
-        self.image = pygame.Surface([width, height])
+        # self.image = pygame.Surface([width, height])
         # self.image.fill(constants.RED)
-        self.image.blit(graphics.TILEDICT['spikes'], graphics.TILEDICT['spikes'].get_rect())
-        self.image.set_colorkey(constants.BLACK)
+        # self.image.blit(graphics.TILEDICT['spikes'], graphics.TILEDICT['spikes'].get_rect())
+        # self.image.set_colorkey(constants.BLACK)
+        self.image = graphics.TILEDICT['spikes']
         self.rect = self.image.get_rect()
 
         self.hp = 1000
