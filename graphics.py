@@ -45,6 +45,10 @@ spelunkyGuyWallClimbLeft = addImages(8, 'SpelunkyGuy', 'spelunkyGuyWall')
 
 spelunkyGuyWallClimbRight = addImages(8, 'SpelunkyGuy', 'spelunkyGuyWall_right')
 
+spelunkyGuyDamage = pygame.image.load("Graphics/SpelunkyGuy/guy_damage.png")
+
+spelunkyGuyGhost = pygame.image.load("Graphics/SpelunkyGuy/guy_ghost.png")
+
 yetiWalk = addImages(7, 'Yeti', 'yetiWalk')
 
 ropeCounter = []
@@ -87,3 +91,8 @@ return1 = pygame.image.load("Graphics/menu/return1.png")
 return2 = pygame.image.load("Graphics/menu/return2.png")
 button_back = pygame.image.load("Graphics/menu/button_background.png")
 background_menu = pygame.image.load("Graphics/menu/background_menu.png")
+
+#game over images
+game_over = pygame.image.load("Graphics/GameOver/GameOver.png")
+background = pygame.image.load("Graphics/GameOver/moutains.png")
+press_a = pygame.image.load("Graphics/GameOver/press_a.png")

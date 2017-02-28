@@ -21,6 +21,7 @@ import time
 import sound_effects
 import graphics
 from health import Health
+import GameOver
 
 import Level
 
@@ -44,6 +45,7 @@ CELL_WIDTH = constants.SCREEN_WIDTH / constants.ROOM_WIDTH
 #$$$ throw rope - AAA12        $$$
 #$$$ Throw knife - AAA13       $$$
 #$$$ Player Animation - AAA14  $$$
+#$$$ Damage animation - AAA15  $$$
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 class Player(pygame.sprite.Sprite):
@@ -146,6 +148,13 @@ class Player(pygame.sprite.Sprite):
             image = pygame.image.load(img)
             self.wall_climbing_right.append(image)
             self.wall_climbing_right.append(image)
+
+        #sets up the taking damage images    
+        self.take_damage_img = []
+        image = graphics.spelunkyGuyDamage
+        self.take_damage_img.append(image)
+        image = pygame.transform.flip(image, True, False)
+        self.take_damage_img.append(image)
 
         self.climbing_frames_down.reverse()
 
@@ -253,161 +262,164 @@ class Player(pygame.sprite.Sprite):
     def player_controls(self):
         pressed = pygame.key.get_pressed()
 
-        #if the player clicks the left mouse button
-        #a rope will travel in the direction of the mouse click
-        #a cool down time will also begin, else the player will shoot too many ropes
-        if pygame.mouse.get_pressed()[0]:
-            if self.player_status != 'attack':
-                    self.player_status = 'attack'
-                    self.frame = 0
-                    if pygame.mouse.get_pos()[0] > self.rect.x:
-                        self.direction = 'r'
-                    else:
-                        self.direction = 'l'
+        #if the player isn't taking damage
+        if self.action != 'td' and self.player_status != 'take_damage':
 
-            if self.inv == 0:
-                self.throw_rope()
-            elif self.inv == 1:
-                self.throw_knife()
-            else:
-                self.whip.direction = self.direction
-                self.whip.whip_being_used = 'y'
+            #if the player clicks the left mouse button
+            #a rope will travel in the direction of the mouse click
+            #a cool down time will also begin, else the player will shoot too many ropes
+            if pygame.mouse.get_pressed()[0]:
+                if self.player_status != 'attack':
+                        self.player_status = 'attack'
+                        self.frame = 0
+                        if pygame.mouse.get_pos()[0] > self.rect.x:
+                            self.direction = 'r'
+                        else:
+                            self.direction = 'l'
 
-            
-
-        #this is for changing the player's inventory
-        if pygame.mouse.get_pressed()[2]:
-            if self.inv_start_time == 0:
-                self.start_timer('i')
-                if self.inv >= 2:
-                    self.inv = 0
+                if self.inv == 0:
+                    self.throw_rope()
+                elif self.inv == 1:
+                    self.throw_knife()
                 else:
-                    self.inv += 1
-            else:
-                #checks that the cool down is finished
-                self.end_timer('i')
-                inv_time = self.inv_end_time - self.inv_start_time
-                if inv_time > self.inv_timer:
-                    self.inv_start_time = 0
-
-        #CHEAT FOR DEBUGGING ONLY
-        if pressed[pygame.K_u]:
-            self.double_jump()
-            self.jump_start_time = 0
-            self.jump_end_time = 0
-            self.can_double_jump = 'y'
-            self.double_jump_count = 2         
-            
-        if pressed[pygame.K_SPACE]:
-            self.action = 'j'
-            self.double_jump()
-
-
-        if pressed[pygame.K_LSHIFT] or pressed[pygame.K_RSHIFT]:
-            self.walk_status = 'r'
-        else:
-            self.walk_status = 'w'
-
-        if pressed[pygame.K_LEFT] or pressed[pygame.K_a]:
-            if self.action != 'wc':
-                self.direction = 'l'
-                if self.walk_status == 'r':
-                    self.change_x = -self.run_speed
-                if self.walk_status == 'w':
-                    self.change_x = -self.walk_speed
-
-
-                self.player_status = 'walk'
-                self.player_animation()
-
-        if pressed[pygame.K_RIGHT] or pressed[pygame.K_d]:
-            if self.action !='wc':
-                if self.walk_status == 'r':
-                    self.change_x = self.run_speed
-                if self.walk_status == 'w':
-                    self.change_x = self.walk_speed
-
-                if self.action != 'wc':
-                    self.direction = 'r'
-
-                self.player_status = 'walk'
-                self.player_animation()
-                    
-                    
-
-        if pressed[pygame.K_UP] or pressed[pygame.K_w]:
-            block_hit_list = pygame.sprite.spritecollide(self, self.level.exit_sprite, False)
-            for block in block_hit_list:
-                if pressed[pygame.K_UP]:
-                    self.exit_level = 'y'
-
-            bagHitList = pygame.sprite.spritecollide(self, self.level.bagGroup, True)
-            for bag in bagHitList:
-                if bag.type == 'knife':
-                    self.knifePickup = True
-                elif bag.type == 'rope':
-                    self.ropePickup = True
-
-            #if the player wants to climb the rope
-            #self.action = 'w'
-            if self.action != 'wc':
-                for rope in self.rope_list:
-                    rope_hit_list = pygame.sprite.spritecollide(self, rope.rope_segments, False)
-                    for seg in rope_hit_list:
-                        self.action = 'c'
-                        self.change_y = -self.climb_speed
-                        self.can_double_jump = 'y'
-                        #this is for the double jump
-                        self.double_jump_count = 2
-                        
-                        self.player_status = 'climb'
-                        self.player_animation()
-
-            elif self.action == 'wc':
-                self.change_y = -self.climb_speed
-                self.player_status = 'wall_climb'
-                self.player_animation()
-                self.can_double_jump = 'y'
-                self.double_jump_count = 2
-                    
-        if pressed[pygame.K_DOWN] or pressed[pygame.K_s]:
-            if self.action == 'wc':
-                self.change_y = self.climb_speed
-                self.can_double_jump = 'y'
-                #this is for the double jump
-                self.double_jump_count = 2
-                self.player_animation()
+                    self.whip.direction = self.direction
+                    self.whip.whip_being_used = 'y'
 
                 
-            if self.action == 'c':
-                #if the player wants to climb the rope
-                self.action = 'w'
-                for rope in self.rope_list:
-                    rope_hit_list = pygame.sprite.spritecollide(self, rope.rope_segments, False)
-                    for seg in rope_hit_list:
-                        self.action = 'c'
-                        self.change_y = self.climb_speed
-                        self.can_double_jump = 'y'
-                        #this is for the double jump
-                        self.double_jump_count = 2
 
-                        self.player_status = 'climb'
-                        self.player_animation()
-            
-        for event in pygame.event.get():
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT or event.key == pygame.K_a:
+            #this is for changing the player's inventory
+            if pygame.mouse.get_pressed()[2]:
+                if self.inv_start_time == 0:
+                    self.start_timer('i')
+                    if self.inv >= 2:
+                        self.inv = 0
+                    else:
+                        self.inv += 1
+                else:
+                    #checks that the cool down is finished
+                    self.end_timer('i')
+                    inv_time = self.inv_end_time - self.inv_start_time
+                    if inv_time > self.inv_timer:
+                        self.inv_start_time = 0
+
+            #CHEAT FOR DEBUGGING ONLY
+            if pressed[pygame.K_u]:
+                self.double_jump()
+                self.jump_start_time = 0
+                self.jump_end_time = 0
+                self.can_double_jump = 'y'
+                self.double_jump_count = 2         
+                
+            if pressed[pygame.K_SPACE]:
+                self.action = 'j'
+                self.double_jump()
+
+
+            if pressed[pygame.K_LSHIFT] or pressed[pygame.K_RSHIFT]:
+                self.walk_status = 'r'
+            else:
+                self.walk_status = 'w'
+
+            if pressed[pygame.K_LEFT] or pressed[pygame.K_a]:
+                if self.action != 'wc':
+                    self.direction = 'l'
+                    if self.walk_status == 'r':
+                        self.change_x = -self.run_speed
+                    if self.walk_status == 'w':
+                        self.change_x = -self.walk_speed
+
+
+                    self.player_status = 'walk'
+                    self.player_animation()
+
+            if pressed[pygame.K_RIGHT] or pressed[pygame.K_d]:
+                if self.action !='wc':
+                    if self.walk_status == 'r':
+                        self.change_x = self.run_speed
+                    if self.walk_status == 'w':
+                        self.change_x = self.walk_speed
+
                     if self.action != 'wc':
-                        self.soundEffects.player_sounds_stop()#stops the player's walk/run sound effect
-                        self.change_x = 0
-                if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                    if self.action != 'wc':
-                        self.soundEffects.player_sounds_stop()#stops the player's walk/run sound effect
-                        self.change_x = 0
-                if event.key == pygame.K_UP or event.key == pygame.K_w:
-                    self.change_y = 0
-                if event.key == pygame.K_DOWN or event.key == pygame.K_s:
-                    self.change_y = 0 
+                        self.direction = 'r'
+
+                    self.player_status = 'walk'
+                    self.player_animation()
+                        
+                        
+
+            if pressed[pygame.K_UP] or pressed[pygame.K_w]:
+                block_hit_list = pygame.sprite.spritecollide(self, self.level.exit_sprite, False)
+                for block in block_hit_list:
+                    if pressed[pygame.K_UP]:
+                        self.exit_level = 'y'
+
+                bagHitList = pygame.sprite.spritecollide(self, self.level.bagGroup, True)
+                for bag in bagHitList:
+                    if bag.type == 'knife':
+                        self.knifePickup = True
+                    elif bag.type == 'rope':
+                        self.ropePickup = True
+
+                #if the player wants to climb the rope
+                #self.action = 'w'
+                if self.action != 'wc':
+                    for rope in self.rope_list:
+                        rope_hit_list = pygame.sprite.spritecollide(self, rope.rope_segments, False)
+                        for seg in rope_hit_list:
+                            self.action = 'c'
+                            self.change_y = -self.climb_speed
+                            self.can_double_jump = 'y'
+                            #this is for the double jump
+                            self.double_jump_count = 2
+                            
+                            self.player_status = 'climb'
+                            self.player_animation()
+
+                elif self.action == 'wc':
+                    self.change_y = -self.climb_speed
+                    self.player_status = 'wall_climb'
+                    self.player_animation()
+                    self.can_double_jump = 'y'
+                    self.double_jump_count = 2
+                        
+            if pressed[pygame.K_DOWN] or pressed[pygame.K_s]:
+                if self.action == 'wc':
+                    self.change_y = self.climb_speed
+                    self.can_double_jump = 'y'
+                    #this is for the double jump
+                    self.double_jump_count = 2
+                    self.player_animation()
+
+                    
+                if self.action == 'c':
+                    #if the player wants to climb the rope
+                    self.action = 'w'
+                    for rope in self.rope_list:
+                        rope_hit_list = pygame.sprite.spritecollide(self, rope.rope_segments, False)
+                        for seg in rope_hit_list:
+                            self.action = 'c'
+                            self.change_y = self.climb_speed
+                            self.can_double_jump = 'y'
+                            #this is for the double jump
+                            self.double_jump_count = 2
+
+                            self.player_status = 'climb'
+                            self.player_animation()
+                
+            for event in pygame.event.get():
+                if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_LEFT or event.key == pygame.K_a:
+                        if self.action != 'wc':
+                            self.soundEffects.player_sounds_stop()#stops the player's walk/run sound effect
+                            self.change_x = 0
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+                        if self.action != 'wc':
+                            self.soundEffects.player_sounds_stop()#stops the player's walk/run sound effect
+                            self.change_x = 0
+                    if event.key == pygame.K_UP or event.key == pygame.K_w:
+                        self.change_y = 0
+                    if event.key == pygame.K_DOWN or event.key == pygame.K_s:
+                        self.change_y = 0 
         
         
 #AAA2
@@ -617,16 +629,30 @@ class Player(pygame.sprite.Sprite):
     def take_damage(self):
         if self.damage == 'y':
             if self.damage_start_time == 0:
+                self.action = 'td'
+                self.player_status = 'take_damage'
                 self.start_timer('y')
                 self.health.update_health()
+                if self.direction == 'r':
+                    self.image = self.take_damage_img[0]
+                    self.change_x = 10
+                else:
+                    self.image = self.take_damage_img[1]
+                    self.change_x = -10
             else:
                 self.end_timer('y')
+                if self.direction == 'r':
+                    self.change_x -= .15
+                else:
+                    self.change_x += .15
                 time = self.damage_end_time - self.damage_start_time
-                # print("time = ", time)
-                # print("self.damage_timer = ", self.damage_timer)
-                # print(self.rect.right)
                 if time > self.damage_timer:
                     self.damage = 'n'
+                    self.change_x = 0
+                    self.action = 'f'
+                    self.player_status = 'fall'
+                    if self.health.life == 0:
+                        GameOver.Game_Over_Screen()
 
 #AAA12
     def throw_rope(self):
@@ -779,4 +805,5 @@ class Player(pygame.sprite.Sprite):
                         self.change_x = -2
                     else:
                         self.change_x = 2
-                
+
+            
