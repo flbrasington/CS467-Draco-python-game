@@ -498,20 +498,31 @@ class BlueSnake(Enemy):
     def __init__(self):
         Enemy.__init__(self, graphics.blueSnakeWalk, graphics.blueSnakeAttack, 100, 3, 0, 1)
 
-
-class Spikes(pygame.sprite.Sprite):
-    def __init__(self, width, height):
+class Trap(pygame.sprite.Sprite):
+    def __init__(self, image):
         super().__init__()
         # spikes are always in attack mode
         self.action = 'a'
         
-        # self.image = pygame.Surface([width, height])
-        # self.image.fill(constants.RED)
-        # self.image.blit(graphics.TILEDICT['spikes'], graphics.TILEDICT['spikes'].get_rect())
-        # self.image.set_colorkey(constants.BLACK)
-        self.image = graphics.TILEDICT['spikes']
+        self.image = image
         self.rect = self.image.get_rect()
 
         self.hp = 1000
 
         self.total_snowballs = 0
+
+
+class Spikes(Trap):
+    def __init__(self):
+        Trap.__init__(self, graphics.TILEDICT['spikes'])
+
+class Darts(Trap):
+    def __init__(self, theme):
+        if theme is 'dirt':
+            image = graphics.TILEDICT['dirt dart']
+        elif theme is 'castle':
+            image = graphics.TILEDICT['castle dart']
+        else:
+            image = graphics.TILEDICT['ice block alt']
+        Trap.__init__(self, image)
+

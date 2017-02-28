@@ -72,9 +72,11 @@ TILEDICT = {'ice block': pygame.image.load('Graphics/tiles/iceBlock.png'),
 			'tundra center': pygame.image.load('Graphics/tiles/tundraCenter.png'),
 			'dirt block wall': pygame.image.load('Graphics/tiles/dirtBlockWall.png'),
 			'dirt center': pygame.image.load('Graphics/tiles/dirtCenter.png'),
+			'dirt dart': pygame.image.load('Graphics/tiles/dirtMid.png'),
 			'castle wall': pygame.image.load('Graphics/tiles/castleWall.png'),
 			'castle center': pygame.image.load('Graphics/tiles/castleCenter.png'),
-			'spikes': pygame.image.load('Graphics/tiles/spikes.png')}
+			'spikes': pygame.image.load('Graphics/tiles/spikes.png'),
+			'castle dart': pygame.image.load('Graphics/tiles/castleMid.png')}
 
 #buttons for the menu
 quit_button1 = pygame.image.load("Graphics/menu/quitgame1.png")

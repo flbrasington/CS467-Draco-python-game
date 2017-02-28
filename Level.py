@@ -20,6 +20,7 @@ import enemies
 import collections
 from sys import exit
 import graphics
+import traps
 
 FPS = constants.fps
 
@@ -288,12 +289,19 @@ class Level:
                     # otherwise it is a randomized block or nothing
                     elif rooms[pos][y][x] is 4:
                         # if the cell is at the bottom of the level, randomly choose whether to place a spike or not
-                        if y is 6 and random.randrange(0, 3) is 1:
-                            spike = enemies.Spikes(self.block_width, self.block_height)
+                        rand = random.randrange(0, 3)
+                        if y is 6 and rand is 1:
+                            spike = enemies.Spikes()
                             spike.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                             spike.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                             spike.player = self.player
                             self.enemy_list.add(spike)
+                        elif y is 6 and rand is 2:
+                            dart = enemies.Darts(self.theme)
+                            dart.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                            dart.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                            dart.player = self.player
+                            self.enemy_list.add(dart)
                         elif y != 6 and random.randrange(0, 2) is 0:
                             block = Platform(self.block_width, self.block_height, 'block', self.theme)
                             block.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
@@ -344,7 +352,7 @@ class Level:
                     elif prob_block[y][x] is 4:
                         # if the cell is at the bottom of the level, randomly choose whether to place a spike or not
                         if y is 2 and random.randrange(0, 3) in (0, 1):
-                            spike = enemies.Spikes(self.block_width, self.block_height)
+                            spike = enemies.Spikes()
                             spike.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
                             spike.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
                             self.enemy_list.add(spike)
