@@ -14,7 +14,7 @@ import sound_effects
 import math
 import time
 import graphics
-from projectiles import SnowBall
+from projectiles import SnowBall, Dart
 
 #$$$$$$$$$$$$$$$$$$$$$$$
 #$$$ MONSTER LIST    $$$
@@ -110,6 +110,7 @@ class Enemy(pygame.sprite.Sprite):
         self.hp = hp
 
         self.total_snowballs = 0
+        self.numOfDarts = 0
 
     #this function updates the snakes' action
     def update(self, player=None):
@@ -448,11 +449,11 @@ class SnowMan(Enemy):
     def throw_snowball(self, player=None):
         if self.can_shoot and self.num_of_snowballs > 0:
             if self.direction == 'r':
-                self.snowball_list[self.current_snowball].throw_snowball(self.rect.centerx, self.rect.centery,
+                self.snowball_list[self.current_snowball].shoot(self.rect.centerx, self.rect.centery,
                                                                         int(self.rect.centerx)+self.attack_distance,
                                                                         self.rect.centery, self.playerGroup)
             elif self.direction == 'l':
-                self.snowball_list[self.current_snowball].throw_snowball(self.rect.centerx, self.rect.centery,
+                self.snowball_list[self.current_snowball].shoot(self.rect.centerx, self.rect.centery,
                                                                         int(self.rect.centerx)-self.attack_distance,
                                                                         self.rect.centery, self.playerGroup)
             self.start_time = time.clock()
@@ -499,10 +500,10 @@ class BlueSnake(Enemy):
         Enemy.__init__(self, graphics.blueSnakeWalk, graphics.blueSnakeAttack, 100, 3, 0, 1)
 
 class Trap(pygame.sprite.Sprite):
-    def __init__(self, image):
+    def __init__(self, image, detection_distance, attack_distance):
         super().__init__()
         # spikes are always in attack mode
-        self.action = 'a'
+        self.action = 'w'
         
         self.image = image
         self.rect = self.image.get_rect()
@@ -510,11 +511,51 @@ class Trap(pygame.sprite.Sprite):
         self.hp = 1000
 
         self.total_snowballs = 0
+        self.numOfDarts = 0
+
+        self.numHits = 0
+
+        self.detection_distance = detection_distance
+        self.attack_distance = attack_distance
+
+    #this function updates the snakes' action
+    def update(self, player=None):
+        #if the player is within the detection distance then the snake will move around
+        if self.detect_player(player):
+            self.attack()
+        
+    def detect_player(self, player=None):
+        #calculates the distance to the player
+        distance = abs((player.rect.x - self.rect.x)**2 + (player.rect.y - self.rect.y)**2)
+        distance = math.sqrt(distance)
+        #if the player is within the detection distance return true
+        if distance < self.detection_distance:
+            return True
+        else:
+            return False
+
+    def attack(self):
+        None
 
 
 class Spikes(Trap):
     def __init__(self):
-        Trap.__init__(self, graphics.TILEDICT['spikes'])
+        Trap.__init__(self, graphics.TILEDICT['spikes'], 0, 0)
+
+    def update(self, player=None):
+        self.collision()
+
+    def collision(self):
+        hits = pygame.sprite.spritecollide(self, self.playerGroup, False)
+        if len(hits) > 0:
+            print(self.level, self.numHits)
+            self.numHits += 1
+
+            # one knife throw was killing stronger enemies because it was counting
+            # as multiple hits.  this if statement only registers the first hit
+            if self.numHits == 1:
+                # deal damage to the first enemy hit
+                hits[0].damage = 'y'
 
 class Darts(Trap):
     def __init__(self, theme, direction):
@@ -524,6 +565,51 @@ class Darts(Trap):
             image = graphics.TILEDICT['castle dart']
         else:
             image = graphics.TILEDICT['ice block alt']
-        Trap.__init__(self, image)
+        Trap.__init__(self, image, 50, 50)
 
         self.action = 'd'
+
+        self.direction = direction
+        self.numOfDarts = 1
+        self.dartGroup = pygame.sprite.Group()
+        self.dart = Dart()
+        self.dartGroup.add(self.dart)
+
+
+    def attack(self, player=None):
+        print(self.player)
+        print(self.rect.left, self.player.rect.right)
+        print(self.rect.right, self.player.rect.left)
+        print(self.rect.top, self.player.rect.bottom)
+        print(self.direction)
+        if self.direction is 'left' and (self.player.rect.bottom > self.rect.top
+                                         and self.player.rect.bottom > self.rect.bottom):
+            if self.numOfDarts > 0:
+                    self.dart.shoot(self.rect.centerx, self.rect.centery,
+                                    int(self.rect.centerx) - self.attack_distance,
+                                    self.rect.centery, self.playerGroup)
+                    self.numOfDarts -= 1
+            print("dart shot left")
+        elif self.direction is 'right' and (self.player.rect.bottom > self.rect.top
+                                         and self.player.rect.bottom > self.rect.bottom):
+            if self.numOfDarts > 0:
+                    self.dart.shoot(self.rect.centerx, self.rect.centery,
+                                    int(self.rect.centerx) + self.attack_distance,
+                                    self.rect.centery, self.playerGroup)
+                    self.numOfDarts -= 1
+            print("dart shot right")
+        elif self.direction is 'up' and (self.player.rect.right > self.rect.left
+                                            and self.player.rect.left < self.rect.right):
+
+            print("dart shot up")
+            if self.numOfDarts > 0:
+                self.dart.shoot(self.rect.centerx, self.rect.centery, self.rect.centerx,
+                                int(self.rect.centery) - self.attack_distance, self.playerGroup)
+                self.numOfDarts -= 1
+        elif self.direction is 'down' and (self.player.rect.right > self.rect.left
+                                            and self.player.rect.left < self.rect.right):
+            if self.numOfDarts > 0:
+                self.dart.shoot(self.rect.centerx, self.rect.centery, self.rect.centerx,
+                                int(self.rect.centery) + self.attack_distance, self.playerGroup)
+                self.numOfDarts -= 1
+            print("dart shot down")

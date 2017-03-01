@@ -434,8 +434,8 @@ class Player(pygame.sprite.Sprite):
             rope.update_rope()
 
         #this updates the knives as needed
-        for knife in self.knife_list:
-            knife.update_projectile()
+        # for knife in self.knife_list:
+            # knife.update_projectile()
 
         #this updates the whip as needed
         self.whip.whip_update(self.rect.centerx, self.rect.centery)
@@ -675,7 +675,7 @@ class Player(pygame.sprite.Sprite):
 #AAA13
     def throw_knife(self):
         if self.can_shoot and self.num_of_knives > 0:
-            self.knife_list[self.current_knife].throw_knife(self.rect.centerx, self.rect.centery,
+            self.knife_list[self.current_knife].shoot(self.rect.centerx, self.rect.centery,
                                                             pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1], self.level.enemy_list)
             self.start_timer()
 
