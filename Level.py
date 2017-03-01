@@ -20,7 +20,6 @@ import enemies
 import collections
 from sys import exit
 import graphics
-import traps
 
 FPS = constants.fps
 
@@ -104,6 +103,7 @@ class Level:
         self.blocks_per_room_y = constants.ROOM_HEIGHT
         self.block_width = self.room_side_length_x / self.blocks_per_room_x
         self.block_height = self.room_side_length_y / self.blocks_per_room_y
+        print(self.block_width, self.block_height)
         self.player = player
         self.edges = None
         self.edge_sprites = []
@@ -290,6 +290,7 @@ class Level:
                     elif rooms[pos][y][x] is 4:
                         # if the cell is at the bottom of the level, randomly choose whether to place a spike or not
                         rand = random.randrange(0, 3)
+                        rand2 = random.randrange(0, 2)
                         if y is 6 and rand is 1:
                             spike = enemies.Spikes()
                             spike.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
@@ -297,17 +298,35 @@ class Level:
                             spike.player = self.player
                             self.enemy_list.add(spike)
                         elif y is 6 and rand is 2:
-                            dart = enemies.Darts(self.theme)
+                            dart = enemies.Darts(self.theme, 'up')
                             dart.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                             dart.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                             dart.player = self.player
                             self.enemy_list.add(dart)
-                        elif y != 6 and random.randrange(0, 2) is 0:
+                        elif y != 6 and rand2 is 0:
                             block = Platform(self.block_width, self.block_height, 'block', self.theme)
                             block.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                             block.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                             block.player = self.player
                             self.platform_list.add(block)
+                        elif y != 6 and rand2 is 1:
+                            if x-1 >= 0 and x+1 <= self.blocks_per_room_x and y-1 >= 0 and y+1 < self.blocks_per_room_y:
+                                if rooms[pos][y][x-1] is 0:
+                                    direction = 'left'
+                                elif rooms[pos][y][x+1] is 0:
+                                    direction = 'right'
+                                elif rooms[pos][y-1][x] is 0:
+                                    direction = 'up'
+                                elif rooms[pos][y+1][x] is 0:
+                                    direction = 'down'
+                            else:
+                                direction = None
+                            if direction is not None:
+                                dart = enemies.Darts(self.theme, direction)
+                                dart.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                                dart.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                                dart.player = self.player
+                                self.enemy_list.add(dart)
                     #if cell is a 5 then add a probability block in the air
                     elif rooms[pos][y][x] is 5:
                         prob_block_5_list.append([pos, y, x])
