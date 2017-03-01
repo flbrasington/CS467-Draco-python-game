@@ -517,7 +517,7 @@ class Spikes(Trap):
         Trap.__init__(self, graphics.TILEDICT['spikes'])
 
 class Darts(Trap):
-    def __init__(self, theme):
+    def __init__(self, theme, direction):
         if theme is 'dirt':
             image = graphics.TILEDICT['dirt dart']
         elif theme is 'castle':
@@ -526,3 +526,4 @@ class Darts(Trap):
             image = graphics.TILEDICT['ice block alt']
         Trap.__init__(self, image)
 
+        self.action = 'd'
