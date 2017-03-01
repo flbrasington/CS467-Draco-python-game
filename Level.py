@@ -266,7 +266,7 @@ class Level:
                         block.player = self.player
                         self.platform_list.add(block)
                         #if the space above this block is empty see if we spawn an enemy on the spot above current block
-                        if rooms[pos][y-1][x] is 0:
+                        if rooms[pos][y-1][x] is 0 and y - 1 >= 0:
                             self.enemy_generation(coord_x, self.block_height + (pos // 5) * self.room_side_length_y + (y - 1) * self.block_height)
                     # if the cell is a 3 then it will be an item pickup
                     elif rooms[pos][y][x] is 3:
