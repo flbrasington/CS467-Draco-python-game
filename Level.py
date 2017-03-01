@@ -255,7 +255,11 @@ class Level:
                 for x in range(self.blocks_per_room_x):
                     # if cell is a 1 add a platform sprite
                     if rooms[pos][y][x] is 1:
-                        block = Platform(self.block_width, self.block_height, 'block', self.theme)
+                        #check if platform has another above it for graphics
+                        if rooms[pos][y - 1][x] in (0, 3, 7) and y - 1 >= 0:
+                            block = Platform(self.block_width, self.block_height, 'top', self.theme)
+                        else:
+                            block = Platform(self.block_width, self.block_height, 'middle', self.theme)
                         coord_x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                         block.rect.x = coord_x
                         block.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
@@ -304,7 +308,10 @@ class Level:
                             dart.player = self.player
                             self.enemy_list.add(dart)
                         elif y != 6 and rand2 is 0:
-                            block = Platform(self.block_width, self.block_height, 'block', self.theme)
+                            if rooms[pos][y - 1][x] is 0:
+                                block = Platform(self.block_width, self.block_height, 'top', self.theme)
+                            else:
+                                block = Platform(self.block_width, self.block_height, 'middle', self.theme)
                             block.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                             block.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                             block.player = self.player
@@ -364,7 +371,10 @@ class Level:
                 # width of a probability block
                 for x in range(5):
                     if prob_block[y][x] is 1:
-                        block = Platform(self.block_width, self.block_height, 'block', self.theme)
+                        if prob_block[y - 1][x] is 0:
+                            block = Platform(self.block_width, self.block_height, 'top', self.theme)
+                        else:
+                            block = Platform(self.block_width, self.block_height, 'middle', self.theme)
                         block.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
                         block.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
                         self.platform_list.add(block)
@@ -376,7 +386,10 @@ class Level:
                             spike.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
                             self.enemy_list.add(spike)
                         elif y != 2 and random.randrange(0, 2) is 0:
-                            block = Platform(self.block_width, self.block_height, 'block', self.theme)
+                            if prob_block[y - 1][x] is 0:
+                                block = Platform(self.block_width, self.block_height, 'top', self.theme)
+                            else:
+                                block = Platform(self.block_width, self.block_height, 'middle', self.theme)
                             block.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
                             block.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
                             self.platform_list.add(block)
@@ -618,14 +631,23 @@ class Platform(pygame.sprite.Sprite):
         if platformType == 'edge':
             self.image.fill(constants.DARK_GREY)
 
-        elif platformType == 'block':
+        else:
             self.image.fill(constants.GREEN)
             if theme == 'dirt':
-                self.image.blit(graphics.TILEDICT['dirt center'], graphics.TILEDICT['dirt center'].get_rect())
+                if platformType == 'middle':
+                    self.image.blit(graphics.TILEDICT['dirt center'], graphics.TILEDICT['dirt center'].get_rect())
+                elif platformType == 'top':
+                    self.image.blit(graphics.TILEDICT['dirt mid top'], graphics.TILEDICT['dirt mid top'].get_rect())
             elif theme == 'snow':
-                self.image.blit(graphics.TILEDICT['tundra center'], graphics.TILEDICT['tundra center'].get_rect())
+                if platformType == 'middle':
+                    self.image.blit(graphics.TILEDICT['snow center'], graphics.TILEDICT['snow center'].get_rect())
+                elif platformType == 'top':
+                    self.image.blit(graphics.TILEDICT['snow mid top'], graphics.TILEDICT['snow mid top'].get_rect())
             elif theme == 'castle':
-                self.image.blit(graphics.TILEDICT['castle center'], graphics.TILEDICT['castle center'].get_rect())
+                if platformType == 'middle':
+                    self.image.blit(graphics.TILEDICT['castle center'], graphics.TILEDICT['dirt center'].get_rect())
+                elif platformType == 'top':
+                    self.image.blit(graphics.TILEDICT['castle mid top'], graphics.TILEDICT['dirt mid top'].get_rect())
 
         self.rect = self.image.get_rect()
 

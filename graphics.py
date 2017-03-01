@@ -7,6 +7,7 @@ ghost https://www.spriters-resource.com/snes/smarioworld/
 '''
 
 import pygame
+import constants
 
 def addImages(numImg, folder, prefix):
 	array = []
@@ -66,17 +67,21 @@ whip_large = pygame.image.load("Graphics/Inventory/whip_large.png")
 whip = addImages(3, 'Whip', 'whip')
 
 TILEDICT = {'ice block': pygame.image.load('Graphics/tiles/iceBlock.png'),
-			'ice block wall': pygame.image.load('Graphics/tiles/iceBlockWall.png'),
+			'ice block wall': pygame.image.load('Graphics/tiles/landscape.png'),
 			'ice block alt': pygame.image.load('Graphics/tiles/iceBlockAlt.png'),
 			'tundra': pygame.image.load('Graphics/tiles/tundra.png'),
-			'tundra center': pygame.image.load('Graphics/tiles/tundraCenter.png'),
-			'dirt block wall': pygame.image.load('Graphics/tiles/dirtBlockWall.png'),
-			'dirt center': pygame.image.load('Graphics/tiles/dirtCenter.png'),
+			'snow mid top': pygame.image.load('Graphics/tiles/snow_mid_top.png'),
+			'snow center': pygame.image.load('Graphics/tiles/snow_center.png'),
+			'dirt block wall': pygame.image.load('Graphics/tiles/landscape.png'),
+			'dirt center': pygame.image.load('Graphics/tiles/dirt_center.png'),
+			'dirt mid top': pygame.image.load('Graphics/tiles/dirt_mid_top.png'),
+			'plat right': pygame.image.load('Graphics/tiles/dirt_plat_right.png'),
 			'dirt dart': pygame.image.load('Graphics/tiles/dirtMid.png'),
-			'castle wall': pygame.image.load('Graphics/tiles/castleWall.png'),
-			'castle center': pygame.image.load('Graphics/tiles/castleCenter.png'),
+			'castle wall': pygame.image.load('Graphics/tiles/landscape.png'),
+			'castle center': pygame.image.load('Graphics/tiles/castle_center.png'),
+			'castle mid top': pygame.image.load('Graphics/tiles/castle_mid_top.png'),
 			'spikes': pygame.image.load('Graphics/tiles/spikes.png'),
-			'castle dart': pygame.image.load('Graphics/tiles/castleMid.png')}
+			'castle dart': pygame.image.load('Graphics/tiles/castle_mid_top.png')}
 
 #buttons for the menu
 quit_button1 = pygame.image.load("Graphics/menu/quitgame1.png")
