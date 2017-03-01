@@ -66,7 +66,8 @@ class Projectile(pygame.sprite.Sprite):
         # track the number of times that an enemy is hit by a knife
         self.numHits = 0
 #$$$ AAA1
-    def update_projectile(self):
+    # def update_projectile(self):
+    def update(self, player=None):
         if self.thrown == 'n':
             self.rect.x = -50
             self.rect.y = -50
@@ -81,30 +82,25 @@ class Projectile(pygame.sprite.Sprite):
 #$$$ AAA2
     # this detects collisions between the knife and other items
     # it is called everytime the knife updates, so it may be called a second
-    # time before it even finisheds, so a tracker numHits has been added to
+    # time before it even finishes, so a tracker numHits has been added to
     # only work on the first call that hits an enemy
     def collision(self):
-        block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
-        for block in block_hit_list:
-            self.thrown = 's'
-
-        # for every update of the knife, a list of enemies which collide with it
-        # will be returned
-        enemiesHit = pygame.sprite.spritecollide(self, self.enemies, False)
-        
-        # if an enemy is hit (enemiesHit will be an empty list for open space)
-        if len(enemiesHit) >= 1:
+        hits = pygame.sprite.spritecollide(self, self.enemies, False)
+        if len(hits) > 0:
             self.numHits += 1
 
-            # remove knife from game
+            # remove projectile from game
             self.kill()
 
             # one knife throw was killing stronger enemies because it was counting
             # as multiple hits.  this if statement only registers the first hit
             if self.numHits == 1:
                 # deal damage to the first enemy hit
-                # print(enemiesHit[0], enemiesHit[0].hp)
-                enemiesHit[0].hp -= 5
+                hits[0].damage = 'y'
+        else:        
+            block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+            for block in block_hit_list:
+                self.kill()
 #$$$ AAA3
     def shoot(self, start_x, start_y, end_x, end_y, enemies):
         # print(enemies)
@@ -185,32 +181,6 @@ class Knife(Projectile):
          #call the parent's constructor
         image = 'Graphics/Inventory/knife_small.png'
         Projectile.__init__(self, image)
-        
-
-    def throw_knife(self, start_x, start_y, end_x, end_y, enemies):
-        Projectile.shoot(self, start_x, start_y, end_x, end_y, enemies)
-
-class SnowBall(Projectile):
-    def __init__(self):
-        image = "Graphics/snowman/snowball.png"
-        Projectile.__init__(self, image)
-    
-    def throw_snowball(self, start_x, start_y, end_x, end_y, playerGroup):
-        Projectile.shoot(self, start_x, start_y, end_x, end_y, playerGroup)
-        # print("snowball thrown")
-
-    #$$$ AAA1
-    def update(self, player=None):
-        if self.thrown == 'n':
-            self.rect.x = -50
-            self.rect.y = -50
-        elif self.thrown == 'y':
-            self.end_point_x += self.speed_x
-            self.end_point_y += self.speed_y
-            self.rect.centerx = self.end_point_x
-            self.rect.centery = self.end_point_y
-
-            self.collision()
 
     #$$$ AAA2
     # this detects collisions between the knife and other items
@@ -218,8 +188,16 @@ class SnowBall(Projectile):
     # time before it even finisheds, so a tracker numHits has been added to
     # only work on the first call that hits an enemy
     def collision(self):
-        hits = pygame.sprite.spritecollide(self, self.enemies, False)
-        if len(hits) > 0:
+        block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+        for block in block_hit_list:
+            self.thrown = 's'
+
+        # for every update of the knife, a list of enemies which collide with it
+        # will be returned
+        enemiesHit = pygame.sprite.spritecollide(self, self.enemies, False)
+        
+        # if an enemy is hit (enemiesHit will be an empty list for open space)
+        if len(enemiesHit) >= 1:
             self.numHits += 1
 
             # remove knife from game
@@ -229,8 +207,15 @@ class SnowBall(Projectile):
             # as multiple hits.  this if statement only registers the first hit
             if self.numHits == 1:
                 # deal damage to the first enemy hit
-                hits[0].damage = 'y'
-        else:        
-            block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
-            for block in block_hit_list:
-                self.kill()
+                # print(enemiesHit[0], enemiesHit[0].hp)
+                enemiesHit[0].hp -= 5
+
+class SnowBall(Projectile):
+    def __init__(self):
+        image = "Graphics/snowman/snowball.png"
+        Projectile.__init__(self, image)
+
+class Dart(Projectile):
+    def __init__(self):
+        image = "Graphics/dartUp.png"
+        Projectile.__init__(self, image)

@@ -202,7 +202,7 @@ def main():
     # current_level_no = 0
     current_level_no = 1
     # current_level = level_list[current_level_no]
-    current_level = Level.snow_level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, 1)
+    current_level = Level.dirt_level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, 1)
 
     # List to hold all the sprites
     p.level = current_level
@@ -234,6 +234,8 @@ def main():
         enemy.playerGroup = playerGroup
         if enemy.total_snowballs > 0:
             active_sprite_list.add(enemy.snowballGroup)
+        if enemy.numOfDarts > 0:
+            active_sprite_list.add(enemy.dartGroup)
 
     #adds the enemies to the player list
     p.enemies = enemy_sprite_list
@@ -432,6 +434,8 @@ def main():
                 for sprite in enemy_sprite_list:
                     if sprite.total_snowballs > 0:
                         active_sprite_list.remove(sprite.snowballGroup)
+                    if sprite.numOfDarts > 0:
+                        active_sprite_list.remove(sprite.dartGroup)
                     if sprite in active_sprite_list:
                         active_sprite_list.remove(sprite)
 
@@ -445,8 +449,9 @@ def main():
                 for enemy in enemy_sprite_list:
                     enemy.playerGroup = playerGroup
                     if enemy.total_snowballs > 0:
-                        for snowball in enemy.snowballGroup:
-                            active_sprite_list.add(snowball)
+                        active_sprite_list.add(enemy.snowballGroup)
+                    if enemy.numOfDarts > 0:
+                        active_sprite_list.add(enemy.dartGroup)
 
                 # update level for all sprites (enemy, player, and rope)
                 for sprite in active_sprite_list:
@@ -489,13 +494,13 @@ def main():
         # pygame.draw.rect(screen, constants.BLACK, [p.lead_x, p.lead_y, 10,10])
 
         # if an enemy collides with the player, add it to enemies Hit
-        enemiesHit = pygame.sprite.spritecollide(p, enemy_sprite_list, True)
+        enemiesHit = pygame.sprite.spritecollide(p, enemy_sprite_list, False)
 
         # for all enemies in enemiesHit, kill the enemy
         # once a health system is implemented, we will need to change the detection
         # for how we want the enemies to die otherwise, they will harm the player
-        for enemy in enemiesHit:
-            enemy.kill()
+        # for enemy in enemiesHit:
+        #     enemy.kill()
 
         pygame.display.update()
 
