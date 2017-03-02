@@ -223,5 +223,14 @@ class Dart(Projectile):
         image = "Graphics/dartUp.png"
         Projectile.__init__(self, image)
 
+        self.start_x = self.rect.centerx
+        self.start_y = self.rect.centery
+
     def detectBlocks(self):
         None
+        # block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+        # for block in block_hit_list:
+        #     xDist = abs(self.start_x - self.rect.centerx)
+        #     yDist = abs(self.start_y - self.rect.centery)
+        #     if xDist >= 100 or yDist >= 100:
+        #         self.kill()

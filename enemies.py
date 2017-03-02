@@ -577,12 +577,12 @@ class Darts(Trap):
         self.dart = Dart()
         self.dartGroup.add(self.dart)
 
-        rand = random.randrange(0, 10)
+        # rand = random.randrange(0, 10)
 
-        if rand is not 0:
-            self.active = False
-        else:
-            self.active = True
+        # if rand is not 0:
+        #     self.active = True
+        # else:
+        #     self.active = False
 
 
     def attack(self, player=None):
@@ -591,39 +591,39 @@ class Darts(Trap):
         print(self.rect.right, self.player.rect.left)
         print(self.rect.top, self.player.rect.bottom)
         print(self.direction)
-        if self.active:
-            if (self.direction is 'left' and (self.player.rect.bottom > self.rect.top
-                                             and self.player.rect.bottom > self.rect.bottom)
-                                        and self.player.rect.right <= self.rect.left):
-                if self.numOfDarts > 0:
-                        self.dart.shoot(self.rect.centerx, self.rect.centery,
-                                        int(self.rect.centerx) - self.attack_distance,
-                                        self.rect.centery, self.playerGroup)
-                        self.numOfDarts -= 1
-                print("dart shot left")
-            elif (self.direction is 'right' and (self.player.rect.bottom > self.rect.top
-                                             and self.player.rect.bottom > self.rect.bottom)
-                                            and self.player.rect.left >= self.rect.right):
-                if self.numOfDarts > 0:
-                        self.dart.shoot(self.rect.centerx, self.rect.centery,
-                                        int(self.rect.centerx) + self.attack_distance,
-                                        self.rect.centery, self.playerGroup)
-                        self.numOfDarts -= 1
-                print("dart shot right")
-            elif (self.direction is 'up' and (self.player.rect.right > self.rect.left
-                                                and self.player.rect.left < self.rect.right)
-                                        and self.player.rect.bottom <= self.rect.top):
+        # if self.active:
+        if (self.direction is 'left' and (self.player.rect.bottom > self.rect.top
+                                         and self.player.rect.top < self.rect.bottom)
+                                    and self.player.rect.right <= self.rect.left):
+            if self.numOfDarts > 0:
+                    self.dart.shoot(self.rect.centerx, self.rect.centery,
+                                    int(self.rect.centerx) - self.attack_distance,
+                                    self.rect.centery, self.playerGroup)
+                    self.numOfDarts -= 1
+            print("dart shot left")
+        elif (self.direction is 'right' and (self.player.rect.bottom > self.rect.top
+                                         and self.player.rect.top < self.rect.bottom)
+                                        and self.player.rect.left >= self.rect.right):
+            if self.numOfDarts > 0:
+                    self.dart.shoot(self.rect.centerx, self.rect.centery,
+                                    int(self.rect.centerx) + self.attack_distance,
+                                    self.rect.centery, self.playerGroup)
+                    self.numOfDarts -= 1
+            print("dart shot right")
+        elif (self.direction is 'up' and (self.player.rect.right > self.rect.left
+                                            and self.player.rect.left > self.rect.right)
+                                    and self.player.rect.bottom <= self.rect.top):
 
-                print("dart shot up")
-                if self.numOfDarts > 0:
-                    self.dart.shoot(self.rect.centerx, self.rect.centery, self.rect.centerx,
-                                    int(self.rect.centery) - self.attack_distance, self.playerGroup)
-                    self.numOfDarts -= 1
-            elif (self.direction is 'down' and (self.player.rect.right > self.rect.left
-                                                and self.player.rect.left < self.rect.right)
-                                            and self.player.rect.top >= self.rect.bottom):
-                if self.numOfDarts > 0:
-                    self.dart.shoot(self.rect.centerx, self.rect.centery, self.rect.centerx,
-                                    int(self.rect.centery) + self.attack_distance, self.playerGroup)
-                    self.numOfDarts -= 1
-                print("dart shot down")
+            print("dart shot up")
+            if self.numOfDarts > 0:
+                self.dart.shoot(self.rect.centerx, self.rect.centery, self.rect.centerx,
+                                int(self.rect.centery) - self.attack_distance, self.playerGroup)
+                self.numOfDarts -= 1
+        elif (self.direction is 'down' and (self.player.rect.right > self.rect.left
+                                            and self.player.rect.left < self.rect.right)
+                                        and self.player.rect.top >= self.rect.bottom):
+            if self.numOfDarts > 0:
+                self.dart.shoot(self.rect.centerx, self.rect.centery, self.rect.centerx,
+                                int(self.rect.centery) + self.attack_distance, self.playerGroup)
+                self.numOfDarts -= 1
+            print("dart shot down")
