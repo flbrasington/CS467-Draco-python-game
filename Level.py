@@ -301,12 +301,12 @@ class Level:
                             spike.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                             spike.player = self.player
                             self.enemy_list.add(spike)
-                        elif y is 6 and rand is 2:
-                            dart = enemies.Darts(self.theme, 'up')
-                            dart.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
-                            dart.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
-                            dart.player = self.player
-                            self.enemy_list.add(dart)
+                        # elif y is 6 and rand is 2:
+                        #     dart = enemies.Darts(self.theme, 'up')
+                        #     dart.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                        #     dart.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                        #     dart.player = self.player
+                        #     self.enemy_list.add(dart)
                         elif y != 6 and rand2 is 0:
                             if rooms[pos][y - 1][x] is 0:
                                 block = Platform(self.block_width, self.block_height, 'top', self.theme)
@@ -320,18 +320,32 @@ class Level:
                             if x-1 >= 0 and x+1 <= self.blocks_per_room_x and y-1 >= 0 and y+1 < self.blocks_per_room_y:
                                 if rooms[pos][y][x-1] is 0:
                                     direction = 'left'
+                                    blockType = 'middle'
                                 elif rooms[pos][y][x+1] is 0:
                                     direction = 'right'
+                                    blockType = 'middle'
                                 elif rooms[pos][y-1][x] is 0:
                                     direction = 'up'
+                                    blockType = 'top'
                                 elif rooms[pos][y+1][x] is 0:
                                     direction = 'down'
+                                    blockType = 'middle'
                             else:
                                 direction = None
                             if direction is not None:
+                                # use for both block and dart
+                                rectX = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                                rectY = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+
+                                block = Platform(self.block_width, self.block_height, blockType, self.theme)
+                                block.rect.x = rectX
+                                block.rect.y = rectY
+                                block.player = self.player
+                                self.platform_list.add(block)
+
                                 dart = enemies.Darts(self.theme, direction)
-                                dart.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
-                                dart.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                                dart.rect.x = rectX
+                                dart.rect.y = rectY
                                 dart.player = self.player
                                 self.enemy_list.add(dart)
                     #if cell is a 5 then add a probability block in the air
