@@ -246,6 +246,8 @@ class Player(pygame.sprite.Sprite):
         self.knifePickup = False
         self.ropePickup = False
 
+        self.wcFrameCount = 0
+
 
         
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -692,6 +694,8 @@ class Player(pygame.sprite.Sprite):
 
 #AAA14
     def player_animation(self):
+        if self.player_status is not 'wall_climb':
+            self.wcFrameCount = 0
         if self.player_status == 'walk':
             self.player_walk_animation()
         if self.player_status == 'climb':
@@ -699,6 +703,7 @@ class Player(pygame.sprite.Sprite):
         if self.player_status == 'attack':
             self.player_attack_animation()
         if self.player_status == 'wall_climb':
+            self.wcFrameCount += 1
             self.player_wall_climb_animation()
         if self.player_status == 'fall':
             self.frame = 0
@@ -777,8 +782,19 @@ class Player(pygame.sprite.Sprite):
 
         if self.direction == 'l':
             self.image = self.wall_climbing_left[self.frame]
+            if self.wcFrameCount > 25:
+                self.player_status = 'fall'
+                self.rect.x += 50
+                self.calc_grav()
+                # self.wcFrameCount = 0
         else:
             self.image = self.wall_climbing_right[self.frame]
+            if self.wcFrameCount > 25:
+                self.player_status = 'fall'
+                self.rect.x -= 50
+                # self.rect.y += 150
+                self.calc_grav()
+                # self.wcFrameCount = 0
 
 
     def move_left_right(self):
