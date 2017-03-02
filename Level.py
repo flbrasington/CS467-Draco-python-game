@@ -371,7 +371,7 @@ class Level:
                 # width of a probability block
                 for x in range(5):
                     if prob_block[y][x] is 1:
-                        if prob_block[y - 1][x] is 0:
+                        if prob_block[y - 1][x] is 0 or y - 1 < 0:
                             block = Platform(self.block_width, self.block_height, 'top', self.theme)
                         else:
                             block = Platform(self.block_width, self.block_height, 'middle', self.theme)
