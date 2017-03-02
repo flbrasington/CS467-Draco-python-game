@@ -511,6 +511,15 @@ class Level:
 
         for enemy in self.enemy_list:
             enemy.rect.x += shift_x
+            # shift x for projectiles
+            if enemy.total_snowballs > 0:
+                snowballs = enemy.snowballGroup.sprites()
+                for ball in snowballs:
+                    ball.rect.x += shift_x
+            if enemy.numOfDarts > 0:
+                darts = enemy.dartGroup.sprites()
+                for dart in darts:
+                    dart.rect.x += shift_x
 
         for exit_door in self.exit_sprite:
             exit_door.rect.x += shift_x
@@ -532,6 +541,15 @@ class Level:
 
         for enemy in self.enemy_list:
             enemy.rect.y += shift_y
+            # shift y for projectiles
+            if enemy.total_snowballs > 0:
+                snowballs = enemy.snowballGroup.sprites()
+                for ball in snowballs:
+                    ball.rect.y += shift_y
+            if enemy.numOfDarts > 0:
+                darts = enemy.dartGroup.sprites()
+                for dart in darts:
+                    dart.rect.y += shift_y
 
         for exit_door in self.exit_sprite:
             exit_door.rect.y += shift_y
