@@ -98,6 +98,12 @@ return1 = pygame.image.load("Graphics/menu/return1.png")
 return2 = pygame.image.load("Graphics/menu/return2.png")
 button_back = pygame.image.load("Graphics/menu/button_background.png")
 background_menu = pygame.image.load("Graphics/menu/background_menu.png")
+game_menu1 = pygame.image.load("Graphics/menu/game_menu1.png")
+game_menu2 = pygame.image.load("Graphics/menu/game_menu2.png")
+new_game1 = pygame.image.load("Graphics/menu/new_game1.png")
+new_game2 = pygame.image.load("Graphics/menu/new_game2.png")
+bar_button = pygame.image.load("Graphics/menu/bar_button.png")
+game_display = pygame.image.load("Graphics/menu/game_display.png")
 
 #game over images
 game_over = pygame.image.load("Graphics/GameOver/GameOver.png")

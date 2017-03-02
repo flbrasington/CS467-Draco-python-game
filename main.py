@@ -24,6 +24,7 @@ import enemies
 import graphics
 from projectiles import Knife, SnowBall
 from rope import Rope
+import Start_Screen
 
 FPS = constants.fps
 
@@ -168,6 +169,9 @@ def detectCollision(player, enemy):
 
 # Function Main
 def main():
+    #Loads the start screen
+    Start_Screen.game_menu()
+    
     # this initializes pygame
     pygame.init()
 
