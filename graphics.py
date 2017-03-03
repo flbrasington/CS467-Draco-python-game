@@ -109,3 +109,8 @@ game_display = pygame.image.load("Graphics/menu/game_display.png")
 game_over = pygame.image.load("Graphics/GameOver/GameOver.png")
 background = pygame.image.load("Graphics/GameOver/moutains.png")
 press_a = pygame.image.load("Graphics/GameOver/press_a.png")
+
+#game credits
+congrat = pygame.image.load("Graphics/menu/congrats.png")
+game_credits = pygame.image.load("Graphics/menu/CREDITS.png")
+

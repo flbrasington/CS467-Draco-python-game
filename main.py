@@ -25,6 +25,7 @@ import graphics
 from projectiles import Knife, SnowBall
 from rope import Rope
 import Start_Screen
+import end_game
 
 FPS = constants.fps
 
@@ -293,6 +294,9 @@ def main():
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_ESCAPE]:
             Menu.game_menu(gamemusic)
+
+        if pressed[pygame.K_l]:
+            end_game.End_Game_Screen()
         
         # for event in pygame.event.get():
         #    if event.type == pygame.QUIT:
