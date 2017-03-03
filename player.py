@@ -82,8 +82,8 @@ class Player(pygame.sprite.Sprite):
         self.climb_speed = self.walk_speed
 
         #the below two variables are for the jump heights
-        self.walk_jump = 7.5
-        self.run_jump = 10.5
+        self.walk_jump = 10.5
+        self.run_jump = 12
  
         # List of sprites we can bump against
         self.level = None
@@ -490,11 +490,11 @@ class Player(pygame.sprite.Sprite):
         return speed
         
     def max_speed_y(self, speed=None):
-        if abs(speed) > 10:
-            if speed < 10:
-                speed = -10
+        if abs(speed) > 18:
+            if speed < 18:
+                speed = -18
             else:
-                speed = 10
+                speed = 18
         return speed
 
 #AAA4
@@ -560,7 +560,7 @@ class Player(pygame.sprite.Sprite):
             if self.change_y == 0:
                 self.change_y = 1
             else:
-                self.change_y += .35                    
+                self.change_y += .6
          
             # See if we are on the ground.
             if self.rect.y >= constants.SCREEN_HEIGHT - self.rect.height and self.change_y >= 0:
