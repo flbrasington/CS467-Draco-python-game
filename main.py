@@ -24,6 +24,8 @@ import enemies
 import graphics
 from projectiles import Knife, SnowBall
 from rope import Rope
+import Start_Screen
+import end_game
 
 FPS = constants.fps
 
@@ -168,6 +170,9 @@ def detectCollision(player, enemy):
 
 # Function Main
 def main():
+    #Loads the start screen
+    Start_Screen.game_menu()
+    
     # this initializes pygame
     pygame.init()
 
@@ -289,6 +294,9 @@ def main():
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_ESCAPE]:
             Menu.game_menu(gamemusic)
+
+        if pressed[pygame.K_l]:
+            end_game.End_Game_Screen()
         
         # for event in pygame.event.get():
         #    if event.type == pygame.QUIT:
@@ -434,10 +442,15 @@ def main():
                 for sprite in enemy_sprite_list:
                     if sprite.total_snowballs > 0:
                         active_sprite_list.remove(sprite.snowballGroup)
+                        for ball in sprite.snowballGroup:
+                            ball.kill()
                     if sprite.numOfDarts > 0:
                         active_sprite_list.remove(sprite.dartGroup)
+                        for dart in sprite.dartGroup:
+                            dart.kill()
                     if sprite in active_sprite_list:
                         active_sprite_list.remove(sprite)
+                        sprite.kill()
 
                 # generate new set of enemies for new level
                 # enemy_sprite_list = generateEnemies(current_level_no)

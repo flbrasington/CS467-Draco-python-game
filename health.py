@@ -14,6 +14,7 @@ import pygame
 import constants
 import time
 import math
+import GameOver
 
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 #$$$ --Quick Find - Ctrl + F-- $$$
@@ -34,9 +35,9 @@ class Health(pygame.sprite.Sprite):
         self.hearts.append(pygame.image.load('Graphics/Health/hearts_3.png'))
 
         #This set's up the player's life bar
-        self.life = 2
+        self.life = 3
         
-        self.image = self.hearts[self.life]
+        self.image = self.hearts[self.life-1]
 
         #this is a set of locations for the player's life bar
         self.rect = self.image.get_rect()
@@ -51,7 +52,10 @@ class Health(pygame.sprite.Sprite):
         #checks that the life isn't below zero
         if self.life >= 0:
             self.life -= 1
-            self.image = self.hearts[self.life]
+            self.image = self.hearts[self.life-1]
+
+        if self.life == 0:
+            GameOver.Game_Over_Screen()
 
     #AAA2
     #this sets the health to a value

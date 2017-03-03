@@ -473,7 +473,7 @@ class Player(pygame.sprite.Sprite):
         self.collision_blocks_y()
 
         #this checks for collision with enemies
-        self.collision_enemies()
+        # self.collision_enemies()
 
         #this checks the damage for the player
         self.take_damage()
@@ -543,13 +543,13 @@ class Player(pygame.sprite.Sprite):
 
 
 #AAA11
-    def collision_enemies(self):
-        enemy_hit_list = pygame.sprite.spritecollide(self, self.enemies, False)
-        for bad_guy in enemy_hit_list:
-            if bad_guy.action == 'a':
-                if self.damage == 'n':
-                    self.damage = 'y'
-                    self.damage_start_time = 0
+    # def collision_enemies(self):
+    #     enemy_hit_list = pygame.sprite.spritecollide(self, self.enemies, False)
+    #     for bad_guy in enemy_hit_list:
+    #         if bad_guy.action == 'a':
+    #             if self.damage == 'n':
+    #                 self.damage = 'y'
+    #                 self.damage_start_time = 0
 
         
 #AAA6

@@ -96,11 +96,14 @@ class Projectile(pygame.sprite.Sprite):
             # as multiple hits.  this if statement only registers the first hit
             if self.numHits == 1:
                 # deal damage to the first enemy hit
-                hits[0].damage = 'y'
-        else:        
-            block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
-            for block in block_hit_list:
-                self.kill()
+                hits[0].health.update_health()
+        else:
+            self.detectBlocks()
+
+    def detectBlocks(self):
+        block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+        for block in block_hit_list:
+            self.kill()
 #$$$ AAA3
     def shoot(self, start_x, start_y, end_x, end_y, enemies):
         # print(enemies)
@@ -219,3 +222,16 @@ class Dart(Projectile):
     def __init__(self):
         image = "Graphics/dartUp.png"
         Projectile.__init__(self, image)
+
+        self.start_x = self.rect.x
+        self.start_y = self.rect.y
+
+    def detectBlocks(self):
+        # None
+        block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+        if len(block_hit_list) >= 1:
+            distanceX = abs(self.start_x - self.rect.x)
+            distanceY = abs(self.start_y - self.rect.y)
+
+            if distanceX > 1000 or distanceY > 1000:
+                self.kill() 
