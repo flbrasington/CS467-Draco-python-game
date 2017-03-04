@@ -62,3 +62,5 @@ BUTTON_HEIGHT = 100
 #Detection distance for enemies
 DETECTION_DISTANCE = 1200
 
+# font for inventory count
+INV_FONT = pygame.font.SysFont("comicsansms", 38)
