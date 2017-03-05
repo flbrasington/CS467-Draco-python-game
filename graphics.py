@@ -26,6 +26,10 @@ greenSnakeWalk = addImages(11, 'GreenSnake', 'Snake_walk_')
 # ghostWalk = addImages(4, 'ghost', 'ghost_walk')
 ghostWalk = addImages(5, 'ghost', 'marioGhost')
 
+#ghost images
+ghost_a = pygame.image.load("Graphics/ghost/ghost_attack.png")
+ghost_h = pygame.image.load("Graphics/ghost/ghost_hide.png")
+
 snowmanStand = []
 for i in range(0, 10):
 	snowmanStand.append("Graphics/snowman/snowman1.png")

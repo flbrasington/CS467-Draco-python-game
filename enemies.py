@@ -326,11 +326,16 @@ class Enemy(pygame.sprite.Sprite):
     #         return False
 
 #this is for the ghost class of bad guy
-#AA1
+#AAA1
 class ghost(Enemy):
 
     def __init__(self):
         Enemy.__init__(self, graphics.ghostWalk, None, 0, 3, 3, 10)
+
+        self.ghost_attack_l = graphics.ghost_a
+        self.ghost_attack_r = pygame.transform.flip(graphics.ghost_a, True, False)
+        self.ghost_hide_l = graphics.ghost_h
+        self.ghost_hide_r = pygame.transform.flip(graphics.ghost_h, True, False)
 
 
     #this function updates the ghost's actions
@@ -347,18 +352,25 @@ class ghost(Enemy):
         #if the player is to the right of the ghost
         if player.rect.x > self.rect.x:
             if player.direction == 'r':
-                self.frame = (self.frame + 1) % len(self.walking_frames_right)
-                if self.frame > len(self.walking_frames_right):
-                    self.frame = 0
-                self.image = self.walking_frames_right[self.frame]
+                self.image = self.ghost_attack_r
+
+                #self.frame = (self.frame + 1) % len(self.walking_frames_right)
+                #if self.frame > len(self.walking_frames_right):
+                #    self.frame = 0
+                #self.image = self.walking_frames_right[self.frame]
                 self.move(player)
+            else:
+                self.image = self.ghost_hide_r
         else:
             if player.direction == 'l':
-                self.frame = (self.frame + 1) % len(self.walking_frames_left)
-                if self.frame > len(self.walking_frames_right):
-                    self.frame = 0
-                self.image = self.walking_frames_left[self.frame]
+                self.image = self.ghost_attack_l
+                #self.frame = (self.frame + 1) % len(self.walking_frames_left)
+                #if self.frame > len(self.walking_frames_right):
+                #    self.frame = 0
+                #self.image = self.walking_frames_left[self.frame]
                 self.move(player)
+            else:
+                self.image = self.ghost_hide_l
 
     #this function moves the ghost towards the player
     def move(self, player=None):
