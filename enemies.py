@@ -47,16 +47,20 @@ class Enemy(pygame.sprite.Sprite):
         if walkingImages != None:
             for img in walkingImages:
                 image = pygame.image.load(img)
-                self.walking_frames_right.append(image)
+                for i in range (1, 3):
+                    self.walking_frames_right.append(image)
                 image = pygame.transform.flip(image, True, False)
-                self.walking_frames_left.append(image)
+                for i in range (1, 3):
+                    self.walking_frames_left.append(image)
 
         if attackingImages != None:
             for img in attackingImages:
                 image = pygame.image.load(img)
-                self.attacking_frames_right.append(image)
+                for i in range (1, 4):
+                    self.attacking_frames_right.append(image)
                 image = pygame.transform.flip(image, True, False)
-                self.attacking_frames_left.append(image)
+                for i in range (1, 4):
+                    self.attacking_frames_left.append(image)
 
 
         #this loads the distance that the snake will detect the player
@@ -131,7 +135,8 @@ class Enemy(pygame.sprite.Sprite):
             self.rect.y += self.change_y
             self.fall = 'y'
             self.collision_blocks_y()
-            self.rect.x += self.change_x
+            if self.action != 'a':
+                self.rect.x += self.change_x
 
     def facingPlayer(self, player=None):
         # enemy is facing left
@@ -186,6 +191,7 @@ class Enemy(pygame.sprite.Sprite):
             self.frame = 0
             self.action = 'a'
 
+
         self.move(self.attacking_frames_left, self.attacking_frames_right)
         self.collision()
 
@@ -227,6 +233,7 @@ class Enemy(pygame.sprite.Sprite):
             self.change_x = -self.speed_x
             self.frame = (self.frame + 1) % len(leftFrames)
             self.image = leftFrames[self.frame]
+            self.rect.x = self.rect.x + self.rect.width
             if self.frame > len(leftFrames):
                 self.frame = 0
         else:
