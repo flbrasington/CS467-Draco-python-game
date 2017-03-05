@@ -47,16 +47,20 @@ class Enemy(pygame.sprite.Sprite):
         if walkingImages != None:
             for img in walkingImages:
                 image = pygame.image.load(img)
-                self.walking_frames_right.append(image)
+                for i in range (1, 3):
+                    self.walking_frames_right.append(image)
                 image = pygame.transform.flip(image, True, False)
-                self.walking_frames_left.append(image)
+                for i in range (1, 3):
+                    self.walking_frames_left.append(image)
 
         if attackingImages != None:
             for img in attackingImages:
                 image = pygame.image.load(img)
-                self.attacking_frames_right.append(image)
+                for i in range (1, 4):
+                    self.attacking_frames_right.append(image)
                 image = pygame.transform.flip(image, True, False)
-                self.attacking_frames_left.append(image)
+                for i in range (1, 4):
+                    self.attacking_frames_left.append(image)
 
 
         #this loads the distance that the snake will detect the player
@@ -131,7 +135,8 @@ class Enemy(pygame.sprite.Sprite):
             self.rect.y += self.change_y
             self.fall = 'y'
             self.collision_blocks_y()
-            self.rect.x += self.change_x
+            if self.action != 'a':
+                self.rect.x += self.change_x
 
     def facingPlayer(self, player=None):
         # enemy is facing left
@@ -186,6 +191,7 @@ class Enemy(pygame.sprite.Sprite):
             self.frame = 0
             self.action = 'a'
 
+
         self.move(self.attacking_frames_left, self.attacking_frames_right)
         self.collision()
 
@@ -198,11 +204,17 @@ class Enemy(pygame.sprite.Sprite):
 
             # one knife throw was killing stronger enemies because it was counting
             # as multiple hits.  this if statement only registers the first hit
-            if self.numHits == 1:
+            if self.numHits == 1 and hits[0].image not in hits[0].take_damage_img:
                 # deal damage to the first enemy hit
                 # hits[0].health.life -= 1
                 hits[0].health.update_health()
                 print("hit", hits[0], hits[0].health.life)
+                if hits[0].direction == 'r':
+                    hits[0].image = hits[0].take_damage_img[0]
+                    hits[0].change_x = 10
+                else:
+                    hits[0].image = hits[0].take_damage_img[1]
+                    hits[0].change_x = -10
 
     def walk(self):
         #this switches the attacking to the moving
@@ -221,6 +233,7 @@ class Enemy(pygame.sprite.Sprite):
             self.change_x = -self.speed_x
             self.frame = (self.frame + 1) % len(leftFrames)
             self.image = leftFrames[self.frame]
+            self.rect.x = self.rect.x + self.rect.width
             if self.frame > len(leftFrames):
                 self.frame = 0
         else:
@@ -320,11 +333,16 @@ class Enemy(pygame.sprite.Sprite):
     #         return False
 
 #this is for the ghost class of bad guy
-#AA1
+#AAA1
 class ghost(Enemy):
 
     def __init__(self):
         Enemy.__init__(self, graphics.ghostWalk, None, 0, 3, 3, 10)
+
+        self.ghost_attack_l = graphics.ghost_a
+        self.ghost_attack_r = pygame.transform.flip(graphics.ghost_a, True, False)
+        self.ghost_hide_l = graphics.ghost_h
+        self.ghost_hide_r = pygame.transform.flip(graphics.ghost_h, True, False)
 
 
     #this function updates the ghost's actions
@@ -341,18 +359,25 @@ class ghost(Enemy):
         #if the player is to the right of the ghost
         if player.rect.x > self.rect.x:
             if player.direction == 'r':
-                self.frame = (self.frame + 1) % len(self.walking_frames_right)
-                if self.frame > len(self.walking_frames_right):
-                    self.frame = 0
-                self.image = self.walking_frames_right[self.frame]
+                self.image = self.ghost_attack_r
+
+                #self.frame = (self.frame + 1) % len(self.walking_frames_right)
+                #if self.frame > len(self.walking_frames_right):
+                #    self.frame = 0
+                #self.image = self.walking_frames_right[self.frame]
                 self.move(player)
+            else:
+                self.image = self.ghost_hide_r
         else:
             if player.direction == 'l':
-                self.frame = (self.frame + 1) % len(self.walking_frames_left)
-                if self.frame > len(self.walking_frames_right):
-                    self.frame = 0
-                self.image = self.walking_frames_left[self.frame]
+                self.image = self.ghost_attack_l
+                #self.frame = (self.frame + 1) % len(self.walking_frames_left)
+                #if self.frame > len(self.walking_frames_right):
+                #    self.frame = 0
+                #self.image = self.walking_frames_left[self.frame]
                 self.move(player)
+            else:
+                self.image = self.ghost_hide_l
 
     #this function moves the ghost towards the player
     def move(self, player=None):
@@ -573,11 +598,17 @@ class Spikes(Trap):
 
             # one knife throw was killing stronger enemies because it was counting
             # as multiple hits.  this if statement only registers the first hit
-            if self.numHits == 1:
+            if self.numHits == 1 and hits[0].image not in hits[0].take_damage_img:
                 # deal damage to the first enemy hit
                 # hits[0].health.life -= 1
                 hits[0].health.update_health()
                 print("hit", hits[0], hits[0].health.life)
+                if hits[0].direction == 'r':
+                    hits[0].image = hits[0].take_damage_img[0]
+                    hits[0].change_x = 10
+                else:
+                    hits[0].image = hits[0].take_damage_img[1]
+                    hits[0].change_x = -10
 
 class Darts(Trap):
     def __init__(self, theme, direction):

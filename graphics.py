@@ -26,6 +26,10 @@ greenSnakeWalk = addImages(11, 'GreenSnake', 'Snake_walk_')
 # ghostWalk = addImages(4, 'ghost', 'ghost_walk')
 ghostWalk = addImages(5, 'ghost', 'marioGhost')
 
+#ghost images
+ghost_a = pygame.image.load("Graphics/ghost/ghost_attack.png")
+ghost_h = pygame.image.load("Graphics/ghost/ghost_hide.png")
+
 snowmanStand = []
 for i in range(0, 10):
 	snowmanStand.append("Graphics/snowman/snowman1.png")
@@ -52,19 +56,15 @@ spelunkyGuyGhost = pygame.image.load("Graphics/SpelunkyGuy/guy_ghost.png")
 
 yetiWalk = addImages(7, 'Yeti', 'yetiWalk')
 
-ropeCounter = []
-for i in range(0, 11):
-	ropeCounter.append("Graphics/Rope/RopeCount" + str(i) + ".png")
-
-knifeCounter = []
-for i in range(0,11):
-        knifeCounter.append("Graphics/Inventory/KnifeCount" + str(i) + ".png")
-
 selection_box = pygame.image.load("Graphics/Inventory/selection_box.png")
 
 whip_large = pygame.image.load("Graphics/Inventory/whip_large.png")
 
 whip = addImages(3, 'Whip', 'whip')
+
+ropePile = pygame.image.load("Graphics/Rope/rope_pile2.png")
+
+knifeIcon = pygame.image.load("Graphics/Inventory/knife_large.png")
 
 TILEDICT = {'ice block': pygame.image.load('Graphics/tiles/iceBlock.png'),
 			'ice block wall': pygame.image.load('Graphics/tiles/landscape.png'),

@@ -263,19 +263,10 @@ def main():
     #     print(s)
 
 
-    #adds the images for the number of ropes the player has
-    ropeCounter = []
-    for img in graphics.ropeCounter:
-        # print(img)
-        image = pygame.image.load(img)
-        ropeCounter.append(image)
-
-    #adds the images for the number of knives the player has
-    knifeCounter = []
-    for img in graphics.knifeCounter:
-        # print(img)
-        image = pygame.image.load(img)
-        knifeCounter.append(image)
+    # the image for the rope pile ui
+    ropePile = graphics.ropePile
+    # the image for the knife ui
+    knifeIcon = graphics.knifeIcon
 
 
     #adds the selection box image
@@ -381,24 +372,19 @@ def main():
                 for segment in rope.rope_segments:
                     segment.rect.y += diff
 
+        # add rope pile UI to screen
+        screen.blit(ropePile, (200, 5))
+        # text to count number of ropes
+        ropeCount = constants.INV_FONT.render(str(p.num_of_ropes), True, constants.BLACK)
+        # add number of ropes to screen
+        screen.blit(ropeCount, (270, 3))
 
-        if p.num_of_ropes >= 10:
-            ropeDisplay = ropeCounter[10]
-        elif p.num_of_ropes <= 0:
-            ropeDisplay = ropeCounter[0]
-        else:
-            ropeDisplay = ropeCounter[p.num_of_ropes]
-
-        screen.blit(ropeDisplay, (200,5))
-
-        if p.num_of_knives >= 10:
-            knifeDisplay = knifeCounter[10]
-        elif p.num_of_knives <= 0:
-            knifeDisplay = knifeCounter[0]
-        else:
-            knifeDisplay = knifeCounter[p.num_of_knives]
-
-        screen.blit(knifeDisplay, (350,5))
+        # add knife UI to screen
+        screen.blit(knifeIcon, (350,5))
+        # text to count number of knives
+        knifeCount = constants.INV_FONT.render(str(p.num_of_knives), True, constants.BLACK)
+        # add number of knives to screen
+        screen.blit(knifeCount, (420, 3))
 
         screen.blit(whip_item, (500, 5))
 

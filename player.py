@@ -685,7 +685,7 @@ class Player(pygame.sprite.Sprite):
 
             if self.current_knife > self.total_knives - 1:
                 self.current_knife = 0
-                self.num_of_knives-= 1
+                # self.num_of_knives-= 1
             print("knives", self.num_of_knives)
         else:
             self.can_shoot = self.check_cool_down()

@@ -94,9 +94,16 @@ class Projectile(pygame.sprite.Sprite):
 
             # one knife throw was killing stronger enemies because it was counting
             # as multiple hits.  this if statement only registers the first hit
-            if self.numHits == 1:
+            if self.numHits == 1 and hits[0].image not in hits[0].take_damage_img:
                 # deal damage to the first enemy hit
+                # hits[0].health.life -= 1
                 hits[0].health.update_health()
+                if hits[0].direction == 'r':
+                    hits[0].image = hits[0].take_damage_img[0]
+                    hits[0].change_x = 10
+                else:
+                    hits[0].image = hits[0].take_damage_img[1]
+                    hits[0].change_x = -10
         else:
             self.detectBlocks()
 
