@@ -219,11 +219,11 @@ class Knife(Projectile):
                 # deal damage to the first enemy hit
                 # print(enemiesHit[0], enemiesHit[0].hp)
                 enemiesHit[0].hp -= 5
-                if enemiesHit[0].direction is 'l':
-                    enemiesHit[0].rect.x += 10
+                if self.speed_x < 0:
+                    enemiesHit[0].rect.x -= 20
                 # traps
-                elif enemiesHit[0].direction is 'r':
-                    enemiesHit[0].rect.x -= 10
+                elif self.speed_x > 0:
+                    enemiesHit[0].rect.x += 20
                 else:
                     None
 
