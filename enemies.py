@@ -65,7 +65,7 @@ class Enemy(pygame.sprite.Sprite):
 
         #this loads the distance that the snake will detect the player
         #and begin to move around
-        self.detection_distance = constants.DETECTION_DISTANCE
+        self.detection_distance = constants.DETECTION_DISTANCE * 5
 
         #this varaible is used to have the snake attack the player.
         #if the player is closer than this distance the snake will attack
@@ -233,7 +233,6 @@ class Enemy(pygame.sprite.Sprite):
             self.change_x = -self.speed_x
             self.frame = (self.frame + 1) % len(leftFrames)
             self.image = leftFrames[self.frame]
-            self.rect.x = self.rect.x + self.rect.width
             if self.frame > len(leftFrames):
                 self.frame = 0
         else:

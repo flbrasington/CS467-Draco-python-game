@@ -256,7 +256,7 @@ class Level:
                     # if cell is a 1 add a platform sprite
                     if rooms[pos][y][x] is 1:
                         #check if platform has another above it for graphics
-                        if rooms[pos][y - 1][x] in (0, 3, 7) and y - 1 >= 0:
+                        if rooms[pos][y - 1][x] in (0, 3, 4, 7) and y - 1 >= 0:
                             block = Platform(self.block_width, self.block_height, 'top', self.theme)
                         else:
                             block = Platform(self.block_width, self.block_height, 'middle', self.theme)
@@ -351,7 +351,7 @@ class Level:
                     #if cell is a 5 then add a probability block in the air
                     elif rooms[pos][y][x] is 5:
                         prob_block_5_list.append([pos, y, x])
-                    #if cell is a 6 then add a probabiliy block on the ground
+                    #if cell is a 6 then add a probability block on the ground
                     elif rooms[pos][y][x] is 6:
                         prob_block_6_list.append([pos, y, x])
                     # this is the starting and ending points of the level
@@ -563,6 +563,7 @@ class Level:
         self.platform_list.update()
         self.exit_sprite.update()
         self.bagGroup.update()
+        self.enemy_list.update()
 
     def draw(self, screen):
         """ Draw everything on this level. """
