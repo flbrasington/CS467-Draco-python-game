@@ -572,6 +572,7 @@ class Trap(pygame.sprite.Sprite):
 
         self.total_snowballs = 0
         self.numOfDarts = 0
+        self.direction = 'n'
 
         self.numHits = 0
 
