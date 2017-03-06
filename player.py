@@ -48,6 +48,12 @@ CELL_WIDTH = constants.SCREEN_WIDTH / constants.ROOM_WIDTH
 #$$$ Damage animation - AAA15  $$$
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
+
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#$$ Ctrl-f && for testing $$
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
 class Player(pygame.sprite.Sprite):
     """ This class represents the bar at the bottom that the player
         controls. """
@@ -165,7 +171,11 @@ class Player(pygame.sprite.Sprite):
         self.jump_end_time = 0
         self.can_double_jump = 'y'
         #this is for the double jump
-        self.double_jump_count = 2
+        #self.double_jump_count = 2
+        #&&
+        self.double_jump_count = 1
+
+
 
         #this is all for drawing lines for ropes
         #will be changed once coding is done
@@ -308,7 +318,8 @@ class Player(pygame.sprite.Sprite):
                 self.jump_start_time = 0
                 self.jump_end_time = 0
                 self.can_double_jump = 'y'
-                self.double_jump_count = 2         
+                #&& self.double_jump_count = 2   
+                self.double_jump_count = 1         
                 
             if pressed[pygame.K_SPACE]:
                 self.action = 'j'
@@ -322,28 +333,30 @@ class Player(pygame.sprite.Sprite):
 
             if pressed[pygame.K_LEFT] or pressed[pygame.K_a]:
                 if self.action != 'wc':
-                    self.direction = 'l'
-                    if self.walk_status == 'r':
-                        self.change_x = -self.run_speed
-                    if self.walk_status == 'w':
-                        self.change_x = -self.walk_speed
+                    if self.action != 'c':
+                        self.direction = 'l'
+                        if self.walk_status == 'r':
+                            self.change_x = -self.run_speed
+                        if self.walk_status == 'w':
+                            self.change_x = -self.walk_speed
 
 
-                    self.player_status = 'walk'
-                    self.player_animation()
+                        self.player_status = 'walk'
+                        self.player_animation()
 
             if pressed[pygame.K_RIGHT] or pressed[pygame.K_d]:
                 if self.action !='wc':
-                    if self.walk_status == 'r':
-                        self.change_x = self.run_speed
-                    if self.walk_status == 'w':
-                        self.change_x = self.walk_speed
+                    if self.action != 'c':
+                        if self.walk_status == 'r':
+                            self.change_x = self.run_speed
+                        if self.walk_status == 'w':
+                            self.change_x = self.walk_speed
 
-                    if self.action != 'wc':
-                        self.direction = 'r'
+                        if self.action != 'wc':
+                            self.direction = 'r'
 
-                    self.player_status = 'walk'
-                    self.player_animation()
+                        self.player_status = 'walk'
+                        self.player_animation()
                         
                         
 
@@ -370,7 +383,8 @@ class Player(pygame.sprite.Sprite):
                             self.change_y = -self.climb_speed
                             self.can_double_jump = 'y'
                             #this is for the double jump
-                            self.double_jump_count = 2
+                            #&& self.double_jump_count = 2
+                            self.double_jump_count = 1
                             
                             self.player_status = 'climb'
                             self.player_animation()
@@ -380,14 +394,16 @@ class Player(pygame.sprite.Sprite):
                     self.player_status = 'wall_climb'
                     self.player_animation()
                     self.can_double_jump = 'y'
-                    self.double_jump_count = 2
+                    #&& self.double_jump_count = 2
+                    self.double_jump_count = 1
                         
             if pressed[pygame.K_DOWN] or pressed[pygame.K_s]:
                 if self.action == 'wc':
                     self.change_y = self.climb_speed
                     self.can_double_jump = 'y'
                     #this is for the double jump
-                    self.double_jump_count = 2
+                    #&& self.double_jump_count = 2
+                    self.double_jump_count = 1
                     self.player_animation()
 
                     
@@ -401,7 +417,8 @@ class Player(pygame.sprite.Sprite):
                             self.change_y = self.climb_speed
                             self.can_double_jump = 'y'
                             #this is for the double jump
-                            self.double_jump_count = 2
+                            #&& self.double_jump_count = 2
+                            self.double_jump_count = 1
 
                             self.player_status = 'climb'
                             self.player_animation()
@@ -532,7 +549,8 @@ class Player(pygame.sprite.Sprite):
             # Reset our position based on the top/bottom of the object.
             if self.change_y > 0:
                 self.rect.bottom = block.rect.top
-                self.double_jump_count = 2
+                #&& self.double_jump_count = 2
+                self.double_jump_count = 1
                 self.walk_animation = 'y'
                 self.stop_jump = 'y'
             elif self.change_y < 0:
