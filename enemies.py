@@ -135,8 +135,8 @@ class Enemy(pygame.sprite.Sprite):
             self.rect.y += self.change_y
             self.fall = 'y'
             self.collision_blocks_y()
-            if self.action != 'a':
-                self.rect.x += self.change_x
+            # if self.action != 'a':
+            self.rect.x += self.change_x
 
     def facingPlayer(self, player=None):
         # enemy is facing left
@@ -211,10 +211,10 @@ class Enemy(pygame.sprite.Sprite):
                 print("hit", hits[0], hits[0].health.life)
                 if hits[0].direction == 'r':
                     hits[0].image = hits[0].take_damage_img[0]
-                    hits[0].change_x = 10
+                    # hits[0].change_x = 10
                 else:
                     hits[0].image = hits[0].take_damage_img[1]
-                    hits[0].change_x = -10
+                    # hits[0].change_x = -10
 
     def walk(self):
         #this switches the attacking to the moving
@@ -604,10 +604,10 @@ class Spikes(Trap):
                 print("hit", hits[0], hits[0].health.life)
                 if hits[0].direction == 'r':
                     hits[0].image = hits[0].take_damage_img[0]
-                    hits[0].change_x = 10
+                    # hits[0].change_x = 10
                 else:
                     hits[0].image = hits[0].take_damage_img[1]
-                    hits[0].change_x = -10
+                    # hits[0].change_x = -10
 
 class Darts(Trap):
     def __init__(self, theme, direction):
