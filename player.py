@@ -88,8 +88,8 @@ class Player(pygame.sprite.Sprite):
         self.climb_speed = self.walk_speed
 
         #the below two variables are for the jump heights
-        self.walk_jump = 10.5
-        self.run_jump = 12
+        self.walk_jump = 11
+        self.run_jump = 14
  
         # List of sprites we can bump against
         self.level = None

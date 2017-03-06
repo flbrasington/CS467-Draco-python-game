@@ -10,6 +10,11 @@ options = {"build_exe": {"packages": ["pygame",
                                       "math",
                                       "time"],
                          "include_files": ["constants.py",
+                                           "end_game.py",
+                                           "GameOver.py",
+                                           "Start_Screen.py",
+                                           "whip.py",
+                                           "projectiles.py",
                                            "player.py",
                                            "music.py",
                                            "sound_effects.py",
@@ -22,7 +27,8 @@ options = {"build_exe": {"packages": ["pygame",
                                            "Graphics/",
                                            "Music/",
                                            "SoundEffects/",
-                                           "room_templates/"]}}
+                                           "room_templates/",
+                                           "SpelunkyGuy"]}}
 
 cx_Freeze.setup(
     name="Draco Team Game",
