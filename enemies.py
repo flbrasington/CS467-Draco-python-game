@@ -43,6 +43,9 @@ class Enemy(pygame.sprite.Sprite):
         self.walking_frames_right = []
         self.attacking_frames_left = []
         self.attacking_frames_right = []
+        self.death_frames_path = graphics.addImages(8, "explosion", "xplosion")
+        self.death_frames = []
+        self.deathFrame = 0
 
         if walkingImages != None:
             for img in walkingImages:
@@ -61,6 +64,14 @@ class Enemy(pygame.sprite.Sprite):
                 image = pygame.transform.flip(image, True, False)
                 for i in range (1, 4):
                     self.attacking_frames_left.append(image)
+
+        if self.death_frames_path is not None:
+            for img in self.death_frames_path:
+                image = pygame.image.load(img)
+                for i in range(1, 4):
+                    self.death_frames.append(image)
+
+        print(self.death_frames)
 
 
         #this loads the distance that the snake will detect the player
@@ -125,7 +136,12 @@ class Enemy(pygame.sprite.Sprite):
     def update(self, player=None):
         #if the player is within the detection distance then the snake will move around
         if self.hp <= 0:
-            self.kill()
+            if self.deathFrame < len(self.death_frames):
+                self.image = self.death_frames[self.deathFrame]
+                self.deathFrame += 1
+                return
+            else:
+                self.kill()
         if self.fall == 'y':
             self.calc_grav()
         if self.detect_player(player):
@@ -365,7 +381,12 @@ class ghost(Enemy):
         #if the player is within the detection distance then move the ghost
         #towards the player else the ghost sleeps
         if self.hp <= 0:
-            self.kill()
+            if self.deathFrame < len(self.death_frames):
+                self.image = self.death_frames[self.deathFrame]
+                self.deathFrame += 1
+                return
+            else:
+                self.kill()
         if self.detect_player(player) == True:
             self.looking_at_ghost(player)
 
