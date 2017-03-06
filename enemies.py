@@ -119,6 +119,8 @@ class Enemy(pygame.sprite.Sprite):
         self.numOfDarts = 0
         self.numhits = 0
 
+        self.rect = self.image.get_rect()
+
     #this function updates the snakes' action
     def update(self, player=None):
         #if the player is within the detection distance then the snake will move around
@@ -231,10 +233,24 @@ class Enemy(pygame.sprite.Sprite):
         #moves the snake in the direction the snake is moving
         if self.direction == 'l':
             self.change_x = -self.speed_x
+
+            test_frame = self.frame
+            
             self.frame = (self.frame + 1) % len(leftFrames)
             self.image = leftFrames[self.frame]
             if self.frame > len(leftFrames):
                 self.frame = 0
+
+            #TESTING shifting the image to take away the jitteriness
+            if test_frame != self.frame:
+                test_image = leftFrames[test_frame]
+                test_rect = test_image.get_rect()
+                self_rect = self.image.get_rect()
+                if test_rect.width >= self_rect.width:
+                    self.rect.x += self_rect.width - test_rect.width
+                else:
+                    self.rect.x += test_rect.width - self_rect.width
+            
         else:
             self.change_x = self.speed_x
             self.frame = (self.frame + 1) % len(rightFrames)
