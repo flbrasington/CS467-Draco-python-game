@@ -237,8 +237,6 @@ class Level:
         rooms = []
         prob_block_5_list = []
         prob_block_6_list = []
-        pickupRopeList = []
-        pickupKnifeList = []
 
         for row in self.room_type:
             for col in row:
@@ -270,7 +268,7 @@ class Level:
                             self.enemy_generation(coord_x, self.block_height + (pos // 5) * self.room_side_length_y + (y - 1) * self.block_height)
                     # if the cell is a 3 then it will be an item pickup
                     elif rooms[pos][y][x] is 3:
-                        rand = random.randrange(0, 3)
+                        rand = random.randrange(0, 4)
                         if rand == 0:
                             #calculate coordinates of the bag
                             bag = pickupSprite('rope')
@@ -283,6 +281,12 @@ class Level:
                             #calculate coordinates of the bag
                             bag = pickupSprite('knife')
                             # print('width = ' + str(self.block_width) + ' height = ' + str(self.block_height))
+                            bag.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
+                            bag.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
+                            bag.player = self.player
+                            self.bagGroup.add(bag)
+                        elif rand == 2:
+                            bag = pickupSprite('health')
                             bag.rect.x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                             bag.rect.y = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
                             bag.player = self.player

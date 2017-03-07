@@ -61,3 +61,8 @@ class Health(pygame.sprite.Sprite):
     #this sets the health to a value
     def set_life(self, life=2):
         self.life = life
+
+    def health_pickup(self):
+        if self.life < 3:
+            self.life += 1
+            self.image = self.hearts[self.life-1]

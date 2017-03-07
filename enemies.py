@@ -128,7 +128,7 @@ class Enemy(pygame.sprite.Sprite):
 
         self.total_snowballs = 0
         self.numOfDarts = 0
-        self.numhits = 0
+        self.numHits = 0
 
         self.rect = self.image.get_rect()
 

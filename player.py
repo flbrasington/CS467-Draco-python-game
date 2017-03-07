@@ -372,6 +372,8 @@ class Player(pygame.sprite.Sprite):
                         self.knifePickup = True
                     elif bag.type == 'rope':
                         self.ropePickup = True
+                    elif bag.type == 'health':
+                        self.health.health_pickup()
 
                 #if the player wants to climb the rope
                 #self.action = 'w'
