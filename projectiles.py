@@ -232,6 +232,11 @@ class SnowBall(Projectile):
         image = "Graphics/snowman/snowball.png"
         Projectile.__init__(self, image)
 
+class Ball(Projectile):
+    def __init__(self):
+        image = "Graphics/HiredHand/ball.png"
+        Projectile.__init__(self, image)
+
 class Dart(Projectile):
     def __init__(self):
         image = "Graphics/dartUp.png"

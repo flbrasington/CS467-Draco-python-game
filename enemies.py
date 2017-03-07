@@ -16,7 +16,7 @@ import random
 import graphics
 import constants
 import sound_effects
-from projectiles import SnowBall, Dart
+from projectiles import SnowBall, Dart, Ball
 
 #$$$$$$$$$$$$$$$$$$$$$$$
 #$$$ MONSTER LIST    $$$
@@ -128,6 +128,7 @@ class Enemy(pygame.sprite.Sprite):
 
         self.total_snowballs = 0
         self.numOfDarts = 0
+        self.total_balls = 0
         self.numHits = 0
 
         self.rect = self.image.get_rect()
@@ -154,7 +155,7 @@ class Enemy(pygame.sprite.Sprite):
             self.fall = 'y'
             self.collision_blocks_y()
             # if self.action != 'a':
-            self.rect.x += self.change_x
+            # self.rect.x += self.change_x
 
     def facingPlayer(self, player=None):
         # enemy is facing left
@@ -258,14 +259,14 @@ class Enemy(pygame.sprite.Sprite):
                 self.frame = 0
 
             #TESTING shifting the image to take away the jitteriness
-            if test_frame != self.frame:
-                test_image = leftFrames[test_frame]
-                test_rect = test_image.get_rect()
-                self_rect = self.image.get_rect()
-                if test_rect.width >= self_rect.width:
-                    self.rect.x += self_rect.width - test_rect.width
-                else:
-                    self.rect.x += test_rect.width - self_rect.width
+            # if test_frame != self.frame:
+            #     test_image = leftFrames[test_frame]
+            #     test_rect = test_image.get_rect()
+            #     self_rect = self.image.get_rect()
+            #     if test_rect.width >= self_rect.width:
+            #         self.rect.x += self_rect.width - test_rect.width
+            #     else:
+            #         self.rect.x += test_rect.width - self_rect.width
             
         else:
             self.change_x = self.speed_x
@@ -275,6 +276,8 @@ class Enemy(pygame.sprite.Sprite):
                 self.frame = 0
         # enemy has taken another step
         self.frameCount += 1
+
+        self.rect.x += self.change_x
 
         #this checks to see if the snake has hit anything left/right
         block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
@@ -555,6 +558,98 @@ class SnowMan(Enemy):
         else:
             return False
 
+#This is for the hired hand bad guy
+#CC1
+class HiredHand(Enemy):
+
+    def __init__(self):
+        #calls the parent's constructor
+        Enemy.__init__(self, graphics.hiredHandWalk, graphics.hiredHandAttack, 500, 2, 0, 10)
+
+        self.time = time.clock()
+
+        #these are timers for the throwing animation
+        self.start_time = 0
+        self.end_time = 0
+        self.cool_down_time = 1
+        self.timer = 0
+        self.timer_limit = 2
+        self.can_shoot = True
+
+        #this variable is used to move the snowman down if needed
+        self.move_hiredHand_down = 'y'
+
+        #the throw variable is used to see if the snowman is able to throw a snowball
+        self.can_shoot = 'y' #y is for yes the snowman can throw
+
+        #this is a list that will store all the ball objects
+        self.ball_list = []
+        self.current_ball = 0
+        self.num_of_balls = 0
+        self.total_balls = 0
+
+        self.ballGroup = pygame.sprite.Group()
+
+        for i in range(0,10):
+            ball_object = Ball()
+            ball_object.level = self.level
+            self.ballGroup.add(ball_object)
+            self.ball_list.append(ball_object)
+            self.num_of_balls += 1
+            self.total_balls += 1
+
+    def attack(self):
+        # print("attack")
+        # if not in attack mode, switch to attack mode
+        if self.action != 'a':
+            self.frame = 0
+            self.action = 'a'
+
+        if self.direction == 'l':
+            self.frame = (self.frame + 1) % len(self.attacking_frames_left)
+            self.image = self.attacking_frames_left[self.frame]
+            if self.frame > len(self.attacking_frames_left):
+                self.frame = 0
+            if self.frame == 6:
+                self.throw_ball(self)
+        else:
+            self.frame = (self.frame + 1) % len(self.attacking_frames_right)
+            self.image = self.attacking_frames_right[self.frame]
+            if self.frame > len(self.attacking_frames_right):
+                self.frame = 0
+            if self.frame == 6:
+                self.throw_ball(self)
+
+
+    #this begins the snowman animation for throwing snowballs
+    def throw_ball(self, player=None):
+        if self.can_shoot and self.num_of_balls > 0:
+            if self.direction == 'r':
+                self.ball_list[self.current_ball].shoot(self.rect.centerx, self.rect.centery,
+                                                        int(self.rect.centerx)+self.attack_distance,
+                                                        self.rect.centery, self.playerGroup)
+            elif self.direction == 'l':
+                self.ball_list[self.current_ball].shoot(self.rect.centerx, self.rect.centery,
+                                                        int(self.rect.centerx)-self.attack_distance,
+                                                        self.rect.centery, self.playerGroup)
+            self.start_time = time.clock()
+            self.current_ball += 1
+            self.num_of_balls -= 1
+            self.can_shoot = False
+
+            if self.current_ball > self.total_balls - 1:
+                self.current_ball = 0
+                self.num_of_balls -= 1
+        else:
+            self.can_shoot = self.check_cool_down()
+
+    def check_cool_down(self):
+        self.end_time = time.clock()
+        if self.end_time - self.start_time > self.cool_down_time:
+            return True
+        else:
+            return False
+
 '''
 This class is the yeti.
 FFF1
@@ -593,6 +688,7 @@ class Trap(pygame.sprite.Sprite):
 
         self.total_snowballs = 0
         self.numOfDarts = 0
+        self.total_balls = 0
         self.direction = 'n'
 
         self.numHits = 0

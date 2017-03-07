@@ -207,7 +207,7 @@ def main():
     # current_level_no = 0
     current_level_no = 1
     # current_level = level_list[current_level_no]
-    current_level = Level.dirt_level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, 1)
+    current_level = Level.castle_level(5, 5, constants.SCREEN_WIDTH * 5, constants.SCREEN_HEIGHT * 5, p, 1)
 
     # List to hold all the sprites
     p.level = current_level
@@ -241,6 +241,8 @@ def main():
             active_sprite_list.add(enemy.snowballGroup)
         if enemy.numOfDarts > 0:
             active_sprite_list.add(enemy.dartGroup)
+        if enemy.total_balls > 0:
+            active_sprite_list.add(enemy.ballGroup)
 
     #adds the enemies to the player list
     p.enemies = enemy_sprite_list
@@ -434,6 +436,10 @@ def main():
                         active_sprite_list.remove(sprite.dartGroup)
                         for dart in sprite.dartGroup:
                             dart.kill()
+                    if sprite.total_balls > 0:
+                        active_sprite_list.remove(sprite.ballGroup)
+                        for ball in sprite.ballGroup:
+                            ball.kill()
                     if sprite in active_sprite_list:
                         active_sprite_list.remove(sprite)
                         sprite.kill()
@@ -451,6 +457,8 @@ def main():
                         active_sprite_list.add(enemy.snowballGroup)
                     if enemy.numOfDarts > 0:
                         active_sprite_list.add(enemy.dartGroup)
+                    if enemy.total_balls > 0:
+                        active_sprite_list.add(enemy.ballGroup)
 
                 # update level for all sprites (enemy, player, and rope)
                 for sprite in active_sprite_list:

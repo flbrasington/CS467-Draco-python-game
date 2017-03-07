@@ -643,6 +643,7 @@ class castle_level(Level):
         #enter the likelihood of an enemy being spawned (make sure that it is in descending order starting with the
         #most likely enemy to spawn in a level
         self.enemy_types['green_snake'] = 4
+        self.enemy_types['HiredHand'] = 3
         self.enemy_types['BlueSnake'] = 2
 
         self.total_enemies = sum(self.enemy_types.values())

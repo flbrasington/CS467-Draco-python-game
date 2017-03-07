@@ -56,6 +56,10 @@ spelunkyGuyGhost = pygame.image.load("Graphics/SpelunkyGuy/guy_ghost.png")
 
 yetiWalk = addImages(7, 'Yeti', 'yetiWalk')
 
+hiredHandWalk = addImages(9, 'HiredHand', 'HiredHandWalk')
+
+hiredHandAttack = addImages(9, 'HiredHand', 'HiredHandAttack')
+
 selection_box = pygame.image.load("Graphics/Inventory/selection_box.png")
 
 whip_large = pygame.image.load("Graphics/Inventory/whip_large.png")
