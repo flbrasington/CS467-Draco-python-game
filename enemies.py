@@ -679,7 +679,75 @@ FFF1
 class Yeti(Enemy):
     def __init__(self):
         # for now the walking images and attacking images are the same
-        Enemy.__init__(self, graphics.yetiWalk, graphics.yetiWalk, 100, 2, 0, 50)
+        Enemy.__init__(self, graphics.yetiWalk, graphics.yetiWalk, 500, 2, 0, 50)
+        self.hasJumped = False
+
+    def walk(self):
+        self.hasJumped = False
+        Enemy.walk(self)
+
+
+    #this moves the snake around
+    def move(self, leftFrames, rightFrames):
+        
+        #moves the snake in the direction the snake is moving
+        if self.direction == 'l':
+            self.change_x = -self.speed_x
+
+            test_frame = self.frame
+            
+            self.frame = (self.frame + 1) % len(leftFrames)
+            self.image = leftFrames[self.frame]
+            if self.frame > len(leftFrames):
+                self.frame = 0
+            
+        else:
+            self.change_x = self.speed_x
+            self.frame = (self.frame + 1) % len(rightFrames)
+            self.image = rightFrames[self.frame]
+            if self.frame > len(rightFrames):
+                self.frame = 0
+        # enemy has taken another step
+        self.frameCount += 1
+
+        self.rect.x += self.change_x
+
+        #this checks to see if the snake has hit anything left/right
+        block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+        for block in block_hit_list:
+            #if the snake is moving to the right
+            if self.action is not 'a' or self.hasJumped:
+                self.hasJumped = False
+                if self.change_x > 0:
+                    self.rect.right = block.rect.left
+                    self.direction = 'l'
+                    self.rect.x -= 3
+                    # direction changed so reset frame counter
+                    self.frameCount = 0
+                elif self.change_x < 0:
+                    self.rect.left = block.rect.right
+                    self.direction = 'r'
+                    self.rect.x += 3
+                    # direction changed so reset frame counter
+                    self.frameCount = 0
+            elif not self.hasJumped:
+                # self.rect.centery -= self.level.block_height
+                self.change_y = 14
+                self.hasJumped = True
+            elif self.change_y > 0:
+                self.rect.centery -= self.level.block_height
+                if self.direction is 'l':
+                    self.rect.centerx -= self.level.block_width
+                elif self.direction is 'r':
+                    self.rect.centerx += self.level.block_width
+
+        # after 100 frames (steps) the enemy will change direction
+        if self.frameCount >= 100 and self.action is 'w':
+            if self.direction == 'l':
+                self.direction = 'r'
+            else:
+                self.direction = 'l'
+            self.frameCount = 0
 
 #this is the code for the smiple green snake. The green snake moves left and right
 #and will attack the player if the player gets too close
@@ -696,6 +764,19 @@ class BlueSnake(Enemy):
 
     def __init__(self):
         Enemy.__init__(self, graphics.blueSnakeWalk, graphics.blueSnakeAttack, 100, 3, 0, 1)
+
+class Viking(Enemy):
+
+    def __init__(self):
+        Enemy.__init__(self, graphics.vikingWalk, graphics.vikingAttack, 200, 2, 0, 20)
+
+    def walk(self):
+        self.speed_x = 2
+        Enemy.walk(self)
+
+    def attack(self):
+        self.speed_x = 6
+        Enemy.attack(self)
 
 class Trap(pygame.sprite.Sprite):
     def __init__(self, image, detection_distance, attack_distance):
@@ -806,7 +887,7 @@ class Darts(Trap):
                                     int(self.rect.centerx) - self.attack_distance,
                                     self.rect.centery, self.playerGroup)
                     self.numOfDarts -= 1
-            print("dart shot left")
+            # print("dart shot left")
         elif (self.direction is 'right' and (self.player.rect.bottom > self.rect.top
                                          and self.player.rect.top < self.rect.bottom)
                                         and self.player.rect.left > self.rect.right):
@@ -815,12 +896,12 @@ class Darts(Trap):
                                     int(self.rect.centerx) + self.attack_distance,
                                     self.rect.centery, self.playerGroup)
                     self.numOfDarts -= 1
-            print("dart shot right")
+            # print("dart shot right")
         elif (self.direction is 'up' and (self.player.rect.right > self.rect.left
                                             and self.player.rect.left < self.rect.right)
                                     and self.player.rect.bottom < self.rect.top):
 
-            print("dart shot up")
+            # print("dart shot up")
             if self.numOfDarts > 0:
                 self.dart.shoot(self.rect.centerx, self.rect.centery, self.rect.centerx,
                                 int(self.rect.centery) - self.attack_distance, self.playerGroup)
@@ -832,4 +913,4 @@ class Darts(Trap):
                 self.dart.shoot(self.rect.centerx, self.rect.centery, self.rect.centerx,
                                 int(self.rect.centery) + self.attack_distance, self.playerGroup)
                 self.numOfDarts -= 1
-            print("dart shot down")
+            # print("dart shot down")

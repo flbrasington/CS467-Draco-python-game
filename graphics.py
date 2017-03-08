@@ -60,6 +60,10 @@ hiredHandWalk = addImages(9, 'HiredHand', 'HiredHandWalk')
 
 hiredHandAttack = addImages(9, 'HiredHand', 'HiredHandAttack')
 
+vikingWalk = addImages(9, 'Viking', 'vikingWalk')
+
+vikingAttack = addImages(7, 'Viking', 'vikingAttack')
+
 selection_box = pygame.image.load("Graphics/Inventory/selection_box.png")
 
 whip_large = pygame.image.load("Graphics/Inventory/whip_large.png")
