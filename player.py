@@ -83,13 +83,13 @@ class Player(pygame.sprite.Sprite):
         self.change_y = 0
 
         #this sets the speed for walking and running
-        self.walk_speed = 0.04  * CELL_WIDTH
-        self.run_speed =  1.3 * self.walk_speed
+        self.walk_speed = 0.04  * CELL_WIDTH * 1.1
+        self.run_speed =  1.3 * self.walk_speed * 1.1
         self.climb_speed = self.walk_speed
 
         #the below two variables are for the jump heights
-        self.walk_jump = 14
-        self.run_jump = 20
+        self.walk_jump = 11
+        self.run_jump = 14
  
         # List of sprites we can bump against
         self.level = None
