@@ -16,7 +16,7 @@ import constants
 import math
 from rope import Rope
 from projectiles import Knife
-from whip import Whip
+#from whip import Whip
 import time
 import sound_effects
 import graphics
@@ -88,8 +88,8 @@ class Player(pygame.sprite.Sprite):
         self.climb_speed = self.walk_speed
 
         #the below two variables are for the jump heights
-        self.walk_jump = 11
-        self.run_jump = 14
+        self.walk_jump = 14
+        self.run_jump = 20
  
         # List of sprites we can bump against
         self.level = None
@@ -206,7 +206,7 @@ class Player(pygame.sprite.Sprite):
 
 
         #loads in the whip objects
-        self.whip = Whip()
+        #self.whip = Whip()
         
                     
         #this code is used for the cool down time for the ropes
@@ -244,7 +244,7 @@ class Player(pygame.sprite.Sprite):
         #k: knife selected
         #w: whip selected
         self.inv = 0
-        self.item = ['r','k','w']
+        self.item = ['r','k']
         #this is a small timer added so that the player has time to select what item they want
         self.inv_start_time = 0
         self.inv_end_time = 0
@@ -291,9 +291,9 @@ class Player(pygame.sprite.Sprite):
                     self.throw_rope()
                 elif self.inv == 1:
                     self.throw_knife()
-                else:
-                    self.whip.direction = self.direction
-                    self.whip.whip_being_used = 'y'
+                #else:
+                #    self.whip.direction = self.direction
+                #    self.whip.whip_being_used = 'y'
 
                 
 
@@ -372,17 +372,14 @@ class Player(pygame.sprite.Sprite):
                         self.knifePickup = True
                     elif bag.type == 'rope':
                         self.ropePickup = True
-                    elif bag.type == 'health':
-                        self.health.health_pickup()
 
                 #if the player wants to climb the rope
                 #self.action = 'w'
                 if self.action != 'wc':
-                    temp = 'f'
                     for rope in self.rope_list:
                         rope_hit_list = pygame.sprite.spritecollide(self, rope.rope_segments, False)
                         for seg in rope_hit_list:
-                            temp = 'c'
+                            self.action = 'c'
                             self.change_y = -self.climb_speed
                             self.can_double_jump = 'y'
                             #this is for the double jump
@@ -391,8 +388,6 @@ class Player(pygame.sprite.Sprite):
                             
                             self.player_status = 'climb'
                             self.player_animation()
-
-                    self.action = temp
 
                 elif self.action == 'wc':
                     self.change_y = -self.climb_speed
@@ -460,7 +455,7 @@ class Player(pygame.sprite.Sprite):
             # knife.update_projectile()
 
         #this updates the whip as needed
-        self.whip.whip_update(self.rect.centerx, self.rect.centery)
+        #self.whip.whip_update(self.rect.centerx, self.rect.centery)
 
         #adds attack animation
         if self.player_status == 'attack':

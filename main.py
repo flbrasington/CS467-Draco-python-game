@@ -225,7 +225,7 @@ def main():
         active_sprite_list.add(knife)
 
     #adds the whip
-        active_sprite_list.add(p.whip)
+    #    active_sprite_list.add(p.whip)
 
     #adds the player's health bar
     active_sprite_list.add(p.health)
@@ -241,8 +241,6 @@ def main():
             active_sprite_list.add(enemy.snowballGroup)
         if enemy.numOfDarts > 0:
             active_sprite_list.add(enemy.dartGroup)
-        if enemy.total_balls > 0:
-            active_sprite_list.add(enemy.ballGroup)
 
     #adds the enemies to the player list
     p.enemies = enemy_sprite_list
@@ -275,7 +273,7 @@ def main():
     selection_box = graphics.selection_box
 
     #adds the whip image for the item selection
-    whip_item = graphics.whip_large
+    #whip_item = graphics.whip_large
 
     while not done:
 
@@ -388,7 +386,7 @@ def main():
         # add number of knives to screen
         screen.blit(knifeCount, (420, 3))
 
-        screen.blit(whip_item, (500, 5))
+        #screen.blit(whip_item, (500, 5))
 
         if p.inv == 0:
             screen.blit(selection_box, (190,0))
@@ -436,10 +434,6 @@ def main():
                         active_sprite_list.remove(sprite.dartGroup)
                         for dart in sprite.dartGroup:
                             dart.kill()
-                    if sprite.total_balls > 0:
-                        active_sprite_list.remove(sprite.ballGroup)
-                        for ball in sprite.ballGroup:
-                            ball.kill()
                     if sprite in active_sprite_list:
                         active_sprite_list.remove(sprite)
                         sprite.kill()
@@ -457,8 +451,6 @@ def main():
                         active_sprite_list.add(enemy.snowballGroup)
                     if enemy.numOfDarts > 0:
                         active_sprite_list.add(enemy.dartGroup)
-                    if enemy.total_balls > 0:
-                        active_sprite_list.add(enemy.ballGroup)
 
                 # update level for all sprites (enemy, player, and rope)
                 for sprite in active_sprite_list:

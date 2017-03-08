@@ -76,6 +76,8 @@ class Rope(pygame.sprite.Sprite):
             rope_segment = Rope_Segment()
             self.rope_segments.append(rope_segment)
 
+        self.set_starting_location()
+
         #this is a set of locations for the rope_anchor positions
         self.rect = self.image.get_rect()
         self.center_x = self.rect.centerx
@@ -84,6 +86,11 @@ class Rope(pygame.sprite.Sprite):
         #this stores all the platfroms that could be hit by the rope's anchor
         self.level = None
 
+
+    def set_starting_location(self):
+        for rope in self.rope_segments:
+            rope.rect.x = 1000
+            rope.rect.y = 1000
 
 #$$$ AAA3
     def update_rope(self):
