@@ -600,6 +600,7 @@ class dirt_level(Level):
         #most likely enemy to spawn in a level
         self.enemy_types['green_snake'] = 4
         self.enemy_types['BlueSnake'] = 2
+        self.enemy_types['ghost'] = 1
 
         self.total_enemies = sum(self.enemy_types.values())
 
@@ -623,6 +624,7 @@ class snow_level(Level):
         self.enemy_types['SnowMan'] = 4
         self.enemy_types['BlueSnake'] = 2
         self.enemy_types['Yeti'] = 1
+        self.enemy_types['ghost'] = 1
 
         self.total_enemies = sum(self.enemy_types.values())
 
@@ -645,6 +647,7 @@ class castle_level(Level):
         self.enemy_types['green_snake'] = 4
         self.enemy_types['HiredHand'] = 3
         self.enemy_types['BlueSnake'] = 2
+        self.enemy_types['ghost'] = 1
 
         self.total_enemies = sum(self.enemy_types.values())
 

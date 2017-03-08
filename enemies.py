@@ -432,6 +432,28 @@ class ghost(Enemy):
         else:
             self.rect.y -= self.speed_y
 
+        self.collision()
+        self.numHits = 0
+
+    def collision(self):
+        hits = pygame.sprite.spritecollide(self, self.playerGroup, False)
+        if len(hits) > 0:
+            # print(self.level, self.numHits)
+            self.numHits += 1
+
+            # one knife throw was killing stronger enemies because it was counting
+            # as multiple hits.  this if statement only registers the first hit
+            if self.numHits == 1 and hits[0].image not in hits[0].take_damage_img:
+                # deal damage to the first enemy hit
+                hits[0].health.update_health()
+                if hits[0].direction == 'r':
+                    hits[0].image = hits[0].take_damage_img[0]
+                else:
+                    hits[0].image = hits[0].take_damage_img[1]
+
+                self.rect.centerx = self.level.block_width + random.randrange(0, 5) * self.level.room_side_length_x + self.level.block_width * self.rect.x
+                self.rect.centery = self.level.block_height + random.randrange(0, 5) * self.level.room_side_length_y + self.level.block_height * self.rect.y
+
 #This is for the snowman bad guy
 #BB1
 class SnowMan(Enemy):

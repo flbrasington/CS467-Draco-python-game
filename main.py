@@ -233,7 +233,7 @@ def main():
 
     # enemy_sprite_list = generateEnemies(current_level_no)
     enemy_sprite_list = current_level.enemy_list
-    enemy_sprite_list.add(generateEnemies(current_level_no))
+    # enemy_sprite_list.add(generateEnemies(current_level_no))
     active_sprite_list.add(enemy_sprite_list)
     for enemy in enemy_sprite_list:
         enemy.playerGroup = playerGroup
