@@ -301,7 +301,7 @@ class Player(pygame.sprite.Sprite):
             if pygame.mouse.get_pressed()[2]:
                 if self.inv_start_time == 0:
                     self.start_timer('i')
-                    if self.inv >= 2:
+                    if self.inv >= 1:
                         self.inv = 0
                     else:
                         self.inv += 1
