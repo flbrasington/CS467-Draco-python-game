@@ -827,4 +827,3 @@ class Player(pygame.sprite.Sprite):
                     else:
                         self.change_x = 2
 
-            
