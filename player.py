@@ -183,6 +183,7 @@ class Player(pygame.sprite.Sprite):
         self.current_rope = 0
 
         #this creates 10 rope objects
+        self.ropesThrown = []
         self.num_of_ropes = 0
         self.total_ropes = 0
         for i in range(0, 10):
@@ -372,6 +373,8 @@ class Player(pygame.sprite.Sprite):
                         self.knifePickup = True
                     elif bag.type == 'rope':
                         self.ropePickup = True
+                    elif bag.type == 'health':
+                        self.health.health_pickup()
 
                 #if the player wants to climb the rope
                 #self.action = 'w'
@@ -683,6 +686,8 @@ class Player(pygame.sprite.Sprite):
             self.rope_list[self.current_rope].shoot_rope(self.rect.centerx, self.rect.centery,
                                                          pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])
             self.start_timer()
+            # add current rope to list of ropes thrown
+            self.ropesThrown.append(self.rope_list[self.current_rope])
             self.current_rope += 1
             self.num_of_ropes -= 1
             self.can_shoot = False

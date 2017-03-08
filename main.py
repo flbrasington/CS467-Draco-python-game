@@ -241,6 +241,8 @@ def main():
             active_sprite_list.add(enemy.snowballGroup)
         if enemy.numOfDarts > 0:
             active_sprite_list.add(enemy.dartGroup)
+        if enemy.total_balls > 0:
+            active_sprite_list.add(enemy.ballGroup)
 
     #adds the enemies to the player list
     p.enemies = enemy_sprite_list
@@ -434,9 +436,17 @@ def main():
                         active_sprite_list.remove(sprite.dartGroup)
                         for dart in sprite.dartGroup:
                             dart.kill()
+                    if sprite.total_balls > 0:
+                        active_sprite_list.remove(sprite.ballGroup)
+                        for ball in sprite.ballGroup:
+                            ball.kill()
                     if sprite in active_sprite_list:
                         active_sprite_list.remove(sprite)
                         sprite.kill()
+
+                for rope in p.ropesThrown:
+                    active_sprite_list.remove(rope)
+                    rope.kill()
 
                 # generate new set of enemies for new level
                 # enemy_sprite_list = generateEnemies(current_level_no)
@@ -451,6 +461,8 @@ def main():
                         active_sprite_list.add(enemy.snowballGroup)
                     if enemy.numOfDarts > 0:
                         active_sprite_list.add(enemy.dartGroup)
+                    if enemy.total_balls > 0:
+                        active_sprite_list.add(enemy.ballGroup)
 
                 # update level for all sprites (enemy, player, and rope)
                 for sprite in active_sprite_list:
