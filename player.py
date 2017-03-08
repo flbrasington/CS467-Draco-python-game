@@ -376,10 +376,11 @@ class Player(pygame.sprite.Sprite):
                 #if the player wants to climb the rope
                 #self.action = 'w'
                 if self.action != 'wc':
+                    temp = 'f'
                     for rope in self.rope_list:
                         rope_hit_list = pygame.sprite.spritecollide(self, rope.rope_segments, False)
                         for seg in rope_hit_list:
-                            self.action = 'c'
+                            temp = 'c'
                             self.change_y = -self.climb_speed
                             self.can_double_jump = 'y'
                             #this is for the double jump
@@ -388,6 +389,8 @@ class Player(pygame.sprite.Sprite):
                             
                             self.player_status = 'climb'
                             self.player_animation()
+
+                    self.action = temp
 
                 elif self.action == 'wc':
                     self.change_y = -self.climb_speed
