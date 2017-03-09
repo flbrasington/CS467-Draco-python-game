@@ -255,7 +255,39 @@ class Level:
                     if rooms[pos][y][x] is 1:
                         #check if platform has another above it for graphics
                         if rooms[pos][y - 1][x] in (0, 3, 4, 7) and y - 1 >= 0:
-                            block = Platform(self.block_width, self.block_height, 'top', self.theme)
+                            # the cases checked in each of these conditionals are the basic case that check surrounding blocks
+                            # to see what platform we should be using, the edge cases, such as if a block is at the edge of
+                            # the room, in which case we need to check the neighboring room (array in this case)
+
+                            #check conditions to see if we are using the sprite with with rounded edges on the bottom right and top right
+                            if ((y + 1) < self.blocks_per_room_y and (x - 1) >= 0 and (x + 1) < self.blocks_per_room_x
+                                  and rooms[pos][y + 1][x] is 0 and rooms[pos][y][x + 1] is 0 and rooms[pos][y][x - 1] is 1)\
+                                    or (x is self.blocks_per_room_x - 1 and y < self.blocks_per_room_y - 1 and pos < 24 and rooms[pos][y + 1][x] is 0 and rooms[pos + 1][y][0] is 0)\
+                                    or (y is self.blocks_per_room_y - 1 and x < self.blocks_per_room_x - 1 and pos < 20 and rooms[pos][y][x + 1] is 0):
+                                block = Platform(self.block_width, self.block_height, 'right', self.theme)
+                            #check conditionals to see if we are using the sprite with rounded edges on the bottom left and top left
+                            elif ((y + 1) < self.blocks_per_room_y and (x - 1) >= 0 and (x + 1) < self.blocks_per_room_x
+                                  and rooms[pos][y + 1][x] is 0 and rooms[pos][y][x - 1] is 0 and rooms[pos][y][x + 1] is 1)\
+                                    or (x is 0 and y < self.blocks_per_room_y - 1 and pos > 0 and rooms[pos][y + 1][x] is 0 and rooms[pos - 1][y][self.blocks_per_room_x - 1] is 0) \
+                                    or (y is self.blocks_per_room_y - 1 and x > 0 and pos < 20 and rooms[pos][y][x - 1] is 0):
+                                block = Platform(self.block_width, self.block_height, 'left', self.theme)
+                            #check conditionals to see if we are using the sprite with the rounded corners on top left and top right
+                            elif ((x + 1) < self.blocks_per_room_x and (x - 1) >= 0 and rooms[pos][y][x + 1] in (0, 3, 4) and rooms[pos][y][x - 1] in (0, 3, 4))\
+                                    or (x is 0 and pos > 0 and rooms[pos - 1][y][self.blocks_per_room_x - 1] in (0, 3, 4) and rooms[pos][y][x + 1] in (0, 3, 4))\
+                                    or (x is self.blocks_per_room_x - 1 and pos < 24 and rooms[pos + 1][y][0] in (0, 3, 4) and rooms[pos][y][x - 1] in (0, 3, 4)):
+                                block = Platform(self.block_width, self.block_height, 'round top', self.theme)
+                            elif ((y + 1) < self.blocks_per_room_y and (x - 1) >= 0 and (x + 1) < self.blocks_per_room_x
+                                  and rooms[pos][y + 1][x] is 1 and rooms[pos][y][x - 1] is 0 and rooms[pos][y][x + 1] is 1) \
+                                    or (x is 0 and y < self.blocks_per_room_y - 1 and pos > 0 and rooms[pos][y + 1][x] is 1 and rooms[pos - 1][y][self.blocks_per_room_x - 1] is 0) \
+                                    or (y is self.blocks_per_room_y - 1 and x > 0 and pos < 20 and rooms[pos][y][x - 1] is 0):
+                                block = Platform(self.block_width, self.block_height, 'top left', self.theme)
+                            elif ((y + 1) < self.blocks_per_room_y and (x - 1) >= 0 and (x + 1) < self.blocks_per_room_x
+                                  and rooms[pos][y + 1][x] is 1 and rooms[pos][y][x + 1] is 0 and rooms[pos][y][x - 1] is 1)\
+                                    or (x is self.blocks_per_room_x - 1 and y < self.blocks_per_room_y - 1 and pos < 24 and rooms[pos][y + 1][x] is 0 and rooms[pos + 1][y][0] is 0)\
+                                    or (y is self.blocks_per_room_y - 1 and x < self.blocks_per_room_x - 1 and pos < 20 and rooms[pos][y][x + 1] is 0):
+                                block = Platform(self.block_width, self.block_height, 'top right', self.theme)
+                            else:
+                                block = Platform(self.block_width, self.block_height, 'top', self.theme)
                         else:
                             block = Platform(self.block_width, self.block_height, 'middle', self.theme)
                         coord_x = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
@@ -352,12 +384,6 @@ class Level:
                                 dart.rect.y = rectY
                                 dart.player = self.player
                                 self.enemy_list.add(dart)
-                    #if cell is a 5 then add a probability block in the air
-                    elif rooms[pos][y][x] is 5:
-                        prob_block_5_list.append([pos, y, x])
-                    #if cell is a 6 then add a probability block on the ground
-                    elif rooms[pos][y][x] is 6:
-                        prob_block_6_list.append([pos, y, x])
                     # this is the starting and ending points of the level
                     elif rooms[pos][y][x] is 7:
                         # exit of the game on the top row of the level
@@ -376,41 +402,6 @@ class Level:
                             #calculate coordinates of the entrance
                             self.entrance_coords['x'] = self.block_width + (pos % 5) * self.room_side_length_x + x * self.block_width
                             self.entrance_coords['y'] = self.block_height + (pos // 5) * self.room_side_length_y + y * self.block_height
-        # fill probability blocks depending on if it is a floor block (6) or a block in the air (5)
-        # second parameter is used to import the correct block template
-        self.fill_prob_block(prob_block_5_list, 5)
-        self.fill_prob_block(prob_block_6_list, 6)
-
-    def fill_prob_block(self, prob_block_list, block_type):
-        for p_block in prob_block_list:
-            prob_block = self.import_template(block_type)
-            # height of a probability block
-            for y in range(3):
-                # width of a probability block
-                for x in range(5):
-                    if prob_block[y][x] is 1:
-                        if prob_block[y - 1][x] is 0 or y - 1 < 0:
-                            block = Platform(self.block_width, self.block_height, 'top', self.theme)
-                        else:
-                            block = Platform(self.block_width, self.block_height, 'middle', self.theme)
-                        block.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
-                        block.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
-                        self.platform_list.add(block)
-                    elif prob_block[y][x] is 4:
-                        # if the cell is at the bottom of the level, randomly choose whether to place a spike or not
-                        if y is 2 and random.randrange(0, 3) in (0, 1):
-                            spike = enemies.Spikes()
-                            spike.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
-                            spike.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
-                            self.enemy_list.add(spike)
-                        elif y != 2 and random.randrange(0, 2) is 0:
-                            if prob_block[y - 1][x] is 0:
-                                block = Platform(self.block_width, self.block_height, 'top', self.theme)
-                            else:
-                                block = Platform(self.block_width, self.block_height, 'middle', self.theme)
-                            block.rect.x = (p_block[0] % 5) * self.room_side_length_x + (p_block[2] + x) * self.block_width
-                            block.rect.y = (p_block[0] // 5) * self.room_side_length_y + (p_block[1] + y) * self.block_height
-                            self.platform_list.add(block)
 
     def import_template(self, room_number):
         # if room type is 0 then import random file from r_type_0 directory
@@ -674,22 +665,53 @@ class Platform(pygame.sprite.Sprite):
             self.image.fill(constants.DARK_GREY)
 
         else:
-            self.image.fill(constants.GREEN)
+            self.image.fill(constants.WHITE)
+            self.image.set_colorkey(constants.WHITE)
             if theme == 'dirt':
-                if platformType == 'middle':
-                    self.image.blit(graphics.TILEDICT['dirt center'], graphics.TILEDICT['dirt center'].get_rect())
-                elif platformType == 'top':
+                if platformType == 'top':
                     self.image.blit(graphics.TILEDICT['dirt mid top'], graphics.TILEDICT['dirt mid top'].get_rect())
+                elif platformType == 'round top':
+                    self.image.blit(graphics.TILEDICT['dirt round top'], graphics.TILEDICT['dirt round top'].get_rect())
+                elif platformType == 'right':
+                    self.image.blit(graphics.TILEDICT['dirt plat right'], graphics.TILEDICT['dirt plat right'].get_rect())
+                elif platformType == 'left':
+                    self.image.blit(graphics.TILEDICT['dirt plat left'], graphics.TILEDICT['dirt plat left'].get_rect())
+                elif platformType == 'top left':
+                    self.image.blit(graphics.TILEDICT['dirt top left'], graphics.TILEDICT['dirt top left'].get_rect())
+                elif platformType == 'top right':
+                    self.image.blit(graphics.TILEDICT['dirt top right'], graphics.TILEDICT['dirt top right'].get_rect())
+                else:
+                    self.image.blit(graphics.TILEDICT['dirt center'], graphics.TILEDICT['dirt center'].get_rect())
             elif theme == 'snow':
-                if platformType == 'middle':
-                    self.image.blit(graphics.TILEDICT['snow center'], graphics.TILEDICT['snow center'].get_rect())
-                elif platformType == 'top':
+                if platformType == 'top':
                     self.image.blit(graphics.TILEDICT['snow mid top'], graphics.TILEDICT['snow mid top'].get_rect())
+                elif platformType == 'round top':
+                    self.image.blit(graphics.TILEDICT['snow round top'], graphics.TILEDICT['snow round top'].get_rect())
+                elif platformType == 'right':
+                    self.image.blit(graphics.TILEDICT['snow plat right'],graphics.TILEDICT['snow plat right'].get_rect())
+                elif platformType == 'left':
+                    self.image.blit(graphics.TILEDICT['snow plat left'], graphics.TILEDICT['snow plat left'].get_rect())
+                elif platformType == 'top left':
+                    self.image.blit(graphics.TILEDICT['snow top left'], graphics.TILEDICT['snow top left'].get_rect())
+                elif platformType == 'top right':
+                    self.image.blit(graphics.TILEDICT['snow top right'], graphics.TILEDICT['snow top right'].get_rect())
+                else:
+                    self.image.blit(graphics.TILEDICT['snow center'], graphics.TILEDICT['snow center'].get_rect())
             elif theme == 'castle':
-                if platformType == 'middle':
-                    self.image.blit(graphics.TILEDICT['castle center'], graphics.TILEDICT['dirt center'].get_rect())
-                elif platformType == 'top':
-                    self.image.blit(graphics.TILEDICT['castle mid top'], graphics.TILEDICT['dirt mid top'].get_rect())
+                if platformType == 'top':
+                    self.image.blit(graphics.TILEDICT['castle mid top'], graphics.TILEDICT['castle mid top'].get_rect())
+                elif platformType == 'round top':
+                    self.image.blit(graphics.TILEDICT['castle round top'], graphics.TILEDICT['castle round top'].get_rect())
+                elif platformType == 'right':
+                    self.image.blit(graphics.TILEDICT['castle plat right'],graphics.TILEDICT['castle plat right'].get_rect())
+                elif platformType == 'left':
+                    self.image.blit(graphics.TILEDICT['castle plat left'], graphics.TILEDICT['castle plat left'].get_rect())
+                elif platformType == 'top left':
+                    self.image.blit(graphics.TILEDICT['castle top left'], graphics.TILEDICT['castle top left'].get_rect())
+                elif platformType == 'top right':
+                    self.image.blit(graphics.TILEDICT['castle top right'], graphics.TILEDICT['castle top right'].get_rect())
+                else:
+                    self.image.blit(graphics.TILEDICT['castle center'], graphics.TILEDICT['castle center'].get_rect())
 
         self.rect = self.image.get_rect()
 
