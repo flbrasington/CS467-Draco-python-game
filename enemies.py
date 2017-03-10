@@ -828,6 +828,8 @@ class Spikes(Trap):
         Trap.__init__(self, graphics.TILEDICT['spikes'], 0, 0)
 
     def update(self, player=None):
+        if not self.detect_player(self.player):
+            self.numHits = 0
         self.collision()
 
     def collision(self):
