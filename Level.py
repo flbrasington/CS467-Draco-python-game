@@ -465,6 +465,7 @@ class Level:
                     enemy_instance = enemy_class()
                     enemy_instance.rect.x = coord_x
                     enemy_instance.rect.y = coord_y
+                    enemy_instance.player = self.player
                     self.enemy_list.add(enemy_instance)
                     print(coord_x, coord_y)
                     break
