@@ -540,14 +540,16 @@ class SnowMan(Enemy):
             self.image = self.attacking_frames_left[self.frame]
             if self.frame > len(self.attacking_frames_left):
                 self.frame = 0
-            if self.frame == 3:
+            if self.frame == 3 and (self.player.rect.bottom > self.rect.top
+                                 and self.player.rect.top < self.rect.bottom):
                 self.throw_snowball(self)
         else:
             self.frame = (self.frame + 1) % len(self.attacking_frames_right)
             self.image = self.attacking_frames_right[self.frame]
             if self.frame > len(self.attacking_frames_right):
                 self.frame = 0
-            if self.frame == 3:
+            if self.frame == 3 and (self.player.rect.bottom > self.rect.top
+                                 and self.player.rect.top < self.rect.bottom):
                 self.throw_snowball(self)
 
 
@@ -632,14 +634,16 @@ class HiredHand(Enemy):
             self.image = self.attacking_frames_left[self.frame]
             if self.frame > len(self.attacking_frames_left):
                 self.frame = 0
-            if self.frame == 6:
+            if self.frame == 7 and (self.player.rect.bottom > self.rect.top
+                                 and self.player.rect.top < self.rect.bottom):
                 self.throw_ball(self)
         else:
             self.frame = (self.frame + 1) % len(self.attacking_frames_right)
             self.image = self.attacking_frames_right[self.frame]
             if self.frame > len(self.attacking_frames_right):
                 self.frame = 0
-            if self.frame == 6:
+            if self.frame == 7 and (self.player.rect.bottom > self.rect.top
+                                 and self.player.rect.top < self.rect.bottom):
                 self.throw_ball(self)
 
 
@@ -824,6 +828,8 @@ class Spikes(Trap):
         Trap.__init__(self, graphics.TILEDICT['spikes'], 0, 0)
 
     def update(self, player=None):
+        if not self.detect_player(self.player):
+            self.numHits = 0
         self.collision()
 
     def collision(self):
