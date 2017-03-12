@@ -40,13 +40,15 @@ class Game_Music:
 
     def next_song(self):
         pygame.mixer.music.stop()
-        self.current_song += 1
+        self.current_song = (self.current_song + 1) % (len(self.SongList) - 1)
+        print(self.current_song)
         pygame.mixer.music.load(self.SongList[self.current_song])
         self.play_music()
 
     def prev_song(self):
         pygame.mixer.music.stop()
-        self.current_song -= 1
+        self.current_song = (self.current_song - 1) % (len(self.SongList) - 1)
+        self.current_song %= len(self.SongList)
         pygame.mixer.music.load(self.SongList[self.current_song])
         self.play_music()
 
