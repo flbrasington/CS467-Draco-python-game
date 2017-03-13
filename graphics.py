@@ -66,6 +66,8 @@ vikingAttack = addImages(7, 'Viking', 'vikingAttack')
 
 selection_box = pygame.image.load("Graphics/Inventory/selection_box.png")
 
+selection_box2 = pygame.image.load("Graphics/Inventory/selection_box2.png")
+
 whip_large = pygame.image.load("Graphics/Inventory/whip_large.png")
 
 whip = addImages(3, 'Whip', 'whip')

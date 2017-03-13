@@ -183,6 +183,7 @@ def main():
 
     #adds the selection box image
     selection_box = graphics.selection_box
+    selection_box2 = graphics.selection_box2
 
     #adds the whip image for the item selection
     #whip_item = graphics.whip_large
@@ -300,12 +301,15 @@ def main():
 
         #screen.blit(whip_item, (500, 5))
 
-        if p.inv == 0:
-            screen.blit(selection_box, (190,0))
-        elif p.inv == 1:
-            screen.blit(selection_box, (340,0))
+        #selects the box to use
+        if p.can_shoot == True:
+            box = selection_box
         else:
-            screen.blit(selection_box, (490,0))
+            box = selection_box2
+        if p.inv == 0:
+            screen.blit(box, (190,0))
+        elif p.inv == 1:
+            screen.blit(box, (340,0))
                     
             #for enemy in enemy_sprite_list:
             #    enemy.rect.y += diff

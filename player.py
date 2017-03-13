@@ -16,7 +16,6 @@ import constants
 import math
 from rope import Rope
 from projectiles import Knife
-#from whip import Whip
 import time
 import sound_effects
 import graphics
@@ -227,9 +226,6 @@ class Player(pygame.sprite.Sprite):
         #this adds the health object to the player
         self.health = Health()
 
-        #this loads the empty image for the taking damage
-        self.empty = pygame.image.load('Graphics/SpelunkyGuy/empty.png')
-
         #this is to set the amount of time that the player is invicable after taking damage
         self.damage_timer = 1 #currently set to 1 sec of invicablily
         self.damage_start_time = 0
@@ -281,22 +277,17 @@ class Player(pygame.sprite.Sprite):
             #a cool down time will also begin, else the player will shoot too many ropes
             if pygame.mouse.get_pressed()[0]:
                 if self.player_status != 'attack':
-                        self.player_status = 'attack'
-                        self.frame = 0
-                        if pygame.mouse.get_pos()[0] > self.rect.x:
-                            self.direction = 'r'
-                        else:
-                            self.direction = 'l'
-
-                if self.inv == 0:
-                    self.throw_rope()
-                elif self.inv == 1:
-                    self.throw_knife()
-                #else:
-                #    self.whip.direction = self.direction
-                #    self.whip.whip_being_used = 'y'
-
-                
+                    self.player_status = 'attack'
+                    self.frame = 0
+                    if pygame.mouse.get_pos()[0] > self.rect.x:
+                        self.direction = 'r'
+                    else:
+                        self.direction = 'l'
+                    
+                    if self.inv == 0:
+                        self.throw_rope()
+                    elif self.inv == 1:
+                        self.throw_knife()
 
             #this is for changing the player's inventory
             if pygame.mouse.get_pressed()[2]:
@@ -450,6 +441,10 @@ class Player(pygame.sprite.Sprite):
 #as well as updating the rope objects,
 #the effects of gravity
     def update(self, player=None):
+
+        #checks for shooting
+        if self.can_shoot == False:
+            self.can_shoot = self.check_cool_down()
 
 
         #this updates all the ropes as needed
@@ -701,8 +696,11 @@ class Player(pygame.sprite.Sprite):
 #AAA13
     def throw_knife(self):
         if self.can_shoot and self.num_of_knives > 0:
-            self.knife_list[self.current_knife].shoot(self.rect.centerx, self.rect.centery,
-                                                            pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1], self.level.enemy_list)
+            self.knife_list[self.current_knife].shoot(self.rect.centerx,
+                                                      self.rect.centery,
+                                                      pygame.mouse.get_pos()[0],
+                                                      pygame.mouse.get_pos()[1],
+                                                      self.level.enemy_list)
             self.start_timer()
 
             self.current_knife += 1
@@ -782,16 +780,19 @@ class Player(pygame.sprite.Sprite):
             else:
                 self.image = self.walking_frames_left[self.frame]
 
-        if self.direction == 'r':
+        if self.player_status == 'attack':
+            if self.direction == 'r':
 
-                self.frame = (self.frame + 1) % len(self.attacking_frames_right)
-                self.image = self.attacking_frames_right[self.frame]
+                    self.frame = (self.frame + 1) % len(self.attacking_frames_right)
+                    self.image = self.attacking_frames_right[self.frame]
+            else:
+                    if self.frame > len(self.attacking_frames_left):
+                        self.frame = 0
+
+                    self.frame = (self.frame + 1) % len(self.attacking_frames_left)
+                    self.image = self.attacking_frames_left[self.frame]
         else:
-                if self.frame > len(self.attacking_frames_left):
-                    self.frame = 0
-
-                self.frame = (self.frame + 1) % len(self.attacking_frames_left)
-                self.image = self.attacking_frames_left[self.frame]
+            self.player_walk_animation()
 
 #AAA18
     def player_wall_climb_animation(self):
