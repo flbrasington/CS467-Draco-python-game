@@ -167,7 +167,7 @@ def main():
     #this plays the music for the game
     gamemusic.load_music()
     #this sets the music for the game
-    gamemusic.music_volume_up()
+    gamemusic.music_volume_down()
     #this plays the music
     gamemusic.play_music()
     # print('sprites')
