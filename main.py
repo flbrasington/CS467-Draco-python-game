@@ -354,9 +354,12 @@ def main():
                         active_sprite_list.remove(sprite)
                         sprite.kill()
 
-                for rope in p.ropesThrown:
-                    active_sprite_list.remove(rope)
-                    rope.kill()
+                for ropePart in p.ropePartsThrown:
+                    ropePart.kill()
+                active_sprite_list.remove(p.ropePartsThrown)
+                for knife in p.knivesThrown:
+                    knife.kill()
+                active_sprite_list.remove(p.knivesThrown)
 
                 # generate new set of enemies for new level
                 enemy_sprite_list = current_level.enemy_list

@@ -257,6 +257,9 @@ class Player(pygame.sprite.Sprite):
         self.knifePickup = False
         self.ropePickup = False
 
+        self.ropePartsThrown = pygame.sprite.Group()
+        self.knivesThrown = pygame.sprite.Group()
+
 
         
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -380,9 +383,9 @@ class Player(pygame.sprite.Sprite):
                 #self.action = 'w'
                 if self.action != 'wc':
                     temp = 'f'
-                    for rope in self.rope_list:
-                        rope_hit_list = pygame.sprite.spritecollide(self, rope.rope_segments, False)
-                        for seg in rope_hit_list:
+                    # the rope parts thrown is a sprite group of all ropes and segments the player has thrown
+                    rope_hit_list = pygame.sprite.spritecollide(self, self.ropePartsThrown, False)
+                    for part in rope_hit_list:
                             temp = 'c'
                             self.change_y = -self.climb_speed
                             self.can_double_jump = 'y'
@@ -392,6 +395,19 @@ class Player(pygame.sprite.Sprite):
                             
                             self.player_status = 'climb'
                             self.player_animation()
+
+                    # for rope in self.rope_list:
+                    #     rope_hit_list = pygame.sprite.spritecollide(self, rope.rope_segments, False)
+                    #     for seg in rope_hit_list:
+                    #         temp = 'c'
+                    #         self.change_y = -self.climb_speed
+                    #         self.can_double_jump = 'y'
+                    #         #this is for the double jump
+                    #         #&& self.double_jump_count = 2
+                    #         self.double_jump_count = 1
+                            
+                    #         self.player_status = 'climb'
+                    #         self.player_animation()
 
                     self.action = temp
 
@@ -687,7 +703,9 @@ class Player(pygame.sprite.Sprite):
                                                          pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])
             self.start_timer()
             # add current rope to list of ropes thrown
-            self.ropesThrown.append(self.rope_list[self.current_rope])
+            self.ropePartsThrown.add(self.rope_list[self.current_rope])
+            for segment in self.rope_list[self.current_rope].rope_segments:
+                self.ropePartsThrown.add(segment)
             self.current_rope += 1
             self.num_of_ropes -= 1
             self.can_shoot = False
@@ -703,6 +721,7 @@ class Player(pygame.sprite.Sprite):
         if self.can_shoot and self.num_of_knives > 0:
             self.knife_list[self.current_knife].shoot(self.rect.centerx, self.rect.centery,
                                                             pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1], self.level.enemy_list)
+            self.knivesThrown.add(self.knife_list[self.current_knife])
             self.start_timer()
 
             self.current_knife += 1
