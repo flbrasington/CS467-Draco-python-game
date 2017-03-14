@@ -308,13 +308,13 @@ class Player(pygame.sprite.Sprite):
                         self.inv_start_time = 0
 
             #CHEAT FOR DEBUGGING ONLY
-            if pressed[pygame.K_u]:
-                self.double_jump()
-                self.jump_start_time = 0
-                self.jump_end_time = 0
-                self.can_double_jump = 'y'
-                #&& self.double_jump_count = 2   
-                self.double_jump_count = 1         
+            #if pressed[pygame.K_u]:
+            #    self.double_jump()
+            #    self.jump_start_time = 0
+            #    self.jump_end_time = 0
+            #    self.can_double_jump = 'y'
+            #    #&& self.double_jump_count = 2
+            #    self.double_jump_count = 1
                 
             if pressed[pygame.K_SPACE]:
                 self.action = 'j'
