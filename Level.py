@@ -276,11 +276,13 @@ class Level:
                                     or (x is 0 and pos > 0 and rooms[pos - 1][y][self.blocks_per_room_x - 1] in (0, 3, 4) and rooms[pos][y][x + 1] in (0, 3, 4))\
                                     or (x is self.blocks_per_room_x - 1 and pos < 24 and rooms[pos + 1][y][0] in (0, 3, 4) and rooms[pos][y][x - 1] in (0, 3, 4)):
                                 block = Platform(self.block_width, self.block_height, 'round top', self.theme)
+                            #check conditionals to see if we are using the sprite with the rounded corner in the top left
                             elif ((y + 1) < self.blocks_per_room_y and (x - 1) >= 0 and (x + 1) < self.blocks_per_room_x
                                   and rooms[pos][y + 1][x] is 1 and rooms[pos][y][x - 1] is 0 and rooms[pos][y][x + 1] is 1) \
                                     or (x is 0 and y < self.blocks_per_room_y - 1 and pos > 0 and rooms[pos][y + 1][x] is 1 and rooms[pos - 1][y][self.blocks_per_room_x - 1] is 0) \
                                     or (y is self.blocks_per_room_y - 1 and x > 0 and pos < 20 and rooms[pos][y][x - 1] is 0):
                                 block = Platform(self.block_width, self.block_height, 'top left', self.theme)
+                            #check conditionals to see if we are using the sprite with the rounded corner in the top right
                             elif ((y + 1) < self.blocks_per_room_y and (x - 1) >= 0 and (x + 1) < self.blocks_per_room_x
                                   and rooms[pos][y + 1][x] is 1 and rooms[pos][y][x + 1] is 0 and rooms[pos][y][x - 1] is 1)\
                                     or (x is self.blocks_per_room_x - 1 and y < self.blocks_per_room_y - 1 and pos < 24 and rooms[pos][y + 1][x] is 0 and rooms[pos + 1][y][0] is 0)\

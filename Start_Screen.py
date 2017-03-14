@@ -62,7 +62,7 @@ def menu_action(action):
         pygame.quit()
         quit()
     if action == 'n_g':
-        return False
+        return True
 
     
 def game_menu():
@@ -112,12 +112,22 @@ def game_menu():
         screen.blit(bar_button, (390, 550))
 
         #quit button
-        loop = menu_button(610, 560, screen, mouse, click, 'q',quit1, quit2)
-        
-        #next song
-        loop = menu_button(400, 560, screen, mouse, click, 'n_g', new_game1, new_game2)
+        print("mouse_y = ", mouse[1])
+        if 400+190 > mouse[0] > 400 and 560 < mouse[1] < 560+50:
+            screen.blit(new_game2, (400, 560))
+            if click[0] == 1:
+                loop = False
+        else:
+            screen.blit(new_game1, (400,560))
+                
+        if 610+190 > mouse[0] > 610 and 560 < mouse[1] < 560+50:
+            screen.blit(quit2, (610, 560))
+            if click[0] == 1:
+                pygame.quit()
+                quit()
+        else:
+            screen.blit(quit1, (610,560))
 
-        print ("loop = ", loop)
         
         #this allows the player to exit the paused menu via the keyboard
         for event in pygame.event.get():
