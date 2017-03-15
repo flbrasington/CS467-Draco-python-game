@@ -103,7 +103,6 @@ class Level:
         self.blocks_per_room_y = constants.ROOM_HEIGHT
         self.block_width = self.room_side_length_x / self.blocks_per_room_x
         self.block_height = self.room_side_length_y / self.blocks_per_room_y
-        print(self.block_width, self.block_height)
         self.player = player
         self.edges = None
         self.edge_sprites = []
@@ -462,14 +461,12 @@ class Level:
             for enemy, value in self.enemy_types.items():
                 value += total_value
                 if enemy_choice < value:
-                    print(enemy, " spawned in level ", self.levelNum)
                     enemy_class = getattr(enemies, enemy)
                     enemy_instance = enemy_class()
                     enemy_instance.rect.x = coord_x
                     enemy_instance.rect.y = coord_y
                     enemy_instance.player = self.player
                     self.enemy_list.add(enemy_instance)
-                    print(coord_x, coord_y)
                     break
                 total_value += value
 

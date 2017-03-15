@@ -71,7 +71,6 @@ class Enemy(pygame.sprite.Sprite):
                 for i in range(1, 4):
                     self.death_frames.append(image)
 
-        print(self.death_frames)
 
 
         #this loads the distance that the snake will detect the player
@@ -227,7 +226,6 @@ class Enemy(pygame.sprite.Sprite):
                 # deal damage to the first enemy hit
                 # hits[0].health.life -= 1
                 hits[0].health.update_health()
-                print("hit", hits[0], hits[0].health.life)
                 if hits[0].direction == 'r':
                     hits[0].image = hits[0].take_damage_img[0]
                     # hits[0].change_x = 10
@@ -844,7 +842,6 @@ class Spikes(Trap):
                 # deal damage to the first enemy hit
                 # hits[0].health.life -= 1
                 hits[0].health.update_health()
-                print("hit", hits[0], hits[0].health.life)
                 if hits[0].direction == 'r':
                     hits[0].image = hits[0].take_damage_img[0]
                     # hits[0].change_x = 10

@@ -112,7 +112,6 @@ def game_menu():
         screen.blit(bar_button, (390, 550))
 
         #quit button
-        print("mouse_y = ", mouse[1])
         if 400+190 > mouse[0] > 400 and 560 < mouse[1] < 560+50:
             screen.blit(new_game2, (400, 560))
             if click[0] == 1:

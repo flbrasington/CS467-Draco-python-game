@@ -551,7 +551,6 @@ class Player(pygame.sprite.Sprite):
                     self.block = block
                     self.wall_x = self.block.rect.x
                             
-                    print("wall_x = ", self.wall_x)
                     if self.direction == 'r':
                         self.rect.right = block.rect.left
                     self.change_y = 0
@@ -729,7 +728,6 @@ class Player(pygame.sprite.Sprite):
             if self.current_knife > self.total_knives - 1:
                 self.current_knife = 0
                 # self.num_of_knives-= 1
-            print("knives", self.num_of_knives)
         else:
             self.can_shoot = self.check_cool_down()
 
